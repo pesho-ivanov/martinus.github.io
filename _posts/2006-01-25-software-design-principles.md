@@ -15,11 +15,8 @@ I have tried to collect the most important principles of software development. A
 
 	
   * [DRY](http://www.artima.com/intv/dry.html) Don't Repeat Yourself
-
   * [PoLS](http://en.wikipedia.org/wiki/Principle_of_least_surprise) Principle of Least Surprise
-
   * [DTSTTCPW](http://c2.com/cgi/wiki?DoTheSimplestThingThatCouldPossiblyWork) Do The Simplest Thing That Could Possibly Work
-	
   * [YAGNI](http://www.artima.com/weblogs/viewpost.jsp?thread=36529) You Aren't Gonna Need It
 	
 
