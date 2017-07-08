@@ -12,17 +12,10 @@ categories:
 - programming
 ---
 
-
-	
-
 This is how I mirrored my subversion repository over a SSH connection:
 
-
-	
-    
-    svnadmin dump /path/to/repository |ssh -C username@servername 'svnadmin -q load /path/to/repository/on/server'
-
-
-	
+```bash
+svnadmin dump /path/to/repository |ssh -C username@servername 'svnadmin -q load /path/to/repository/on/server'
+```
 
 Before this works you need to log in on the server servername and create a repository with e.g. svnadmin create /path/to/repository/on/server.
