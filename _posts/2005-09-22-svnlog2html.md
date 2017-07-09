@@ -19,5 +19,5 @@ Subversion has the ability to output a log file in XML format. I think it would 
 
 	
 
-On a side note, I have a personal subversion repository that contains everything I have accomplished during my study of [Software Engineering](http://se.fh-hagenberg.at/webbler.exe?database=SE.MDB&getpagename=WasIst) in [Hagenberg](http://www.fh-hagenberg.at/). This dates back to somewhere in 2000, and so far I am at revision 3628, and the repository uses about 500MB. It is a bit strange that 5 years worth of work can fit on a single CD ![8-)](http://martinus.geekisp.com/wp-images/smilies/icon_cool.gif)
+On a side note, I have a personal subversion repository that contains everything I have accomplished during my study of [Software Engineering](http://se.fh-hagenberg.at/webbler.exe?database=SE.MDB&getpagename=WasIst) in [Hagenberg](http://www.fh-hagenberg.at/). This dates back to somewhere in 2000, and so far I am at revision 3628, and the repository uses about 500MB. It is a bit strange that 5 years worth of work can fit on a single CD 8-)
 
