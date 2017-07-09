@@ -18,33 +18,11 @@ tags:
 
 The 6 stages of every project are:
 
-
-
-<blockquote>
-
-> 
-> 
-	
->   1. Enthusiasm.
-> 
-	
->   2. Disillusionment.
-> 
-	
->   3. Panic.
-> 
-	
->   4. The Search For The Guilty.
-> 
-	
->   5. The Punishment of the Innocent.
-> 
-	
->   6. Accolades for the Non-Participants.
-> 
-
-</blockquote>
-
-
+1. Enthusiasm.
+1. Disillusionment.
+1. Panic.
+1. The Search For The Guilty.
+1. The Punishment of the Innocent.
+1. Accolades for the Non-Participants.
 
 After 4 years of software development experience, I can say with much confidence that this is highly accurate.

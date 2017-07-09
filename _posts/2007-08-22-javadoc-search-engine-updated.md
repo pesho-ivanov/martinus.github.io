@@ -19,21 +19,10 @@ tags:
 The [Javadoc Search Engine](http://javadoc.ankerl.com/) now searches [JDK 7](https://jdk7.dev.java.net/) too:
 
 
-
-
-
   * Go here: [javadoc.ankerl.com](http://javadoc.ankerl.com/)
 
 
-
-It's still a draft, so the documentation is surely subject to change. You can also use the search directly from here:
-
-  
-    
-    
-    
-    
-  
+It's still a draft, so the documentation is surely subject to change. You can also use the search directly from here:  
   
 
 happy hacking!
