@@ -15,21 +15,11 @@ Finally, the homepage is online again (more or less). My last webhoster went ban
 
 I am slowly reconstructing and updating the homepage to bring it back into a working state. Sorry for the inconvenience.
 
-
-
-# Update
-
+## Update
 
 I have almost everything up again, except for
 
-
-
-
-  * The old domain [ankerl.org](http://ankerl.org) is no more. I am using [ankerl.com](http://ankerl.com) now.
-
-  * I have lost my old style and have to painfully search and configure a better one.
-
-  * I have lost two images, e.g. the file ondemand.jpg from the post "How to make Firefox 40% faster".
-
-  * Some comments and one article about closures in java is lost forever.
-
+* The old domain [ankerl.org](http://ankerl.org) is no more. I am using [ankerl.com](http://ankerl.com) now.
+* I have lost my old style and have to painfully search and configure a better one.
+* I have lost two images, e.g. the file `ondemand.jpg` from the post "How to make Firefox 40% faster".
+* Some comments and one article about closures in java is lost forever.
