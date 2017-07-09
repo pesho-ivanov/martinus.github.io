@@ -22,24 +22,12 @@ The motivation behind this app was that someone thought this had to be in C++ to
 
 I have tried to make this little tool very configurable so that is can be useful to everyone. Some of the features are:
 
+* Hierarchical presented search results
+* Search-on-typing
+* Define rules to execute on mouseclick
 
+## Download
 
-
-
-  * Hierarchical presented search results
-
-  * Search-on-typing
-
-  * Define rules to execute on mouseclick
-
-
-**Download:**
-
-
-
-
-  * [rfind-1.0.zip](/files/rfind-1.0.zip)
-
-
+[rfind-1.0.zip](/files/2007/04/rfind-1.0.zip)
 
 This tool is written in Ruby and requires fxruby 1.0, which is a bit out of date. I will try to update it to a recent version of fxruby soon.
