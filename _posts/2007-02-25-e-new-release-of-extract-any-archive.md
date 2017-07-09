@@ -14,8 +14,8 @@ categories:
 
 Extract Any Archive just got better: When you extract multiple archives at once, e.g. with
 
-    
-    e *.rar
+```bash
+e *.rar
+```
 
-
-and some files are not extractable, e continuous to extract the other files and prints an error message with all the failed files when it has finished. More info and download of e is [here](http://martin.ankerl.com/2006/08/11/program-e-extract-any-archive/).
+and some files are not extractable, e continuous to extract the other files and prints an error message with all the failed files when it has finished. More info and download of e is [here](/2006/08/11/program-e-extract-any-archive/).
