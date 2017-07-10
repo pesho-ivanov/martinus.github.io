@@ -60,8 +60,8 @@ The code below is updated with using `union`, you do not need `-fno-strict-alias
 ```cpp
 double fastPow(double a, double b) {
     union {
-    double d;
-    int x[2];
+        double d;
+        int x[2];
     } u = { a };
     u.x[1] = (int)(b * (u.x[1] - 1072632447) + 1072632447);
     u.x[0] = 0;

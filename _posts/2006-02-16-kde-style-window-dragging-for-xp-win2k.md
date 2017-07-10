@@ -15,7 +15,7 @@ Thanks to the very cool but rather unknown [AutoHotkey](http://www.autohotkey.co
 
 Download the executable, start it, and off you go.
 	
-*[kde-mouse.exe](/files/2006/02/kde-mouse.exe)* (194 kb)
+*[kde-mouse.exe](/files/2006/02/kde-mouse.zip)* (190 kb)
 	
 The features are:
 
