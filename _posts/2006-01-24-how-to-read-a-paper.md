@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-01-24 15:36:14+00:00
 layout: post
-link: http://martin.ankerl.com/2006/01/24/how-to-read-a-paper/
 slug: how-to-read-a-paper
 title: How To Read a Paper
 wordpress_id: 49

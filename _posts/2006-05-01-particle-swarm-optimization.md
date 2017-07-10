@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-05-01 07:55:04+00:00
 layout: post
-link: http://martin.ankerl.com/2006/05/01/particle-swarm-optimization/
 slug: particle-swarm-optimization
 title: Particle Swarm Optimization
 wordpress_id: 58

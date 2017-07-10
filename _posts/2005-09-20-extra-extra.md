@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-09-20 21:09:37+00:00
 layout: post
-link: http://martin.ankerl.com/2005/09/20/extra-extra/
 slug: extra-extra
 title: Extra! Extra!
 wordpress_id: 21

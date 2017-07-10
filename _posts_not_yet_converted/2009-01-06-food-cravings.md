@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2009-01-06 11:40:44+00:00
 layout: post
-link: http://martin.ankerl.com/2009/01/06/food-cravings/
 published: false
 slug: food-cravings
 title: Food Cravings

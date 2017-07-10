@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-11-25 16:28:20+00:00
 layout: post
-link: http://martin.ankerl.com/2005/11/25/finding-ebooks-with-google/
 slug: finding-ebooks-with-google
 title: Finding eBooks with Google
 wordpress_id: 35

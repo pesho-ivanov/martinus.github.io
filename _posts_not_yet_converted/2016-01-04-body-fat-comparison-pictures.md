@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2016-01-04 19:22:52+00:00
 layout: post
-link: http://martin.ankerl.com/2016/01/04/body-fat-comparison-pictures/
 slug: body-fat-comparison-pictures
 title: Body Fat Comparison Pictures
 wordpress_id: 1406

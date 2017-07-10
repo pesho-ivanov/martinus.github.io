@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-09-22 03:45:23+00:00
 layout: post
-link: http://martin.ankerl.com/2005/09/22/svnlog2html/
 slug: svnlog2html
 title: svnlog2html
 wordpress_id: 26

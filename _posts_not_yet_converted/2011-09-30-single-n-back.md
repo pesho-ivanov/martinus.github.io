@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2011-09-30 13:28:33+00:00
 layout: post
-link: http://martin.ankerl.com/2011/09/30/single-n-back/
 slug: single-n-back
 title: Single N-Back
 wordpress_id: 638

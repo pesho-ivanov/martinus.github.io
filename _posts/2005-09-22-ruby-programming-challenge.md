@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-09-22 03:25:29+00:00
 layout: post
-link: http://martin.ankerl.com/2005/09/22/ruby-programming-challenge/
 slug: ruby-programming-challenge
 title: Ruby Programming Challenge
 wordpress_id: 24

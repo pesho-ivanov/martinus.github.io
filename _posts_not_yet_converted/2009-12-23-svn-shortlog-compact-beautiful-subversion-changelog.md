@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2009-12-23 16:58:17+00:00
 layout: post
-link: http://martin.ankerl.com/2009/12/23/svn-shortlog-compact-beautiful-subversion-changelog/
 slug: svn-shortlog-compact-beautiful-subversion-changelog
 title: svn-shortlog -- Compact & Beautiful Subversion Changelog
 wordpress_id: 303

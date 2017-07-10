@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2015-12-22 07:35:55+00:00
 layout: post
-link: http://martin.ankerl.com/2015/12/22/beautiful-git-logs/
 slug: beautiful-git-logs
 title: Beautiful Git Logs
 wordpress_id: 1346

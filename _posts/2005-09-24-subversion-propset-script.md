@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-09-24 12:10:36+00:00
 layout: post
-link: http://martin.ankerl.com/2005/09/24/subversion-propset-script/
 slug: subversion-propset-script
 title: Subversion Propset Script
 wordpress_id: 30

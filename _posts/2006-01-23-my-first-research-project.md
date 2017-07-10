@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-01-23 12:00:07+00:00
 layout: post
-link: http://martin.ankerl.com/2006/01/23/my-first-research-project/
 slug: my-first-research-project
 title: My First Research Project
 wordpress_id: 47

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-11-30 15:46:01+00:00
 layout: post
-link: http://martin.ankerl.com/2005/11/30/howto-create-manifestmf-classpath-from-ant/
 slug: howto-create-manifestmf-classpath-from-ant
 title: HOWTO Create MANIFEST.MF Classpath From Ant
 wordpress_id: 38

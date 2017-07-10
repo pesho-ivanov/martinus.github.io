@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-10-10 22:18:31+00:00
 layout: post
-link: http://martin.ankerl.com/2008/10/10/how-to-make-a-compact-gnome-theme/
 slug: how-to-make-a-compact-gnome-theme
 title: How to Make a Compact Gnome Theme
 wordpress_id: 179

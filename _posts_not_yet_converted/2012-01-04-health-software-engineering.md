@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-01-04 21:25:18+00:00
 layout: post
-link: http://martin.ankerl.com/2012/01/04/health-software-engineering/
 slug: health-software-engineering
 title: Health & Software Engineering
 wordpress_id: 725

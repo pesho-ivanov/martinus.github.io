@@ -1,9 +1,8 @@
 ---
 author: martin.ankerl@gmail.com
 comments: true
-date: 2007-10-04 22:48:08+00:00
+date: 2007-10-04 20:48:08+00:00
 layout: post
-link: http://martin.ankerl.com/2007/10/04/optimized-pow-approximation-for-java-and-c-c/
 slug: optimized-pow-approximation-for-java-and-c-c
 title: Optimized pow() approximation for Java, C / C++, and C#
 wordpress_id: 96
@@ -18,7 +17,7 @@ tags:
 - programming
 ---
 
-I have already written about approximations of e^x, log(x) and pow(a, b) in my post [Optimized Exponential Functions for Java](http://martin.ankerl.com/2007/02/11/optimized-exponential-functions-for-java/). Now I have more :-) In particular, the pow() function is now even faster, simpler, and more accurate. Without further ado, I proudly give you the brand new approximation:
+I have already written about approximations of e^x, log(x) and pow(a, b) in my post [Optimized Exponential Functions for Java](/2007/02/11/optimized-exponential-functions-for-java/). Now I have more :-) In particular, the pow() function is now even faster, simpler, and more accurate. Without further ado, I proudly give you the brand new approximation:
 
 
 ## Approximation of pow() in Java
@@ -54,7 +53,7 @@ This new approximation is about **23 times** as fast as `Math.pow()` on my machi
 
 ### UPDATE, January 25, 2012
 
-The code below is updated with using `union`, you do not need `-fno-strict-aliasing` any more for compiling. Also, here is a [more precise version of the approximation](http://martin.ankerl.com/2012/01/25/optimized-approximative-pow-in-c-and-cpp/).
+The code below is updated with using `union`, you do not need `-fno-strict-aliasing` any more for compiling. Also, here is a [more precise version of the approximation](/2012/01/25/optimized-approximative-pow-in-c-and-cpp/).
 
 
 ```cpp

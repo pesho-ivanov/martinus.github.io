@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-01-18 07:16:55+00:00
 layout: post
-link: http://martin.ankerl.com/2006/01/18/how-to-find-research-papers-efficiently/
 slug: how-to-find-research-papers-efficiently
 title: How to Find Research Papers Efficiently
 wordpress_id: 45

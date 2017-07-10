@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-01-24 15:23:59+00:00
 layout: post
-link: http://martin.ankerl.com/2006/01/24/subversion-guideline/
 slug: subversion-guideline
 title: Subversion Guideline
 wordpress_id: 48

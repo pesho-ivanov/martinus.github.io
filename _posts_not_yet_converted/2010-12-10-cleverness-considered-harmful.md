@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2010-12-10 22:04:36+00:00
 layout: post
-link: http://martin.ankerl.com/2010/12/10/cleverness-considered-harmful/
 slug: cleverness-considered-harmful
 title: Cleverness Considered Harmful
 wordpress_id: 501

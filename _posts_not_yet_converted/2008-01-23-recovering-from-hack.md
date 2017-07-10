@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-01-23 11:22:53+00:00
 layout: post
-link: http://martin.ankerl.com/2008/01/23/recovering-from-hack/
 slug: recovering-from-hack
 title: Recovering from Hack
 wordpress_id: 105

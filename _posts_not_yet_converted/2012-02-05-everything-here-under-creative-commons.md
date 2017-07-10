@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-02-05 09:25:51+00:00
 layout: post
-link: http://martin.ankerl.com/2012/02/05/everything-here-under-creative-commons/
 slug: everything-here-under-creative-commons
 title: Everything here under Creative Commons
 wordpress_id: 953

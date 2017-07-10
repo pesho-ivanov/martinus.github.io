@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2009-05-13 19:42:27+00:00
 layout: post
-link: http://martin.ankerl.com/2009/05/13/scientific-approach-to-green-tea-prepreation/
 slug: scientific-approach-to-green-tea-prepreation
 title: Scientific Approach to Green Tea Preparation
 wordpress_id: 211

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2009-04-16 06:11:00+00:00
 layout: post
-link: http://martin.ankerl.com/2009/04/16/java-challenge-the-mysterious-method-wrapper/
 slug: java-challenge-the-mysterious-method-wrapper
 title: Java Challenge - The Mysterious Method Wrapper
 wordpress_id: 209

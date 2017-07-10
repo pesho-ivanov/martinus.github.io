@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-11-07 17:16:36+00:00
 layout: post
-link: http://martin.ankerl.com/2007/11/07/compact-theme-update/
 slug: compact-theme-update
 title: Compact Theme Update
 wordpress_id: 101

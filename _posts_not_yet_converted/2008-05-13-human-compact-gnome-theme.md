@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-05-13 19:46:28+00:00
 layout: post
-link: http://martin.ankerl.com/2008/05/13/human-compact-gnome-theme/
 slug: human-compact-gnome-theme
 title: Human Compact Gnome Theme (for Ubuntu 8.04)
 wordpress_id: 146

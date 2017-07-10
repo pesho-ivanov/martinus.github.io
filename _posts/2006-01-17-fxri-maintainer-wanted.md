@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-01-17 07:48:53+00:00
 layout: post
-link: http://martin.ankerl.com/2006/01/17/fxri-maintainer-wanted/
 slug: fxri-maintainer-wanted
 title: Fxri Maintainer Wanted
 wordpress_id: 44

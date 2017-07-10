@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-01-24 16:46:37+00:00
 layout: post
-link: http://martin.ankerl.com/2006/01/24/svnadmin-dump-and-load-over-ssh/
 slug: svnadmin-dump-and-load-over-ssh
 title: Svnadmin Dump And Load Over SSH
 wordpress_id: 50

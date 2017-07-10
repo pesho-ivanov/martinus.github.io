@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-01-06 22:53:30+00:00
 layout: post
-link: http://martin.ankerl.com/2012/01/06/relative-risk-for-dummies/
 slug: relative-risk-for-dummies
 title: Relative Risk for Dummies
 wordpress_id: 739

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2011-11-15 20:39:47+00:00
 layout: post
-link: http://martin.ankerl.com/2011/11/15/solving-the-instagram-challenge-quickly/
 slug: solving-the-instagram-challenge-quickly
 title: 'Quickly Solving the "Instagram Engineering Challenge: The Unshredder"'
 wordpress_id: 676

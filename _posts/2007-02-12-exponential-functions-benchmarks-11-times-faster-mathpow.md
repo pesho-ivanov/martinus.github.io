@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-02-12 15:26:53+00:00
 layout: post
-link: http://martin.ankerl.com/2007/02/12/exponential-functions-benchmarks-11-times-faster-mathpow/
 slug: exponential-functions-benchmarks-11-times-faster-mathpow
 title: 'Exponential Functions: Benchmarks, 8 Times Faster Math.pow()'
 wordpress_id: 83

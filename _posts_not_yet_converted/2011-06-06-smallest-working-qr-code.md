@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2011-06-06 15:57:14+00:00
 layout: post
-link: http://martin.ankerl.com/2011/06/06/smallest-working-qr-code/
 slug: smallest-working-qr-code
 title: Smallest working QR Code
 wordpress_id: 580

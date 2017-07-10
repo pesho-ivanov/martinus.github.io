@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-01-11 17:20:05+00:00
 layout: post
-link: http://martin.ankerl.com/2006/01/11/google-videos/
 slug: google-videos
 title: Google Videos
 wordpress_id: 43

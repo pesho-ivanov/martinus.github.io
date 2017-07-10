@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-09-29 11:10:00+00:00
 layout: post
-link: http://martin.ankerl.com/2008/09/29/via-ferretta-teufelsteig/
 slug: via-ferretta-teufelsteig
 title: Via Ferrata Teufelsteig
 wordpress_id: 174

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-11-03 00:28:01+00:00
 layout: post
-link: http://martin.ankerl.com/2007/11/03/howto-change-ubuntu-forced-fsck/
 slug: howto-change-ubuntu-forced-fsck
 title: Howto Change Ubuntu Forced fsck
 wordpress_id: 97

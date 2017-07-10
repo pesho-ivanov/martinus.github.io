@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-03-18 09:39:07+00:00
 layout: post
-link: http://martin.ankerl.com/2008/03/18/netvibes-widgets-for-jdk-and-oss-search/
 slug: netvibes-widgets-for-jdk-and-oss-search
 title: Netvibes Widgets for JDK and OSS Search
 wordpress_id: 123

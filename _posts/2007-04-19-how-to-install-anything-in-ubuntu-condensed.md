@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-04-19 14:24:22+00:00
 layout: post
-link: http://martin.ankerl.com/2007/04/19/how-to-install-anything-in-ubuntu-condensed/
 slug: how-to-install-anything-in-ubuntu-condensed
 title: How to Install Anything in Ubuntu Condensed
 wordpress_id: 87

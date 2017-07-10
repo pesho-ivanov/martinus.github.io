@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-06-09 22:16:01+00:00
 layout: post
-link: http://martin.ankerl.com/2006/06/10/pimp-my-mplayer/
 slug: pimp-my-mplayer
 title: Pimp My MPlayer
 wordpress_id: 60

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-11-17 13:39:21+00:00
 layout: post
-link: http://martin.ankerl.com/2005/11/17/screen-linux-tool/
 slug: screen-linux-tool
 title: Screen (Linux Tool)
 wordpress_id: 34

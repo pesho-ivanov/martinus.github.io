@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-12-06 14:59:04+00:00
 layout: post
-link: http://martin.ankerl.com/2005/12/06/google-books-search-hack/
 slug: google-books-search-hack
 title: Google Books Search Hack
 wordpress_id: 41

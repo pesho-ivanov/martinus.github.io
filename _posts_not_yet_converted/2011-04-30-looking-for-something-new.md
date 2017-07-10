@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2011-04-30 08:49:54+00:00
 layout: post
-link: http://martin.ankerl.com/2011/04/30/looking-for-something-new/
 slug: looking-for-something-new
 title: Looking for something new?
 wordpress_id: 567

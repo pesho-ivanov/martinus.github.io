@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-06-24 20:09:56+00:00
 layout: post
-link: http://martin.ankerl.com/2012/06/24/cholesterol-and-heart-disease/
 slug: cholesterol-and-heart-disease
 title: Cholesterol and Heart Disease
 wordpress_id: 1128

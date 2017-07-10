@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-04-12 13:35:38+00:00
 layout: post
-link: http://martin.ankerl.com/2008/04/12/netvibes-search-widgets-updated/
 slug: netvibes-search-widgets-updated
 title: Netvibes Search Widgets Updated
 wordpress_id: 126

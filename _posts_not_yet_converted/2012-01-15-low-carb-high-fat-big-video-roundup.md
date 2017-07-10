@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-01-15 15:08:08+00:00
 layout: post
-link: http://martin.ankerl.com/2012/01/15/low-carb-high-fat-big-video-roundup/
 slug: low-carb-high-fat-big-video-roundup
 title: Low Carb High Fat -- Big Video Roundup
 wordpress_id: 735

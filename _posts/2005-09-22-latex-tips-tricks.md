@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-09-22 16:24:25+00:00
 layout: post
-link: http://martin.ankerl.com/2005/09/22/latex-tips-tricks/
 slug: latex-tips-tricks
 title: LaTeX Tips & Tricks
 wordpress_id: 27

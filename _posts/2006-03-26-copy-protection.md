@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-03-26 13:50:59+00:00
 layout: post
-link: http://martin.ankerl.com/2006/03/26/copy-protection/
 slug: copy-protection
 title: Copy Protection
 wordpress_id: 55

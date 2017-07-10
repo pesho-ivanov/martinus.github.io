@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-01-24 22:06:44+00:00
 layout: post
-link: http://martin.ankerl.com/2008/01/24/howto-get-enough-sleep-despite-stumbleupon-with-ubuntu/
 slug: howto-get-enough-sleep-despite-stumbleupon-with-ubuntu
 title: Howto Get Enough Sleep Despite StumbleUpon with Ubuntu
 wordpress_id: 106

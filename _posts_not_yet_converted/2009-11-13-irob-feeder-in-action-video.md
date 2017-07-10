@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2009-11-13 15:31:46+00:00
 layout: post
-link: http://martin.ankerl.com/2009/11/13/irob-feeder-in-action-video/
 slug: irob-feeder-in-action-video
 title: iRob Feeder in Action (Video)
 wordpress_id: 217

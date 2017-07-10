@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-03-29 19:05:56+00:00
 layout: post
-link: http://martin.ankerl.com/2007/03/29/textanalyzer-in-python/
 slug: textanalyzer-in-python
 title: TextAnalyzer in Python
 wordpress_id: 85

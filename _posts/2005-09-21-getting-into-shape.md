@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-09-21 18:23:13+00:00
 layout: post
-link: http://martin.ankerl.com/2005/09/21/getting-into-shape/
 slug: getting-into-shape
 title: Getting into Shape
 wordpress_id: 23

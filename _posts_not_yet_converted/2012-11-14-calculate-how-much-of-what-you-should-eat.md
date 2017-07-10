@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-11-14 20:38:13+00:00
 layout: post
-link: http://martin.ankerl.com/2012/11/14/calculate-how-much-of-what-you-should-eat/
 slug: calculate-how-much-of-what-you-should-eat
 title: Calculate How Much Of What You Should Eat
 wordpress_id: 1162

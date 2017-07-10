@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2009-11-15 11:57:37+00:00
 layout: post
-link: http://martin.ankerl.com/2009/11/15/how-to-download-any-flash-video-with-flashrip-in-ubuntu/
 slug: how-to-download-any-flash-video-with-flashrip-in-ubuntu
 title: 'How To: Download Any Flash Video with flashrip in Ubuntu'
 wordpress_id: 218

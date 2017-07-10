@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-12-25 22:06:11+00:00
 layout: post
-link: http://martin.ankerl.com/2008/12/25/ripping-multilanguage-dvds-with-subtitles-using-only-mencoder/
 slug: ripping-multilanguage-dvds-with-subtitles-using-only-mencoder
 title: Ripping Multilanguage DVDs with Subtitles using Mencoder
 wordpress_id: 185

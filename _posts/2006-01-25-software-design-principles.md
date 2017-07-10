@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-01-25 04:33:46+00:00
 layout: post
-link: http://martin.ankerl.com/2006/01/25/software-design-principles/
 slug: software-design-principles
 title: Software Design Principles
 wordpress_id: 51

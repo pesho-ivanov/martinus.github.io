@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-02-04 23:08:47+00:00
 layout: post
-link: http://martin.ankerl.com/2008/02/05/logical-volume-manager-cheatsheet/
 slug: logical-volume-manager-cheatsheet
 title: Logical Volume Manager Cheatsheet
 wordpress_id: 119

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-06-07 21:43:03+00:00
 layout: post
-link: http://martin.ankerl.com/2012/06/07/freearc-compression-settings/
 slug: freearc-compression-settings
 title: FreeArc Compression Settings
 wordpress_id: 499

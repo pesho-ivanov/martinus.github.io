@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-09-22 19:57:11+00:00
 layout: post
-link: http://martin.ankerl.com/2005/09/22/who-is-martin-ankerl/
 slug: who-is-martin-ankerl
 title: Who Is Martin Ankerl?
 wordpress_id: 29

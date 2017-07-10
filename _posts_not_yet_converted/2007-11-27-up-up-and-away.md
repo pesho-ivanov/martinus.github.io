@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-11-27 15:03:51+00:00
 layout: post
-link: http://martin.ankerl.com/2007/11/27/up-up-and-away/
 slug: up-up-and-away
 title: Up, Up and Away!
 wordpress_id: 103

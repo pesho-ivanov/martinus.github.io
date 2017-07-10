@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-08-30 08:15:12+00:00
 layout: post
-link: http://martin.ankerl.com/2008/08/30/actioncam-damberg-kriterium/
 slug: actioncam-damberg-kriterium
 title: ActionCam Damberg Kriterium
 wordpress_id: 158

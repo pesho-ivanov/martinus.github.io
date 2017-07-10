@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-12-31 14:46:06+00:00
 layout: post
-link: http://martin.ankerl.com/2008/12/31/why-the-zune-crashes/
 slug: why-the-zune-crashes
 title: Why the Zune crashes?
 wordpress_id: 194

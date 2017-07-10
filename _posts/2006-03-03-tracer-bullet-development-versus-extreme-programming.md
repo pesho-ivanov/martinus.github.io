@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-03-03 11:48:28+00:00
 layout: post
-link: http://martin.ankerl.com/2006/03/03/tracer-bullet-development-versus-extreme-programming/
 slug: tracer-bullet-development-versus-extreme-programming
 title: Tracer Bullet Development versus Extreme Programming
 wordpress_id: 53

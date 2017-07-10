@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2009-01-22 20:59:03+00:00
 layout: post
-link: http://martin.ankerl.com/2009/01/22/beautiful-font-hinting-in-ubuntu-810/
 slug: beautiful-font-hinting-in-ubuntu-810
 title: Beautiful Font Hinting in Ubuntu 8.10 and 9.04
 wordpress_id: 197

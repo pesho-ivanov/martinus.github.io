@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-04-12 14:01:35+00:00
 layout: post
-link: http://martin.ankerl.com/2008/04/12/clearlooks-compact-update/
 slug: clearlooks-compact-update
 title: Clearlooks Compact Update
 wordpress_id: 127

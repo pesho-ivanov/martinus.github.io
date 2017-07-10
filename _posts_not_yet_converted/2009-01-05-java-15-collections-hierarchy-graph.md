@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2009-01-05 12:13:26+00:00
 layout: post
-link: http://martin.ankerl.com/2009/01/05/java-15-collections-hierarchy-graph/
 slug: java-15-collections-hierarchy-graph
 title: Java 1.5 Collections Hierarchy Graph
 wordpress_id: 116

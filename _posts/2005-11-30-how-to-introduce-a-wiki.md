@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-11-30 07:12:57+00:00
 layout: post
-link: http://martin.ankerl.com/2005/11/30/how-to-introduce-a-wiki/
 slug: how-to-introduce-a-wiki
 title: How To Introduce a Wiki
 wordpress_id: 37

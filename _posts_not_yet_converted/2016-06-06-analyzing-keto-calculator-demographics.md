@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2016-06-06 14:36:48+00:00
 layout: post
-link: http://martin.ankerl.com/2016/06/06/analyzing-keto-calculator-demographics/
 slug: analyzing-keto-calculator-demographics
 title: Analyzing Keto Calculator Demographics
 wordpress_id: 1533

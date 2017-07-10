@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-01-12 11:56:24+00:00
 layout: post
-link: http://martin.ankerl.com/2008/01/12/get-more-space-out-of-your-ext3-partition/
 slug: get-more-space-out-of-your-ext3-partition
 title: Get More Space Out of Your ext3 Partition
 wordpress_id: 104

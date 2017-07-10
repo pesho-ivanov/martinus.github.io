@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-05-27 11:22:36+00:00
 layout: post
-link: http://martin.ankerl.com/2008/05/27/job-interview-question-sorting-records/
 slug: job-interview-question-sorting-records
 title: 'Job Interview Question: Sorting Records'
 wordpress_id: 154

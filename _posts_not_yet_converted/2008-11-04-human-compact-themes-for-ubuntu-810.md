@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-11-04 17:11:58+00:00
 layout: post
-link: http://martin.ankerl.com/2008/11/04/human-compact-themes-for-ubuntu-810/
 slug: human-compact-themes-for-ubuntu-810
 title: Human Compact Themes (for Ubuntu 8.10)
 wordpress_id: 182

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-06-07 08:48:43+00:00
 layout: post
-link: http://martin.ankerl.com/2012/06/07/your-brain-on-a-ketogenic-diet/
 slug: your-brain-on-a-ketogenic-diet
 title: Your Brain on a Ketogenic Diet
 wordpress_id: 1111

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-01-25 19:48:39+00:00
 layout: post
-link: http://martin.ankerl.com/2012/01/25/optimized-approximative-pow-in-c-and-cpp/
 slug: optimized-approximative-pow-in-c-and-cpp
 title: Optimized Approximative pow() in C / C++
 wordpress_id: 894

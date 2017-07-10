@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-11-26 05:32:31+00:00
 layout: post
-link: http://martin.ankerl.com/2005/11/26/if-you-have-a-problem-crash/
 slug: if-you-have-a-problem-crash
 title: If You Have a Problem, Crash.
 wordpress_id: 36

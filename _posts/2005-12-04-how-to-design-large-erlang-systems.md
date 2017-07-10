@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-12-04 12:34:56+00:00
 layout: post
-link: http://martin.ankerl.com/2005/12/04/how-to-design-large-erlang-systems/
 slug: how-to-design-large-erlang-systems
 title: How to Design Large Erlang Systems
 wordpress_id: 40

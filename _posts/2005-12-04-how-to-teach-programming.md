@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-12-04 06:01:09+00:00
 layout: post
-link: http://martin.ankerl.com/2005/12/04/how-to-teach-programming/
 slug: how-to-teach-programming
 title: How to Teach Programming
 wordpress_id: 39

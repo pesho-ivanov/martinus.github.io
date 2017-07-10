@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-09-23 21:18:17+00:00
 layout: post
-link: http://martin.ankerl.com/2007/09/23/climbing-the-donnerkogel-klettersteig/
 slug: climbing-the-donnerkogel-klettersteig
 title: Climbing the Donnerkogel Klettersteig
 wordpress_id: 95

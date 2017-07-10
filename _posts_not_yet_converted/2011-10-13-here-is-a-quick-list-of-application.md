@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2011-10-13 06:15:01+00:00
 layout: post
-link: http://martin.ankerl.com/2011/10/13/here-is-a-quick-list-of-application/
 slug: here-is-a-quick-list-of-application
 title: Here is a quick list of application…
 wordpress_id: 668

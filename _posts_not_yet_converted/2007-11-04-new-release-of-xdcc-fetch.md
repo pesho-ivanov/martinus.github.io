@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-11-04 14:41:09+00:00
 layout: post
-link: http://martin.ankerl.com/2007/11/04/new-release-of-xdcc-fetch/
 slug: new-release-of-xdcc-fetch
 title: New Release of XDCC-Fetch
 wordpress_id: 99

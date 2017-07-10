@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2011-06-13 08:05:38+00:00
 layout: post
-link: http://martin.ankerl.com/2011/06/13/download-bitcoin-logos/
 slug: download-bitcoin-logos
 title: Download Bitcoin Logos
 wordpress_id: 607

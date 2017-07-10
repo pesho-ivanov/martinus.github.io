@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-02-25 09:06:41+00:00
 layout: post
-link: http://martin.ankerl.com/2012/02/25/reconstructme-public-beta/
 slug: reconstructme-public-beta
 title: ReconstructMe Public Beta
 wordpress_id: 1067

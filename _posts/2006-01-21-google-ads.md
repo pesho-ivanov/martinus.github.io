@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-01-21 10:10:52+00:00
 layout: post
-link: http://martin.ankerl.com/2006/01/21/google-ads/
 slug: google-ads
 title: Google Ads
 wordpress_id: 46

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-02-11 22:20:14+00:00
 layout: post
-link: http://martin.ankerl.com/2007/02/11/optimized-exponential-functions-for-java/
 slug: optimized-exponential-functions-for-java
 title: Optimized Exponential Functions for Java
 wordpress_id: 82

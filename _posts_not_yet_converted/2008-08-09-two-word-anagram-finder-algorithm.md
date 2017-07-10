@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2008-08-09 19:32:30+00:00
 layout: post
-link: http://martin.ankerl.com/2008/08/09/two-word-anagram-finder-algorithm/
 slug: two-word-anagram-finder-algorithm
 title: Two Word Anagram Finder Algorithm (in Ruby)
 wordpress_id: 156

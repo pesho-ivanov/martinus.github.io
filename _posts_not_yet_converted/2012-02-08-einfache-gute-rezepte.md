@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2012-02-08 21:34:27+00:00
 layout: post
-link: http://martin.ankerl.com/2012/02/08/einfache-gute-rezepte/
 published: false
 slug: einfache-gute-rezepte
 title: Einfache & Gute Rezepte

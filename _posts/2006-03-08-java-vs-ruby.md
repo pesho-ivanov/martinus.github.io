@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-03-08 11:24:43+00:00
 layout: post
-link: http://martin.ankerl.com/2006/03/08/java-vs-ruby/
 slug: java-vs-ruby
 title: Java vs. Ruby
 wordpress_id: 54

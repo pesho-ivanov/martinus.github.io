@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2009-01-05 11:51:50+00:00
 layout: post
-link: http://martin.ankerl.com/2009/01/05/approximation-of-sqrtx-in-java/
 slug: approximation-of-sqrtx-in-java
 title: Approximation of sqrt(x) in Java
 wordpress_id: 195

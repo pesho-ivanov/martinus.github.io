@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2009-02-22 19:53:58+00:00
 layout: post
-link: http://martin.ankerl.com/2009/02/22/isaac-asimov-suenos-de-robot-introduccion/
 published: false
 slug: isaac-asimov-suenos-de-robot-introduccion
 title: Isaac Asimov -- Sueños de Robot -- Introducción

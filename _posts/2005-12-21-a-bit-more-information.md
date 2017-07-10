@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-12-21 07:24:18+00:00
 layout: post
-link: http://martin.ankerl.com/2005/12/21/a-bit-more-information/
 slug: a-bit-more-information
 title: A Bit More Information
 wordpress_id: 42
