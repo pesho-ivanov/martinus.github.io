@@ -24,7 +24,7 @@ tags:
 
 
 
-![](/files/xdcc-fetch.png)
+![](/img/2007/11/xdcc-fetch.png)
 
 
 Unfortunately I don't really have the time nor the interest to continue development for XDCC-Fetch. Please [contact me](mailto:martin.ankerl@gmail.com) if you are interested to continue development.

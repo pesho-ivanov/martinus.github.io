@@ -28,7 +28,7 @@ tags:
 
 
 Every night when I have to work on the next day (Sunday night to Thursday night ), at 23:25 my computer shows me this little warning message:
-![go to bed warning](/files/2008/01/screenshot-warning.png)
+![go to bed warning](/img/2008/01/screenshot-warning.png)
 After the 5 minutes have passed, the computer shuts itself automatically down.
 
 I use this little trick with [Ubuntu,](http://www.ubuntu.com/) but it should work anywhere where [Gnome](http://www.gnome.org/) is installed.
