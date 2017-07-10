@@ -19,4 +19,4 @@ Hi fellow readers, two days ago I have noticed that my blog got hacked. Somebody
 
 **UPDATE**
 
-It looks like everything is back to normal again, wohoo! I have done a clean install with the newest release of Wordpress, and configured more strict access rights in .htaccess. I have even found a cool looking theme that I like better than the last one :-) This version also has much better anti spam filtering.
+It looks like everything is back to normal again, wohoo! I have done a clean install with the newest release of Wordpress, and configured more strict access rights in `.htaccess`. I have even found a cool looking theme that I like better than the last one :-) This version also has much better anti spam filtering.
