@@ -60,7 +60,7 @@ And then use the approximation functions for a highly optimized pow calculation.
     
 ```java 
 public static double pow(double a, double b) {
-    final long tmp = (long) (9076650 * (a - 1) / (a + 1 + 4 * (Math.sqrt(a))) * b + 1072632447);
+    long tmp = (long)(9076650*(a-1) / (a+1+4*(Math.sqrt(a)))*b + 1072632447);
     return Double.longBitsToDouble(tmp << 32);
 }
 ```
