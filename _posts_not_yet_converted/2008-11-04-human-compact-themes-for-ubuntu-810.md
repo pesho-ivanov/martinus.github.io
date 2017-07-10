@@ -11,7 +11,7 @@ categories:
 - programming
 ---
 
-[![](http://brainstorm.ubuntu.com/idea/6772/image/1/)](http://brainstorm.ubuntu.com/idea/6772/)This is a new release of the compact theme, based on the original Ubuntu 8.10 (Intrepid) theme. It was created by Jan Suhr almost a month ago, based on my little [howto](http://martin.ankerl.com/2008/10/10/how-to-make-a-compact-gnome-theme/).
+[![](http://brainstorm.ubuntu.com/idea/6772/image/1/)](http://brainstorm.ubuntu.com/idea/6772/)This is a new release of the compact theme, based on the original Ubuntu 8.10 (Intrepid) theme. It was created by Jan Suhr almost a month ago, based on my little [howto](/2008/10/10/how-to-make-a-compact-gnome-theme/).
 
 I have now two versions of the theme: one with normal icon sizes, and one with the smaller 16x16 icons for even more compactness. Here is a comparison animation of the standard Human theme vs. the compact theme:
 
@@ -78,7 +78,7 @@ Here is some information about the original compact themes I have created:
 
   * [How to Make a Human Compact Theme](http://martin.ankerl.com/2008/10/10/how-to-make-a-compact-gnome-theme/)
 
-  * [Human Compact Theme (for Ubuntu 8.04)](http://martin.ankerl.com/2008/05/13/human-compact-gnome-theme/)
+  * [Human Compact Theme (for Ubuntu 8.04)](/2008/05/13/human-compact-gnome-theme/)
 
-  * [Clearlooks Compact Theme (for Ubuntu 8.04)](http://martin.ankerl.com/2007/11/04/clearlooks-compact-gnome-theme/)
+  * [Clearlooks Compact Theme (for Ubuntu 8.04)](/2007/11/04/clearlooks-compact-gnome-theme/)
 

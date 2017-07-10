@@ -128,7 +128,7 @@ Thanks to the power of math, we know that a^b can be transformed like this:
    a^b = e^(ln(a)*b)
    ```
 
-Now we have expressed the pow calculation with e^x and ln(x). We already have the e^x approximation, but no good ln(x). The [old approximation](http://martin.ankerl.com/2007/02/11/optimized-exponential-functions-for-java/) is very bad, so we need a better one. So what now?
+Now we have expressed the pow calculation with e^x and ln(x). We already have the e^x approximation, but no good ln(x). The [old approximation](/2007/02/11/optimized-exponential-functions-for-java/) is very bad, so we need a better one. So what now?
 
 
 ### Approximation of ln(x)

@@ -10,9 +10,9 @@ categories:
 - linux
 ---
 
-[![](http://brainstorm.ubuntu.com/idea/6772/image/1/)](http://brainstorm.ubuntu.com/idea/6772/)The themes [Human Compact](http://martin.ankerl.com/2008/05/13/human-compact-gnome-theme/) and [Clearlooks Compact](http://martin.ankerl.com/2007/11/04/clearlooks-compact-gnome-theme/) have been quite a success, and I got several requests to make a tutorial on how to create such a compact theme.
+[![](http://brainstorm.ubuntu.com/idea/6772/image/1/)](http://brainstorm.ubuntu.com/idea/6772/)The themes [Human Compact](/2008/05/13/human-compact-gnome-theme/) and [Clearlooks Compact](/2007/11/04/clearlooks-compact-gnome-theme/) have been quite a success, and I got several requests to make a tutorial on how to create such a compact theme.
 
-**UPDATE**: [Human Compact Theme for Ubuntu 8.10 (Intrepid Ibex)](http://martin.ankerl.com/2008/11/04/human-compact-themes-for-ubuntu-810/) is available!
+**UPDATE**: [Human Compact Theme for Ubuntu 8.10 (Intrepid Ibex)](/2008/11/04/human-compact-themes-for-ubuntu-810/) is available!
 
 Well, it is a bit difficult to create a step-by-step tutorial, but I will try anyways. Prepare to fiddle around with your configuration and try it out several times until you get the desired results.
 
