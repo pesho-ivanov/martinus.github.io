@@ -60,7 +60,7 @@ This is an attempt to format the subversion log of a one-month period in the fol
 ## Sample Output
 
 
-Here is a [sample output of one month of boost commits](http://martin.ankerl.com/wp-content/uploads/2009/12/changes_2009-12-01_to_2009-12-31.html) into trunk, taken from the [public repository](http://www.boost.org/users/download/#repository). The output is quite information dense, a quick description is in the screenshot: ![](http://martin.ankerl.com/wp-content/uploads/2009/12/documentation.png) All commits are structured by user, then by date. Each commit is on one line. You can click each line to see the full information related to a commit.
+Here is a [sample output of one month of boost commits](/files/2009/12/changes_2009-12-01_to_2009-12-31.html) into trunk, taken from the [public repository](http://www.boost.org/users/download/#repository). The output is quite information dense, a quick description is in the screenshot: ![](/img/2009/12/documentation.png) All commits are structured by user, then by date. Each commit is on one line. You can click each line to see the full information related to a commit.
 
 
 

@@ -11,7 +11,7 @@ categories:
 ---
 
 I've been playing a bit with QR code generators, and tried to generated a very small one for this homepage. This is the result:
-![](http://martin.ankerl.com/wp-content/uploads/2011/06/martinankerl-small.png)
+![](/img/2011/06/martinankerl-small.png)
 
 The file is 21x21 pixels, and has just <strike>178</strike> 165 bytes. It works with my cellphone from a distance of about 7cm, and gets you to [http://martin.ankerl.com/](http://martin.ankerl.com/).
 

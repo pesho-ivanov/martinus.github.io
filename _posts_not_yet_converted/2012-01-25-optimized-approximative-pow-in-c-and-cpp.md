@@ -26,7 +26,7 @@ Mostly thanks to [this reddit discussion](http://www.reddit.com/r/gamedev/commen
 
 
 <!-- more -->
-[![](http://martin.ankerl.com/wp-content/uploads/2012/01/pow.png)](http://martin.ankerl.com/wp-content/uploads/2012/01/pow.png)This new code uses the union trick, instead of the weird casting trick I've used before. This means that -fno-strict-aliasing is no more  required any more when compiling, and it is also a bit faster because one less temporary variables is needed. When you have a little endian machine, you have to exchange u.x[0] and u.x[1]. On my PC, this version is 4.2 times faster than the much more precise pow().
+[![](/img/2012/01/pow.png)](/img/2012/01/pow.png)This new code uses the union trick, instead of the weird casting trick I've used before. This means that -fno-strict-aliasing is no more  required any more when compiling, and it is also a bit faster because one less temporary variables is needed. When you have a little endian machine, you have to exchange u.x[0] and u.x[1]. On my PC, this version is 4.2 times faster than the much more precise pow().
 
 Besides that, I also have now a slower approximation that has much less error when the exponent is larger than 1. It makes use [exponentiation by squaring](https://secure.wikimedia.org/wikipedia/en/wiki/Exponentiation_by_squaring), which is exact for the integer part of the exponent, and uses only the exponent's fraction for the approximation:
 

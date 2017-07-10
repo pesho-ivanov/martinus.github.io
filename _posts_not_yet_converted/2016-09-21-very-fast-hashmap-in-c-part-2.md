@@ -36,11 +36,11 @@ Robin Hood Hashing uses the hash value to calculate the position to place it, th
 
 In this "Infobyte" implementation variant, instead of storing the full 64 bit hash value I directly store the distance to the original bucket in a byte. One bit of this byte is used to mark the bucket as taken or empty. The bit layout is defined like this:
 
-[![infobyte](http://martin.ankerl.com/wp-content/uploads/2016/09/infobyte.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/infobyte.png)
+[![infobyte](/img/2016/09/infobyte.png)](/img/2016/09/infobyte.png)
 
 When storing four elements a, b, c, d, where a, b map to hash position 1 and c, d to hash position 2, this is how they would be stored:
 
-[![infobyte_layout](http://martin.ankerl.com/wp-content/uploads/2016/09/infobyte_layout.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/infobyte_layout.png)
+[![infobyte_layout](/img/2016/09/infobyte_layout.png)](/img/2016/09/infobyte_layout.png)
 
 The advantage is that I have just 1 byte instead of 8 overhead, and linear probing is faster because I need only comparison operation on a single byte instead of calculating offsets with the hash. A byte is more than enough for the offset, since on average the distance to the the original bucket is very small. Here is the full code for lookup:
 
@@ -81,7 +81,7 @@ This search is very simple and straightforward, and fast.
 
 Using a full byte for the offset (actually 7 bit) is fairly large. This would allow an offset of 127, which would lead to a very long and slow linear probing. My idea then is to limit the offset to a much lower maximum number. The remaining bits of the byte can be used to store a few bits from the hash, so that we can use these few bits to reduce the number of key comparisons. Also these hashbits could be used when resizing the hashmap so we would not have to rehash all elements each time we resize. After some tuning, this is the bit layout I am using for this variant:
 
-[![infobyte_hashbits](http://martin.ankerl.com/wp-content/uploads/2016/09/infobyte_hashbits.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/infobyte_hashbits.png)
+[![infobyte_hashbits](/img/2016/09/infobyte_hashbits.png)](/img/2016/09/infobyte_hashbits.png)
 
 The much smaller offset means that when inserting an element and the maximum offset is reached, I have to resize the hashmap. This is intentional, since very large offset would lead to slow searches. This way this hashing variant is more similar to Hopscotch. Here is the full code to lookup an element with this byte:
 
@@ -128,7 +128,7 @@ In the first variant of Robin Hood Hashing finding an element will be slow as th
 
 Using the above example where a,b maps to 1 and c,d to 2, fastforward byte looks like this:
 
-[![infobyte_fastforward](http://martin.ankerl.com/wp-content/uploads/2016/09/infobyte_fastforward.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/infobyte_fastforward.png)
+[![infobyte_fastforward](/img/2016/09/infobyte_fastforward.png)](/img/2016/09/infobyte_fastforward.png)
 
 When looking up element c, the fastforward byte can be used to skip one element, so the  while (info < _info[idx]) { ... } can be replaced with the skip operation. Here is the code:
 
@@ -166,7 +166,7 @@ I am using a struct that contains two bytes: info field, and fastforward. Now I 
 
 Hopscotch can be seen as quite similar to the robin hood hashing with fastforward, except that it replaces the info and fastforward byte with a bitmask. With some tuning I am now using a 16 bit field, where 1 bit is used to define if the current bucket is full, and the other bits define which offsets to the current bucket are taken.
 
-[![hopscotch_mask](http://martin.ankerl.com/wp-content/uploads/2016/09/hopscotch_mask.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/hopscotch_mask.png)
+[![hopscotch_mask](/img/2016/09/hopscotch_mask.png)](/img/2016/09/hopscotch_mask.png)
 
 If the first bit is set, the current bucket is taken; but not nessarily by the bucket from this hop bitfield. This bit is not strictly necessary because that information is also encoded in the different hop tables, but it speeds up insertion code. With 16 bits available, this limits the hop bits to 15 though. As with "Robin Hood Hashing with Infobits & Hashbits", when the hop bits are full, the hashmap has to be resized. 
 

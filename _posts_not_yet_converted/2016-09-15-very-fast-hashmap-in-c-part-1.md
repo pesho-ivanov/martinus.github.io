@@ -33,10 +33,10 @@ A while ago I've spent significant time researching and implementing a fast [Hop
 
 In this simple benchmark I have measured time while sequentially adding an entry (int -> int) to the hashmap, similar to [incise.org's benchmark](http://incise.org/hash-table-benchmarks.html). As a hash function, I am using [std::hash](http://en.cppreference.com/w/cpp/utility/hash):
 
-[![hopscotch_std_time](http://martin.ankerl.com/wp-content/uploads/2016/09/hopscotch_std_time.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/hopscotch_std_time.png)
+[![hopscotch_std_time](/img/2016/09/hopscotch_std_time.png)](/img/2016/09/hopscotch_std_time.png)
 Whenever a jump occurs, the hashmap got too full and it is reallocating. Interestingly, std::unordered_map has to allocate memory whenever it inserts an element (since it's a linked list), while the Hopscotch hash table only allocates once and uses that memory.
 
-[![hopscotch_std_mem](http://martin.ankerl.com/wp-content/uploads/2016/09/hopscotch_std_mem.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/hopscotch_std_mem.png)
+[![hopscotch_std_mem](/img/2016/09/hopscotch_std_mem.png)](/img/2016/09/hopscotch_std_mem.png)
 
 I am using Visual Studio 2015 Update 3, 64 bit, Intel i5-4670 @ 3.4GHZ. Here is a comparison table (best values **bold**)
 
@@ -74,13 +74,13 @@ After contemplating a while, I have come to the conclusion that Hopscotch is jus
 
 
 
-  1. Hopscotch's bitmap naturally has to be quite sparse. For a perfectly full hashmap, where each bucket contains a corresponding entry, of the 32 hop bits there will be just a single bit that is set to 1. Wikipedia has a [nice representation](https://en.wikipedia.org/wiki/Hopscotch_hashing): [![hopscotch-wiki-example](http://martin.ankerl.com/wp-content/uploads/2016/09/Hopscotch-wiki-example.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/Hopscotch-wiki-example.png)
+  1. Hopscotch's bitmap naturally has to be quite sparse. For a perfectly full hashmap, where each bucket contains a corresponding entry, of the 32 hop bits there will be just a single bit that is set to 1. Wikipedia has a [nice representation](https://en.wikipedia.org/wiki/Hopscotch_hashing): [![hopscotch-wiki-example](/img/2016/09/Hopscotch-wiki-example.png)](/img/2016/09/Hopscotch-wiki-example.png)
 
 
   2. Is there a better way to represent the hop bitmap? On way would be a linked list of offsets. Unfortunately, linked lists are not very cache friendly.
 
 
-  3. To store the linked list more efficiently, we can put them into an array. How about just storing the offsets next to the buckets? So the above example from a) could be stored like this: [![hopscotch_as_offsetarray](http://martin.ankerl.com/wp-content/uploads/2016/09/hopscotch_as_offsetarray.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/hopscotch_as_offsetarray.png)
+  3. To store the linked list more efficiently, we can put them into an array. How about just storing the offsets next to the buckets? So the above example from a) could be stored like this: [![hopscotch_as_offsetarray](/img/2016/09/hopscotch_as_offsetarray.png)](/img/2016/09/hopscotch_as_offsetarray.png)
 Will this work? Surprisingly, yes! When querying for an element, we just need to sequentially check the offsets. Say we want to check if 'b' is in the map:
 
 

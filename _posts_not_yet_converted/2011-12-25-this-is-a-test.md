@@ -9,4 +9,4 @@ title: Christmas at Home
 wordpress_id: 720
 ---
 
-![image](http://martin.ankerl.com/wp-content/uploads/2011/12/wpid-1324811014004.jpg)
+![image](/img/2011/12/wpid-1324811014004.jpg)

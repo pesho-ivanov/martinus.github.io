@@ -39,7 +39,7 @@ I'm inserting 100 million int -> int pairs into different hashmap variants, and 
 # Insertion Time Benchmark
 
 
-[![all_insertion_time](http://martin.ankerl.com/wp-content/uploads/2016/09/all_insertion_time.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/all_big_insertion_time.png)
+[![all_insertion_time](/img/2016/09/all_insertion_time.png)](/img/2016/09/all_big_insertion_time.png)
 
 In this graph the reallocations are very clearly visible. All variants are doubling the size of the internally used array when it gets full. As expected in [part 2](http://martin.ankerl.com/2016/09/21/very-fast-hashmap-in-c-part-2/), it can be seen that insertion time slows down when "Robin Hood with Infobyte" gets full, and also when "Robin Hood with Infobyte & Fastforward" gets full. This is due to the fact that more and more data needs to be moved around so the hashmap can stay sorted.
 
@@ -55,7 +55,7 @@ All variants are _much _faster than std::unordered_map. The comparison is a bit 
 ## Memory Usage
 
 
-[![all_memory](http://martin.ankerl.com/wp-content/uploads/2016/09/all_memory.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/all_big_memory.png)
+[![all_memory](/img/2016/09/all_memory.png)](/img/2016/09/all_big_memory.png)
 
 Robin Hood with Infobyte is the most compact representation. I am resizing the map when it gets 95% full, or when an overflow occurs which is highly unlikely when using an appropriate hash function. There is just 1 byte overhead for each entry.
 
@@ -73,7 +73,7 @@ All my implemented variants need much less memory than std::unordered_map. While
 ## Lookup Time
 
 
-[![all_lookup_time](http://martin.ankerl.com/wp-content/uploads/2016/09/all_lookup_time.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/all_big_lookup_time.png)
+[![all_lookup_time](/img/2016/09/all_lookup_time.png)](/img/2016/09/all_big_lookup_time.png)
 
 This is probably the most interesting benchmark for most use cases, and I find this graph extremely educational and interesting. 
 
@@ -90,7 +90,7 @@ Last but not least, the Hopscotch variant. After spending quite some time tuning
 # Summary
 
 
-[![summary](http://martin.ankerl.com/wp-content/uploads/2016/09/summary.png)](http://martin.ankerl.com/wp-content/uploads/2016/09/summary_big.png)
+[![summary](/img/2016/09/summary.png)](/img/2016/09/summary_big.png)
 I've summed up the average insertion time, average lookup time, and average memory usage over all the different samples. std::unordered_map is the reference with 100%. Here are my conclusions:
 
 

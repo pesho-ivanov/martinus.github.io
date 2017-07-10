@@ -10,7 +10,7 @@ categories:
 - health
 ---
 
-[![](http://martin.ankerl.com/wp-content/uploads/2012/01/leekspin.gif)](http://martin.ankerl.com/wp-content/uploads/2012/01/leekspin.gif)One of my main interest apart from software development is health, mainly nutrition but also exercise. I will try to systematically collect my findings and write a health related blog post from time to time.
+[![](/img/2012/01/leekspin.gif)](/img/2012/01/leekspin.gif)One of my main interest apart from software development is health, mainly nutrition but also exercise. I will try to systematically collect my findings and write a health related blog post from time to time.
 
 Keep in mind that I usually have no idea what I am talking about, I have not any medical background. I just try to collect and organize evidence that I am finding.
 

@@ -11,7 +11,7 @@ categories:
 ---
 
 Today I have read about the [Instagram Engineering Challenge: The Unshredder](http://instagram-engineering.tumblr.com/post/12651721845/instagram-engineering-challenge-the-unshredder), and decided to give it a try. The task is simple to explain: Create a program that can unshred this image (do not try the challenge on this image, try the [original PNG source](http://instagram-static.s3.amazonaws.com/images/TokyoPanoramaShredded.png) instead!):
-[![](http://martin.ankerl.com/wp-content/uploads/2011/11/TokyoPanoramaShredded.jpg)](http://martin.ankerl.com/wp-content/uploads/2011/11/TokyoPanoramaShredded.jpg)
+[![](/img/2011/11/TokyoPanoramaShredded.jpg)](/img/2011/11/TokyoPanoramaShredded.jpg)
 
 
 I have [postet here](http://derstandard.at/plink/1319182777697?sap=2&_pid=23674915#pid23674915) that I think I can solve it in 2 hours, and got some downvotes for that; so I have decided to really give it a try. Long story short, it took me about 2 hours and 35 minutes.
@@ -250,7 +250,7 @@ Without further ado, I give you the code:
 
 
 Here is the result I got with this code:
-![](http://martin.ankerl.com/wp-content/uploads/2011/11/ordered.jpg)
+![](/img/2011/11/ordered.jpg)
 
 
 

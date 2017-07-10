@@ -26,11 +26,11 @@ git has a very configurable logging options. I've played a while with the config
 ### git l
 
 
-![git_l](http://martin.ankerl.com/wp-content/uploads/2015/12/git_l.png)
+![git_l](/img/2015/12/git_l.png)
 
 
 
 ### git ls
 
 
-![git_ls](http://martin.ankerl.com/wp-content/uploads/2015/12/git_ls-1.png)
+![git_ls](/img/2015/12/git_ls-1.png)

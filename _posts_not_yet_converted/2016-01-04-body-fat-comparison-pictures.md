@@ -18,11 +18,11 @@ Here is a collection of visual body fat charts. Use these to estimate your perso
 # Women
 
 
-![body-fat-percentages-female-high](http://martin.ankerl.com/wp-content/uploads/2016/01/body-fat-percentage-pictures-female.jpg)
-![low female body fat percentages](http://martin.ankerl.com/wp-content/uploads/2016/01/female-body-fat-percentage-pictures.jpg)
-![15% female body fat comparrison](http://martin.ankerl.com/wp-content/uploads/2016/01/15-percent-body-fat-female1.jpg)
-![female at 8-9 percent body fat](http://martin.ankerl.com/wp-content/uploads/2016/01/female-8-9-percent-body-fat.jpg)
-![5GZMP](http://martin.ankerl.com/wp-content/uploads/2016/01/5GZMP.jpg)
+![body-fat-percentages-female-high](/img/2016/01/body-fat-percentage-pictures-female.jpg)
+![low female body fat percentages](/img/2016/01/female-body-fat-percentage-pictures.jpg)
+![15% female body fat comparrison](/img/2016/01/15-percent-body-fat-female1.jpg)
+![female at 8-9 percent body fat](/img/2016/01/female-8-9-percent-body-fat.jpg)
+![5GZMP](/img/2016/01/5GZMP.jpg)
 
 As you can see, even the same body fat percentag (here twice 15%) can look quite different, depending on your muscles and where the body fat is positioned. The minimum possible body fat percentage is 8-9%. This low is not sustainable, and very unhealthy! If you are female, don't go that low.
 
@@ -32,14 +32,14 @@ As you can see, even the same body fat percentag (here twice 15%) can look quite
 # Men
 
 
-![Men at different body fat levels](http://martin.ankerl.com/wp-content/uploads/2016/01/pictures-of-body-fat-percentages.jpg)
+![Men at different body fat levels](/img/2016/01/pictures-of-body-fat-percentages.jpg)
 
-![male body fat percentages](http://martin.ankerl.com/wp-content/uploads/2016/01/male-body-fat-percentages-pictures.jpg)
+![male body fat percentages](/img/2016/01/male-body-fat-percentages-pictures.jpg)
 
-![10-percent-body-fat-male-pictures1](http://martin.ankerl.com/wp-content/uploads/2016/01/10-percent-body-fat-male-pictures1.jpg)
+![10-percent-body-fat-male-pictures1](/img/2016/01/10-percent-body-fat-male-pictures1.jpg)
 
-![Picture of a man at 3-4% body fat](http://martin.ankerl.com/wp-content/uploads/2016/01/4-percent-body-fat-male.jpg)
-![](http://martin.ankerl.com/wp-content/uploads/2016/01/army-body-fat-calculator1.jpg)
+![Picture of a man at 3-4% body fat](/img/2016/01/4-percent-body-fat-male.jpg)
+![](/img/2016/01/army-body-fat-calculator1.jpg)
 As above with the female pictures, here are also two images with the same body fat percentage: 10% can look quite different, depending on how muscular you are and where your body fat is positioned. The lowest male can go os 3-4%, but this is not at all healthy at all. It is only possible to reach such low body fat for a very short period of time. I'd say the lowest you should go to still be healthy is 10%.
 
 

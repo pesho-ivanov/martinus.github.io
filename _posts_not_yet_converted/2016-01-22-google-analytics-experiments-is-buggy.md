@@ -20,7 +20,7 @@ Unfortunately, Google's implementation is quite buggy. Here are a few problems t
 
 
 While testing, Google Analytics shows a "Probability of Outperforming Original". This number can is often incorrect, and does not match with what is actually used for the homepage A/B split ratio. It seems that the numbers in the Analytics UI is calculated based on data that is only partly up-to date. In reality the probability should is at least 99%, but the UI shows 84.1%. The number is updated about twice a day, and it jumps around wildly even though there is not much change in the relative ratio between A and B test.
-![analytics](http://martin.ankerl.com/wp-content/uploads/2016/01/analytics.png)
+![analytics](/img/2016/01/analytics.png)
 
 
 

@@ -17,7 +17,7 @@ Yesterday I have played a bit with reinventing a fast approximation for sqrt() i
 ## Sourcecode
 
 
-I use floating point tricks based on my [pow() approximation](http://martin.ankerl.com/2007/10/04/optimized-pow-approximation-for-java-and-c-c/). Basically I just took the pow() formula and for a^b I substitued b with 0.5, then simplified this as much as possible. As it turns out the result is very simple and short. This initial approximation can be easily made more precise with [Newton's method](http://en.wikipedia.org/wiki/Newton%27s_method):
+I use floating point tricks based on my [pow() approximation](/2007/10/04/optimized-pow-approximation-for-java-and-c-c/). Basically I just took the pow() formula and for a^b I substitued b with 0.5, then simplified this as much as possible. As it turns out the result is very simple and short. This initial approximation can be easily made more precise with [Newton's method](http://en.wikipedia.org/wiki/Newton%27s_method):
 
 
     

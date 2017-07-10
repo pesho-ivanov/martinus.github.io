@@ -29,7 +29,7 @@ Here is my bash prompt, with the following features:
 # Example
 
 
-[![screenshot_2016-11-07_06-24-23](http://martin.ankerl.com/wp-content/uploads/2016/11/Screenshot_2016-11-07_06-24-23.png)](http://martin.ankerl.com/wp-content/uploads/2016/11/Screenshot_2016-11-07_06-24-23.png)
+[![screenshot_2016-11-07_06-24-23](/img/2016/11/Screenshot_2016-11-07_06-24-23.png)](/img/2016/11/Screenshot_2016-11-07_06-24-23.png)
 
 
 

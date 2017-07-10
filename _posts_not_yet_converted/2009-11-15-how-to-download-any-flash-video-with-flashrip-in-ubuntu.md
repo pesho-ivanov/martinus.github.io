@@ -28,7 +28,7 @@ Once installed, you basically use one click to get a video preview and then a pr
 Open a terminal like gnome-terminal or konsole, and run these commands:
 
     
-    wget http://martin.ankerl.com/wp-content/uploads/2009/11/flashrip.sh
+    wget http://martin.ankerl.com/files/2009/11/flashrip.sh
     chmod 755 flashrip.sh
     sudo mv flashrip.sh /usr/local/bin
 

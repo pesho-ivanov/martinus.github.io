@@ -76,7 +76,7 @@ Here is some information about the original compact themes I have created:
 
 
 
-  * [How to Make a Human Compact Theme](http://martin.ankerl.com/2008/10/10/how-to-make-a-compact-gnome-theme/)
+  * [How to Make a Human Compact Theme](/2008/10/10/how-to-make-a-compact-gnome-theme/)
 
   * [Human Compact Theme (for Ubuntu 8.04)](/2008/05/13/human-compact-gnome-theme/)
 

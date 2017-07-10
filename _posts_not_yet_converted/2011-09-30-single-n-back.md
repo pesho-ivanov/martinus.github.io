@@ -12,7 +12,7 @@ tags:
 - android
 ---
 
-[![](http://martin.ankerl.com/wp-content/uploads/2011/09/werbegrafik.png)](https://market.android.com/details?id=com.ankerl.singlenback)
+[![](/img/2011/09/werbegrafik.png)](https://market.android.com/details?id=com.ankerl.singlenback)
 
 I have just created my first Android app. It is a simple game, called _Single N-Back_. It has been shown in multiple studies that this game can improve your [fluid intelligence](http://en.wikipedia.org/wiki/Fluid_and_crystallized_intelligence). 
 
@@ -26,7 +26,7 @@ You can get it here:
   * [https://market.android.com/details?id=com.ankerl.singlenback](https://market.android.com/details?id=com.ankerl.singlenback)
 
   * Or just scan this QR code:
-[![](http://martin.ankerl.com/wp-content/uploads/2011/09/qr-marketlink.png)](http://martin.ankerl.com/wp-content/uploads/2011/09/qr-marketlink.png)
+[![](/img/2011/09/qr-marketlink.png)](/img/2011/09/qr-marketlink.png)
 
 <!-- more -->
 
@@ -54,7 +54,7 @@ You start with 2-Back, and if more than 80% is correct, you can unlock the next 
 Here are some screenshots of the extremely <del>ugly</del> clean user interface:
 
 
-[![](http://martin.ankerl.com/wp-content/uploads/2011/09/device-2011-09-30-143120-180x300.png)](http://martin.ankerl.com/wp-content/uploads/2011/09/device-2011-09-30-143120.png)  [![](http://martin.ankerl.com/wp-content/uploads/2011/09/device-2011-09-30-143151-180x300.png)](http://martin.ankerl.com/wp-content/uploads/2011/09/device-2011-09-30-143151.png)   [![](http://martin.ankerl.com/wp-content/uploads/2011/09/device-2011-09-30-143336-180x300.png)](http://martin.ankerl.com/wp-content/uploads/2011/09/device-2011-09-30-143336.png) 
+[![](/img/2011/09/device-2011-09-30-143120-180x300.png)](/img/2011/09/device-2011-09-30-143120.png)  [![](/img/2011/09/device-2011-09-30-143151-180x300.png)](/img/2011/09/device-2011-09-30-143151.png)   [![](/img/2011/09/device-2011-09-30-143336-180x300.png)](/img/2011/09/device-2011-09-30-143336.png) 
 
 
 

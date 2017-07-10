@@ -10,7 +10,7 @@ categories:
 - health
 ---
 
-![](http://martin.ankerl.com/wp-content/uploads/2009/05/greentea.jpg)A few months ago I seem to have become a green tea advocat, since I have realized that it is probably [the most healthy beverage ever invented](http://www.whfoods.com/genpage.php?tname=foodspice&dbid=146) (including water).
+![](/img/2009/05/greentea.jpg)A few months ago I seem to have become a green tea advocat, since I have realized that it is probably [the most healthy beverage ever invented](http://www.whfoods.com/genpage.php?tname=foodspice&dbid=146) (including water).
 
 The enormous study "[Green Tea Consumption and Mortality Due to Cardiovascular Disease, Cancer, and All Causes in Japan](http://jama.ama-assn.org/cgi/content/abstract/296/10/1255)" took 11 years with over 40.000 participants, and got the following result:
 

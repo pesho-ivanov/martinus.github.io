@@ -150,7 +150,7 @@ Many people think of [Atkins diet](http://www.atkins.com/) (Interview with Dr Er
 ## The Trouble with Fructose: a Darwinian Perspective by Robert Lustig, MD
 
 
-[![](http://img.youtube.com/vi/Yh4JBXaKnmA/0.jpg)](http://www.youtube.com/watch?v=Yh4JBXaKnmA) Robert Lustig's talks about the reason for the obesity epidemic. There is a [reddit discussion](http://www.reddit.com/r/keto/comments/jhqj9/the_trouble_with_fructose_a_darwinian_perspective/) about the video, where user [moozilla](http://www.reddit.com/r/keto/comments/jhqj9/the_trouble_with_fructose_a_darwinian_perspective/c2cce7u) has extracted [the slides](http://martin.ankerl.com/wp-content/uploads/2012/01/trouble_with_fructose_slides.pdf).
+[![](http://img.youtube.com/vi/Yh4JBXaKnmA/0.jpg)](http://www.youtube.com/watch?v=Yh4JBXaKnmA) Robert Lustig's talks about the reason for the obesity epidemic. There is a [reddit discussion](http://www.reddit.com/r/keto/comments/jhqj9/the_trouble_with_fructose_a_darwinian_perspective/) about the video, where user [moozilla](http://www.reddit.com/r/keto/comments/jhqj9/the_trouble_with_fructose_a_darwinian_perspective/c2cce7u) has extracted [the slides](/files/2012/01/trouble_with_fructose_slides.pdf).
 
 The evolutionary explanation is a mismatch between our environment and our biochemistry. When a normal kid eats a cookie, it will get a "sugar high", it has now lots of energy and the body wants to get rid of it. When an obese kid eats a cookie, it does not get the sugar high because their [leptin](http://en.wikipedia.org/wiki/Leptin) is not doing what it is supposed do. That is called leptin resistance. 
 

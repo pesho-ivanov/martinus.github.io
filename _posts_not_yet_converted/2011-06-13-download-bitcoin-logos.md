@@ -17,28 +17,28 @@ Download
 
 
 
-  * [bitcoin_graphics_png.zip](http://martin.ankerl.com/wp-content/uploads/2011/06/bitcoin_graphics_png.zip) 494 KB
+  * [bitcoin_graphics_png.zip](/files/2011/06/bitcoin_graphics_png.zip) 494 KB
 
 
 The zip file contains these images in 60, 90, 300, and 600 DPI:
 <!-- more -->
 
 
-  1. ![](http://martin.ankerl.com/wp-content/uploads/2011/06/bitcoin_144x144.png)
+  1. ![](/img/2011/06/bitcoin_144x144.png)
 
-  2. ![](http://martin.ankerl.com/wp-content/uploads/2011/06/bitcoin_accept_bright_145x44.png)
+  2. ![](/img/2011/06/bitcoin_accept_bright_145x44.png)
 
-  3. ![](http://martin.ankerl.com/wp-content/uploads/2011/06/bitcoin_accept_dark_145x44.png)
+  3. ![](/img/2011/06/bitcoin_accept_dark_145x44.png)
 
-  4. ![](http://martin.ankerl.com/wp-content/uploads/2011/06/bitcoin_accept_rect_button_168x64.png)
+  4. ![](/img/2011/06/bitcoin_accept_rect_button_168x64.png)
 
-  5. ![](http://martin.ankerl.com/wp-content/uploads/2011/06/bitcoin_accept_round_button_168x64.png)
+  5. ![](/img/2011/06/bitcoin_accept_round_button_168x64.png)
 
-  6. ![](http://martin.ankerl.com/wp-content/uploads/2011/06/bitcoin_bright_306x64.png)
+  6. ![](/img/2011/06/bitcoin_bright_306x64.png)
 
-  7. ![](http://martin.ankerl.com/wp-content/uploads/2011/06/bitcoin_dark_306x64.png)
+  7. ![](/img/2011/06/bitcoin_dark_306x64.png)
 
-  8. ![](http://martin.ankerl.com/wp-content/uploads/2011/06/bitcoin-box-60x60.png) 
+  8. ![](/img/2011/06/bitcoin-box-60x60.png) 
 
 
 

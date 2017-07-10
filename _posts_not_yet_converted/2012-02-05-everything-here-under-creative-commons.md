@@ -12,7 +12,7 @@ categories:
 
 I have now put everything on this blog, except otherwise stated, under the [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/):
 
-[![Creative Commons License](http://martin.ankerl.com/wp-content/uploads/2012/02/88x31.png)](http://creativecommons.org/licenses/by/3.0/at/deed.en) This means you are free
+[![Creative Commons License](/img/2012/02/88x31.png)](http://creativecommons.org/licenses/by/3.0/at/deed.en) This means you are free
 
 
 
