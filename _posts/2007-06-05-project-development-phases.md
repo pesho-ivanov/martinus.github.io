@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-06-05 21:05:52+00:00
 layout: post
-link: http://martin.ankerl.com/2007/06/05/project-development-phases/
 slug: project-development-phases
 title: Project Development Phases
 wordpress_id: 89

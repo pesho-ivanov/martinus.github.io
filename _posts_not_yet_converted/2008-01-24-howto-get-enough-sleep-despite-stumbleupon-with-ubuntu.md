@@ -20,7 +20,7 @@ tags:
 ## What?
 
 
-[![](http://martin.ankerl.com/wp-content/uploads/2008/01/stumbling-insomnia.jpg)](http://martin.ankerl.com/wp-content/uploads/2008/01/stumbling-insomnia.jpg)I am a long-term [StumbleUpon](http://www.stumbleupon.com/) user, which means that I don't get much sleep. Now, after [almost 4 years of stumbling](http://martinus.stumbleupon.com/public/), I have decided to get my life back. Well, at least some sleep!
+[![](/wp-content/uploads/2008/01/stumbling-insomnia.jpg)](/wp-content/uploads/2008/01/stumbling-insomnia.jpg)I am a long-term [StumbleUpon](http://www.stumbleupon.com/) user, which means that I don't get much sleep. Now, after [almost 4 years of stumbling](http://martinus.stumbleupon.com/public/), I have decided to get my life back. Well, at least some sleep!
 
 
 
@@ -28,7 +28,7 @@ tags:
 
 
 Every night when I have to work on the next day (Sunday night to Thursday night ), at 23:25 my computer shows me this little warning message:
-![go to bed warning](http://martin.ankerl.com/wp-content/uploads/2008/01/screenshot-warning.png)
+![go to bed warning](/files/2008/01/screenshot-warning.png)
 After the 5 minutes have passed, the computer shuts itself automatically down.
 
 I use this little trick with [Ubuntu,](http://www.ubuntu.com/) but it should work anywhere where [Gnome](http://www.gnome.org/) is installed.

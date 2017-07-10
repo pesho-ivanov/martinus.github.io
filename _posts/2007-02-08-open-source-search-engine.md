@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-02-08 08:52:45+00:00
 layout: post
-link: http://martin.ankerl.com/2007/02/08/open-source-search-engine/
 slug: open-source-search-engine
 title: Open Source Search Engine
 wordpress_id: 81

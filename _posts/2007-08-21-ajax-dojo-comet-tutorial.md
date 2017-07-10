@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-08-21 12:41:22+00:00
 layout: post
-link: http://martin.ankerl.com/2007/08/21/ajax-dojo-comet-tutorial/
 slug: ajax-dojo-comet-tutorial
 title: Ajax Dojo Comet Tutorial
 wordpress_id: 92

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2016-09-15 06:32:39+00:00
 layout: post
-link: http://martin.ankerl.com/2016/09/15/very-fast-hashmap-in-c-part-1/
 slug: very-fast-hashmap-in-c-part-1
 title: 'Very Fast HashMap in C++: Hopscotch & Robin Hood Hashing (Part 1)'
 wordpress_id: 1581

@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-04-01 19:35:05+00:00
 layout: post
-link: http://martin.ankerl.com/2007/04/01/rfind-quickly-find-files/
 slug: rfind-quickly-find-files
 title: RFind - Quickly Find Files
 wordpress_id: 86

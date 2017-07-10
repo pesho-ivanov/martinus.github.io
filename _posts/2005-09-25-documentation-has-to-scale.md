@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2005-09-25 13:05:11+00:00
 layout: post
-link: http://martin.ankerl.com/2005/09/25/documentation-has-to-scale/
 slug: documentation-has-to-scale
 title: Documentation has to Scale
 wordpress_id: 32

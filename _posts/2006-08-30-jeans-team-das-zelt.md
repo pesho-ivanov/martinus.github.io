@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-08-30 11:39:23+00:00
 layout: post
-link: http://martin.ankerl.com/2006/08/30/jeans-team-das-zelt/
 slug: jeans-team-das-zelt
 title: Jeans Team — Das Zelt
 wordpress_id: 74

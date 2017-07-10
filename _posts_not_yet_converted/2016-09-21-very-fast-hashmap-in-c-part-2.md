@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2016-09-21 09:00:58+00:00
 layout: post
-link: http://martin.ankerl.com/2016/09/21/very-fast-hashmap-in-c-part-2/
 slug: very-fast-hashmap-in-c-part-2
 title: 'Very Fast HashMap in C++: Implementation Variants (Part 2)'
 wordpress_id: 1624

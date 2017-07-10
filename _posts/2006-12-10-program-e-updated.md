@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-12-10 11:26:41+00:00
 layout: post
-link: http://martin.ankerl.com/2006/12/10/program-e-updated/
 slug: program-e-updated
 title: e updated
 wordpress_id: 77

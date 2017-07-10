@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-01-09 14:36:56+00:00
 layout: post
-link: http://martin.ankerl.com/2007/01/09/textanalyzer-automatically-extract-characteristic-words/
 slug: textanalyzer-automatically-extract-characteristic-words
 title: TextAnalyzer - Automatically Extract Characteristic Words
 wordpress_id: 80

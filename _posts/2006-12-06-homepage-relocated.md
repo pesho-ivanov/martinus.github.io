@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-12-06 19:49:30+00:00
 layout: post
-link: http://martin.ankerl.com/2006/12/06/homepage-relocated/
 slug: homepage-relocated
 title: Homepage Relocated
 wordpress_id: 75

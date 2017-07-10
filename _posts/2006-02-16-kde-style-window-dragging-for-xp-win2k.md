@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-02-16 08:32:56+00:00
 layout: post
-link: http://martin.ankerl.com/2006/02/16/kde-style-window-dragging-for-xp-win2k/
 slug: kde-style-window-dragging-for-xp-win2k
 title: KDE Style Window Dragging for XP / Win2k
 wordpress_id: 52

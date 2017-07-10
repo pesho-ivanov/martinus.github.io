@@ -38,7 +38,7 @@ There is also [a GUI available](http://ubuntuforums.org/showthread.php?t=216117)
 ## Create a New Filesystem
 
 
-First I create the physical volume on the partition sdg1, create a new volume group ext_vg that contains this physical volume, and create a new logical volume of size 450GB within the volume group. Finally create the filesystem (disabled reservation space, see [Get More Space Out of Your ext3 Partition](http://martin.ankerl.com/2008/01/12/get-more-space-out-of-your-ext3-partition/)). 
+First I create the physical volume on the partition sdg1, create a new volume group ext_vg that contains this physical volume, and create a new logical volume of size 450GB within the volume group. Finally create the filesystem (disabled reservation space, see [Get More Space Out of Your ext3 Partition](/2008/01/12/get-more-space-out-of-your-ext3-partition/)). 
     
     sudo pvcreate /dev/sdg1
     sudo vgcreate ext_vg /dev/sdg1

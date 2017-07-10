@@ -18,7 +18,7 @@ Today I have got some sourcecode for you. There is a little programming challeng
 
 
 <blockquote>
-Write a program that generates all two-word anagrams of the string "documenting". Here's a word list you might want to use: [wordlist.zip](http://martin.ankerl.com/wp-content/uploads/2008/08/wordlist.zip).
+Write a program that generates all two-word anagrams of the string "documenting". Here's a word list you might want to use: [wordlist.zip](/files/2008/08/wordlist.zip).
 
 When you're done, send the results to [selfdocumenting@hotmail.com](mailto:selfdocumenting@hotmail.com).
 

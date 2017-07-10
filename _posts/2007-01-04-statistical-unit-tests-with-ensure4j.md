@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-01-04 20:54:33+00:00
 layout: post
-link: http://martin.ankerl.com/2007/01/04/statistical-unit-tests-with-ensure4j/
 slug: statistical-unit-tests-with-ensure4j
 title: Statistical Unit Tests with ensure4j
 wordpress_id: 78

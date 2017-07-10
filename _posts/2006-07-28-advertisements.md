@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-07-28 17:38:51+00:00
 layout: post
-link: http://martin.ankerl.com/2006/07/28/advertisements/
 slug: advertisements
 title: Advertisements
 wordpress_id: 67

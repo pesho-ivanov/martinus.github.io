@@ -11,9 +11,9 @@ categories:
 - programming
 ---
 
-[![](http://brainstorm.ubuntu.com/idea/6772/image/1/)](http://brainstorm.ubuntu.com/idea/6772/)Thanks to the overwhelming success of the [Clearlooks Compact Theme](http://martin.ankerl.com/2007/11/04/clearlooks-compact-gnome-theme/) and demand from several users I have now created a _Human Compact_ theme. Basically it features the same compactness as Clearlooks Compact, but the look & feel of the [Ubuntu](http://www.ubuntu.com/) Human theme. So, if you want compactness and did not like the cold blue look of clearlooks, this is for you. It should also work well with the Eee pc, there even is a [nice tutorial here](http://wiki.eeeuser.com/ubuntu:eeexubuntu:customization).
+[![](http://brainstorm.ubuntu.com/idea/6772/image/1/)](http://brainstorm.ubuntu.com/idea/6772/)Thanks to the overwhelming success of the [Clearlooks Compact Theme](/2007/11/04/clearlooks-compact-gnome-theme/) and demand from several users I have now created a _Human Compact_ theme. Basically it features the same compactness as Clearlooks Compact, but the look & feel of the [Ubuntu](http://www.ubuntu.com/) Human theme. So, if you want compactness and did not like the cold blue look of clearlooks, this is for you. It should also work well with the Eee pc, there even is a [nice tutorial here](http://wiki.eeeuser.com/ubuntu:eeexubuntu:customization).
 
-**UPDATE**: [Human Compact Theme for Ubuntu 8.10 (Intrepid Ibex)](http://martin.ankerl.com/2008/11/04/human-compact-themes-for-ubuntu-810/) is available!
+**UPDATE**: [Human Compact Theme for Ubuntu 8.10 (Intrepid Ibex)](/2008/11/04/human-compact-themes-for-ubuntu-810/) is available!
 
 
 
@@ -36,7 +36,7 @@ Move your mouse over the image to see the difference of a save dialog between Ub
 
 Here are some other screenshots. The eclipse window uses 800x480 resolution, which is the same as the eee pc has.
 
-[![eclipse](http://martin.ankerl.com/wp-content/uploads/2008/05/screenshot-java-koagent-src-test-feasibility-at-profactor-inspector-graphvizvisitorjava-eclipse-platform.thumbnail.png)](http://martin.ankerl.com/wp-content/uploads/2008/05/screenshot-java-koagent-src-test-feasibility-at-profactor-inspector-graphvizvisitorjava-eclipse-platform.png) [![inkscape](http://martin.ankerl.com/wp-content/uploads/2008/05/screenshot-infosvg-inkscape.thumbnail.png)](http://martin.ankerl.com/wp-content/uploads/2008/05/screenshot-infosvg-inkscape.png) [![calc](http://martin.ankerl.com/wp-content/uploads/2008/05/screenshot-calculator-scientific.thumbnail.png)](http://martin.ankerl.com/wp-content/uploads/2008/05/screenshot-calculator-scientific.png)
+[![eclipse](/img/2008/05/screenshot-java-koagent-src-test-feasibility-at-profactor-inspector-graphvizvisitorjava-eclipse-platform.thumbnail.png)](/img/2008/05/screenshot-java-koagent-src-test-feasibility-at-profactor-inspector-graphvizvisitorjava-eclipse-platform.png) [![inkscape](/img/2008/05/screenshot-infosvg-inkscape.thumbnail.png)](/img/2008/05/screenshot-infosvg-inkscape.png) [![calc](/img/2008/05/screenshot-calculator-scientific.thumbnail.png)](/img/2008/05/screenshot-calculator-scientific.png)
 
 
 

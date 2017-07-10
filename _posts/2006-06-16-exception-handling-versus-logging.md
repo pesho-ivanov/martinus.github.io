@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-06-16 21:28:16+00:00
 layout: post
-link: http://martin.ankerl.com/2006/06/16/exception-handling-versus-logging/
 slug: exception-handling-versus-logging
 title: Exception Handling versus Logging
 wordpress_id: 62

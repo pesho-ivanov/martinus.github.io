@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-05-06 18:55:47+00:00
 layout: post
-link: http://martin.ankerl.com/2007/05/06/erlang-syntax-highlighting/
 slug: erlang-syntax-highlighting
 title: Erlang Syntax Highlighting
 wordpress_id: 88

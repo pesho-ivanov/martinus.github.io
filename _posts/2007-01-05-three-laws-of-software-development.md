@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-01-05 22:45:14+00:00
 layout: post
-link: http://martin.ankerl.com/2007/01/05/three-laws-of-software-development/
 slug: three-laws-of-software-development
 title: Three Laws of Software Development
 wordpress_id: 79

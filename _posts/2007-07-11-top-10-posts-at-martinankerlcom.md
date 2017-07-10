@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-07-11 19:54:56+00:00
 layout: post
-link: http://martin.ankerl.com/2007/07/11/top-10-posts-at-martinankerlcom/
 slug: top-10-posts-at-martinankerlcom
 title: Top 10 Posts of 2007
 wordpress_id: 90

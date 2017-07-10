@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-08-02 20:02:18+00:00
 layout: post
-link: http://martin.ankerl.com/2006/08/02/redesigning-junit-asserts/
 slug: redesigning-junit-asserts
 title: Redesigning JUnit Asserts
 wordpress_id: 70

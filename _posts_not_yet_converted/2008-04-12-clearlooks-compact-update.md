@@ -11,7 +11,7 @@ categories:
 - programming
 ---
 
-I have made a minor update to the [Clearlooks Compact theme](http://martin.ankerl.com/2007/11/04/clearlooks-compact-gnome-theme/), the panel menu now uses small icons.
+I have made a minor update to the [Clearlooks Compact theme](/2007/11/04/clearlooks-compact-gnome-theme/), the panel menu now uses small icons.
 
 Clearlooks Compact is a Gnome theme that tries to make use of the wasted screen space as much as possible. It is especially useful for small screens like on the [Eee PC](http://eeepc.asus.com/global/), or with intense applications like Eclipse.
 

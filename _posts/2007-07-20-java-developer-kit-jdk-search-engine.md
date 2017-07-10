@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-07-20 19:31:06+00:00
 layout: post
-link: http://martin.ankerl.com/2007/07/20/java-developer-kit-jdk-search-engine/
 slug: java-developer-kit-jdk-search-engine
 title: Java Developer Kit (JDK) Search Engine
 wordpress_id: 91

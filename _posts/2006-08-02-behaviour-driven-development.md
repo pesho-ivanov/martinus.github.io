@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-08-02 07:55:25+00:00
 layout: post
-link: http://martin.ankerl.com/2006/08/02/behaviour-driven-development/
 slug: behaviour-driven-development
 title: Behaviour Driven Development
 wordpress_id: 69

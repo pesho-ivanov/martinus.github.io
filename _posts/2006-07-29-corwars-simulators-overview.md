@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-07-29 12:48:16+00:00
 layout: post
-link: http://martin.ankerl.com/2006/07/29/corwars-simulators-overview/
 slug: corwars-simulators-overview
 title: CoreWars Simulators Overview
 wordpress_id: 68

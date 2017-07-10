@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-07-16 14:13:58+00:00
 layout: post
-link: http://martin.ankerl.com/2006/07/16/self-hosting-subversion-configuration/
 slug: self-hosting-subversion-configuration
 title: Self-hosting Subversion Configuration
 wordpress_id: 65

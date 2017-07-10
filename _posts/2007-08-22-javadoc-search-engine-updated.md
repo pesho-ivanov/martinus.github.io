@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-08-22 09:01:03+00:00
 layout: post
-link: http://martin.ankerl.com/2007/08/22/javadoc-search-engine-updated/
 slug: javadoc-search-engine-updated
 title: Javadoc Search Engine Updated
 wordpress_id: 93

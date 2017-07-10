@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2016-01-22 13:34:41+00:00
 layout: post
-link: http://martin.ankerl.com/2016/01/22/google-analytics-experiments-is-buggy/
 slug: google-analytics-experiments-is-buggy
 title: Google Analytics Experiments is Buggy
 wordpress_id: 1516

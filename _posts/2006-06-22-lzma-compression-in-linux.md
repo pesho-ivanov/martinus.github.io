@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-06-22 18:32:45+00:00
 layout: post
-link: http://martin.ankerl.com/2006/06/22/lzma-compression-in-linux/
 slug: lzma-compression-in-linux
 title: LZMA Compression in Linux
 wordpress_id: 63

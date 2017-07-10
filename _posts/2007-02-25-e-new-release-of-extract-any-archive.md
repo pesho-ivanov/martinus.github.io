@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-02-25 10:34:04+00:00
 layout: post
-link: http://martin.ankerl.com/2007/02/25/e-new-release-of-extract-any-archive/
 slug: e-new-release-of-extract-any-archive
 title: e — New Release of Extract Any Archive
 wordpress_id: 84

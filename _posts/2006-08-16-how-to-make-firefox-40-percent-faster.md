@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-08-16 18:37:11+00:00
 layout: post
-link: http://martin.ankerl.com/2006/08/16/how-to-make-firefox-40-percent-faster/
 slug: how-to-make-firefox-40-percent-faster
 title: How To Make Firefox Over 40% Faster
 wordpress_id: 73

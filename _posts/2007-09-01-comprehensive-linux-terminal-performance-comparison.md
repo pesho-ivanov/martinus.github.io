@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2007-09-01 14:16:33+00:00
 layout: post
-link: http://martin.ankerl.com/2007/09/01/comprehensive-linux-terminal-performance-comparison/
 slug: comprehensive-linux-terminal-performance-comparison
 title: Comprehensive Linux Terminal Performance Comparison
 wordpress_id: 94

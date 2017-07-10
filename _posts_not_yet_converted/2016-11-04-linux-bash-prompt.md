@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2016-11-04 08:54:56+00:00
 layout: post
-link: http://martin.ankerl.com/2016/11/04/linux-bash-prompt/
 slug: linux-bash-prompt
 title: Linux Bash Prompt
 wordpress_id: 1699

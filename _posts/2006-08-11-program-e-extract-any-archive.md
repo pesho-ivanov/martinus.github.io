@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-08-11 20:33:31+00:00
 layout: post
-link: http://martin.ankerl.com/2006/08/11/program-e-extract-any-archive/
 slug: program-e-extract-any-archive
 title: e - Extract Any Archive
 wordpress_id: 71

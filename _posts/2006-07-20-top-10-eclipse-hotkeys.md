@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-07-20 09:06:38+00:00
 layout: post
-link: http://martin.ankerl.com/2006/07/20/top-10-eclipse-hotkeys/
 slug: top-10-eclipse-hotkeys
 title: Top 10 Eclipse Hotkeys
 wordpress_id: 66

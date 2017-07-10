@@ -15,4 +15,4 @@ tags:
 - ubuntu
 ---
 
-[Compact theme](http://martin.ankerl.com/2007/11/04/clearlooks-compact-gnome-theme/) just got more compact, now it switches to 16x16 icons which saves quite a bit of space for the buttons. More info [here](http://martin.ankerl.com/2007/11/04/clearlooks-compact-gnome-theme/).
+[Compact theme](/2007/11/04/clearlooks-compact-gnome-theme/) just got more compact, now it switches to 16x16 icons which saves quite a bit of space for the buttons. More info [here](/2007/11/04/clearlooks-compact-gnome-theme/).

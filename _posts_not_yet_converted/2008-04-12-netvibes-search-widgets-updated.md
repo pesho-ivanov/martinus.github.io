@@ -15,7 +15,7 @@ tags:
 - widgets
 ---
 
-I have just updated the [Netvibes](http://www.netvibes.com/) ([iGoogle](http://www.google.com/ig), [Apple Dashboard](http://www.apple.com/downloads/dashboard/), [Opera](http://www.opera.com/), [Windows Live](http://www.live.com/)) search widgets with some Javascript voodoo. See [my previous post for more info](http://martin.ankerl.com/2008/03/18/netvibes-widgets-for-jdk-and-oss-search/) about these widgets. You can try them inline here:
+I have just updated the [Netvibes](http://www.netvibes.com/) ([iGoogle](http://www.google.com/ig), [Apple Dashboard](http://www.apple.com/downloads/dashboard/), [Opera](http://www.opera.com/), [Windows Live](http://www.live.com/)) search widgets with some Javascript voodoo. See [my previous post for more info](/2008/03/18/netvibes-widgets-for-jdk-and-oss-search/) about these widgets. You can try them inline here:
 
 
 

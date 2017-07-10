@@ -3,7 +3,6 @@ author: martin.ankerl@gmail.com
 comments: true
 date: 2006-12-08 20:00:25+00:00
 layout: post
-link: http://martin.ankerl.com/2006/12/08/educational-videos/
 slug: educational-videos
 title: The Best Educational Videos
 wordpress_id: 76
