@@ -69,25 +69,24 @@ So, what is the best terminal? The answer is actually quite simple:
 ## Other Remarks
 
 * Windows does not have the time command, so I wrote a simple Ruby script that does the same thing: 
-   ```ruby
-   before = Time.now
-   system(ARGV.join(" "))
-   after = Time.now
-   puts "#{after-before} seconds"
-   ```
-   Also, `cmd.exe` only allows 9.999 lines of buffer.
+  ```ruby
+  before = Time.now
+  system(ARGV.join(" "))
+  after = Time.now
+  puts "#{after-before} seconds"
+  ```
+  Also, `cmd.exe` only allows 9.999 lines of buffer.
 
 * If you want to display bitmap fonts in `gnome-terminal`, edit `~/.fonts.conf` and add these lines right after the opening tag:
-   ```xml
-   <!-- Accept bitmap fonts -->
-   <selectfont>
-     <acceptfont>
-       <pattern>
-         <patelt name="scalable"><bool>false</bool></patelt>
-       </pattern>
-     </acceptfont>
-   </selectfont>
-   ```
-
+  ```xml
+  <!-- Accept bitmap fonts -->
+  <selectfont>
+    <acceptfont>
+      <pattern>
+        <patelt name="scalable"><bool>false</bool></patelt>
+      </pattern>
+    </acceptfont>
+  </selectfont>
+  ```
 
 I hope this is helpful in your choice of the best console.
