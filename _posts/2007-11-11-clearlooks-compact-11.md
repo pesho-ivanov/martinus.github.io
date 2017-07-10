@@ -21,13 +21,7 @@ The [Clearlooks Compact](/2007/11/04/clearlooks-compact-gnome-theme/) theme was 
 This encouraged me to do some further updates, I have incorporated lots of several tips and from the post "[Making Eclipse look good on Linux](http://blog.xam.dk/archives/81-Making-Eclipse-look-good-on-Linux.html)". The result is a very compact theme that does not waste space if possible.
 
 
+* Get Clearlooks Compact [here](/2007/11/04/clearlooks-compact-gnome-theme/).
+* Vote [here](http://www.gnome-look.org/content/show.php/Clearlooks+Compact?content=69357) if you think its good or bad.
 
-
-  * Get Clearlooks Compact [here](/2007/11/04/clearlooks-compact-gnome-theme/).
-
-
-  * Vote [here](http://www.gnome-look.org/content/show.php/Clearlooks+Compact?content=69357) if you think its good or bad.
-
-
-
-Hope you like it as much as I do
+Hope you like it as much as I do :-)

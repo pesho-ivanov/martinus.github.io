@@ -18,13 +18,11 @@ tags:
 
 [XDCC-Fetch](http://xdccfetch.sourceforge.net/) is a nice little application written in Ruby that is able to download from [XDCC](http://en.wikipedia.org/wiki/XDCC) bots on IRC. I have updated it to work with fox 1.6, so this should work with the recent Ruby version.
 
-
-
-# Screenshot
+## Screenshot
 
 
 
-![](/img/2007/11/xdcc-fetch.png)
+![XDCC-Fetch](/img/2007/11/xdcc-fetch.png)
 
 
 Unfortunately I don't really have the time nor the interest to continue development for XDCC-Fetch. Please [contact me](mailto:martin.ankerl@gmail.com) if you are interested to continue development.
