@@ -63,29 +63,29 @@ The code for the `CachedProxy.create()` method is this:
  */
 @SuppressWarnings("unchecked")
 public static <t> T create(final Class<t> cl, final T code) {
-	// create the cache
-	final Map<args, Object> argsToOutput = new HashMap<args, Object>();
+  // create the cache
+  final Map<args, Object> argsToOutput = new HashMap<args, Object>();
 
-	// proxy for the interface T
-	return (T) Proxy.newProxyInstance(cl.getClassLoader(), new Class<?>[] { cl }, new InvocationHandler() {
+  // proxy for the interface T
+  return (T) Proxy.newProxyInstance(cl.getClassLoader(), new Class<?>[] { cl }, new InvocationHandler() {
 
-		@Override
-		public Object invoke(final Object proxy, final Method method, final Object[] args) throws Throwable {
-			final Args input = new Args(method, args);
-			Object result = argsToOutput.get(input);
-			// check containsKey to support null values
-			if (result == null && !argsToOutput.containsKey(input)) {
-				// make sure exceptions are handled transparently
-				try {
-					result = method.invoke(code, args);
-					argsToOutput.put(input, result);
-				} catch (InvocationTargetException e) {
-					throw e.getTargetException();
-				}
-			}
-			return result;
-		}
-	});
+    @Override
+    public Object invoke(final Object proxy, final Method method, final Object[] args) throws Throwable {
+      final Args input = new Args(method, args);
+      Object result = argsToOutput.get(input);
+      // check containsKey to support null values
+      if (result == null && !argsToOutput.containsKey(input)) {
+        // make sure exceptions are handled transparently
+        try {
+          result = method.invoke(code, args);
+          argsToOutput.put(input, result);
+        } catch (InvocationTargetException e) {
+          throw e.getTargetException();
+        }
+      }
+      return result;
+    }
+  });
 }
 ```
 
