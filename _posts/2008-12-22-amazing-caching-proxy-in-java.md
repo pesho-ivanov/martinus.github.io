@@ -43,7 +43,7 @@ That's it, and the application is blazingly fast again.
 
 **UPDATE**: Here is an article "[Memoization in Java Using Dynamic Proxy Classes](http://www.onjava.com/pub/a/onjava/2003/08/20/memoization.html)" that does (almost) exactly the same as this code.
 
-## >How To Do This
+## How To Do This
 
 All this sounds nice, but can you do this in java? Turns out you can and it is not that difficult either. The feature that makes it all possible is [Dynamic Proxy](http://java.sun.com/j2se/1.4.2/docs/guide/reflection/proxy.html). With it you can implement interfaces *at runtime*. You take an interface, create a proxy for it with `Proxy.newProxyInstance(...)`, supply an `InvocationHandler` that implements the `invoke()` method, and you are done.
 
