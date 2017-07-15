@@ -20,16 +20,22 @@ The zip file contains these images in 60, 90, 300, and 600 DPI:
 
 
 1. ![](/img/2011/06/bitcoin_144x144.png)
+
 1. ![](/img/2011/06/bitcoin_accept_bright_145x44.png)
+
 1. ![](/img/2011/06/bitcoin_accept_dark_145x44.png)
+
 1. ![](/img/2011/06/bitcoin_accept_rect_button_168x64.png)
+
 1. ![](/img/2011/06/bitcoin_accept_round_button_168x64.png)
+
 1. ![](/img/2011/06/bitcoin_bright_306x64.png)
+
 1. ![](/img/2011/06/bitcoin_dark_306x64.png)
+
 1. ![](/img/2011/06/bitcoin-box-60x60.png) 
 
 
 This work is in the [Public Domain](http://creativecommons.org/licenses/publicdomain/).
 
 If you like this, feel free to donate a few coins to [15eDP3G4SpjHGX81TeCCKmsACi1KQ2sNk7 ](http://blockexplorer.com/address/15eDP3G4SpjHGX81TeCCKmsACi1KQ2sNk7)
-
