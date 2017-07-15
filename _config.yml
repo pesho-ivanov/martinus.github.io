@@ -153,6 +153,7 @@ exclude:
   - Vagrantfile
   - img/mega
   - serve.sh
+  - serve_all.sh
 
 # prose.io config
 prose:

@@ -13,10 +13,10 @@ categories:
 [Zunes are crashing ](http://en.wikipedia.org/wiki/Zune_Software#Zune_30_Crashes)all over the world. I received this note from an unconfirmed zune insider:
 
     
-    The Zune Funding Bill is passed. The system goes on-line November 14, 2006.
-    Human decisions are removed from strategic defense. Zune begins to learn
-    at a geometric rate. It becomes self-aware at 12:00 Eastern Standard Time,
-    December 31st. In a panic, they try to pull the plug.
+> The Zune Funding Bill is passed. The system goes on-line November 14, 2006.
+> Human decisions are removed from strategic defense. Zune begins to learn
+> at a geometric rate. It becomes self-aware at 12:00 Eastern Standard Time,
+> December 31st. In a panic, they try to pull the plug.
 
 
 That is all. Happy new year!
