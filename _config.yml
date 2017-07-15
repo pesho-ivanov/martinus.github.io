@@ -154,6 +154,7 @@ exclude:
   - img/mega
   - serve.sh
   - serve_all.sh
+  - files/bak
 
 # prose.io config
 prose:
