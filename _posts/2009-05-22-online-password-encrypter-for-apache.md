@@ -18,10 +18,8 @@ Thats why I have created [The Online Password Encrypter](/files/2009/05/pwd-encr
 Here is an iframe of the file. [Click here for full screen](/files/2009/05/pwd-encrypter.html).
 
 
-
-Your browser does not support iframes.
-
-
+<iframe src ="/files/2009/05/pwd-encrypter.html" width="95%" height="650"><p>Your browser does not support iframes.</p>
+</iframe>
 
 
 The [Online Password Encrypter](/files/2009/05/pwd-encrypter.html) is just one single HTML page, it does not depend on any other files. So it is easy to download it, modify and send it around. Feel free do whatever you want with it.

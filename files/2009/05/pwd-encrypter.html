@@ -1,0 +1,398 @@
+<html>
+<head>
+    <style type="text/css">
+    <!--
+      a {
+        color: #3256B6;
+      }
+      a:visited {
+        color: #7130B8;
+      }
+      a:hover, a:visited:hover {
+        color: #C61A1A;
+        text-decoration: none;
+      }
+      body, td {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 80%;
+        text-align: center;
+      }
+      h1, h2, h3 {
+        font-family: Georgia, Palatino, "Times New Roman", Times, serif;
+        font-weight: normal;
+      }
+      h1 { 
+        font-size: 400%;
+        margin-bottom: 0;
+        text-align: center;
+      }
+      h2 {
+        color: #c61a1a;
+        font-size: 180%;
+      }
+      h3 {
+        color: #c61a1a;
+        font-size: 130%;
+      }
+
+      dd {
+        margin-bottom: 1em;
+      }
+      p {
+        line-height: 1.7;
+        margin-top: 1.5em;
+      }
+      .two-column {
+        float: left;
+        margin-bottom: 1.5em;
+        padding-left: 10%;
+        padding-right: 10%;
+        width: 80%;
+      }
+      .two-column .column {
+        float: left;
+        width: 49%;
+      }
+      #page, td, p {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: justify;
+        width: 42em;
+      }
+      #search-box {
+        background-color: #fcfcf1;
+        border-top: 1px dotted #ddd;
+        border-bottom: 1px dotted #ddd;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        text-align: center;
+      }
+      #search-box form {
+        margin: 1.5em;
+      }
+      #search-box .textbox {
+        font-size: 100%;
+        width: 250px;
+      }
+      #search-box input[type=submit] {
+        font-size: 140%;
+      }
+      #footer {
+	margin-top:40px;
+        text-align: center;
+        font-size: 80%;
+	color: #888;
+      }
+      .desc {
+        text-align: right;
+	width:20%;
+      }
+	
+    -->
+    </style>
+
+	<script type="text/javascript">
+/*
+ * A JavaScript implementation of the Secure Hash Algorithm, SHA-1, as defined
+ * in FIPS PUB 180-1
+ * Version 2.1-BETA Copyright Paul Johnston 2000 - 2002.
+ * Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+ * Distributed under the BSD License
+ * See http://pajhome.org.uk/crypt/md5 for details.
+ */
+
+/*
+ * Configurable variables. You may need to tweak these to be compatible with
+ * the server-side, but the defaults work in most cases.
+ */
+var hexcase = 0;  /* hex output format. 0 - lowercase; 1 - uppercase        */
+var b64pad  = "=";/* base-64 pad character. "=" for strict RFC compliance   */
+var chrsz   = 8;  /* bits per input character. 8 - ASCII; 16 - Unicode      */
+
+/*
+ * These are the functions you'll usually want to call
+ * They take string arguments and return either hex or base-64 encoded strings
+ */
+function hex_sha1(s){return binb2hex(core_sha1(str2binb(s),s.length * chrsz));}
+function b64_sha1(s){return binb2b64(core_sha1(str2binb(s),s.length * chrsz));}
+function str_sha1(s){return binb2str(core_sha1(str2binb(s),s.length * chrsz));}
+function hex_hmac_sha1(key, data){ return binb2hex(core_hmac_sha1(key, data));}
+function b64_hmac_sha1(key, data){ return binb2b64(core_hmac_sha1(key, data));}
+function str_hmac_sha1(key, data){ return binb2str(core_hmac_sha1(key, data));}
+
+/*
+ * Perform a simple self-test to see if the VM is working
+ */
+function sha1_vm_test()
+{
+  return hex_sha1("abc") == "a9993e364706816aba3e25717850c26c9cd0d89d";
+}
+
+/*
+ * Calculate the SHA-1 of an array of big-endian words, and a bit length
+ */
+function core_sha1(x, len)
+{
+  /* append padding */
+  x[len >> 5] |= 0x80 << (24 - len % 32);
+  x[((len + 64 >> 9) << 4) + 15] = len;
+
+  var w = Array(80);
+  var a =  1732584193;
+  var b = -271733879;
+  var c = -1732584194;
+  var d =  271733878;
+  var e = -1009589776;
+
+  for(var i = 0; i < x.length; i += 16)
+  {
+    var olda = a;
+    var oldb = b;
+    var oldc = c;
+    var oldd = d;
+    var olde = e;
+
+    for(var j = 0; j < 80; j++)
+    {
+      if(j < 16) w[j] = x[i + j];
+      else w[j] = rol(w[j-3] ^ w[j-8] ^ w[j-14] ^ w[j-16], 1);
+      var t = safe_add(safe_add(rol(a, 5), sha1_ft(j, b, c, d)), 
+                       safe_add(safe_add(e, w[j]), sha1_kt(j)));
+      e = d;
+      d = c;
+      c = rol(b, 30);
+      b = a;
+      a = t;
+    }
+
+    a = safe_add(a, olda);
+    b = safe_add(b, oldb);
+    c = safe_add(c, oldc);
+    d = safe_add(d, oldd);
+    e = safe_add(e, olde);
+  }
+  return Array(a, b, c, d, e);
+  
+}
+
+/*
+ * Perform the appropriate triplet combination function for the current
+ * iteration
+ */
+function sha1_ft(t, b, c, d)
+{
+  if(t < 20) return (b & c) | ((~b) & d);
+  if(t < 40) return b ^ c ^ d;
+  if(t < 60) return (b & c) | (b & d) | (c & d);
+  return b ^ c ^ d;
+}
+
+/*
+ * Determine the appropriate additive constant for the current iteration
+ */
+function sha1_kt(t)
+{
+  return (t < 20) ?  1518500249 : (t < 40) ?  1859775393 :
+         (t < 60) ? -1894007588 : -899497514;
+}  
+
+/*
+ * Calculate the HMAC-SHA1 of a key and some data
+ */
+function core_hmac_sha1(key, data)
+{
+  var bkey = str2binb(key);
+  if(bkey.length > 16) bkey = core_sha1(bkey, key.length * chrsz);
+
+  var ipad = Array(16), opad = Array(16);
+  for(var i = 0; i < 16; i++) 
+  {
+    ipad[i] = bkey[i] ^ 0x36363636;
+    opad[i] = bkey[i] ^ 0x5C5C5C5C;
+  }
+
+  var hash = core_sha1(ipad.concat(str2binb(data)), 512 + data.length * chrsz);
+  return core_sha1(opad.concat(hash), 512 + 160);
+}
+
+/*
+ * Add integers, wrapping at 2^32. This uses 16-bit operations internally
+ * to work around bugs in some JS interpreters.
+ */
+function safe_add(x, y)
+{
+  var lsw = (x & 0xFFFF) + (y & 0xFFFF);
+  var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+  return (msw << 16) | (lsw & 0xFFFF);
+}
+
+/*
+ * Bitwise rotate a 32-bit number to the left.
+ */
+function rol(num, cnt)
+{
+  return (num << cnt) | (num >>> (32 - cnt));
+}
+
+/*
+ * Convert an 8-bit or 16-bit string to an array of big-endian words
+ * In 8-bit function, characters >255 have their hi-byte silently ignored.
+ */
+function str2binb(str)
+{
+  var bin = Array();
+  var mask = (1 << chrsz) - 1;
+  for(var i = 0; i < str.length * chrsz; i += chrsz)
+    bin[i>>5] |= (str.charCodeAt(i / chrsz) & mask) << (24 - i%32);
+  return bin;
+}
+
+/*
+ * Convert an array of big-endian words to a string
+ */
+function binb2str(bin)
+{
+  var str = "";
+  var mask = (1 << chrsz) - 1;
+  for(var i = 0; i < bin.length * 32; i += chrsz)
+    str += String.fromCharCode((bin[i>>5] >>> (24 - i%32)) & mask);
+  return str;
+}
+
+/*
+ * Convert an array of big-endian words to a hex string.
+ */
+function binb2hex(binarray)
+{
+  var hex_tab = hexcase ? "0123456789ABCDEF" : "0123456789abcdef";
+  var str = "";
+  for(var i = 0; i < binarray.length * 4; i++)
+  {
+    str += hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8+4)) & 0xF) +
+           hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8  )) & 0xF);
+  }
+  return str;
+}
+
+/*
+ * Convert an array of big-endian words to a base-64 string
+ */
+function binb2b64(binarray)
+{
+  var tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+  var str = "";
+  for(var i = 0; i < binarray.length * 4; i += 3)
+  {
+    var triplet = (((binarray[i   >> 2] >> 8 * (3 -  i   %4)) & 0xFF) << 16)
+                | (((binarray[i+1 >> 2] >> 8 * (3 - (i+1)%4)) & 0xFF) << 8 )
+                |  ((binarray[i+2 >> 2] >> 8 * (3 - (i+2)%4)) & 0xFF);
+    for(var j = 0; j < 4; j++)
+    {
+      if(i * 8 + j * 6 > binarray.length * 32) str += b64pad;
+      else str += tab.charAt((triplet >> 6*(3-j)) & 0x3F);
+    }
+  }
+  return str;
+}
+	</script>
+	
+	<script type="text/javascript">
+function update() {
+	var txt = document.forms["data"].elements["name"].value
+	var pwd = document.forms["data"].elements["pwd"].value
+	var pwd2 = document.forms["data"].elements["pwd2"].value
+	var output = document.getElementById("output");
+
+	rating = calcStrength();
+	
+	if (rating <= 0) {
+		output.value = "password too weak"
+	} else if (pwd != pwd2) {
+		output.value = "passwords do not match";
+	} else {
+		output.value = txt + ":{SHA}" + b64_sha1(pwd);
+	}
+}
+	</script>
+
+	<script language="javascript">
+/* taken from http://marketingtechblog.com/2007/08/27/javascript-password-strength/ */
+function calcStrength() {
+	var strength = document.getElementById("strength");
+	var strongRegex = new RegExp("^(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
+	var mediumRegex = new RegExp("^(?=.{7,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
+	var enoughRegex = new RegExp("(?=.{6,}).*", "g");
+	var pwd = document.getElementById("pwd");
+	var usr = document.getElementById("name");
+
+	var rating = 0;
+	if (pwd.value.length==0 || pwd.value == usr.value) {
+		strength.innerHTML = '<span style="color:red; font-weight:bold;">Very Weak</span>';
+		rating = 0;
+	} else if (false == enoughRegex.test(pwd.value)) {
+		strength.innerHTML = '<span style="color:red; font-weight:bold;">Very Weak</span>';
+		rating = 0;
+	} else if (strongRegex.test(pwd.value)) {
+		strength.innerHTML = '<span style="color:green; font-weight:bold;">Strong</span>';
+		rating = 3;
+	} else if (mediumRegex.test(pwd.value)) {
+		strength.innerHTML = '<span style="color:orange; font-weight:bold;">Medium</span>';
+		rating = 2;
+	} else {
+		strength.innerHTML = '<span style="color:red; font-weight:bold;">Weak</span>';
+		rating = 1;
+	}
+	return rating;
+}
+</script>
+</head>
+<body>
+<div id="page">
+<div id="header">
+	<h1>Password Encrypter</h1>
+	<h2>Local Password Encryption without Data Sending</h2>
+</div>
+<div id="content">
+<p>Encrypts your password completely inside your browser, without sending any information over the internet.
+
+<h3>Enter Your Data</h3>
+<form name="data" style="text-align:left;">
+<table>
+	<tr>
+		<td class="desc">User name</td>
+		<td><input id="name" type="text" size="20" onchange="update()" onkeyup="update()" /> <i>no special characters!</i></td>
+	</tr>
+	<tr>
+		<td class="desc">Choose password</td>
+		<td><input id="pwd" type="password" size="25" onchange="update()" onkeyup="update()" /> <strong><span id="strength"></span></strong></td>
+	</tr>
+	<tr>
+		<td class="desc">Re-enter password</td>
+		<td><input id="pwd2" type="password" size="25" onchange="update()" onkeyup="update()" /> </td>
+	</tr>
+	<!-- 
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type="button" name="encrypt" value="encrypt password" onclick="update()" />
+	</tr>
+	-->
+</table>
+<h3>Generated Key</h3>
+<table>
+	<tr>
+		<td class="desc">copy & paste</td>
+		<td><input id="output" type="text" readonly size="40" onclick="this.select()" /></td>
+	</tr>
+</table>
+<p>
+Click into the above field and press Ctrl+C to copy it into the clipboard. The generated key is <a href="http://en.wikipedia.org/wiki/SHA_hash_functions#SHA-0_and_SHA-1">SHA-1</a> encrypted and can be copy & pasted into a <tt>.htpasswd</tt> file to be used by <a href="http://httpd.apache.org/docs/2.0/programs/htpasswd.html">Apache authentication</a>. 
+</form>
+<p>
+</div>
+<div id="footer">
+Created by <a href="http://martin.ankerl.com">Martin Ankerl</a> 2009. Thanks for the idea to <a href="http://aspirine.org/htpasswd_en.html">aspire.org</a>. Encryption is performed with this <a href="http://pajhome.org.uk/crypt/md5">SHA1 javascript library</a>. Password strength meter is taken from <a href="http://marketingtechblog.com/2007/08/27/javascript-password-strength/">The Marketing Technology Blog</a>. CSS design taken from <a href="http://www.ruby-lang.org/en/oops.html">Ruby</a>.
+</div>
+</div>
+
+</body>
+</html>

@@ -17,6 +17,7 @@ Finally! [PROFACTOR ](http://www.profactor.at/) (the company I work for) has dec
 
 Here you can see it in action:
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hzWRGiZY3fc" frameborder="0" allowfullscreen></iframe>
 
 I am mostly involved in the algorithm development on the object recognition side. We have put quite some effort into making it fast: depending on the kind of object, we can have a reliable recognition in as low as 0.1 second on a standard desktop PC.
 
