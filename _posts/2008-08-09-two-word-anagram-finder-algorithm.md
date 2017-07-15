@@ -164,7 +164,8 @@ query_letters_sorted.each do |letter|
     used_letters[letter] = true
 end
 
-# Maps from cummulative hash of a word to a list of words that have this hash code.
+# Maps from cummulative hash of a word to a list of words
+# that have this hash code.
 hashToWords = Hash.new do |hash, key|
     hash[key] = Array.new
 end
@@ -204,7 +205,8 @@ while prev < txt_size
 
     prev = idx + 1
 
-    # no need to check end of file because we have to end with new line
+    # no need to check end of file because
+    # we have to end with new line
     idx = txt.index(separator, prev)
 end
 ```

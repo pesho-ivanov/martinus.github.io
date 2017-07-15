@@ -152,6 +152,7 @@ exclude:
   - README.md
   - Vagrantfile
   - img/mega
+  - serve.sh
 
 # prose.io config
 prose:
