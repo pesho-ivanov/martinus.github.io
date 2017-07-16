@@ -12,4 +12,4 @@ categories:
 
 Some robot stuff I've been working on.
 
-https://www.youtube.com/watch?v=R4Wsa7bPRPo
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R4Wsa7bPRPo" frameborder="0" allowfullscreen></iframe>

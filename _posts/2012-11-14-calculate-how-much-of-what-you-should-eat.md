@@ -12,10 +12,7 @@ tags:
 - keto
 ---
 
-I proudly present: the **[Keto Calculator](http://keto-calculator.ankerl.com/)**.
-
-
-
+I proudly present: the **[Keto Calculator](https://keto-calculator.ankerl.com/)**.
 
 
 If you do not know about the ketogenic diet, [here are lots of introduction videos](http://j.mp/lchf).
