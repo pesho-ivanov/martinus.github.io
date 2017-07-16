@@ -10,4 +10,5 @@ categories:
 - fun
 ---
 
-https://www.youtube.com/watch?v=iv_vXOdaspg
+<iframe width="560" height="315" src="https://www.youtube.com/embed/iv_vXOdaspg" frameborder="0" allowfullscreen></iframe>
+
