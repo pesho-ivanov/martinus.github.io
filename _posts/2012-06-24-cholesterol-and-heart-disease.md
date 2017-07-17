@@ -44,5 +44,5 @@ Sources
 
 * [The straight dope on cholesterol – Part VI](http://eatingacademy.com/nutrition/the-straight-dope-on-cholesterol-part-vi), [Part V](http://eatingacademy.com/nutrition/the-straight-dope-on-cholesterol-part-v)
 * [The Triglyceride / HDL-C Ratio - Thomas Dayspring MD, FACP](http://www.lipidcenter.com/pdf/TG_HDL_Ratio.pdf)
-* [Low Carb Explained, Interview with Dr. Mary Vernon](http://www.youtube.com/watch?v=kaquSijXJkQ)
-* [Specialty Health - Dr. Tara Dall - It's not the passengers, it's the cars](http://www.youtube.com/watch?v=8fLuxjQ2s6s)
+* [Low Carb Explained, Interview with Dr. Mary Vernon](https://www.youtube.com/watch?v=kaquSijXJkQ)
+* [Specialty Health - Dr. Tara Dall - It's not the passengers, it's the cars](https://www.youtube.com/watch?v=8fLuxjQ2s6s)

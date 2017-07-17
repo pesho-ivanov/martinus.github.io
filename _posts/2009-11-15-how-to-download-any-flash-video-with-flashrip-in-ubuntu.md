@@ -11,7 +11,7 @@ categories:
 - programming
 ---
 
-Downloading flash videos in Linux was already [not too difficult](http://www.youtube.com/watch?v=vxBGr2T1Ueo), but thanks to [flashrip](/files/2009/11/flashrip.sh), it has gotten very easy. Here is a little demo how it works:
+Downloading flash videos in Linux was already [not too difficult](https://www.youtube.com/watch?v=vxBGr2T1Ueo), but thanks to [flashrip](/files/2009/11/flashrip.sh), it has gotten very easy. Here is a little demo how it works:
 
 Once installed, you basically use one click to get a video preview and then a prompt with the filename to save the file. The script works by looking into the newest flash files in your `/tmp` folder, and creates a hardlink to the save destination. When the video has fully loaded, you can close the browser window. The temp file will get deleted, and the linked copy will remain.
 

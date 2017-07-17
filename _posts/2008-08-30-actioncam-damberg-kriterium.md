@@ -14,7 +14,7 @@ tags:
 - profactor
 ---
 
-On 29th August, we went on a cool mountain biking trip around the Damberg. Here is a map of the famous  [Damberg Kriterium](http://www.bikemap.net/route/58073). It is about 43 km, and 850 meters in altitude (bikemap overestimates 1040m). It was a fun trip, thanks for [Jürgen](http://www.youtube.com/user/iron717) (who was _NOT_ the organizer) for organizing this! Here is the route:
+On 29th August, we went on a cool mountain biking trip around the Damberg. Here is a map of the famous  [Damberg Kriterium](http://www.bikemap.net/route/58073). It is about 43 km, and 850 meters in altitude (bikemap overestimates 1040m). It was a fun trip, thanks for [Jürgen](https://www.youtube.com/user/iron717) (who was _NOT_ the organizer) for organizing this! Here is the route:
 
 I got a brand new [Panasonic Lumix DMC-TZ5](http://www.dpreview.com/reviews/panasonictz5/), which is an absolutely excellent compact camera. It can record HDTV 16:9 videos, so I did what obviously everybody should do: mount it on a cycling helmet. The construction seems adventurous: I use the camera's, one cut-off mini tripod, one rubber band, my cycling helmet,  the camera's wristband as a safety backup, and a healthy dose of good faith. That's it! The whole construct may look a bit fragile, but simplicity is the key; it is actually very sturdy, because of the simple design there is almost nothing that can go wrong. The camera position is excellent too. Jürgen has made a really cool remix of the videos:
 

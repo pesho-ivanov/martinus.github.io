@@ -15,9 +15,9 @@ Here are two videos I've done with my awesome action cam:
 
 ## Surfing in Peniche
 
-<iframe width="640" height="480" src="http://www.youtube.com/embed/pRQVCN2b70k" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/pRQVCN2b70k" frameborder="0" allowfullscreen></iframe>
 
 
 ## Mountainbike Downhill in Steyr
 
-<iframe width="640" height="480" src="http://www.youtube.com/embed/sp-Wq1YtvrE" frameborder="0" allowfullscreen></iframe>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/sp-Wq1YtvrE" frameborder="0" allowfullscreen></iframe>

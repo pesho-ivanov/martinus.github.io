@@ -34,12 +34,12 @@ Here are a few samples of stuff that we are working on:
 
 ## AHUMARI
 
-<iframe width="560" height="349" src="http://www.youtube.com/embed/Q2u_EiV2fmc" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="349" src="http:s//www.youtube.com/embed/Q2u_EiV2fmc" frameborder="0" allowfullscreen></iframe>
 
 
 ## iRobFeeder
 
-<iframe width="560" height="349" src="http://www.youtube.com/embed/24iTdqDpK1A" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="349" src="https://www.youtube.com/embed/24iTdqDpK1A" frameborder="0" allowfullscreen></iframe>
 
 
 Your place of work will be at [4407 Steyr-Gleink](http://goo.gl/maps/npf3).

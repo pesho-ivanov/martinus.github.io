@@ -11,7 +11,7 @@ categories:
 - programming
 ---
 
-Finally! [PROFACTOR ](http://www.profactor.at/) (the company I work for) has decided to get a [youtube account](http://www.youtube.com/user/profactorgroup) and upload some videos. Best of all, this gives me a chance to show off a bit of my (our) work ;)
+Finally! [PROFACTOR ](http://www.profactor.at/) (the company I work for) has decided to get a [youtube account](https://www.youtube.com/user/profactorgroup) and upload some videos. Best of all, this gives me a chance to show off a bit of my (our) work ;)
 
 [iRob Feeder](http://www.profactor.at/en/en/irobfeeder.html) is a solution for equipping of industry facilities. We can recognize the 3D position of different pices, grasp it, put it wherever you want them, and all of this quickly. Actually, the whole thing is a bit more than that, since it is possible to reuse components from it. We have a nice demonstrator for very fast object recognition moving along on a conveyer belt.
 
