@@ -10,46 +10,33 @@ categories:
 - programming
 ---
 
-  * [Part 1: Hopscotch & Robin Hood Hashing](http://martin.ankerl.com/2016/09/15/very-fast-hashmap-in-c-part-1/)
-
-
-  * [Part 2: Implementation Variants](http://martin.ankerl.com/2016/09/21/very-fast-hashmap-in-c-part-2/)
-
-
-  * [Part 3: Benchmark Results](http://martin.ankerl.com/2016/09/21/very-fast-hashmap-in-c-part-3/)
-
-
-
+  * [Part 1: Hopscotch & Robin Hood Hashing](/2016/09/15/very-fast-hashmap-in-c-part-1/)
+  * [Part 2: Implementation Variants](/2016/09/21/very-fast-hashmap-in-c-part-2/)
+  * [Part 3: Benchmark Results](/2016/09/21/very-fast-hashmap-in-c-part-3/)
 
 * * *
 
+As promised in [part 2](/2016/09/21/very-fast-hashmap-in-c-part-2/) of this series, I have some interesting benchmarks of the different hash map variants. In this part I will discuss the results, and present my conclusions. Click any benchmark to get a much larger graph.
 
 
-As promised in [part 2](http://martin.ankerl.com/2016/09/21/very-fast-hashmap-in-c-part-2/) of this series, I have some interesting benchmarks of the different hash map variants. In this part I will discuss the results, and present my conclusions. Click any benchmark to get a much larger graph.
+## How I Benchmark
 
 
-
-# How I Benchmark
-
-
-I'm inserting 100 million int -> int pairs into different hashmap variants, and every 100000 inserts I am taking measurements (insertion time, memory usage, time to lookup 1 million elements, where half of the lookups fail.). As a hash function I am using [std::hash](http://en.cppreference.com/w/cpp/utility/hash). My computer is an Intel i5-4670 @ 3.4 GHz, 16GB RAM, Visual Studio 2015 Update 3, 64bit.
+I'm inserting 100 million int -> int pairs into different hashmap variants, and every 100000 inserts I am taking measurements (insertion time, memory usage, time to lookup 1 million elements, where half of the lookups fail.). As a hash function I am using `std::hash`. My computer is an Intel i5-4670 @ 3.4 GHz, 16GB RAM, Visual Studio 2015 Update 3, 64bit.
 
 
-
-# Insertion Time Benchmark
+## Insertion Time Benchmark
 
 
 [![all_insertion_time](/img/2016/09/all_insertion_time.png)](/img/2016/09/all_big_insertion_time.png)
 
-In this graph the reallocations are very clearly visible. All variants are doubling the size of the internally used array when it gets full. As expected in [part 2](http://martin.ankerl.com/2016/09/21/very-fast-hashmap-in-c-part-2/), it can be seen that insertion time slows down when "Robin Hood with Infobyte" gets full, and also when "Robin Hood with Infobyte & Fastforward" gets full. This is due to the fact that more and more data needs to be moved around so the hashmap can stay sorted.
+In this graph the reallocations are very clearly visible. All variants are doubling the size of the internally used array when it gets full. As expected in [part 2](/2016/09/21/very-fast-hashmap-in-c-part-2/), it can be seen that insertion time slows down when "Robin Hood with Infobyte" gets full, and also when "Robin Hood with Infobyte & Fastforward" gets full. This is due to the fact that more and more data needs to be moved around so the hashmap can stay sorted.
 
 Dealing with the fastforward field has a clear overhead associated with it, insertion is quite a bit slower.
 
 For "Robin Hood with Infobits and Hashbit", insertion time is very fast: mostly because the offset is limited to 16, if it would get larger the hashmap's size is doubled. Hopscotch insertion is almost as fast, just a tad slower.
 
-All variants are _much _faster than std::unordered_map. The comparison is a bit unfair, because in my implementations I do not have to support the same interface as std::unordered_map does.
-
-
+All variants are _much_ faster than `std::unordered_map`. The comparison is a bit unfair, because in my implementations I do not have to support the same interface as `std::unordered_map` does.
 
 
 ## Memory Usage
@@ -65,9 +52,7 @@ When limiting the maximum offset as in "Robin Hood with Infobits & Hashbits", re
 
 For Hopscotch this reallocation seems to happen still a bit earlier. The overhead in my implementation is 16 bit, so the line overlaps a lot with the Infobyte & Fastforward variant.
 
-All my implemented variants need much less memory than std::unordered_map. While std's implementation allocates new memory for each insert, in all my variants the memory stays constant until reallocation occurs.
-
-
+All my implemented variants need much less memory than `std::unordered_map`. While std's implementation allocates new memory for each insert, in all my variants the memory stays constant until reallocation occurs.
 
 
 ## Lookup Time
@@ -87,23 +72,18 @@ Last but not least, the Hopscotch variant. After spending quite some time tuning
 
 
 
-# Summary
+## Summary
 
 
 [![summary](/img/2016/09/summary.png)](/img/2016/09/summary_big.png)
-I've summed up the average insertion time, average lookup time, and average memory usage over all the different samples. std::unordered_map is the reference with 100%. Here are my conclusions:
 
+I've summed up the average insertion time, average lookup time, and average memory usage over all the different samples. `std::unordered_map` is the reference with 100%. Here are my conclusions:
 
+* The HopScotch implementation is the best overall for most use cases, if you have a reasonable hash function. Insertion time is just a tad slower than the fastest variant, memory usage is a bit higher than the other variants but still almost 3 times better than `std::unordered_map`, and lookup is blazingly fast with almost twice the speed as `std::unordered_map`. 0.0404 seconds to look up 1 million elements, or just 40.4 nanoseconds per lookup on average is not too shabby. 
 
+* If your hash function is bad or compactness is of utmost importance, use the _Robin Hood with Infobyte_ variant. 
 
-
-  * The HopScotch implementation is the best overall for most use cases, if you have a reasonable hash function. Insertion time is just a tad slower than the fastest variant, memory usage is a bit higher than the other variants but still almost 3 times better than std::unordered_map, and lookup is blazingly fast with almost twice the speed as unordered_map. 0.0404 seconds to look up 1 million elements, or just 40.4 nanoseconds per lookup on average is not too shabby. 
-
-
-  * If your hash function is bad or compactness is of utmost importance, use the _Robin Hood with Infobyte_ variant. 
-
-
-  * If the std interface is important, stick to std::unordered_map. While it uses lots of memory, lookup times seem to be ok and fairly consistent.
+* If the `std` interface is important, stick to `std::unordered_map`. While it uses lots of memory, lookup times seem to be ok and fairly consistent.
 
 
 That's my tour of hashtable implementations. You can find my code on Github at [martinus/robin-hood-hashing](https://github.com/martinus/robin-hood-hashing). It still needs lots of cleanup, and most importantly, the ability to remove elements...
