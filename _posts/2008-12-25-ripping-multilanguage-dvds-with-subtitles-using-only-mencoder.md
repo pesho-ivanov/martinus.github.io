@@ -10,7 +10,7 @@ categories:
 - linux
 ---
 
-Yesterday at Christmas I got the [Akira Kurosawa](http://en.wikipedia.org/wiki/Akira_Kurosawa) Samurai Edition, which is a 7 disc DVD set of his awesome movies. I am converting it into the best quality files currently possible: MKV as the container, x264 codec for the video, dual audio, and with subtitles. This is short Howto so that I won't forget how :-)
+Yesterday at Christmas I got the [Akira Kurosawa](http://en.wikipedia.org/wiki/Akira_Kurosawa) Samurai Edition, which is a 7 disc DVD set of his awesome movies. I am converting it into the best quality files currently possible: MKV as the container, x264 codec for the video, dual audio, and with subtitles. This is short Howto so that I won't forget how :smiley:
 
 
 1. Create a file `~/.mplayer/mencoder.conf` with default compression settings. I use this, with encoding quality settings I have from [mplayer's x264 examples](http://www.mplayerhq.hu/DOCS/HTML/en/menc-feat-x264.html#menc-feat-x264-example-settings):
@@ -44,7 +44,7 @@ Yesterday at Christmas I got the [Akira Kurosawa](http://en.wikipedia.org/wiki/A
    #x264encopts=threads=auto:crf=23:turbo=2:subq=1:frameref=1
    ```
 
-1. I use *constant quality* setting. The advantage is that it requires only one pass, and you get, well, constant quality :-) In the config file find the `crf=20` section and change it to your desire.
+1. I use *constant quality* setting. The advantage is that it requires only one pass, and you get, well, constant quality :smiley: In the config file find the `crf=20` section and change it to your desire.
 
 1. Find out which DVD chapter you want to rip, starting with 1 up (e.g. `mplayer dvd://1`).
 

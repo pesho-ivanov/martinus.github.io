@@ -17,7 +17,7 @@ tags:
 
 RFind is a little application that indexes the filenames of a given directory, and allows to quickly search this index with regular expressions.
 
-The motivation behind this app was that someone thought this had to be in C++ to be fast, so I proved him wrong: search-on-typing with more than 500,000 indexed filenames is easily possible :-)
+The motivation behind this app was that someone thought this had to be in C++ to be fast, so I proved him wrong: search-on-typing with more than 500,000 indexed filenames is easily possible :smiley:
 
 I have tried to make this little tool very configurable so that is can be useful to everyone. Some of the features are:
 

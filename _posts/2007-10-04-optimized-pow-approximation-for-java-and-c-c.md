@@ -17,7 +17,7 @@ tags:
 - programming
 ---
 
-I have already written about approximations of e^x, log(x) and pow(a, b) in my post [Optimized Exponential Functions for Java](/2007/02/11/optimized-exponential-functions-for-java/). Now I have more :-) In particular, the pow() function is now even faster, simpler, and more accurate. Without further ado, I proudly give you the brand new approximation:
+I have already written about approximations of e^x, log(x) and pow(a, b) in my post [Optimized Exponential Functions for Java](/2007/02/11/optimized-exponential-functions-for-java/). Now I have more :smiley: In particular, the pow() function is now even faster, simpler, and more accurate. Without further ado, I proudly give you the brand new approximation:
 
 
 ## Approximation of pow() in Java
@@ -246,7 +246,7 @@ public static double pow(final double a, final double b) {
 }
 ```
 
-This concludes my little tutorial on microoptimization of the `pow()` function. If you have come this far, I congratulate your presistence :-)
+This concludes my little tutorial on microoptimization of the `pow()` function. If you have come this far, I congratulate your presistence :smiley:
 
 
 **UPDATE** Recently there several other approximative pow calculation methods have been developed, here are some others that I have found through [reddit](http://www.reddit.com/r/programming/comments/8kftl/fast_pow_approximation_in_java_and_c/):

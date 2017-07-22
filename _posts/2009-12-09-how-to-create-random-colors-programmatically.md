@@ -124,7 +124,7 @@ The final result:
 
 You can see that the first few values are very different, and the difference decreases as more colors are added (Z and E are already quite similar). Anyways, this is good enough for me.
 
-And because it is so beautiful, here are some more colors :-)
+And because it is so beautiful, here are some more colors :smiley:
 
 ### s=0.99, v=0.99
 

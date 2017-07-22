@@ -68,7 +68,7 @@ This is how I (In theory) go about things:
 	
 1. **Integrate/test/measure**: Test the system - use invariants as much as possible. In most cases your system will be efficient enough - if not measure and find out where the inefficiency is - look in two particular areas; I/O input especially where you have to parse the inputs and bad concurrency structures (two few or two many processes)
 
-In practise I do bits of 1..6 simultaneously ;-)
+In practise I do bits of 1..6 simultaneously :wink:
 
 The other thing is write clear specifications as you go - as you develop the program you will get sudden flashes of insight "ah ha - That's what it should do" - if you are on the right track carry on. If not throw away **ALL** your code and start again.
 
@@ -76,7 +76,7 @@ Oh and listen to your subconscious - if you get the "this is not right but I don
 
 There is a mis-conception - the best programs "write themselves" so they need no design they have always been and they will always be - you just have to see them and write them down. At first you grope blindly and then you see them.
 
-(This is the Platonic view of programming - that programs have a priori existence, we don't invent them, they have always been, we perceive them and write them down  :-)
+(This is the Platonic view of programming - that programs have a priori existence, we don't invent them, they have always been, we perceive them and write them down  :smiley:
 
 _This is the reason why two independent programmers when given a problem to solve often produce identical (to within renaming of parts) programs - since there is only one solution - the correct solution_	
 

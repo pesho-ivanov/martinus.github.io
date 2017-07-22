@@ -19,7 +19,7 @@ This theme is picking up some steam lately:
 
 
 * It is recommended from the [EeeUser Installation manual](http://wiki.eeeuser.com/ubuntu:eeexubuntu:customization) (also available in many other languages, see translations to the top right).
-* Somebody wrote an idea into [Ubuntu's Brainstorm](http://brainstorm.ubuntu.com/idea/6772/), and it got 86 votes already :-)
+* Somebody wrote an idea into [Ubuntu's Brainstorm](http://brainstorm.ubuntu.com/idea/6772/), and it got 86 votes already :smiley:
 * I have written [a bug report](https://bugs.launchpad.net/ubuntu/+source/ubuntu-artwork/+bug/160938 ) in Ubuntu's launchpad a while ago, and somebody wrote [an Eee PC blueprint](https://blueprints.launchpad.net/ubuntu-eee/+spec/compact-theme)
 * There is an entry in [Gnome-Look](http://www.gnome-look.org/content/show.php/Clearlooks+Compact?content=69357) and [Xfce-Look](http://www.xfce-look.org/content/show.php/Clearlooks%20Compact?content=69357).
 * And of course there are [several blog postings](http://blogsearch.google.com/blogsearch?hl=en&q=clearlooks+compact&btnG=Search+Blogs).

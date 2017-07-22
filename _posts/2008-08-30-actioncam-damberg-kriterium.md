@@ -36,7 +36,7 @@ Unfortunately, I have losts the videos. Here is just a description what was in t
 1. On the Damberg
 1. Right Before the Dambergwarte: Recorded at 16:11:31. A few meters before the Dambergwarte. This is the only time you see us standing around!
 1. Speeding Past the Dambergwarte: Recorded at 16:13:11. Alex in the front, me right behind him. The track is fast, but partly muddy and bumpy. I almost hit a tree at 1:25, Alex looses his precious chocolate bar at 2:20.
-1. Downhill to the Hertlerwiese: Recorded at 16:24:36. Following right behind Juu, carrying over a tree, down through the narrow forrest onto the beautiful Hertlerwiese. Amazing how Harald survived this with the citybike :-)
+1. Downhill to the Hertlerwiese: Recorded at 16:24:36. Following right behind Juu, carrying over a tree, down through the narrow forrest onto the beautiful Hertlerwiese. Amazing how Harald survived this with the citybike :smiley:
 1. Around the Schwarzberg: Recorded at 16:50:50. Gravel road round the Schwarzberg, going pretty fast.
 1. Challenging Downhill from Schwarzberg Peak: Recorded at 17:49:39. This was the most demanding downhill track. Narrow bushes, very steep, lots of roots that have already built steps. Christoph in front of me, going fast.
 1. From Wood to Grassland: Recorded at 18:00:18. A bumpy start, but on 1:38 we reach the grassland, which is really nice to drive. High speed! Christoph and me wait at 2:40 for the others.

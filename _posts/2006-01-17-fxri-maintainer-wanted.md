@@ -22,4 +22,4 @@ I currently do not have time to do any Ruby related work, so I would be very hap
 
 So, if anyone is interested and has an account on [rubyforge.org](http://rubyforge.org), please [contact me](mailto:martin.ankerl@gmail.com) and I will give you administrator access.
 
-And fear not, i think [the code](http://rubyforge.org/cgi-bin/viewcvs.cgi/fxri/fxri/?root=fxri) is not so bad. At least I have some comments in it ;-)
+And fear not, i think [the code](http://rubyforge.org/cgi-bin/viewcvs.cgi/fxri/fxri/?root=fxri) is not so bad. At least I have some comments in it :wink:

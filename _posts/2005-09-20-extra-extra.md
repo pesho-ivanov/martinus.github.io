@@ -15,4 +15,4 @@ A new weblog is in the making. Just wait a bit, and do not worry, I will add all
 
 	
 
-I have just switched to [WordPress](http://wordpress.org/), which seems to be an excellent blogging tool. It is **much** better than [rublog](http://rubyforge.org/projects/rublog/), I have to say :-)  Ok the comparison is probably a bit unfair, but who cares ;-) 
+I have just switched to [WordPress](http://wordpress.org/), which seems to be an excellent blogging tool. It is **much** better than [rublog](http://rubyforge.org/projects/rublog/), I have to say :smiley:  Ok the comparison is probably a bit unfair, but who cares :wink: 

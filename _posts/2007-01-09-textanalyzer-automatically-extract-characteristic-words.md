@@ -74,4 +74,4 @@ The variables:
 * `allVal`: How often the word to score is present in the indexed dataset.
 * `allWords`: Total number of words of the indexed dataset.
 
-Please don't ask me how or why this works. I have no idea. I have invented this formula in one of the rare moments when I was enlighted for approximately 10 seconds, quickly wrote it down, and immediately forgot how it worked because my mind was overwhelmed by its beauty and simplicity... Or something like that ;-)
+Please don't ask me how or why this works. I have no idea. I have invented this formula in one of the rare moments when I was enlighted for approximately 10 seconds, quickly wrote it down, and immediately forgot how it worked because my mind was overwhelmed by its beauty and simplicity... Or something like that :wink:

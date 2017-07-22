@@ -138,7 +138,7 @@ Zubereitung
   3. In den Bräter einen Schuss Essig und einen Schuss Wasser.
 
 
-  4. 8-10 Stunden bei 90-100 Grad zugedeckt Garen (In der Früh ins Rohr, nach der Arbeit essen :-))
+  4. 8-10 Stunden bei 90-100 Grad zugedeckt Garen (In der Früh ins Rohr, nach der Arbeit essen :smiley:)
 
 
   5. 10 minuten offen bei 200 Grad knusprig braten.

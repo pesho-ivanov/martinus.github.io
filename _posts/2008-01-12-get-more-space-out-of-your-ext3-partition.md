@@ -25,7 +25,7 @@ I have just discovered that ext3 defaults to reserving 5% of its partition exclu
 tune2fs -m 0 /dev/sdf1
 ```
 
-Replace `sdf1` with your partition name. You don't even have to unmount your disk. Voilá, 11.5 GB more space for free :-) Here is the output of `df -h` as proof:
+Replace `sdf1` with your partition name. You don't even have to unmount your disk. Voilá, 11.5 GB more space for free :smiley: Here is the output of `df -h` as proof:
 
 
 ## Before

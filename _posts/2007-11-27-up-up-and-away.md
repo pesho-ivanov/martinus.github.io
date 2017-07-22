@@ -20,4 +20,4 @@ This will be my last entry for some time. On 1st December I fly to [South Africa
 Long story short, don't expect any response from me until the 4th January.
 
 ## UPDATE
-I am back, and still alive. Yay! :-)
+I am back, and still alive. Yay! :smiley:

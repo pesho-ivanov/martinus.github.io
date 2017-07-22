@@ -18,7 +18,7 @@ This are the goals I have for the redesign:
 * Usability is more important than flexibility.
 * Allow for much more poweful checks.
 
-Usability is very important. The good thing is that it is easy to analyze how JUnit is used (download some test driven developed open source projects, grep for `assertTrue`, and there you have all the cases where JUnit's asserts were not good enough :-))
+Usability is very important. The good thing is that it is easy to analyze how JUnit is used (download some test driven developed open source projects, grep for `assertTrue`, and there you have all the cases where JUnit's asserts were not good enough :smiley:)
 
 I am playing around with a few ideas, and this is the API I am currently after:
 
@@ -65,4 +65,4 @@ Please tell me what you think about this!
 
 From time to time I will update this page with progress reports, until I have something that is stable enough to give away.
 
-* **2006-08-05**: I have started developing this. So far I am very happy with it, its a fun project to implement :-) I will probably create a project on sourceforge and opensource it, but I am not sure about the licence.
+* **2006-08-05**: I have started developing this. So far I am very happy with it, its a fun project to implement :smiley: I will probably create a project on sourceforge and opensource it, but I am not sure about the licence.

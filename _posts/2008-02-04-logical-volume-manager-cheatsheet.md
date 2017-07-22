@@ -67,7 +67,7 @@ mount /media/mega
 ## Resize
 
 
-It is even possible to do an online resize of the system, wohoo :-) This extends the logical volume by 200MB. 
+It is even possible to do an online resize of the system, wohoo :smiley: This extends the logical volume by 200MB. 
 ```bash
 sudo lvextend -L +200 /dev/ext_vg/ext
 sudo resize2fs -p /dev/ext_vg/ext

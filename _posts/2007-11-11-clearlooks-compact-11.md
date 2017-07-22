@@ -24,4 +24,4 @@ This encouraged me to do some further updates, I have incorporated lots of sever
 * Get Clearlooks Compact [here](/2007/11/04/clearlooks-compact-gnome-theme/).
 * Vote [here](http://www.gnome-look.org/content/show.php/Clearlooks+Compact?content=69357) if you think its good or bad.
 
-Hope you like it as much as I do :-)
+Hope you like it as much as I do :smiley:
