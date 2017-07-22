@@ -90,10 +90,10 @@ url-pretty: "martin.ankerl.com"  # eg. "deanattali.com/beautiful-jekyll"
 
 # --- Misc --- #
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-#disqus: ""
+disqus: "martinankerl"
 
 # Fill in your Google Analytics ID to track your website using GA
-#google_analytics: ""
+google_analytics: "UA-1083863-1"
 
 # Google Tag Manager ID
 #gtm: ""
@@ -103,7 +103,7 @@ url-pretty: "martin.ankerl.com"  # eg. "deanattali.com/beautiful-jekyll"
 
 # Excerpt Word Length
 # Truncates the excerpt to the specified number of words on the index page
-excerpt_length: 50
+excerpt_length: 100
 
 # Character used to separate site title and description in HTML document title
 # and RSS feed title

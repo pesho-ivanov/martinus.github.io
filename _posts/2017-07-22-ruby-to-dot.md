@@ -4,6 +4,7 @@ comments: true
 date: 2017-07-22 08:26:58+02:00
 layout: post
 title: 'Ruby to Dot - Graph any Class Hierarchy'
+bigimg: /img/2017/07/json.png
 categories:
 - programming
 ---
