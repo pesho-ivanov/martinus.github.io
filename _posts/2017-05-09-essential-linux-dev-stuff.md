@@ -91,9 +91,9 @@ Replacement for `gedit`, for basic editing tasks. It's not excellent but usually
 
 Nice and highly configurable editor, also great in Linux. Just open a directory and you are ready to go. [Get it here](https://code.visualstudio.com). Essential extensions are:
 
-* [Guides](https://marketplace.visualstudio.com/items?itemName=spywhere.guides) - An extension for more guide lines</li>
-* [vscode-icons](https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons) - Icons for Visual Studio Code</li>
-* [Dracula Syntax Theme](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula) - A dark theme for many editors, shells, and more.</li>
+* [Guides](https://marketplace.visualstudio.com/items?itemName=spywhere.guides) - An extension for more guide lines
+* [vscode-icons](https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons) - Icons for Visual Studio Code
+* [Dracula Syntax Theme](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula) - A dark theme for many editors, shells, and more.
 
 There are many others, but these are the bare minimum I use.
 
@@ -185,7 +185,7 @@ sudo apt install zram-config
 Reboot your machine, and everything is well configured. For more information, see
 
 * [zram: Compressed RAM based block devices](https://www.kernel.org/doc/Documentation/blockdev/zram.txt)
-* [Transparent Memory Compression in Linux (2013)](https://events.linuxfoundation.org/sites/events/files/slides/tmc_sjennings_linuxcon2013.pdf)</li>
+* [Transparent Memory Compression in Linux (2013)](https://events.linuxfoundation.org/sites/events/files/slides/tmc_sjennings_linuxcon2013.pdf)
 
 
 ## Disk Cleanup
