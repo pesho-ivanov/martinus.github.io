@@ -46,12 +46,13 @@ I am not using [jekyll](https://jekyllrb.com/) for these pages here, so I have t
 
 My domains are on [godaddy](https://godaddy.com).
 
-1. First, find out the IP of your website. For me a `ping martinus.github.io` reveals the IP `151.101.113.147`.
+1. First, find out which IPs to use for the `A` records from [this github document](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider)
 1. With that information, I can configure all DNS records:
    
    | Type | Name | Value | TTL | 
    |:---:| --- | --- | --- |
-   | A | ankerl.com | 151.101.113.147 | 600 |
+   | A | ankerl.com | 192.30.252.153 | 600 |
+   | A | ankerl.com | 192.30.252.154 | 600 |
    | CNAME | keto-calculator | martinus.github.io | -- |
    | CNAME | martin | martinus.github.io | -- |
 
