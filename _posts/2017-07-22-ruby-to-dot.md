@@ -15,7 +15,7 @@ It is quite easy to use, here is a small tutorial:
 
 ## Usage Tutorial
 
-1. Generate graph for the ruby module `time`. Create a file `rtd-json.rb` with this content:
+1. Generate graph for the ruby module `time`. Create a file `rtd-time.rb` with this content:
    ```ruby
    require "./rtd.rb"
    stats = RubyToDot.new
