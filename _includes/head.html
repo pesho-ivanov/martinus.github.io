@@ -85,6 +85,8 @@
 
   {% if page.share-img %}
   <meta property="og:image" content="{{ page.share-img }}" />
+  {% elsif page.bigimg %}
+  <meta property="og:image" content="{{ page.bigimg }}" />
   {% elsif site.avatar %}
   <meta property="og:image" content="{{ site.url }}{{ site.avatar }}" />
   {% endif %}
