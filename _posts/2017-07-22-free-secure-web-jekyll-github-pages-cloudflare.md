@@ -60,21 +60,16 @@ Repository: [https://github.com/martinus/keto-calculator](https://github.com/mar
 
 ## Domain Settings
 
+There is no need to set any `A` records. If you want to set up the apex domain (without subdomain) as well, you need an `A` record. For that, see [this github document](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider)
 
-1. First, find out which IPs to use for the `A` records from [this github document](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider)
-I have all my domains on [GoDaddy](https://godaddy.com). Here is the correct setup:
-1. With that information, I can configure all DNS records:
+I have all my domains on [GoDaddy](https://godaddy.com). These are all my DNS records:
    
-   | Type | Name | Value | TTL | 
-   |:---:| --- | --- | --- |
-   | A | ankerl.com | 192.30.252.153 | 600 |
-   | A | ankerl.com | 192.30.252.154 | 600 |
-   | CNAME | keto-calculator | martinus.github.io | -- |
-   | CNAME | martin | martinus.github.io | -- |
+| Type | Name | Value | TTL | 
+|:---:| --- | --- | --- |
+| CNAME | keto-calculator | martinus.github.io | -- |
+| CNAME | martin | martinus.github.io | -- |
 
-   So both subdomains are aliases for `martinus.github.io`.
-
-Now http access to the subdomains should already be working.
+So both subdomains are aliases for `martinus.github.io`. Now http access to the subdomains should already be working.
 
 ## HTTPS and Caching with Cloudflare
 
