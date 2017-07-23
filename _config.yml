@@ -117,6 +117,7 @@ markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
 paginate: 20
+exclude: [vendor]
 
 kramdown:
   input: GFM
