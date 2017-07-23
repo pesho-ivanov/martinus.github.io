@@ -7,6 +7,7 @@ title: 'Free Secure Web: Jekyll & Github Pages & Cloudflare'
 categories:
 - programming
 bigimg: /img/2017/07/github_cloudflare.png
+share-img: /img/2017/07/github_cloudflare.png
 ---
 
 I have just finished moving my homepage from WordPress to [jekyll](https://jekyllrb.com/) + [GitHub](https://github.com/) + [Cloudflare](https://www.cloudflare.com/). I must say this is really a fantastic setup! I have multiple reasons for that:
