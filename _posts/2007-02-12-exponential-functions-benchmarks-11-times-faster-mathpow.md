@@ -16,7 +16,7 @@ tags:
 - pow
 ---
 
-I have updated the code for the Math.pow() approximation, now it is 11 times faster on my Pentium IV. Read [Optimized Exponential Functions for Java  ](http://martin.ankerl.com/2007/02/11/optimized-exponential-functions-for-java/) for more information. Now I can also give you some benchmarks:
+I have updated the code for the Math.pow() approximation, now it is 11 times faster on my Pentium IV. Read [Optimized Exponential Functions for Java  ](/2007/02/11/optimized-exponential-functions-for-java/) for more information. Now I can also give you some benchmarks:
 
 ## Benchmarks
 
@@ -36,6 +36,6 @@ I have updated the code for the Math.pow() approximation, now it is 11 times fas
 * 11.014 sec, `e^(b * log(a))`
 * 7.607 sec, `e^(b * log(a))` + IEEE 754 trick
 * 2.109 sec, `e^(b * log(a))` + IEEE 754 trick + LOG approximation
-* 1.827 sec, simplified everything, see [Optimized Exponential Functions for Java  ](http://martin.ankerl.com/2007/02/11/optimized-exponential-functions-for-java/)
+* 1.827 sec, simplified everything, see [Optimized Exponential Functions for Java  ](/2007/02/11/optimized-exponential-functions-for-java/)
 
 For accurate measurements I have performed each calculation 20 million times and used a random number generator to prevent optimization. I have measured the overhead of iterating and random number generation (3.969 sec) and substracted this from each measurement so that only the pure functional code is measured.

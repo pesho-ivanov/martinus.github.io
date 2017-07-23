@@ -102,7 +102,7 @@ It is quite impossible to understand what is going on in this function, it just 
 ### Approximation of e^x
 
 
-As described [here](http://martin.ankerl.com/2007/02/11/optimized-exponential-functions-for-java/), the paper "[A Fast, Compact Approximation of the Exponential Function](http://citeseer.ist.psu.edu/schraudolph98fast.html)" develops a C macro that does a good job at exploiting the IEEE 754 floating-point representation to calculate e^x. This macro can be transformed into Java code straightforward, which looks like this:
+As described [here](/2007/02/11/optimized-exponential-functions-for-java/), the paper "[A Fast, Compact Approximation of the Exponential Function](http://citeseer.ist.psu.edu/schraudolph98fast.html)" develops a C macro that does a good job at exploiting the IEEE 754 floating-point representation to calculate e^x. This macro can be transformed into Java code straightforward, which looks like this:
 
 
 ```java  

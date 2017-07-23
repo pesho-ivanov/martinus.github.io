@@ -146,7 +146,7 @@ Sleeping 71605 seconds until Tue, 6 Dec 2016 03:00:00 +0100
 
 ### bash prompt with runtime and errorcode
 
-See my [Linux Bash Prompt](http://martin.ankerl.com/2016/11/04/linux-bash-prompt/) post. It's awesome.
+See my [Linux Bash Prompt](/2016/11/04/linux-bash-prompt/) post. It's awesome.
 
 ![bash prompt](/img/2016/11/Screenshot_2016-11-07_06-24-23.png)
 
