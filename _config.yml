@@ -144,7 +144,6 @@ link-tags: false
 
 # Exclude these files from production site
 exclude:
-  - [vendor]
   - CHANGELOG.md
   - CNAME
   - Dockerfile
@@ -155,6 +154,10 @@ exclude:
   - Vagrantfile
   - img/mega
   - serve
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
 # prose.io config
 prose:
