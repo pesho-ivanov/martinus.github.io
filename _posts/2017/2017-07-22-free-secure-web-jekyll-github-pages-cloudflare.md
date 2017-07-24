@@ -60,7 +60,7 @@ Repository: [https://github.com/martinus/keto-calculator](https://github.com/mar
 
 ## Domain Settings
 
-There is no need to set any `A` records. If you want to set up the apex domain (without subdomain) as well, you need an `A` record. For that, see [this github document](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider)
+There is no need to set any `A` records. If you want to set up the apex domain (without subdomain) as well, you need an `A` record. For that, see [this github document](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider).
 
 I have all my domains on [GoDaddy](https://godaddy.com). These are all my DNS records:
    
@@ -76,10 +76,10 @@ So both subdomains are aliases for `martinus.github.io`. Now http access to the 
 1. Import the domain `ankerl.com`, it should reveal the same entries as above. If not, add them by hand exactly as above.
 1. In GoDaddy change the nameservers as explained by cloudflare. For me I had to change them to `dan.ns.cloudflare.com` and `rita.ns.cloudflare.com`.
 
-To enable caching and force HTTPS for all sites, create two page rules. **Make sure they are in that order**:
+To enable caching and force HTTPS for all sites, subdomain and apex domain, create two page rules. **Make sure they are in that order**:
 
-1. URL is `https://*.ankerl.com/*` Then the settings are: `Cache Level` `Cache Everything`
-1. URL is `http://*.ankerl.com/*` Then the settings are: `Always use HTTPS` Enforce HTTPS for this URL
+1. URL is `https://*ankerl.com/*` Then the settings are: `Cache Level` `Cache Everything`
+1. URL is `http://*ankerl.com/*` Then the settings are: `Always use HTTPS` Enforce HTTPS for this URL
 
 It took a while until I could select `Always use HTTPS` for my domain, probably because the previous settings like nameserver were not active yet. So have a little patience and try after a few minutes.
 
