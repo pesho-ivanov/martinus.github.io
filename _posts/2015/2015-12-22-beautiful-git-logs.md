@@ -20,11 +20,11 @@ git config --global alias.ls 'log --graph --pretty=format:"%C(auto)%h%<(3)%d %s 
 ## git l
 Output of `git l`:
 
-![git_l](/img/2015/12/git_l.png)
+[![git_l](/img/2015/12/git_l.png)](/img/2015/12/git_l.png)
 
 
 ## git ls
 
 Output of `git ls` is similar, just a bit more verbose:
 
-![git_ls](/img/2015/12/git_ls-1.png)
+[![git_ls](/img/2015/12/git_ls-1.png)](/img/2015/12/git_ls-1.png)
