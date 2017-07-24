@@ -8,6 +8,7 @@ title: 'Very Fast HashMap in C++: Benchmark Results (Part 3)'
 wordpress_id: 1655
 categories:
 - programming
+bigimg: /img/2016/09/all_big_lookup_time.png
 ---
 
   * [Part 1: Hopscotch & Robin Hood Hashing](/2016/09/15/very-fast-hashmap-in-c-part-1/)

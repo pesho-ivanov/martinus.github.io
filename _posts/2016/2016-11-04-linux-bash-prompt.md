@@ -8,6 +8,7 @@ title: Linux Bash Prompt
 wordpress_id: 1699
 categories:
 - linux
+bigimg: /img/2016/11/Screenshot_2016-11-07_06-24-23.png
 ---
 
 Here is my bash prompt, with the following features:
