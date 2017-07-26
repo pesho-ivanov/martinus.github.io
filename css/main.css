@@ -675,6 +675,9 @@ td.code pre {
 td.gutter {
   padding-top: 3px;
 }
+code {
+  word-wrap: break-word;
+}
 
 /* --- Social media sharing section --- */
 
