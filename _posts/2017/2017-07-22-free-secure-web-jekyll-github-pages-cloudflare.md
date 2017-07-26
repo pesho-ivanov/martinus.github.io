@@ -63,7 +63,8 @@ Repository: [https://github.com/martinus/keto-calculator](https://github.com/mar
 There is no need to set any `A` records. If you want to set up the apex domain (without subdomain) as well, you need an `A` record. For that, see [this github document](https://help.github.com/articles/setting-up-an-apex-domain/#configuring-a-records-with-your-dns-provider).
 
 I have all my domains on [GoDaddy](https://godaddy.com). These are all my DNS records:
-   
+
+{:.table .table-responsive}
 | Type | Name | Value | TTL | 
 |:---:| --- | --- | --- |
 | CNAME | keto-calculator | martinus.github.io | -- |
