@@ -64,7 +64,7 @@ There is no need to set any `A` records. If you want to set up the apex domain (
 
 I have all my domains on [GoDaddy](https://godaddy.com). These are all my DNS records:
 
-{:.table .table-responsive}
+{:.table-responsive}
 | Type | Name | Value | TTL | 
 |:---:| --- | --- | --- |
 | CNAME | keto-calculator | martinus.github.io | -- |

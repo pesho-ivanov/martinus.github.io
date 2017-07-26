@@ -607,6 +607,7 @@ footer .theme-by {
 
 table {
   padding: 0;
+  display: block !important;
 }
 table tr {
   border-top: 1px solid #cccccc;
