@@ -31,7 +31,7 @@ Whenever a jump occurs, the hashmap got too full and it is reallocating. Interes
 
 I am using Visual Studio 2015 Update 3, 64 bit, Intel i5-4670 @ 3.4GHZ. Here is a comparison table (best values **bold**)
 
-
+{:.table-responsive}
 | Hashtable | Time insert 30M integers | Memory insert 30M integers | Time query 30M existing | Time query 30M nonexisting |
 | --- | --- | --- | --- | --- |
 | unordered_map | 11.56 sec (100%) | 1493 MB (100%) | 1.84 sec (100%) | 1.92 sec (100%) |

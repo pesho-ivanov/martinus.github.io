@@ -44,7 +44,7 @@ I now describe how I have set up subdomains for my two sites [https://martin.ank
 
 ### GitHub settings for martin.ankerl.com
 
-Repository: [https://github.com/martinus/martinus.github.io](https://github.com/martinus/martinus.github.io). This is my main blog corresponding with my user name, so it should be named `martinus.github.io`.
+Repository: [github.com/martinus/martinus.github.io](https://github.com/martinus/martinus.github.io). This is my main blog corresponding with my user name, so it should be named `martinus.github.io`.
 
 * Repository name: `martinus.github.io`
 * Custom domain: `martin.ankerl.com`
@@ -52,7 +52,7 @@ Repository: [https://github.com/martinus/martinus.github.io](https://github.com/
 
 ### GitHub settings for keto-calculator.ankerl.com
 
-Repository: [https://github.com/martinus/keto-calculator](https://github.com/martinus/keto-calculator). I am not using [jekyll](https://jekyllrb.com/) for these pages here, so I have to create an empty file `.nojekyll` in each directory of the repository.
+Repository: [github.com/martinus/keto-calculator](https://github.com/martinus/keto-calculator). I am not using [jekyll](https://jekyllrb.com/) for these pages here, so I have to create an empty file `.nojekyll` in each directory of the repository.
 
 * Repository name: `keto-calculator` (Make sure the repository name is the same as the subdomain!)
 * Custom domain: `keto-calculator.ankerl.com`
