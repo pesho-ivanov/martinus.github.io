@@ -23,10 +23,9 @@ description: C++, Ruby, Low Carb, whatever...
 
 # List of links in the navigation bar
 navbar-links:
+  Home: "https://martin.ankerl.com/"
   About Me: "aboutme"
-  Resources:
-    - Keto Calculator: "https://keto-calculator.ankerl.com/"
-  Author's home: "https://martin.ankerl.com"
+  Keto Calculator: "https://keto-calculator.ankerl.com/"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
