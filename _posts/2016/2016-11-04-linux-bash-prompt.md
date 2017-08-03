@@ -72,8 +72,7 @@ function prompt_timer_stop {
   GIT_PS1_SHOWDIRTYSTATE=true # * unstaged, + staged
   GIT_PS1_SHOWSTASHSTATE=true # $ stashed
   GIT_PS1_SHOWUNTRACKEDFILES=true # % untracked
-  GIT_PS1_SHOWCOLORHINTS=true
-  
+  GIT_PS1_SHOWCOLORHINTS=true 
   # < behind, > ahead, <> diverged, = same as upstream
   GIT_PS1_SHOWUPSTREAM="auto" 
   # git with 2 arguments *sets* PS1 (and uses color coding)
