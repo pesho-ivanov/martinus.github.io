@@ -20,18 +20,35 @@ Here is my bash prompt, with the following features:
 * precise elapsed time of the previous command
 * red hostname for root
 * Separate line for path and command
+* Subversion support
 
 ## Example
 
 ![Bash Prompt Example](/img/2016/11/bash_prompt.png)
 
+Now shows checked out path and revision when inside an subversion repository:
+
+![Bash Prompt Subversion](/img/2016/11/bash_subversion.png)
+
 ## Installation
 
 Add this to your `~/.bashrc`:
  
-```bash   
+```bash
 function prompt_timer_start {
   PROMPT_TIMER=${PROMPT_TIMER:-`date +%s.%3N`}
+}
+
+function prompt_svn_stats() {
+  local WCROOT=`svn info --show-item wc-root 2>/dev/null`
+  if [ -z "$WCROOT" ]; then
+	return
+  fi
+  
+  local CHECKEDOUTURL=`svn info --show-item url ${WCROOT} 2>/dev/null`
+  local REV=`svn info --show-item revision 2>/dev/null |xargs` # xargs removes trailing whitespace
+  local ROOTURL=`svn info --show-item repos-root-url`
+  echo " (\e[32m${CHECKEDOUTURL/$ROOTURL\//}\e[1;30m@\e[0m${REV}) "
 }
 
 function prompt_timer_stop {
@@ -81,6 +98,9 @@ function prompt_timer_stop {
   # git with 2 arguments *sets* PS1 (and uses color coding)
   __git_ps1 "${PS1}\e[0m" "\e[0m"
   
+  # try to append svn
+  PS1+=`prompt_svn_stats`
+  
   PS1+=" \e[0;93m${TIMER_SHOW}" # runtime of last command
   PS1+="\e[0m\n${PSCHAR} " # prompt in new line
 }
@@ -93,7 +113,8 @@ PROMPT_COMMAND=prompt_timer_stop
 
 * **2016-11-04**: Initial version
 * **2017-04-28**: Now prints days, hours, minutes, seconds. Much better readable for long running tasks.
-* **2017-08-03**: Adds root as red, git status, error code, time.
+* **2017-08-02**: Adds root as red, git status, error code, time.
+* **2017-08-03**: Adds subversion support.
 
 ## Sources
 
