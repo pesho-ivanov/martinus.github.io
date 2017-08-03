@@ -54,6 +54,7 @@ function prompt_timer_stop {
   TIMER_SHOW=${TIMER_SHOW}$(printf "%d.${AFTER_COMMA}s" $S)
   unset PROMPT_TIMER
   
+  
   PS1="\e[0m\n" # begin with a newline
   if [ $EXIT != 0 ]; then
     PS1+="\e[1;31m✘ ${EXIT}" # red x with error status
@@ -62,8 +63,10 @@ function prompt_timer_stop {
   fi
   PS1+=" \e[0;93m`date +%H:%M`" # date, e.g. 17:00
   
+  local PSCHAR="$"
   if [ $(id -u) -eq 0 ]; then
     PS1+=" \e[1;31m\h " # root: red hostname
+    PSCHAR="\e[1;31m#\e[0m"
   else
     PS1+=" \e[1;32m\h " # non-root: green hostname
   fi
@@ -72,14 +75,14 @@ function prompt_timer_stop {
   GIT_PS1_SHOWDIRTYSTATE=true # * unstaged, + staged
   GIT_PS1_SHOWSTASHSTATE=true # $ stashed
   GIT_PS1_SHOWUNTRACKEDFILES=true # % untracked
-  GIT_PS1_SHOWCOLORHINTS=true 
+  GIT_PS1_SHOWCOLORHINTS=true
   # < behind, > ahead, <> diverged, = same as upstream
   GIT_PS1_SHOWUPSTREAM="auto" 
   # git with 2 arguments *sets* PS1 (and uses color coding)
   __git_ps1 "${PS1}\e[0m" "\e[0m"
   
   PS1+=" \e[0;93m${TIMER_SHOW}" # runtime of last command
-  PS1+="\e[0m\n\$ " # prompt in new line
+  PS1+="\e[0m\n${PSCHAR} " # prompt in new line
 }
  
 trap 'prompt_timer_start' DEBUG
