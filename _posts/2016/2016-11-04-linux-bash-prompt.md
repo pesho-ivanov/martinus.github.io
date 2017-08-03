@@ -31,13 +31,14 @@ Add this to your `~/.bashrc`:
  
 ```bash   
 function prompt_timer_start {
-  prompt_timer=${prompt_timer:-`date +%s.%3N`}
+  PROMPT_TIMER=${PROMPT_TIMER:-`date +%s.%3N`}
 }
 
 function prompt_timer_stop {
-  local EXIT="$?"
+  local EXIT="$?" # MUST come first
+  local NOW=`date +%s.%3N` # should be high up, for accurate measurement
   
-  local ELAPSED=$(bc <<< "`date +%s.%3N` - $prompt_timer")
+  local ELAPSED=$(bc <<< "$NOW - $PROMPT_TIMER")
 
   local T=${ELAPSED%.*} 
   local AFTER_COMMA=${ELAPSED##*.}
@@ -46,13 +47,12 @@ function prompt_timer_stop {
   local M=$((T/60%60))
   local S=$((T%60))
 
-  timer_show=
-  [[ $D > 0 ]] && timer_show=${timer_show}$(printf '%dd ' $D)
-  [[ $H > 0 ]] && timer_show=${timer_show}$(printf '%dh ' $H)
-  [[ $M > 0 ]] && timer_show=${timer_show}$(printf '%dm ' $M)
-  timer_show=${timer_show}$(printf "%d.${AFTER_COMMA}s" $S)
-  unset prompt_timer
-  
+  local TIMER_SHOW=
+  [[ $D > 0 ]] && TIMER_SHOW=${TIMER_SHOW}$(printf '%dd ' $D)
+  [[ $H > 0 ]] && TIMER_SHOW=${TIMER_SHOW}$(printf '%dh ' $H)
+  [[ $M > 0 ]] && TIMER_SHOW=${TIMER_SHOW}$(printf '%dm ' $M)
+  TIMER_SHOW=${TIMER_SHOW}$(printf "%d.${AFTER_COMMA}s" $S)
+  unset PROMPT_TIMER
   
   PS1="\e[0m\n" # begin with a newline
   if [ $EXIT != 0 ]; then
@@ -79,7 +79,7 @@ function prompt_timer_stop {
   # git with 2 arguments *sets* PS1 (and uses color coding)
   __git_ps1 "${PS1}\e[0m" "\e[0m"
   
-  PS1+=" \e[0;93m\${timer_show}" # runtime of last command
+  PS1+=" \e[0;93m${TIMER_SHOW}" # runtime of last command
   PS1+="\e[0m\n\$ " # prompt in new line
 }
  
