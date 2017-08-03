@@ -69,12 +69,15 @@ function prompt_timer_stop {
   fi
   PS1+="\e[1;94m\w" # working directory
   
-  GIT_PS1_SHOWDIRTYSTATE=true # unstaged (*) and staged (+) 
-  GIT_PS1_SHOWSTASHSTATE=true # add a $ if something is stashed
-  GIT_PS1_SHOWUNTRACKEDFILES=true # % for untracked files
+  GIT_PS1_SHOWDIRTYSTATE=true # * unstaged, + staged
+  GIT_PS1_SHOWSTASHSTATE=true # $ stashed
+  GIT_PS1_SHOWUNTRACKEDFILES=true # % untracked
   GIT_PS1_SHOWCOLORHINTS=true
-  GIT_PS1_SHOWUPSTREAM="auto" # "<" behind, ">" ahead, "<>" diverged, "=" same as upstream
-  __git_ps1 "${PS1}\e[0m" "\e[0m" # git with 2 arguments *sets* PS1 (and uses color coding)
+  
+  # < behind, > ahead, <> diverged, = same as upstream
+  GIT_PS1_SHOWUPSTREAM="auto" 
+  # git with 2 arguments *sets* PS1 (and uses color coding)
+  __git_ps1 "${PS1}\e[0m" "\e[0m"
   
   PS1+=" \e[0;93m\${timer_show}" # runtime of last command
   PS1+="\e[0m\n\$ " # prompt in new line
