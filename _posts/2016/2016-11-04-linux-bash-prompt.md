@@ -124,4 +124,4 @@ PROMPT_COMMAND=prompt_timer_stop
   * [Customize your Bash prompt](https://makandracards.com/makandra/1090-customize-your-bash-prompt)
   * [Convert seconds to hours, minutes, seconds](http://stackoverflow.com/a/32164707/48181)
   * [Bash Prompt with Last Exit Code](https://stackoverflow.com/a/16715681/48181)
-  * 
+  * [svn-prompt](https://github.com/mcandre/svn-prompt/blob/master/lib/svn-prompt.sh)
