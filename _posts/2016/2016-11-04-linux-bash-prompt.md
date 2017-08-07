@@ -5,7 +5,7 @@ date: 2016-11-04 08:54:56+00:00
 layout: post
 slug: linux-bash-prompt
 title: Linux Bash Prompt
-wordpress_id: 1699
+subtitle: Elapsed time, errorcode ✘ or ✔, git & svn status, ...
 categories:
 - linux
 bigimg: /img/2016/11/bash_prompt.png
@@ -37,6 +37,7 @@ Add this to your `~/.bashrc`:
 ```bash
 function prompt_timer_start {
     PROMPT_TIMER=${PROMPT_TIMER:-`date +%s.%3N`}
+    echo -ne "\033]0;${@}\007"
 }
 
 function prompt_svn_stats() {
@@ -60,6 +61,7 @@ function prompt_svn_stats() {
 function prompt_timer_stop {
     local EXIT="$?" # MUST come first
     local NOW=`date +%s.%3N` # should be high up, for accurate measurement
+    echo -ne "\033]0;$USER@$HOSTNAME: $PWD\007"
 
     local ELAPSED=$(bc <<< "$NOW - $PROMPT_TIMER")
     unset PROMPT_TIMER
@@ -94,17 +96,14 @@ function prompt_timer_stop {
     fi
     PS1+="\e[1;94m\w" # working directory
 
-    command -v __git_ps1 >/dev/null
-    if [ $? -eq 0 ]; then
-        GIT_PS1_SHOWDIRTYSTATE=true # * unstaged, + staged
-        GIT_PS1_SHOWSTASHSTATE=true # $ stashed
-        GIT_PS1_SHOWUNTRACKEDFILES=true # % untracked
-        GIT_PS1_SHOWCOLORHINTS=true
-        # < behind, > ahead, <> diverged, = same as upstream
-        GIT_PS1_SHOWUPSTREAM="auto" 
-        # git with 2 arguments *sets* PS1 (and uses color coding)
-        __git_ps1 "${PS1}\e[0m" "\e[0m"
-    fi    
+    GIT_PS1_SHOWDIRTYSTATE=true # * unstaged, + staged
+    GIT_PS1_SHOWSTASHSTATE=true # $ stashed
+    GIT_PS1_SHOWUNTRACKEDFILES=true # % untracked
+    GIT_PS1_SHOWCOLORHINTS=true
+    # < behind, > ahead, <> diverged, = same as upstream
+    GIT_PS1_SHOWUPSTREAM="auto" 
+    # git with 2 arguments *sets* PS1 (and uses color coding)
+    __git_ps1 "${PS1}\e[0m" "\e[0m"
 
     # try to append svn
     PS1+=`prompt_svn_stats`
@@ -113,7 +112,7 @@ function prompt_timer_stop {
     PS1+="\e[0m\n${PSCHAR} " # prompt in new line
 }
  
-trap 'prompt_timer_start' DEBUG
+trap 'prompt_timer_start "$BASH_COMMAND (`date +%H:%M:%S`)"' DEBUG
 PROMPT_COMMAND=prompt_timer_stop
 ```
 
@@ -123,8 +122,7 @@ PROMPT_COMMAND=prompt_timer_stop
 * **2017-04-28**: Now prints days, hours, minutes, seconds. Much better readable for long running tasks.
 * **2017-08-02**: Adds root as red, git status, error code, time.
 * **2017-08-03**: Adds subversion support.
-* **2017-08-06**: Much faster if subversion is not installed thanks to `command -v svn`.
-* **2017-08-06**: Check if `__git_ps1` is available.
+* **2017-08-06**: much faster if subversion is not installed, show running command in titlebar
 
 ## Sources
 
