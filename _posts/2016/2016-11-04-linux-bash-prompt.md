@@ -94,14 +94,17 @@ function prompt_timer_stop {
     fi
     PS1+="\e[1;94m\w" # working directory
 
-    GIT_PS1_SHOWDIRTYSTATE=true # * unstaged, + staged
-    GIT_PS1_SHOWSTASHSTATE=true # $ stashed
-    GIT_PS1_SHOWUNTRACKEDFILES=true # % untracked
-    GIT_PS1_SHOWCOLORHINTS=true
-    # < behind, > ahead, <> diverged, = same as upstream
-    GIT_PS1_SHOWUPSTREAM="auto" 
-    # git with 2 arguments *sets* PS1 (and uses color coding)
-    __git_ps1 "${PS1}\e[0m" "\e[0m"
+    command -v __git_ps1 >/dev/null
+    if [ $? -eq 0 ]; then
+        GIT_PS1_SHOWDIRTYSTATE=true # * unstaged, + staged
+        GIT_PS1_SHOWSTASHSTATE=true # $ stashed
+        GIT_PS1_SHOWUNTRACKEDFILES=true # % untracked
+        GIT_PS1_SHOWCOLORHINTS=true
+        # < behind, > ahead, <> diverged, = same as upstream
+        GIT_PS1_SHOWUPSTREAM="auto" 
+        # git with 2 arguments *sets* PS1 (and uses color coding)
+        __git_ps1 "${PS1}\e[0m" "\e[0m"
+    fi    
 
     # try to append svn
     PS1+=`prompt_svn_stats`
@@ -120,7 +123,8 @@ PROMPT_COMMAND=prompt_timer_stop
 * **2017-04-28**: Now prints days, hours, minutes, seconds. Much better readable for long running tasks.
 * **2017-08-02**: Adds root as red, git status, error code, time.
 * **2017-08-03**: Adds subversion support.
-* **2017-08-06**: much faster if subversion is not installed
+* **2017-08-06**: Much faster if subversion is not installed thanks to `command -v svn`.
+* **2017-08-06**: Check if `__git_ps1` is available.
 
 ## Sources
 
