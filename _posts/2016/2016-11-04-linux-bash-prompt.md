@@ -1,18 +1,18 @@
 ---
+layout: post
 author: martin.ankerl@gmail.com
 comments: true
-date: 2016-11-04 08:54:56+00:00
-layout: post
+date: 'Fri Nov 04 2016 09:54:56 GMT+0100 (W. Europe Standard Time)'
 slug: linux-bash-prompt
 title: Linux Bash Prompt
-subtitle: Elapsed time, errorcode ✘ or ✔, git & svn status, ...
+subtitle: 'Elapsed time, errorcode ✘ or ✔, git & svn status, ...'
 categories:
-- linux
+  - linux
 bigimg: /img/2016/11/bash_prompt.png
+published: true
 ---
 
 Here is my bash prompt, with the following features:
-
  	
 * Red ✘ and errorcode if command has failed, otherwise a green ✔.
 * git status (if available)
