@@ -220,11 +220,10 @@ Don't do it. It's much slower. If you have to, be aware of this:
 
 This will shrink the `.vdi` file, even when it does not have a dynamic size.
 
-1. In Windows host, list the available VMS:
+1. In Windows host, list the available VMS. This gives me `LinuxMint180GB`.
    ```
    VBoxManage.exe" list vms
-   ```
-   This gives me `LinuxMint180GB`.
+   ```   
 1. In the Windows host, enable SSD and TRIM support for the image (see [here](http://blog.glehmann.net/2015/01/20/Shrinking-VirtualBox-vdi-files/)):
    ```
    VBoxManage storageattach LinuxMint180GB --storagectl "SATA" --port 0 --discard on --nonrotational on
