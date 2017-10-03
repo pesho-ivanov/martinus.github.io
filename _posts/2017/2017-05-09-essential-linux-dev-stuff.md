@@ -216,13 +216,19 @@ Source: [How to Easily Remove Old Kernels in Ubuntu 16.04](http://ubuntuhandbook
 
 Don't do it. It's much slower. If you have to, be aware of this:
 
-I'm using Linux in a Windows Host, my `.vdi` image is on an SSD. When using dynamic disk size, this unfortunately grows the space continuously when compiling a lot, because deleted files won't shrink the `.vdi` image. But it is possible to do this with e.g. zerofree (a hazzle), or better with TRIM:
+### Enable TRIM support
 
+This will shrink the `.vdi` file, even when it does not have a dynamic size.
+
+1. In Windows host, list the available VMS:
+   ```
+   VBoxManage.exe" list vms
+   ```
+   This gives me `LinuxMint180GB`.
 1. In the Windows host, enable SSD and TRIM support for the image (see [here](http://blog.glehmann.net/2015/01/20/Shrinking-VirtualBox-vdi-files/)):
    ```
-   VBoxManage storageattach ubuntu --storagectl "SATA" --port 0 --discard on --nonrotational on
+   VBoxManage storageattach LinuxMint180GB --storagectl "SATA" --port 0 --discard on --nonrotational on
    ```
-
 1. In Linux guest, perform TRIM, you'll see the `.vdi` disk shrinking while this runs:
    ```
    sudo fstrim -va
