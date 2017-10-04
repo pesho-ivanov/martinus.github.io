@@ -217,7 +217,9 @@ Source: [How to Easily Remove Old Kernels in Ubuntu 16.04](http://ubuntuhandbook
 Don't do it. It's much slower. If you have to, be aware of this:
 
 ### Enable TRIM support
-Don't do this. The disk might become unmountable.
+<aside class="warning">
+Don't do this. I've got file corruptions!
+</aside>
 
 This will shrink the `.vdi` file, even when it does not have a dynamic size.
 
