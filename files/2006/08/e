@@ -42,6 +42,7 @@ rules = Array.new
 rules.push [ :name, /(\.tar\.gz|\.tgz)$/, "tar xzvf %FILE%" ]
 rules.push [ :name, /(\.tar\.bz2|\.tbz)$/, "tar xjvf %FILE%" ]
 rules.push [ :name, /(\.tar\.lzo|\.tzo|\.tar\.lzop)$/, "lzop -c -d %FILE% |tar -xv" ]
+rules.push [ :name, /(\.tar\.xz|\.txz)$/, "tar xJvf %FILE%" ]
 rules.push [ :type, /tar archive/, "tar -xvf %FILE%" ]
 rules.push [ :type, /^Zip archive/, "unzip %FILE%" ]
 rules.push [ :type, / ZIP /, "unzip %FILE%" ]
