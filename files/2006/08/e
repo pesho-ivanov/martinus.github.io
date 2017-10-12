@@ -14,7 +14,7 @@
 # lzo, tar.bz2, tar.gz, ar, cpio, dar, uharc, zzip, ...
 #
 # Author:: Martin Ankerl (mailto:martin.ankerl@gmail.com)
-# Copyright:: Copyright (c) 2006-2009 Martin Ankerl
+# Copyright:: Copyright (c) 2006-2017 Martin Ankerl
 # License:: public domain
 #
 # Homepage:: http://martin.ankerl.com/2006/08/11/program-e-extract-any-archive/
