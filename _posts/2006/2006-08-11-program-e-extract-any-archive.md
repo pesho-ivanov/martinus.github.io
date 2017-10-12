@@ -45,14 +45,12 @@ This marvelous extraction tool works like this:
    e *
    ```
 
-If possible, `e` identifies the file format by the content and not by the extension, so for most filetypes `e` can extract it no matter how you name it. It supports rar, zip, tar.gz, tar.bz2, cab, ace, 7zip, dep, rpm, lha, lzop, rzip, and some more; it is very easy to extend it to support other compression utilities.
+If possible, `e` identifies the file format by the content and not by the extension, so for most filetypes `e` can extract it no matter how you name it. It supports `rar`, `zip`, `tar.gz`, `tar.bz2`, `cab`, `ace`, `7zip`, `dep`, `rpm`, `lha`, `lzop`, `rzip`, and some more; it is very easy to extend it to support other compression utilities.
 
 I was also inspired by the ugliness of the tool [unp](http://www.debianhelp.co.uk/unp.htm) which tries to do exactly what `e` does. I did not like the implementation (written in Perl), and thought I can have the same features in a much simpler and more extensible way. The result is that `e` is just about 80 lines of code, where most of it is either comment or rules that define when to call what. If you know Ruby, [have a look at the code](/files/2006/08/e).
 
 
-
 ## Installation
-
 
 For the impatient, installation on [Ubuntu](http://www.ubuntu.com/):
 
