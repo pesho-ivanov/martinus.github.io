@@ -78,7 +78,7 @@ rules.push [ :name, /\.nz$/, "nz x %FILE%" ] # NanoZip
 
 # check arguments
 if ARGV.empty?
-	puts "e, Version 2009-06-25 (c) Martin Ankerl"
+	puts "e, Version 2017-10-12 (c) Martin Ankerl"
 	puts "Usage:    e archive [ archive archive ...]"
 	exit 0
 end
