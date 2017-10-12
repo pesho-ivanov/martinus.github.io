@@ -85,7 +85,8 @@ Apart from Ruby, `e` uses the linux tool file to determine what kind of archive 
 
 Here you can find the changes `e` has undergone over time.
 
-
+### 12th October 2017
+* Added `.tar.xz` and `.txz` support
 
 ### 25th June 2009
 * Command for [NanoZip](http://www.nanozip.net/) added.  
