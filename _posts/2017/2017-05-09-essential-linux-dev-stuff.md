@@ -88,6 +88,52 @@ alias rgcnt='rg -tcpp -g \!"*/test/cpp/**/*" -S'
 
 Replacement for `gedit`, for basic editing tasks. It's not excellent but usually does the job. I'm not a vim/emacs guy.
 
+### kate
+
+Kate is faster than Visual Studio Code, and has more features than geany:
+
+```bash
+sudo apt install kate
+```
+
+To get beautiful fonts without installing the rest of kde, create `~/.config/fontconfig/fonts.conf` with this content:
+
+```xml
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+	<match target="font">
+		<edit name="antialias" mode="assign">
+			<bool>true</bool>
+		</edit>
+	</match>
+	
+	<match target="font">
+		<edit name="hinting" mode="assign">
+			<bool>true</bool>
+		</edit>
+	</match>
+
+	<match target="font">
+		<edit name="hintstyle" mode="assign">
+			<const>hintfull</const>
+		</edit>
+	</match>
+
+	<match target="font">
+		<edit name="rgba" mode="assign">
+			<const>rgb</const>
+		</edit>
+	</match>
+
+	<match target="font">
+		<edit mode="assign" name="lcdfilter">
+			<const>lcddefault</const>
+		</edit>
+	</match>
+</fontconfig>
+```
+
 ### Visual Studio Code
 
 Nice and highly configurable editor, also great in Linux. Just open a directory and you are ready to go. [Get it here](https://code.visualstudio.com). Essential extensions are:
@@ -97,7 +143,6 @@ Nice and highly configurable editor, also great in Linux. Just open a directory 
 * [Dracula Syntax Theme](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula) - A dark theme for many editors, shells, and more.
 
 There are many others, but these are the bare minimum I use.
-
 
 ### glances
 
