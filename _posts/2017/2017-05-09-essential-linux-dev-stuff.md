@@ -116,7 +116,7 @@ To get beautiful fonts without installing the rest of kde, create `~/.config/fon
 
   <match target="font">
     <edit name="hintstyle" mode="assign">
-      <const>hintfull</const>
+      <const>hintslight</const>
     </edit>
   </match>
 
