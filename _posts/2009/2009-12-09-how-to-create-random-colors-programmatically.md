@@ -47,9 +47,7 @@ As you can see this is quite suboptimal. Some letters are hard to read because t
 
 Let's fix the too dark / too bright problem first. A convenient way to do this is to not use the RGB color space, but [HSV](http://en.wikipedia.org/wiki/HSL_and_HSV) (Hue, Saturation, Value). Here you get equally bright and colorful colors by using a fixed value for saturation and value, and just modifying the hue:
 
-<center>
-![HSV Cylinder](/img/2009/12/HSV_cylinder_small.png)
-</center>
+<img src="/img/2009/12/HSV_cylinder_small.png" alt="HSV Cylinder" align="center">
 
 Based on the description provided by the wikipedia article on [conversion from HSV to RGB](http://en.wikipedia.org/wiki/HSL_and_HSV#Converting_to_RGB) I have implemented a converter:
 
