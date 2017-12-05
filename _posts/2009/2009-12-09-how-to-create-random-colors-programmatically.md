@@ -12,10 +12,9 @@ categories:
 
 Creating random colors is actually more difficult than it seems. The randomness itself is easy, but aesthetically pleasing randomness is more difficult. For a little project at work I needed to automatically generate multiple background colors with the following properties:
 
-* Text over the colored background should be easily readable<
+* Text over the colored background should be easily readable
 * Colors should be very distinct
 * The number of required colors is not initially known
-
 
 ## Naïve Approach
 
@@ -30,7 +29,6 @@ def gen_html
   end
 end
 ```
-
 
 ## naive approach: generate purely random colors
 
@@ -49,7 +47,7 @@ As you can see this is quite suboptimal. Some letters are hard to read because t
 
 Let's fix the too dark / too bright problem first. A convenient way to do this is to not use the RGB color space, but [HSV](http://en.wikipedia.org/wiki/HSL_and_HSV) (Hue, Saturation, Value). Here you get equally bright and colorful colors by using a fixed value for saturation and value, and just modifying the hue:
 
-![HSV Cylinder](/img/2009/12/HSV_cylinder_small.png)
+<center>![HSV Cylinder](/img/2009/12/HSV_cylinder_small.png)</center>
 
 Based on the description provided by the wikipedia article on [conversion from HSV to RGB](http://en.wikipedia.org/wiki/HSL_and_HSV#Converting_to_RGB) I have implemented a converter:
 
@@ -93,7 +91,7 @@ Using just `rand()` to choose different values for hue does not lead to a good u
 
 Here I have generated 2, 4, 8, 16, and 32 random values and printed them all on a scale. Its easy to see that some values are very tightly packed together, which we do not want.
 
-![random distribution](/img/2009/12/distribution-random.png)
+<center>![random distribution](/img/2009/12/distribution-random.png)</center>
 
 Lo and behold, some mathematician has discovered the [Golden Ratio](http://en.wikipedia.org/wiki/Golden_ratio) more than 2400 years ago. It has lots of interesting properties, but for us only one is interesting:
 
@@ -103,7 +101,7 @@ Lo and behold, some mathematician has discovered the [Golden Ratio](http://en.wi
 
 Using the golden ratio as the spacing, the generated values look like this:
 
-![golden ratio distribution](/img/2009/12/distribution-goldenratio.png)
+<center>![golden ratio distribution](/img/2009/12/distribution-goldenratio.png)</center>
 
 Much better! The values are very evenly distributed, regardless how many values are used. Also, the algorithm for this is extremely simple. Just add 1/&Phi; and modulo 1 for each subsequent color.
 
