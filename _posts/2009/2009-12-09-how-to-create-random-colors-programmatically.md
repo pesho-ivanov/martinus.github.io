@@ -93,7 +93,7 @@ Using just `rand()` to choose different values for hue does not lead to a good u
 
 Here I have generated 2, 4, 8, 16, and 32 random values and printed them all on a scale. Its easy to see that some values are very tightly packed together, which we do not want.
 
-<center>![random distribution](/img/2009/12/distribution-random.png)</center>
+![random distribution](/img/2009/12/distribution-random.png)
 
 Lo and behold, some mathematician has discovered the [Golden Ratio](http://en.wikipedia.org/wiki/Golden_ratio) more than 2400 years ago. It has lots of interesting properties, but for us only one is interesting:
 
@@ -103,7 +103,7 @@ Lo and behold, some mathematician has discovered the [Golden Ratio](http://en.wi
 
 Using the golden ratio as the spacing, the generated values look like this:
 
-<center>![golden ratio distribution](/img/2009/12/distribution-goldenratio.png)</center>
+![golden ratio distribution](/img/2009/12/distribution-goldenratio.png)
 
 Much better! The values are very evenly distributed, regardless how many values are used. Also, the algorithm for this is extremely simple. Just add 1/&Phi; and modulo 1 for each subsequent color.
 
