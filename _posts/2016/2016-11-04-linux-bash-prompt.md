@@ -24,11 +24,7 @@ Here is my bash prompt, with the following features:
 
 ## Example
 
-![Bash Prompt Example](/img/2016/11/bash_prompt.png)
-
-Now shows checked out path and revision when inside an subversion repository:
-
-![Bash Prompt Subversion](/img/2016/11/bash_subversion.png)
+![Bash Prompt Example](/img/2016/11/Screenshot at 2018-10-26 09-17-03.png)
 
 ## Installation
 
@@ -55,7 +51,7 @@ function prompt_svn_stats() {
     local CHECKEDOUTURL=`echo "${SVN_INFO}" |sed -ne 's#^URL: ##p'`
     local REV=`echo "${SVN_INFO}" |sed -ne 's#^Revision: ##p'`
     local ROOTURL=`echo "${SVN_INFO}" |sed -ne 's#^Repository Root: ##p'`
-    echo " (\e[32m${CHECKEDOUTURL/$ROOTURL\//}\e[1;30m@\e[0m${REV}) "
+    echo " (\e[32m${CHECKEDOUTURL/$ROOTURL\//}\e[1;30m@\e[0;100m${REV})"
 }
 
 function prompt_timer_stop {
@@ -81,13 +77,14 @@ function prompt_timer_stop {
 
     PS1="\e[0m\n" # begin with a newline
     if [ $EXIT != 0 ]; then
-        PS1+="\e[1;31m✘ ${EXIT}" # red x with error status
+        PS1+="\e[1;41m ✘ ${EXIT}" # red x with error status
     else
-        PS1+="\e[1;32m✔" # green tick
+        PS1+="\e[1;42m ✔" # green tick
     fi
-    PS1+=" \e[0;93m`date +%H:%M`" # date, e.g. 17:00
+    PS1+=" \e[0;100;93m `date +%H:%M`" # date, e.g. 17:00
 
-    local PSCHAR="$"
+    #local PSCHAR="┕▶"
+    local PSCHAR="▶"
     if [ $(id -u) -eq 0 ]; then
         PS1+=" \e[1;31m\h " # root: red hostname
         PSCHAR="\e[1;31m#\e[0m"
@@ -103,14 +100,21 @@ function prompt_timer_stop {
     # < behind, > ahead, <> diverged, = same as upstream
     GIT_PS1_SHOWUPSTREAM="auto" 
     # git with 2 arguments *sets* PS1 (and uses color coding)
-    __git_ps1 "${PS1}\e[0m" "\e[0m"
+    __git_ps1 "${PS1}\e[0;100m" "\e[0;100m"
 
     # try to append svn
     PS1+=`prompt_svn_stats`
 
-    PS1+=" \e[0;93m${TIMER_SHOW}" # runtime of last command
-    PS1+="\e[0m\n${PSCHAR} " # prompt in new line
+    PS1+=" \e[0;100;93m${TIMER_SHOW}" # runtime of last command
+    PS1+=" \e[0m\n${PSCHAR} " # prompt in new line
+    #PS1+="\e[K\e[0m\n${PSCHAR} " # prompt in new line
 }
+
+# see https://gnunn1.github.io/tilix-web/manual/vteconfig/
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+
  
 trap 'prompt_timer_start "$BASH_COMMAND (`date +%H:%M:%S`)"' DEBUG
 PROMPT_COMMAND=prompt_timer_stop
@@ -123,6 +127,7 @@ PROMPT_COMMAND=prompt_timer_stop
 * **2017-08-02**: Adds root as red, git status, error code, time.
 * **2017-08-03**: Adds subversion support.
 * **2017-08-06**: much faster if subversion is not installed, show running command in titlebar
+* **2018-10-26**: better color coding
 
 ## Sources
 
