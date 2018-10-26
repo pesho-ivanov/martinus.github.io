@@ -24,7 +24,7 @@ Here is my bash prompt, with the following features:
 
 ## Example
 
-![Bash Prompt Example](/img/2016/11/Screenshot at 2018-10-26 09-17-03.png)
+![Bash Prompt Example](/img/2016/11/Screenshot_at_2018-10-26_09-17-03.png)
 
 ## Installation
 
