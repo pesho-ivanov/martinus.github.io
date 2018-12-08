@@ -77,33 +77,94 @@ Verdict: use this if performans is not important or you absolutely can't have an
 ```
 #define UNLIKELY(x) __builtin_expect((x), 0)
 
-template <typename U = uint64_t> class RandomizerWithCounterShiftT {
+template <typename U = uint64_t> class RandomizerWithCounterT {
   public:
     template <typename Rng> bool operator()(Rng &rng) {
         if (UNLIKELY(0 == m_counter)) {
             m_rand = std::uniform_int_distribution<U>{}(rng);
-            m_counter = sizeof(U) * 8;
+            m_counter = sizeof(m_rand) * 8;
         }
-        --m_counter;
-        bool ret = m_rand & 1;
+        return (m_rand >> --m_counter) & 1;
+    }
+
+  private:
+    U m_rand = 0;
+    int m_counter = 0;
+};
+```
+
+ * **geomean**: 0.68 ns/bool
+ * **fastest**: 0.37 ns/bool sfc64, clang++ -O2, 4x unrolled
+ * **slowest**: 1.43 ns/bool std::mt19937, g++ -O2, 4x unrolled
+ * **memory**: 16 bytes
+
+This implementation uses a counter to extract a single random bit of a 64bit random number. Huge advantage is that every random bit is used, so it is much less reliant on the random number's time. It is therefore quite fast.
+
+Interestingly, clang++ does a much better job optimizing here. The UNLIKELY macro definitely helps clang++ much more than g++. Unfortunately g++ makes a bad job when unrolling the loop, it gets much slower then.
+
+Verdict: It's much faster than anything above, but uses 16 bytes and there are better ways.
+
+## Counter with Mask
+
+```
+#define UNLIKELY(x) __builtin_expect((x), 0)
+
+template <typename U = uint64_t> class RandomizerWithCounter2 {
+  public:
+    template <typename Rng> bool operator()(Rng &rng) {
+        auto b = m_counter & s_mask;
+        if (UNLIKELY(0 == b)) {
+            m_rand = std::uniform_int_distribution<U>{}(rng);
+        }
+        ++m_counter;
+        return (m_rand >> b) & 1;
+    }
+
+  private:
+    static constexpr U s_mask = sizeof(U) * 8 - 1;
+    U m_rand = 0;
+    uint_fast8_t m_counter = 0;
+};
+```
+
+ * **geomean**: 0.59 ns/bool
+ * **fastest**: 0.32 ns/bool sfc64, clang++ -O2, 4x unrolled
+ * **slowest**: 0.94 ns/bool std::mt19937, g++ -O2, not unrolled
+ * **memory**: 16 bytes
+
+In contrast to the previous solution, this one fares much better when used in unrolled code. It's also a bit faster  with the same memory requirements. The trick here is that instead of resetting a counter we always use a mask with it I guess that means there is less branch prediction errors. 
+
+Verdict: Quite good, but we can do even better!
+
+## Sacrifice One Random Bit As Sentinel
+
+```
+#define UNLIKELY(x) __builtin_expect((x), 0)
+
+template <typename U = uint64_t> class RandomizerWithShiftT {
+  public:
+    template <typename Rng> bool operator()(Rng &rng) {
+        if (UNLIKELY(1 == m_rand)) {
+            m_rand = std::uniform_int_distribution<U>{}(rng) | s_mask_left1;
+        }
+        bool const ret = m_rand & 1;
         m_rand >>= 1;
         return ret;
     }
 
   private:
-    U m_rand;
-    int m_counter = 0;
+    static constexpr const U s_mask_left1 = U(1) << (sizeof(U) * 8 - 1);
+    U m_rand = 1;
 };
 ```
 
- * **geomean**: 0.63 ns/bool
- * **fastest**: 0.33 ns/bool sfc64, clang++ -O2, 4x unrolled
- * **slowest**: 1.25 ns/bool std::mt19937, g++ -O2, 4x unrolled
- * **memory**: 0 bytes
+ * **geomean**: 0.53 ns/bool
+ * **fastest**: 0.41 ns/bool sfc64, clang++ -O2, 4x unrolled
+ * **slowest**: 0.74 ns/bool std::mt19937, g++ -O2, not unrolled
+ * **memory**: 8 bytes
 
-This implementation uses a counter to extract a single random bit of a 64bit random number. Huge advantage is that every random bit is used, so it is much less reliant on the random number's time. It is also very fast.
+The top speed is a bit slower than the previous solution, but this is the most well rounded solution in my benchmarks. It does very well with both unrolled and not unrolled loops, and both g++ and clang++ produce very fast code. Also, it uses only a single `uint64_t` as memory instead of two.
 
-Interestingly, clang++ does a much better job optimizing here. The UNLIKELY macro definitely helps clang++ much more than g++.
+The trick is that we sacrifice the upper bit of the 64bit random number and replace it with 1, which is the sentinel. Each time we extract a bool and rightshift `m_rand`. Since we have the sentinel, we know that we've used up all random bits when `m_rand == 1`, then we fetch a new random number. So instead of 64 bits we use only 63, a loss of 1.6%. 
 
-Verdict: It's much faster than anything above, but uses 16 bytes and there are better ways.
-
+Verdict: It's awesome, use this from now on.
