@@ -41,15 +41,69 @@ class UniformDistribution {
     }
 };
 ```
+
+ * **geomean**: 8.41 ns/bool
  * **fastest**: 1.59 ns/bool sfc64, clang++ -O2, 4x unrolled
- * **slowest**: 18.3 ns/bool std::mt19937, g++ -O2, not unrolled
+ * **slowest**: 18.30 ns/bool std::mt19937, g++ -O2, not unrolled
  * **memory**: 0 bytes
 
 Like explained above, this can be extremely slow. Interestingly, clang++ produces much faster results than g++. The performance is highly dependent on both the random number generator's speed and obviously `std::uniform_int_distribution`.
 
-* 1.83 ns/bool for clang++ with `sfc64`
-* 17.96 ns/bool for g++ with `std::mt19937_64`
+Verdict: don't use this if performance is important.
 
-### Verdict: not recommended.
+## Use Last Bit
 
-## 
+```
+template <typename U = uint64_t> class BinaryAndUnbiased {
+  public:
+    template <typename Rng> bool operator()(Rng &rng) {
+        return (std::uniform_int_distribution<U>{}(rng)) & 1;
+    }
+};
+
+```
+
+ * **geomean**: 4.29 ns/bool
+ * **fastest**: 1.02 ns/bool sfc64, clang++ -O2, not unrolled
+ * **slowest**: 16.00 ns/bool std::mt19937, g++ -O2, not unrolled
+ * **memory**: 0 bytes
+
+It's faster than the `std::uniform_int_distribution<>{0, 1}` solution, but still quite slow because it is so wasteful with the random bits. Note that recently popular random number generators [xoroshiro128+](https://en.wikipedia.org/wiki/Xoroshiro128%2B)'s last bit has some bad random properties, so don't use this in that way.
+
+Verdict: use this if performans is not important or you absolutely can't have any additional memory.
+
+## Use Every Bit with Counter
+
+```
+#define UNLIKELY(x) __builtin_expect((x), 0)
+
+template <typename U = uint64_t> class RandomizerWithCounterShiftT {
+  public:
+    template <typename Rng> bool operator()(Rng &rng) {
+        if (UNLIKELY(0 == m_counter)) {
+            m_rand = std::uniform_int_distribution<U>{}(rng);
+            m_counter = sizeof(U) * 8;
+        }
+        --m_counter;
+        bool ret = m_rand & 1;
+        m_rand >>= 1;
+        return ret;
+    }
+
+  private:
+    U m_rand;
+    int m_counter = 0;
+};
+```
+
+ * **geomean**: 0.63 ns/bool
+ * **fastest**: 0.33 ns/bool sfc64, clang++ -O2, 4x unrolled
+ * **slowest**: 1.25 ns/bool std::mt19937, g++ -O2, 4x unrolled
+ * **memory**: 0 bytes
+
+This implementation uses a counter to extract a single random bit of a 64bit random number. Huge advantage is that every random bit is used, so it is much less reliant on the random number's time. It is also very fast.
+
+Interestingly, clang++ does a much better job optimizing here. The UNLIKELY macro definitely helps clang++ much more than g++.
+
+Verdict: It's much faster than anything above, but uses 16 bytes and there are better ways.
+
