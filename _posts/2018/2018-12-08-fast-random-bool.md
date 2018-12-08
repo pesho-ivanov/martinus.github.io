@@ -30,7 +30,7 @@ To get accurate numbers, I do this:
 The resulting geometric mean of each algorithm should be a quite representation of the performance of the random bool algorithm. 
 
 All tests are done one my i7-8700 @ 3.20GHz. The [sourcecode is here](https://gist.github.com/martinus/c43d99ad0008e11fcdbf06982e25f464), and the [results are in this spreadsheet](https://docs.google.com/spreadsheets/d/1cMqhMLNVnbddW8WKDA7C2M-swWm-4sqq13fALzDUOqY/edit?usp=sharing).
-I make sure the compiler can't optimize 
+I make sure the compiler can't optimize important logic away by counting & printing the number of times `true` is returned.
 
 # Results
 
