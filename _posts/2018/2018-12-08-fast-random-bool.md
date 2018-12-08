@@ -24,10 +24,13 @@ To get accurate numbers, I do this:
    * 2 different compilers: `clang++ -O2` and `g++ -O2`. 
    * 3 different random number generators: `std::mt19973`, `std::mt19973_64`, and the fantastic `sfc64` (more on that later).
    * 2 uses: Single loop, and in a 4 x unrolled loop. Unrolling checks that against code bloat slowdowns.
-1. Perform each evaluation 7 times, with 1 trillion iterations. So in total I have 7 x 6 timing results for each algorithm.
-1. Choose the median of the 7 evaluations, then calculate the [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) of the remaining 6 results. The result should be a quite accurate representation of the performance of the random bool algorithm.
+1. Perform each evaluation 7 times, with 1 trillion iterations. So in total I have 7 x (2*3*2) = 7 x 12 timing results for each algorithm.
+1. Choose the median of the 7 evaluations, then calculate the [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) of the remaining 12 results.
 
-performs 7 evaluations of each algorithm with 3 different random number generators: .  More on that later. For a final benchmarking result, I take the median of each of the 7 evaluations to get rid of outliers, so I am left with 3 results for each of the generators. I then calculate the geometric mean of 3 numbers to get the final result.
+The resulting geometric mean of each algorithm should be a quite representation of the performance of the random bool algorithm. 
+
+All tests are done one my i7-8700 @ 3.20GHz. The [sourcecode is here](https://gist.github.com/martinus/c43d99ad0008e11fcdbf06982e25f464), and the [results are in this spreadsheet](https://docs.google.com/spreadsheets/d/1cMqhMLNVnbddW8WKDA7C2M-swWm-4sqq13fALzDUOqY/edit?usp=sharing).
+I make sure the compiler can't optimize 
 
 # Results
 
