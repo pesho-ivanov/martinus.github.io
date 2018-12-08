@@ -7,7 +7,7 @@ bigimg: /img/2018/09/utxo_header.jpg
 
 While playing around with fast random number generators, I've started contemplating what's the fastest way to uniformly generate random boolean values. The correct solution is this (never mind the bad seeding of mt19973, but it's just too cumbersome to do it correctly):
 
-```
+```cpp
 std::mt19937 rng(std::random_device{}());
 bool rand_bool = std::uniform_int_distribution<>{0, 1}(rng);
 ```
@@ -36,7 +36,7 @@ I make sure the compiler can't optimize important logic away by counting & print
 
 ## std::uniform_int_distribution<>{0, 1}
 
-```
+```cpp
 class UniformDistribution {
   public:
     template <typename Rng> bool operator()(Rng &rng) {
