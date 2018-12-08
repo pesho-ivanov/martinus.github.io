@@ -42,10 +42,10 @@ class UniformDistribution {
 };
 ```
 
- * **geomean**: 8.41 ns/bool
- * **fastest**: 1.59 ns/bool sfc64, clang++ -O2, 4x unrolled
- * **slowest**: 18.30 ns/bool std::mt19937, g++ -O2, not unrolled
- * **memory**: 0 bytes
+ * **8.41 ns/bool geometric mean**
+ * 1.59 ns/bool fastest result: sfc64, clang++ -O2, 4x unrolled
+ * 18.30 ns/bool slowest result: std::mt19937, g++ -O2, not unrolled
+ * 0 byte required
 
 Like explained above, this can be extremely slow. Interestingly, clang++ produces much faster results than g++. The performance is highly dependent on both the random number generator's speed and obviously `std::uniform_int_distribution`.
 
@@ -62,10 +62,10 @@ template <typename U = uint64_t> class BinaryAndUnbiased {
 };
 ```
 
- * **geomean**: 4.29 ns/bool
- * **fastest**: 1.02 ns/bool sfc64, clang++ -O2, not unrolled
- * **slowest**: 16.00 ns/bool std::mt19937, g++ -O2, not unrolled
- * **memory**: 0 bytes
+ * **4.29 ns/bool geometric mean**
+ * 1.02 ns/bool fastest result: sfc64, clang++ -O2, not unrolled
+ * 16.00 ns/bool slowest result: std::mt19937, g++ -O2, not unrolled
+ * 0 byte required
 
 It's faster than the `std::uniform_int_distribution<>{0, 1}` solution, but still quite slow because it is so wasteful with the random bits. Note that recently popular random number generators [xoroshiro128+](https://en.wikipedia.org/wiki/Xoroshiro128%2B)'s last bit has some bad random properties, so don't use this in that way.
 
@@ -92,10 +92,10 @@ template <typename U = uint64_t> class RandomizerWithCounterT {
 };
 ```
 
- * **geomean**: 0.68 ns/bool
- * **fastest**: 0.37 ns/bool sfc64, clang++ -O2, 4x unrolled
- * **slowest**: 1.43 ns/bool std::mt19937, g++ -O2, 4x unrolled
- * **memory**: 16 bytes
+ * **0.68 ns/bool geometric mean**
+ * 0.37 ns/bool fastest result: sfc64, clang++ -O2, 4x unrolled
+ * 1.43 ns/bool slowest result: std::mt19937, g++ -O2, 4x unrolled
+ * 16 bytes required
 
 This implementation uses a counter to extract a single random bit of a 64bit random number. Huge advantage is that every random bit is used, so it is much less reliant on the random number's time. It is therefore quite fast.
 
@@ -126,10 +126,10 @@ template <typename U = uint64_t> class RandomizerWithCounter2 {
 };
 ```
 
- * **geomean**: 0.59 ns/bool
- * **fastest**: 0.32 ns/bool sfc64, clang++ -O2, 4x unrolled
- * **slowest**: 0.94 ns/bool std::mt19937, g++ -O2, not unrolled
- * **memory**: 16 bytes
+ * **0.59 ns/bool geometric mean**
+ * 0.32 ns/bool fastest result: sfc64, clang++ -O2, 4x unrolled
+ * 0.94 ns/bool slowest result: std::mt19937, g++ -O2, not unrolled
+ * 16 bytes required
 
 In contrast to the previous solution, this one fares much better when used in unrolled code. It's also a bit faster  with the same memory requirements. The trick here is that instead of resetting a counter we always use a mask with it I guess that means there is less branch prediction errors. 
 
@@ -157,10 +157,10 @@ template <typename U = uint64_t> class RandomizerWithShiftT {
 };
 ```
 
- * **geomean**: 0.53 ns/bool
- * **fastest**: 0.41 ns/bool sfc64, clang++ -O2, 4x unrolled
- * **slowest**: 0.74 ns/bool std::mt19937, g++ -O2, not unrolled
- * **memory**: 8 bytes
+ * **0.53 ns/bool geometric mean**
+ * 0.41 ns/bool fastest result: sfc64, clang++ -O2, 4x unrolled
+ * 0.74 ns/bool slowest result: std::mt19937, g++ -O2, not unrolled
+ * 8 bytes required
 
 The top speed is a bit slower than the previous solution, but this is the most well rounded solution in my benchmarks. It does very well with both unrolled and not unrolled loops, and both g++ and clang++ produce very fast code. Also, it uses only a single `uint64_t` as memory instead of two.
 
