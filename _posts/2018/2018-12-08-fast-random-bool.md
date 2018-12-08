@@ -20,10 +20,10 @@ On my quest to find a faster way, I have written [this gist](https://gist.github
 
 To get accurate numbers, I do this:
 
-1. Compile the benchmark with both `g++ -O2` and `clang++ -O2`. Benchmark both executables.
 1. Evaluate each random-bool algorithm with 
+   * 2 different compilers: `clang++ -O2` and `g++ -O2`. 
    * 3 different random number generators: `std::mt19973`, `std::mt19973_64`, and the fantastic `sfc64` (more on that later).
-   * Single loop, and a 4 x unrolled loop. Unrolling checks that against code bloat slowdowns.
+   * 2 uses: Single loop, and in a 4 x unrolled loop. Unrolling checks that against code bloat slowdowns.
 1. Perform each evaluation 7 times, with 1 trillion iterations. So in total I have 7 x 6 timing results for each algorithm.
 1. Choose the median of the 7 evaluations, then calculate the [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) of the remaining 6 results. The result should be a quite accurate representation of the performance of the random bool algorithm.
 
@@ -60,7 +60,6 @@ template <typename U = uint64_t> class BinaryAndUnbiased {
         return (std::uniform_int_distribution<U>{}(rng)) & 1;
     }
 };
-
 ```
 
  * **geomean**: 4.29 ns/bool
@@ -168,3 +167,51 @@ The top speed is a bit slower than the previous solution, but this is the most w
 The trick is that we sacrifice the upper bit of the 64bit random number and replace it with 1, which is the sentinel. Each time we extract a bool and rightshift `m_rand`. Since we have the sentinel, we know that we've used up all random bits when `m_rand == 1`, then we fetch a new random number. So instead of 64 bits we use only 63, a loss of 1.6%. 
 
 Verdict: It's awesome, use this from now on.
+
+
+# Small Fast Counting RNG, version 4
+
+This random number generator is from [PractRand](http://pracrand.sourceforge.net/). It is extremly fast, in my tests faster than [pcg64fast](http://www.pcg-random.org/), [xoshiro256**](http://xoshiro.di.unimi.it/) and [xoroshiro128**](http://xoshiro.di.unimi.it/), and even [splitmix64](http://xoshiro.di.unimi.it/splitmix64.c). It produces high quality random numbers, and passes PractRand. In the words of it's author:
+
+> This has not been as thoroughly tested as the jsf algorithm, but on my tests so far it appears superior to jsf in both quality and speed.  It's basically a good small chaotic RNG driven by a bad smaller linear RNG.  The combination gives it the strengths of each - good chaotic behavior, but enough structure to avoid short cycles.  
+
+My implementation:
+
+```
+// extremely fast random number generator that also produces very high quality random.
+// see PractRand: http://pracrand.sourceforge.net/PractRand.txt
+class sfc64 {
+  public:
+    using result_type = uint64_t;
+
+    static constexpr uint64_t(min)() { return 0; }
+    static constexpr uint64_t(max)() { return UINT64_C(-1); }
+
+    sfc64() : sfc64(std::random_device{}()) {}
+
+    explicit sfc64(uint64_t seed) : m_a(seed), m_b(seed), m_c(seed), m_counter(1) {
+        for (int i = 0; i < 12; ++i) {
+            operator()();
+        }
+    }
+
+    uint64_t operator()() noexcept {
+        auto const tmp = m_a + m_b + m_counter++;
+        m_a = m_b ^ (m_b >> right_shift);
+        m_b = m_c + (m_c << left_shift);
+        m_c = rotl(m_c, rotation) + tmp;
+        return tmp;
+    }
+
+  private:
+    template <typename T> T rotl(T const x, int k) { return (x << k) | (x >> (8 * sizeof(T) - k)); }
+
+    static constexpr int rotation = 24;
+    static constexpr int right_shift = 11;
+    static constexpr int left_shift = 3;
+    uint64_t m_a;
+    uint64_t m_b;
+    uint64_t m_c;
+    uint64_t m_counter;
+};
+```
