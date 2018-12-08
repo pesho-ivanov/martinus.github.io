@@ -56,7 +56,7 @@ Verdict: don't use this if performance is important.
 
 ## Use Last Bit
 
-```
+```cpp
 template <typename U = uint64_t> class BinaryAndUnbiased {
   public:
     template <typename Rng> bool operator()(Rng &rng) {
@@ -76,7 +76,7 @@ Verdict: use this if performans is not important or you absolutely can't have an
 
 ## Use Every Bit with Counter
 
-```
+```cpp
 #define UNLIKELY(x) __builtin_expect((x), 0)
 
 template <typename U = uint64_t> class RandomizerWithCounterT {
@@ -108,7 +108,7 @@ Verdict: It's much faster than anything above, but uses 16 bytes and there are b
 
 ## Counter with Mask
 
-```
+```cpp
 #define UNLIKELY(x) __builtin_expect((x), 0)
 
 template <typename U = uint64_t> class RandomizerWithCounter2 {
@@ -140,7 +140,7 @@ Verdict: Quite good, but we can do even better!
 
 ## Sacrifice One Random Bit As Sentinel
 
-```
+```cpp
 #define UNLIKELY(x) __builtin_expect((x), 0)
 
 template <typename U = uint64_t> class RandomizerWithShiftT {
@@ -180,7 +180,7 @@ This random number generator is from [PractRand](http://pracrand.sourceforge.net
 
 My implementation:
 
-```
+```cpp
 // extremely fast random number generator that also produces very high quality random.
 // see PractRand: http://pracrand.sourceforge.net/PractRand.txt
 class sfc64 {
