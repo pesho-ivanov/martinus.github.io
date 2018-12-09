@@ -174,7 +174,7 @@ Verdict: It's awesome, use this from now on.
 
 # Small Fast Counting RNG, version 4
 
-This random number generator is from [PractRand](http://pracrand.sourceforge.net/). It is extremly fast, in my tests faster than [pcg64fast](http://www.pcg-random.org/), [xoshiro256**](http://xoshiro.di.unimi.it/) and [xoroshiro128**](http://xoshiro.di.unimi.it/), and even [splitmix64](http://xoshiro.di.unimi.it/splitmix64.c). It produces high quality random numbers, and passes PractRand. In the words of it's author:
+This random number generator is from [PractRand](http://pracrand.sourceforge.net/). It is extremly fast, in my tests faster than [pcg64fast](http://www.pcg-random.org/), [xoshiro256\*\*](http://xoshiro.di.unimi.it/) and [xoroshiro128\*\*](http://xoshiro.di.unimi.it/), and even [splitmix64](http://xoshiro.di.unimi.it/splitmix64.c). It produces high quality random numbers, and passes PractRand. In the words of it's author:
 
 > This has not been as thoroughly tested as the jsf algorithm, but on my tests so far it appears superior to jsf in both quality and speed.  It's basically a good small chaotic RNG driven by a bad smaller linear RNG.  The combination gives it the strengths of each - good chaotic behavior, but enough structure to avoid short cycles.  
 
