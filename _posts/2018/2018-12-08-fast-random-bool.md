@@ -143,7 +143,7 @@ Verdict: Quite good, but we can do even better!
 ```cpp
 #define UNLIKELY(x) __builtin_expect((x), 0)
 
-template <typename U = uint64_t> class RandomizerWithShiftT {
+template <typename U = uint64_t> class RandomizerWithSentinelShift {
   public:
     template <typename Rng> bool operator()(Rng &rng) {
         if (UNLIKELY(1 == m_rand)) {
