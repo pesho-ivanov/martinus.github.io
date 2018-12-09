@@ -178,7 +178,7 @@ This random number generator is from [PractRand](http://pracrand.sourceforge.net
 
 > This has not been as thoroughly tested as the jsf algorithm, but on my tests so far it appears superior to jsf in both quality and speed.  It's basically a good small chaotic RNG driven by a bad smaller linear RNG.  The combination gives it the strengths of each - good chaotic behavior, but enough structure to avoid short cycles.  
 
-My implementation:
+My C++ version of it:
 
 ```cpp
 // extremely fast random number generator that also produces very high quality random.
