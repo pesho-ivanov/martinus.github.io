@@ -7,7 +7,7 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 I've spent a long time developing my [robin_hood::unordered_map](https://github.com/martinus/robin-hood-hashing), and after claiming that [it is now the fastest hashmap](https://www.reddit.com/r/cpp/comments/anbmol/robin_hoodunordered_map_is_now_the_fastest_hashmap/) I understandably got quite a few skeptic comments. Some of the comments were quite right, and my benchmarks were not as unbiased as they could be, I did not test as many unordered maps as I should have, my compiler options were not choosen well, and so on.
 
-That's why I have now spent considerable time to create a highly improved benchmarks, where I have tried to remedy ~all~ most of the critique that I initially got. The results are not as flattering to my [robin_hood::unordered_map](https://github.com/martinus/robin-hood-hashing), but I am still very pleased with the results.
+That's why I have now spent considerable time to create a highly improved benchmarks, where I have tried to remedy ~~all~~ most of the critique that I got. The results are not as flattering to my [robin_hood::unordered_map](https://github.com/martinus/robin-hood-hashing), but I am still very pleased with the results.
 
 # List of Benchmarks
 
@@ -31,9 +31,12 @@ For the impatient, here is a list of all the benchmarks with nice bar charts. To
 
 # What is actually Benchmarked?
 
-This benchmark has evalued 20 different unordered_map implementations, each with 5 different hashing implementations. So there are a total of 20*5 = 100 hashmap variants to benchmark. Each of this 100 hashmaps was evaluated in 10 different benchmarks, so in total 1000 benchmark evaluations. To get accurate results, I ran each benchmark 9 times, so 9000 benchmarks in total.
+This benchmark has evalued 20 different unordered_map implementations, each with 5 different hashing implementations. So there are a total of 20*5 = 100 hashmap variants to benchmark. Each of this 100 hashmaps was evaluated in 10 different benchmarks, so in total 1000 benchmark evaluations. I ran each benchmark 9 times and show the median, to filter out any outliers. So in total I ran 9000 benchmarks, which took about 6 days on my Intel i7-8700 at 3200 MHz. To get highly accurate results, I've [isolated a core to only benchmarking](https://perf.readthedocs.io/en/latest/system.html), and [disabled all frequency scaling](https://perf.readthedocs.io/en/latest/system.html).
 
 Tested Hashmaps: 
+
+* [Google's Abseil](https://abseil.io/docs/cpp/guides/container): `abseil::flat_hash_map`, `abseil::node_hash_map`. They are brand new, and have just recently pushed the boundary on what's possible to achieve for unordered_maps. It uses several interesting optimizations, described in [CppCon 2017: Matt Kulukundis “Designing a Fast, Efficient, Cache-friendly Hash Table, Step by Step](https://www.youtube.com/watch?v=ncHmEUmJZf4).
+* [boost multiindex](https://www.boost.org/doc/libs/1_69_0/libs/multi_index/doc/index.html): `boost::multi_index::hashed_unique`. Boost.MultiIndex is a versatile container that is highly configurable, it's main features is not speed but it's versatility. It is not a straight forward `std::unordered_map` replacement, the implementation for the wrapper was thankfully provided by [joaquintides](https://github.com/martinus/map_benchmark/issues/2).
 
 
 
