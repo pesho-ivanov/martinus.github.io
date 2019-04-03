@@ -26,106 +26,91 @@ After the loop is done, the variable `result` is used in a verifcation step. It 
 Now it gets a lot more interesting.
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<div id="id_c5946b90" style="height:210em"></div>
+<div id="id_b563064e" style="height:250em"></div>
 <script>
     var colors = Plotly.d3.scale.category10().range();
-    var m0y = [ "std::unordered_map", "eastl::hash_map", "absl::node_hash_map", "boost::unordered_map", "boost::multi_index::<br>hashed_unique", "folly::F14NodeMap", "spp::sparse_hash_map", "<b>tsl::sparse_map</b>", "robin_hood::<br>unordered_node_map", "<b>folly::F14ValueMap</b>", "absl::flat_hash_map", "ska::bytell_hash_map", "tsl::hopscotch_map", "emilib1::HashMap", "<b>robin_hood::<br>unordered_flat_map</b>", "<b>tsl::robin_map</b>"];
-    var m1y = [ "std::unordered_map", "eastl::hash_map", "absl::node_hash_map", "boost::unordered_map", "boost::multi_index::<br>hashed_unique", "folly::F14NodeMap", "spp::sparse_hash_map", "<b>tsl::sparse_map</b>", "robin_hood::<br>unordered_node_map", "absl::flat_hash_map", "<b>folly::F14ValueMap</b>", "ska::bytell_hash_map", "tsl::hopscotch_map", "emilib1::HashMap", "<b>robin_hood::<br>unordered_flat_map</b>", "<b>tsl::robin_map</b>"];
-    var m2y = [ "std::unordered_map", "absl::node_hash_map", "eastl::hash_map", "boost::unordered_map", "boost::multi_index::<br>hashed_unique", "folly::F14NodeMap", "spp::sparse_hash_map", "<b>tsl::sparse_map</b>", "robin_hood::<br>unordered_node_map", "<b>folly::F14ValueMap</b>", "absl::flat_hash_map", "tsl::hopscotch_map", "ska::bytell_hash_map", "emilib1::HashMap", "<b>robin_hood::<br>unordered_flat_map</b>", "<b>tsl::robin_map</b>"];
-    var m3y = [ "absl::node_hash_map", "absl::flat_hash_map", "std::unordered_map", "eastl::hash_map", "boost::unordered_map", "boost::multi_index::<br>hashed_unique", "folly::F14NodeMap", "spp::sparse_hash_map", "<b>tsl::sparse_map</b>", "robin_hood::<br>unordered_node_map", "<b>folly::F14ValueMap</b>", "tsl::hopscotch_map", "ska::bytell_hash_map", "emilib1::HashMap", "<b>robin_hood::<br>unordered_flat_map</b>", "<b>tsl::robin_map</b>"];
-    var m4y = [ "absl::node_hash_map", "absl::flat_hash_map", "std::unordered_map", "eastl::hash_map", "boost::unordered_map", "boost::multi_index::<br>hashed_unique", "folly::F14NodeMap", "spp::sparse_hash_map", "<b>tsl::sparse_map</b>", "robin_hood::<br>unordered_node_map", "<b>folly::F14ValueMap</b>", "ska::bytell_hash_map", "tsl::hopscotch_map", "emilib1::HashMap", "<b>robin_hood::<br>unordered_flat_map</b>", "<b>tsl::robin_map</b>"];
-    var measurement_names = [ "insert 100M int", "clear 100M int", "reinsert 100M int", "remove 100M int", "destructor empty map" ];
+    var m0y = [ "phmap::<br>parallel_node_hash_map", "eastl::hash_map", "std::unordered_map", "phmap::node_hash_map", "absl::node_hash_map", "boost::unordered_map", "folly::F14NodeMap", "boost::multi_index::<br>hashed_unique", "spp::sparse_hash_map", "robin_hood::<br>unordered_node_map", "<b>tsl::sparse_map</b>", "<b>phmap::<br>parallel_flat_hash_map</b>", "<b>folly::F14ValueMap</b>", "phmap::flat_hash_map", "absl::flat_hash_map", "ska::bytell_hash_map", "emilib1::HashMap", "tsl::hopscotch_map", "<b>robin_hood::<br>unordered_flat_map</b>", "<b>tsl::robin_map</b>"];
+    var m1y = [ "phmap::<br>parallel_node_hash_map", "std::unordered_map", "eastl::hash_map", "boost::unordered_map", "phmap::node_hash_map", "absl::node_hash_map", "boost::multi_index::<br>hashed_unique", "folly::F14NodeMap", "spp::sparse_hash_map", "robin_hood::<br>unordered_node_map", "<b>tsl::sparse_map</b>", "<b>phmap::<br>parallel_flat_hash_map</b>", "<b>folly::F14ValueMap</b>", "phmap::flat_hash_map", "absl::flat_hash_map", "ska::bytell_hash_map", "emilib1::HashMap", "tsl::hopscotch_map", "<b>robin_hood::<br>unordered_flat_map</b>", "<b>tsl::robin_map</b>"];
+    var m2y = [ "phmap::<br>parallel_node_hash_map", "std::unordered_map", "eastl::hash_map", "boost::unordered_map", "phmap::node_hash_map", "absl::node_hash_map", "boost::multi_index::<br>hashed_unique", "folly::F14NodeMap", "spp::sparse_hash_map", "robin_hood::<br>unordered_node_map", "<b>tsl::sparse_map</b>", "<b>phmap::<br>parallel_flat_hash_map</b>", "<b>folly::F14ValueMap</b>", "phmap::flat_hash_map", "absl::flat_hash_map", "ska::bytell_hash_map", "emilib1::HashMap", "tsl::hopscotch_map", "<b>robin_hood::<br>unordered_flat_map</b>", "<b>tsl::robin_map</b>"];
+    var m3y = [ "absl::node_hash_map", "phmap::node_hash_map", "phmap::flat_hash_map", "absl::flat_hash_map", "phmap::<br>parallel_node_hash_map", "std::unordered_map", "eastl::hash_map", "boost::unordered_map", "boost::multi_index::<br>hashed_unique", "folly::F14NodeMap", "spp::sparse_hash_map", "robin_hood::<br>unordered_node_map", "<b>tsl::sparse_map</b>", "<b>phmap::<br>parallel_flat_hash_map</b>", "<b>folly::F14ValueMap</b>", "emilib1::HashMap", "ska::bytell_hash_map", "tsl::hopscotch_map", "<b>robin_hood::<br>unordered_flat_map</b>", "<b>tsl::robin_map</b>"];
+    var m4y = [ "phmap::node_hash_map", "phmap::flat_hash_map", "absl::node_hash_map", "absl::flat_hash_map", "phmap::<br>parallel_node_hash_map", "phmap::<br>parallel_flat_hash_map", "emilib1::HashMap", "eastl::hash_map", "std::unordered_map", "boost::unordered_map", "folly::F14NodeMap", "boost::multi_index::<br>hashed_unique", "robin_hood::<br>unordered_node_map", "spp::sparse_hash_map", "<b>tsl::sparse_map</b>", "<b>folly::F14ValueMap</b>", "ska::bytell_hash_map", "tsl::hopscotch_map", "<b>robin_hood::<br>unordered_flat_map</b>", "<b>tsl::robin_map</b>"];
+    var measurement_names = [ "5% distinct", "25% distinct", "50% distinct", "100% distinct" ];
 
     var data = [
-        { x: [ 39.59545, 41.4139, 24.74455, 33.6502, 32.589349999999996, 19.590899999999998, 24.63375, 20.25805, 16.300649999999997, 14.24495, 10.9056, 11.6269, 11.40575, 10.719100000000001, 8.012775, 6.67978 ],
+        { x: [ 9.55518, 11.5495, 9.225185, 8.547930000000001, 8.617105, 9.223289999999999, 7.48536, 6.77613, 3.7915900000000002, 6.30993, 2.893245, 3.186395, 3.512035, 3.0734950000000003, 3.105015, 1.094475, 1.298575, 1.0936, 1.05048, 0.9821605 ],
           y: m0y, name: measurement_names[0] + ' (robin_hood::hash)', type: 'bar', orientation: 'h', yaxis: 'y', marker: { color: colors[0], },
         },
-        { x: [ 6.1396999999999995, 11.5892, 12.0696, 5.991065000000001, 5.976805, 11.93455, 2.406165, 0.840023, 1.3073549999999998, 0.03022375, 0.0367541, 0.386626, 0.124466, 0.406495, 0.0054538699999999996, 1.044285 ],
+        { x: [ 13.5557, 12.1585, 16.4469, 12.719100000000001, 12.64675, 11.272649999999999, 10.1288, 9.113579999999999, 7.696835, 7.5249500000000005, 6.590400000000001, 6.10594, 5.311615, 5.71022, 5.761095, 2.404185, 2.11265, 1.990105, 1.6857, 1.53815 ],
           y: m0y, name: measurement_names[1] + ' (robin_hood::hash)', type: 'bar', orientation: 'h', yaxis: 'y', marker: { color: colors[1], },
         },
-        { x: [ 24.9743, 18.9979, 40.103, 22.813299999999998, 18.646500000000003, 36.16265, 24.596899999999998, 15.74495, 10.41575, 14.2927, 13.76025, 6.44811, 6.746895, 4.781395, 4.696125, 2.774605 ],
+        { x: [ 21.301650000000002, 17.2521, 17.8553, 15.9864, 16.08805, 13.5281, 12.71905, 11.49165, 9.324645, 8.049150000000001, 7.86087, 6.693425, 6.061525, 5.92165, 5.9585550000000005, 4.567745, 3.01206, 2.9722600000000003, 2.195445, 2.146795 ],
           y: m0y, name: measurement_names[2] + ' (robin_hood::hash)', type: 'bar', orientation: 'h', yaxis: 'y', marker: { color: colors[2], },
         },
-        { x: [ 28.9088, 25.4235, 17.445349999999998, 30.212400000000002, 25.7814, 11.9021, 13.6167, 10.20655, 17.3543, 11.11205, 14.00625, 3.93709, 3.7538549999999997, 3.6026049999999996, 4.192265, 3.1097099999999998 ],
+        { x: [ 29.64975, 27.2618, 23.147100000000002, 21.6956, 21.4679, 19.68085, 18.19095, 19.15285, 13.34845, 8.516615, 10.55435, 6.87912, 7.0733250000000005, 6.6352899999999995, 6.339145, 5.891125000000001, 5.4201250000000005, 5.630789999999999, 4.0084800000000005, 3.4419649999999997 ],
           y: m0y, name: measurement_names[3] + ' (robin_hood::hash)', type: 'bar', orientation: 'h', yaxis: 'y', marker: { color: colors[3], },
-        },
-        { x: [ 0.0682477, 0.17683749999999998, 0.0963347, 0.02218545, 0.0206082, 0.027288350000000003, 0.0140955, 0.8404425, 0.11337, 0.0301907, 0.03698745, 0.1236915, 0.05695325, 0.045899800000000004, 0.03629435, 0.08555170000000001 ],
-          y: m0y, name: measurement_names[4] + ' (robin_hood::hash)', type: 'bar', orientation: 'h', yaxis: 'y', marker: { color: colors[4], },
             textposition: 'outside',
-            text: [ "99.7s<br>3986MB", "97.6s<br>4153MB", "94.5s<br>4716MB", "92.7s<br>3774MB", "83.0s<br>3774MB", "79.6s<br>4542MB", "65.3s<br>1230MB", "47.9s<br>1120MB", "45.5s<br>2293MB", "39.7s<br>1534MB", "38.7s<br>1718MB", "22.5s<br>1717MB", "22.1s<br>3061MB", "19.6s<br>2293MB", "16.9s<br>1717MB", "13.7s<br>4597MB" ],
+            text: [ "74.1s<br>2084MB", "68.2s<br>2071MB", "66.7s<br>1989MB", "58.9s<br>2084MB", "58.8s<br>2083MB", "53.7s<br>1890MB", "48.5s<br>2019MB", "46.5s<br>1890MB", "34.2s<br>612MB", "30.4s<br>1141MB", "<b>27.9s<br>554MB</b>", "<b>22.9s<br>640MB</b>", "<b>22.0s<br>762MB</b>", "21.3s<br>855MB", "21.2s<br>854MB", "14.0s<br>854MB", "11.8s<br>1141MB", "11.7s<br>1525MB", "<b>8.94s<br>853MB</b>", "<b>8.11s<br>2293MB</b>" ],
         },
-        { x: [ 39.59375, 41.094, 24.94295, 33.518, 32.7066, 19.654600000000002, 25.0517, 20.4631, 16.78015, 13.859, 14.32375, 11.6955, 11.77035, 10.7469, 8.43496, 6.939814999999999 ],
+        { x: [ 9.18608, 10.7606, 7.544449999999999, 10.702200000000001, 8.620365, 8.678825, 7.93336, 7.568665, 3.7399899999999997, 6.05361, 3.0406950000000004, 2.98451, 3.53027, 2.7955550000000002, 2.8976800000000003, 1.429155, 1.6348850000000001, 1.47965, 1.566735, 1.16876 ],
           y: m1y, name: measurement_names[0] + ' (absl::Hash)', type: 'bar', orientation: 'h', yaxis: 'y2', marker: { color: colors[0], },
         },
-        { x: [ 6.247665, 11.635100000000001, 12.0841, 5.902559999999999, 5.9186049999999994, 12.03455, 1.7790599999999999, 0.8233809999999999, 1.311925, 0.0394552, 0.032602599999999995, 0.38625149999999997, 0.1255445, 0.42315400000000003, 0.005454795, 1.03822 ],
+        { x: [ 14.113399999999999, 14.411750000000001, 12.10805, 14.05985, 12.7519, 12.7865, 11.37435, 10.21565, 7.783905, 7.302835, 6.591255, 6.20071, 5.058555, 5.792260000000001, 5.7982, 2.67626, 2.777125, 2.493435, 2.54218, 1.81479 ],
           y: m1y, name: measurement_names[1] + ' (absl::Hash)', type: 'bar', orientation: 'h', yaxis: 'y2', marker: { color: colors[1], },
         },
-        { x: [ 25.6336, 18.396749999999997, 40.49185, 22.317050000000002, 18.2821, 36.23485, 25.652050000000003, 15.808250000000001, 10.5715, 13.85525, 14.5042, 6.563815, 6.951465, 4.9989349999999995, 5.158825, 2.790685 ],
+        { x: [ 21.15495, 17.71895, 17.4906, 16.233600000000003, 16.4011, 16.322699999999998, 14.104500000000002, 12.7599, 9.492595, 8.109075, 8.149585, 6.91179, 6.076544999999999, 6.144755, 6.033799999999999, 3.74779, 3.7815149999999997, 3.3858800000000002, 2.944045, 2.4793200000000004 ],
           y: m1y, name: measurement_names[2] + ' (absl::Hash)', type: 'bar', orientation: 'h', yaxis: 'y2', marker: { color: colors[2], },
         },
-        { x: [ 29.275, 25.62465, 17.4488, 29.575899999999997, 25.472450000000002, 12.03345, 13.6759, 10.233450000000001, 17.3748, 14.078050000000001, 11.379249999999999, 3.977785, 3.705615, 3.825665, 4.33915, 3.181875 ],
+        { x: [ 28.8114, 23.463250000000002, 27.209200000000003, 20.228749999999998, 21.65035, 21.37375, 19.693550000000002, 18.26885, 12.8991, 8.750499999999999, 10.6131, 6.494714999999999, 7.33652, 6.645569999999999, 6.31647, 5.945345, 5.5519750000000005, 5.710710000000001, 4.23161, 3.51597 ],
           y: m1y, name: measurement_names[3] + ' (absl::Hash)', type: 'bar', orientation: 'h', yaxis: 'y2', marker: { color: colors[3], },
-        },
-        { x: [ 0.06835925, 0.1333965, 0.11755099999999999, 0.02149635, 0.020614399999999998, 0.0272918, 0.0143814, 0.8354035, 0.1180585, 0.0392862, 0.03266905, 0.1216005, 0.058876349999999994, 0.043818449999999995, 0.0378997, 0.084713 ],
-          y: m1y, name: measurement_names[4] + ' (absl::Hash)', type: 'bar', orientation: 'h', yaxis: 'y2', marker: { color: colors[4], },
             textposition: 'outside',
-            text: [ "101s<br>3986MB", "96.9s<br>4153MB", "95.1s<br>4734MB", "91.3s<br>3774MB", "82.4s<br>3774MB", "80.0s<br>4542MB", "66.2s<br>1230MB", "48.2s<br>1119MB", "46.2s<br>2293MB", "41.9s<br>1718MB", "40.3s<br>1534MB", "22.7s<br>1717MB", "22.6s<br>3061MB", "20.0s<br>2293MB", "18.0s<br>1717MB", "14.0s<br>4597MB" ],
+            text: [ "73.3s<br>2084MB", "66.4s<br>1989MB", "64.4s<br>2071MB", "61.2s<br>1890MB", "59.4s<br>2084MB", "59.2s<br>2083MB", "53.1s<br>1890MB", "48.8s<br>2019MB", "33.9s<br>612MB", "30.2s<br>1141MB", "<b>28.4s<br>554MB</b>", "<b>22.6s<br>654MB</b>", "<b>22.0s<br>762MB</b>", "21.4s<br>855MB", "21.0s<br>854MB", "13.8s<br>854MB", "13.7s<br>1141MB", "13.1s<br>1525MB", "<b>11.3s<br>853MB</b>", "<b>8.98s<br>2293MB</b>" ],
         },
-        { x: [ 39.6849, 26.2414, 41.596599999999995, 33.9436, 32.950900000000004, 20.17235, 25.383899999999997, 20.71925, 17.4568, 14.7014, 11.7774, 12.17615, 11.67845, 11.476600000000001, 8.81049, 7.42228 ],
+        { x: [ 9.00483, 10.82475, 7.553075, 11.96555, 8.623764999999999, 8.64315, 10.69775, 7.497035, 3.68784, 6.161185, 2.822195, 3.09512, 3.5602, 2.9090100000000003, 2.9996400000000003, 1.59391, 1.59708, 1.24097, 1.41234, 1.18335 ],
           y: m2y, name: measurement_names[0] + ' (FNV1a)', type: 'bar', orientation: 'h', yaxis: 'y3', marker: { color: colors[0], },
         },
-        { x: [ 6.175985, 12.18805, 11.59205, 5.9609000000000005, 5.933485, 12.016200000000001, 1.11545, 0.828782, 1.31172, 0.0302172, 0.03692525, 0.125806, 0.384351, 0.4154215, 0.00544304, 1.0370300000000001 ],
+        { x: [ 14.30945, 13.857099999999999, 12.29415, 13.3832, 12.7928, 12.822, 11.661200000000001, 10.018450000000001, 7.6257, 7.27937, 6.308045, 6.4417349999999995, 5.458275, 5.855935, 5.892465, 2.67919, 2.65579, 2.317805, 2.208365, 1.8909150000000001 ],
           y: m2y, name: measurement_names[1] + ' (FNV1a)', type: 'bar', orientation: 'h', yaxis: 'y3', marker: { color: colors[1], },
         },
-        { x: [ 25.6265, 41.731049999999996, 18.83985, 22.893099999999997, 18.872, 36.65875, 26.5337, 15.822199999999999, 10.319749999999999, 14.8607, 11.84695, 7.276485, 6.659865, 5.434089999999999, 5.239305, 3.4185499999999998 ],
+        { x: [ 20.3562, 17.43805, 18.1707, 15.3987, 16.47065, 16.44095, 13.7997, 12.66475, 9.43741, 8.167750000000002, 8.106494999999999, 7.226145000000001, 6.18915, 6.344095, 6.246175, 3.799085, 3.68059, 3.421425, 2.7743399999999996, 2.68689 ],
           y: m2y, name: measurement_names[2] + ' (FNV1a)', type: 'bar', orientation: 'h', yaxis: 'y3', marker: { color: colors[2], },
         },
-        { x: [ 29.15365, 17.62025, 25.3301, 29.76965, 25.48995, 12.3711, 13.690999999999999, 10.49495, 17.3204, 11.4449, 14.0957, 4.106535, 4.255025, 4.1677599999999995, 4.427235, 3.48832 ],
+        { x: [ 30.1082, 23.61705, 27.53655, 20.3161, 21.52375, 21.2701, 19.796300000000002, 18.52875, 13.6882, 8.81398, 10.82515, 7.160769999999999, 7.51496, 5.859425, 5.511375, 6.05961, 5.84302, 5.94114, 4.550055, 3.84603 ],
           y: m2y, name: measurement_names[3] + ' (FNV1a)', type: 'bar', orientation: 'h', yaxis: 'y3', marker: { color: colors[3], },
-        },
-        { x: [ 0.06803635, 0.09647875, 0.1325755, 0.02265925, 0.020844849999999998, 0.027395799999999998, 0.0141995, 0.828391, 0.1155255, 0.0301467, 0.0368403, 0.0595404, 0.12131549999999999, 0.0441938, 0.036859050000000004, 0.0844547 ],
-          y: m2y, name: measurement_names[4] + ' (FNV1a)', type: 'bar', orientation: 'h', yaxis: 'y3', marker: { color: colors[4], },
             textposition: 'outside',
-            text: [ "101s<br>3986MB", "97.9s<br>4734MB", "97.5s<br>4153MB", "92.6s<br>3774MB", "83.3s<br>3774MB", "81.2s<br>4542MB", "66.7s<br>1230MB", "48.7s<br>1119MB", "46.5s<br>2293MB", "41.1s<br>1534MB", "37.8s<br>1718MB", "23.7s<br>3061MB", "23.1s<br>1717MB", "21.5s<br>2293MB", "18.5s<br>1717MB", "15.5s<br>4597MB" ],
+            text: [ "73.8s<br>2084MB", "65.7s<br>1989MB", "65.6s<br>2071MB", "61.1s<br>1890MB", "59.4s<br>2084MB", "59.2s<br>2083MB", "56.0s<br>1890MB", "48.7s<br>2019MB", "34.4s<br>612MB", "30.4s<br>1141MB", "<b>28.1s<br>554MB</b>", "<b>23.9s<br>671MB</b>", "<b>22.7s<br>762MB</b>", "21.0s<br>855MB", "20.6s<br>854MB", "14.1s<br>854MB", "13.8s<br>1141MB", "12.9s<br>1525MB", "<b>10.9s<br>853MB</b>", "<b>9.61s<br>2293MB</b>" ],
         },
-        { x: [ 0, 0, 38.900549999999996, 37.5437, 33.1457, 31.834049999999998, 19.797600000000003, 24.38845, 20.0932, 16.3087, 14.05405, 11.31045, 10.7677, 10.3179, 8.01291, 6.43342 ],
-          y: m3y, name: measurement_names[0] + ' (Identity)', type: 'bar', orientation: 'h', yaxis: 'y4', marker: { color: colors[0], },
+        { x: [ 8.761545, 8.676115, 2.879385, 2.83635, 9.168865, 10.804950000000002, 7.57164, 10.69445, 9.241095, 7.44789, 3.7409100000000004, 5.9974, 3.236805, 3.2134, 3.62555, 1.93315, 1.6957650000000002, 1.783125, 1.96807, 1.45742 ],
+          y: m3y, name: measurement_names[0] + ' (folly::hasher)', type: 'bar', orientation: 'h', yaxis: 'y4', marker: { color: colors[0], },
         },
-        { x: [ 0, 0, 6.1679200000000005, 11.6466, 5.976990000000001, 5.93216, 11.97725, 1.114395, 0.8329225, 1.311665, 0.03021555, 0.125429, 0.38795100000000005, 0.40853, 0.00546376, 1.0539399999999999 ],
-          y: m3y, name: measurement_names[1] + ' (Identity)', type: 'bar', orientation: 'h', yaxis: 'y4', marker: { color: colors[1], },
+        { x: [ 12.94705, 12.895800000000001, 5.77322, 5.7961, 14.3163, 14.436, 12.24025, 13.9021, 12.184750000000001, 10.181899999999999, 7.73775, 7.304105, 6.702585, 6.301895, 5.455209999999999, 3.129885, 2.8971099999999996, 2.83019, 2.9585749999999997, 2.168605 ],
+          y: m3y, name: measurement_names[1] + ' (folly::hasher)', type: 'bar', orientation: 'h', yaxis: 'y4', marker: { color: colors[1], },
         },
-        { x: [ 0, 0, 24.609, 18.72455, 21.86175, 18.127200000000002, 36.68275, 25.6044, 15.921899999999999, 10.525500000000001, 14.210799999999999, 6.6469000000000005, 5.74176, 4.545975, 4.632745, 2.662235 ],
-          y: m3y, name: measurement_names[2] + ' (Identity)', type: 'bar', orientation: 'h', yaxis: 'y4', marker: { color: colors[2], },
+        { x: [ 16.5155, 16.56165, 6.258005, 6.15822, 21.66665, 17.88125, 17.514200000000002, 16.30325, 14.69265, 12.76315, 9.78082, 8.25263, 8.317555, 7.0559449999999995, 6.156219999999999, 4.18706, 4.0676, 3.7231300000000003, 3.441405, 2.85101 ],
+          y: m3y, name: measurement_names[2] + ' (folly::hasher)', type: 'bar', orientation: 'h', yaxis: 'y4', marker: { color: colors[2], },
         },
-        { x: [ 0, 0, 28.8453, 25.40735, 29.1931, 25.19115, 11.778099999999998, 13.51295, 10.25695, 17.5531, 11.22825, 3.4113249999999997, 3.77418, 3.606265, 4.05891, 2.740135 ],
-          y: m3y, name: measurement_names[3] + ' (Identity)', type: 'bar', orientation: 'h', yaxis: 'y4', marker: { color: colors[3], },
-        },
-        { x: [ 0, 0, 0.06815635, 0.1331185, 0.0219629, 0.0209347, 0.0273286, 0.014119099999999999, 0.838443, 0.113712, 0.03025445, 0.0578818, 0.14018599999999998, 0.04385165, 0.03816715, 0.08430445 ],
-          y: m3y, name: measurement_names[4] + ' (Identity)', type: 'bar', orientation: 'h', yaxis: 'y4', marker: { color: colors[4], },
+        { x: [ 784.3945, 780.6935000000001, 573.5585, 571.2860000000001, 29.084, 23.68805, 26.85565, 20.42305, 19.77905, 18.50165, 13.61015, 9.014515, 10.88675, 6.88522, 7.4159749999999995, 5.82744, 6.216835, 5.879655, 4.754965, 3.81395 ],
+          y: m3y, name: measurement_names[3] + ' (folly::hasher)', type: 'bar', orientation: 'h', yaxis: 'y4', marker: { color: colors[3], },
             textposition: 'outside',
-            text: [ "timeout", "timeout", "98.6s<br>3986MB", "93.5s<br>4153MB", "90.2s<br>3774MB", "81.1s<br>3774MB", "80.3s<br>4472MB", "64.6s<br>1230MB", "47.9s<br>1116MB", "45.8s<br>2293MB", "39.6s<br>1534MB", "21.6s<br>3061MB", "20.8s<br>1717MB", "18.9s<br>2293MB", "16.7s<br>1717MB", "13.0s<br>4597MB" ],
+            text: [ "823s<br>1950MB", "819s<br>1952MB", "588s<br>599MB", "586s<br>598MB", "74.2s<br>2084MB", "66.8s<br>1989MB", "64.2s<br>2071MB", "61.3s<br>1890MB", "55.9s<br>1890MB", "48.9s<br>2019MB", "34.9s<br>612MB", "30.6s<br>1141MB", "<b>29.1s<br>554MB</b>", "<b>23.5s<br>654MB</b>", "<b>22.7s<br>762MB</b>", "15.1s<br>1141MB", "14.9s<br>854MB", "14.2s<br>1525MB", "<b>13.1s<br>853MB</b>", "<b>10.3s<br>2293MB</b>" ],
         },
-        { x: [ 0, 0, 40.85445, 39.314499999999995, 33.75364999999999, 32.54675, 20.3152, 25.676299999999998, 20.771500000000003, 18.7208, 14.892800000000001, 12.05495, 12.05555, 11.500699999999998, 9.58469, 7.68047 ],
-          y: m4y, name: measurement_names[0] + ' (folly::hasher)', type: 'bar', orientation: 'h', yaxis: 'y5', marker: { color: colors[0], },
+        { x: [ 0, 0, 0, 0, 96.94579999999999, 59.56505, 2.1526, 6.77286, 8.858995, 8.213895, 7.4725850000000005, 6.3285599999999995, 6.261875, 1.9562149999999998, 1.861625, 3.48137, 0.94509, 0.900229, 0.9903504999999999, 0.7576995 ],
+          y: m4y, name: measurement_names[0] + ' (Identity)', type: 'bar', orientation: 'h', yaxis: 'y5', marker: { color: colors[0], },
         },
-        { x: [ 0, 0, 6.195625, 11.58075, 5.9747900000000005, 5.89313, 11.939699999999998, 2.42347, 0.8311815, 1.307485, 0.03018195, 0.3864195, 0.125831, 0.40614150000000004, 0.005435775, 1.04647 ],
-          y: m4y, name: measurement_names[1] + ' (folly::hasher)', type: 'bar', orientation: 'h', yaxis: 'y5', marker: { color: colors[1], },
+        { x: [ 0, 0, 0, 0, 268.4095, 184.938, 17.1782, 10.862, 11.57615, 10.6508, 10.138449999999999, 8.573094999999999, 7.67464, 6.31842, 5.13954, 5.2400850000000005, 1.7699850000000001, 1.739855, 1.575325, 1.374155 ],
+          y: m4y, name: measurement_names[1] + ' (Identity)', type: 'bar', orientation: 'h', yaxis: 'y5', marker: { color: colors[1], },
         },
-        { x: [ 0, 0, 25.645899999999997, 19.146349999999998, 22.5345, 18.784100000000002, 36.63665, 25.591749999999998, 15.85305, 9.91714, 14.930250000000001, 6.75028, 7.13134, 5.28754, 5.68849, 3.43095 ],
-          y: m4y, name: measurement_names[2] + ' (folly::hasher)', type: 'bar', orientation: 'h', yaxis: 'y5', marker: { color: colors[2], },
+        { x: [ 0, 0, 0, 0, 370.454, 271.007, 48.51235, 15.27535, 14.04965, 12.114049999999999, 12.773, 10.11025, 8.123935, 8.434560000000001, 6.98464, 5.94469, 2.71948, 2.647665, 2.14662, 1.9622600000000001 ],
+          y: m4y, name: measurement_names[2] + ' (Identity)', type: 'bar', orientation: 'h', yaxis: 'y5', marker: { color: colors[2], },
         },
-        { x: [ 0, 0, 28.59655, 25.323999999999998, 29.4077, 25.19865, 12.3153, 13.9145, 10.512550000000001, 17.32075, 11.466349999999998, 4.364325, 4.260350000000001, 4.049495, 4.7356750000000005, 3.52102 ],
-          y: m4y, name: measurement_names[3] + ' (folly::hasher)', type: 'bar', orientation: 'h', yaxis: 'y5', marker: { color: colors[3], },
-        },
-        { x: [ 0, 0, 0.06830585, 0.17685, 0.0215867, 0.02065055, 0.02728425, 0.0141233, 0.8378715, 0.1131335, 0.0302235, 0.1224655, 0.0599468, 0.044055300000000006, 0.037406800000000004, 0.08425975 ],
-          y: m4y, name: measurement_names[4] + ' (folly::hasher)', type: 'bar', orientation: 'h', yaxis: 'y5', marker: { color: colors[4], },
+        { x: [ 0, 0, 0, 0, 25.25665, 6.7356300000000005, 4.969405, 25.8725, 22.14315, 19.11225, 18.282400000000003, 18.4662, 8.440909999999999, 12.9134, 10.394449999999999, 7.047969999999999, 5.69681, 5.54155, 3.9569650000000003, 3.300705 ],
+          y: m4y, name: measurement_names[3] + ' (Identity)', type: 'bar', orientation: 'h', yaxis: 'y5', marker: { color: colors[3], },
             textposition: 'outside',
-            text: [ "timeout", "timeout", "101s<br>3986MB", "95.5s<br>4153MB", "91.7s<br>3774MB", "82.4s<br>3774MB", "81.2s<br>4489MB", "67.6s<br>1231MB", "48.8s<br>1120MB", "47.4s<br>2293MB", "41.3s<br>1534MB", "23.7s<br>1717MB", "23.6s<br>3061MB", "21.3s<br>2293MB", "20.1s<br>1717MB", "15.8s<br>4597MB" ],
+            text: [ "timeout", "timeout", "timeout", "timeout", "761s<br>2084MB", "522s<br>624MB", "72.8s<br>1141MB", "58.8s<br>2071MB", "56.6s<br>1989MB", "50.1s<br>1890MB", "48.7s<br>2019MB", "43.5s<br>1890MB", "30.5s<br>1141MB", "29.6s<br>612MB", "<b>24.4s<br>554MB</b>", "<b>21.7s<br>762MB</b>", "11.1s<br>853MB", "10.8s<br>1525MB", "<b>8.67s<br>853MB</b>", "<b>7.39s<br>2293MB</b>" ],
         },
     ];
 
     var layout = {
-        // title: { text: 'InsertHugeInt'},
+        // title: { text: 'RandomDistinct2'},
         grid: {
             ygap: 0.1,
             subplots: [
@@ -140,13 +125,13 @@ Now it gets a lot more interesting.
         yaxis: { title: 'robin_hood::hash', automargin: true, },
         yaxis2: { title: 'absl::Hash', automargin: true, },
         yaxis3: { title: 'FNV1a', automargin: true, },
-        yaxis4: { title: 'Identity', automargin: true, },
-        yaxis5: { title: 'folly::hasher', automargin: true, },
+        yaxis4: { title: 'folly::hasher', automargin: true, },
+        yaxis5: { title: 'Identity', automargin: true, },
         xaxis: { automargin: true, },
         legend: { traceorder: 'normal' },
         margin: { pad: 0, l:0, r:0, t:0, b:0, },
         showlegend:false,
     };
 
-    Plotly.newPlot('id_c5946b90', data, layout);
+    Plotly.newPlot('id_b563064e', data, layout);
 </script>

@@ -5,20 +5,20 @@ subtitle: Finding the Fastest, Memory Efficient Hashmap
 bigimg: /img/2019/X-15_in_flight_small.jpg
 ---
 
-This is the overview.
+I've spent a long time developing my [robin_hood::unordered_map](https://github.com/martinus/robin-hood-hashing), and after claiming that [it is now the fastest hashmap](https://www.reddit.com/r/cpp/comments/anbmol/robin_hoodunordered_map_is_now_the_fastest_hashmap/) I understandably got quite a few skeptic comments. Some of the comments were quite right, and my benchmarks were not as unbiased as they could be, I did not test as many unordered maps as I should have, my compiler options were not choosen well, and so on.
 
-## Benchmark Protocol
+That's why I have now spent considerable time to create a highly improved benchmarks, where I have tried to remedy ~all~ most of the critique that I initially got. The results are not as flattering to my [robin_hood::unordered_map](https://github.com/martinus/robin-hood-hashing), but I am still very pleased with the results.
 
-## Benchmark Precision
+# List of Benchmarks
 
-# Table Of Contents
+For the impatient, here is a list of all the benchmarks with nice bar charts. To actually understand what's going on, please read on.
 
 * [Overview](/2019/04/01/hashmap-benchmarks-01-overview/)
 * **Construction Benchmarks**
    * [Construction & Destruction](/2019/04/01/hashmap-benchmarks-02-result-CtorDtorEmptyMap/)
    * [Construction & Insert 1 Element & Destruction](/2019/04/01/hashmap-benchmarks-02-result-CtorDtorSingleEntryMap/)
 * **Modifying Benchmarks**
-   * [Insert & Erase 100M Entries](2019/04/01/hashmap-benchmarks-02-result-InsertHugeInt/)
+   * [Insert & Erase 100M Entries](/2019/04/01/hashmap-benchmarks-02-result-InsertHugeInt/)
    * [Insert or Access, Varying Probability](/2019/04/01/hashmap-benchmarks-02-result-RandomDistinct2/)
    * [Insert & Erase](/2019/04/01/hashmap-benchmarks-02-result-RandomInsertErase/)
    * [Insert & Erase Strings](/2019/04/01/hashmap-benchmarks-02-result-RandomInsertEraseStrings/)
@@ -28,6 +28,14 @@ This is the overview.
    * [Find 1-500k Entries](/2019/04/01/hashmap-benchmarks-02-result-RandomFind_500000/)
    * [Iterating](/2019/04/01/hashmap-benchmarks-02-result-IterateIntegers/)
 * [Conclusion](/2019/04/01/hashmap-benchmarks-03-conclusion/)
+
+# What is actually Benchmarked?
+
+This benchmark has evalued 20 different unordered_map implementations, each with 5 different hashing implementations. So there are a total of 20*5 = 100 hashmap variants to benchmark. Each of this 100 hashmaps was evaluated in 10 different benchmarks, so in total 1000 benchmark evaluations. To get accurate results, I ran each benchmark 9 times, so 9000 benchmarks in total.
+
+Tested Hashmaps: 
+
+
 
 # Summary
 
