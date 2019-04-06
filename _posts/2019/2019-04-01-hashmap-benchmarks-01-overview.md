@@ -5,29 +5,29 @@ subtitle: Finding the Fastest, Memory Efficient Hashmap
 bigimg: /img/2019/X-15_in_flight_small.jpg
 ---
 
-I've spent a long time developing my [robin_hood::unordered_map](https://github.com/martinus/robin-hood-hashing), and after claiming that [it is now the fastest hashmap](https://www.reddit.com/r/cpp/comments/anbmol/robin_hoodunordered_map_is_now_the_fastest_hashmap/) I understandably got quite a few skeptic comments. Some of the comments were quite right, and my benchmarks were not as unbiased as they could be, I did not test as many unordered maps as I should have, my compiler options were not choosen well, and so on.
+## Table of Contents
 
-That's why I have now spent considerable time to create a highly improved benchmarks, where I have tried to remedy ~~all~~ most of the critique that I got. The results are not as flattering to my [robin_hood::unordered_map](https://github.com/martinus/robin-hood-hashing), but I am still very pleased with the results.
-
-# List of Benchmarks
-
-For the impatient, here is a list of all the benchmarks with nice bar charts. To actually understand what's going on, please read on.
-
-* [Overview](/2019/04/01/hashmap-benchmarks-01-overview/)
-* **Construction Benchmarks**
+* **&rarr; Overview &larr;**
+* Construction Benchmarks
    * [Construction & Destruction](/2019/04/01/hashmap-benchmarks-02-result-CtorDtorEmptyMap/)
    * [Construction & Insert 1 Element & Destruction](/2019/04/01/hashmap-benchmarks-02-result-CtorDtorSingleEntryMap/)
-* **Modifying Benchmarks**
+* Modifying Benchmarks
    * [Insert & Erase 100M Entries](/2019/04/01/hashmap-benchmarks-02-result-InsertHugeInt/)
    * [Insert or Access, Varying Probability](/2019/04/01/hashmap-benchmarks-02-result-RandomDistinct2/)
    * [Insert & Erase](/2019/04/01/hashmap-benchmarks-02-result-RandomInsertErase/)
    * [Insert & Erase Strings](/2019/04/01/hashmap-benchmarks-02-result-RandomInsertEraseStrings/)
-* **Accessing**
+* Accessing
    * [Find 1-200 Entries](/2019/04/01/hashmap-benchmarks-02-result-RandomFind_200/)
    * [Find 1-2000 Entries](/2019/04/01/hashmap-benchmarks-02-result-RandomFind_2000/)
    * [Find 1-500k Entries](/2019/04/01/hashmap-benchmarks-02-result-RandomFind_500000/)
    * [Iterating](/2019/04/01/hashmap-benchmarks-02-result-IterateIntegers/)
 * [Conclusion](/2019/04/01/hashmap-benchmarks-03-conclusion/)
+
+----
+
+I've spent a long time developing my [robin_hood::unordered_map](https://github.com/martinus/robin-hood-hashing), and after claiming that [it is now the fastest hashmap](https://www.reddit.com/r/cpp/comments/anbmol/robin_hoodunordered_map_is_now_the_fastest_hashmap/) I understandably got quite a few skeptic comments. Some of the comments were quite right, and my benchmarks were not as unbiased as they could be, I did not test as many unordered maps as I should have, my compiler options were not choosen well, and so on.
+
+That's why I have now spent considerable time to create a highly improved benchmarks, where I have tried to remedy ~~all~~ most of the critique that I got. The results are not as flattering to my [robin_hood::unordered_map](https://github.com/martinus/robin-hood-hashing), but I am still very pleased with the results.
 
 # What is actually Benchmarked?
 
@@ -60,3 +60,18 @@ Some hashmap implementations come with their own hashing methods, each with diff
 
 # How is benchmarked?
 
+I've used g++ 8.2.0 with `-O3 -march=native`. Cmake build is done with `Release` mode, and I've set FOLLY_CXX_FLAGS to `-march=native`. For the ktprime map benchmarks I had to add `-fno-strict-aliasing`.
+
+All benchmarks were run on an Intel i7-8700, locked to 3200 MHz. Turbo boost and frequency scaling were disabled with the python tool [perf](https://perf.readthedocs.io/en/latest/).
+
+I have isolated a core with it's hyperthreading companion by editing `/etc/default/grub` and changing `GRUB_CMDLINE_LINUX_DEFAULT` so it looks like this:
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash isolcpus=5,11 rcu_nocbs=5,11"
+```
+
+Each benchmark is run with `taskset -c 5,11` to make use of the isolated cores. This has resulted in very stable results. To get rid of any potential outliers and different performance behavior through [ASLR](https://en.wikipedia.org/wiki/Address_space_layout_randomization), all benchmarks were run 9 times and I show only the median result.
+
+# Benchmarks
+
+Enough talk, onwards to the benchmarks!
