@@ -5,9 +5,30 @@ subtitle: Finding the Fastest, Memory Efficient Hashmap
 bigimg: /img/2019/X-15_in_flight_small.jpg
 ---
 
-To get started, the first benchmark is a very simple one: measure how fast the hashmap can be constructed and destructed. How relevant is this benchmark? As always, it depends. In one of my usecases I had to create lots and lots of hashmaps, and only sometimes had to insert an element. Some maps perform some kind of lazy initialization, where data is only allocated when the first element is inserted. 
+## Table of Contents
 
-## Benchmark Code
+* [Overview](/2019/04/01/hashmap-benchmarks-01-overview/)
+* Construction Benchmarks
+   * **&rarr; [Construction & Destruction](/2019/04/01/hashmap-benchmarks-02-result-CtorDtorEmptyMap/) &larr;**
+   * [Construction & Insert 1 Element & Destruction](/2019/04/01/hashmap-benchmarks-02-result-CtorDtorSingleEntryMap/)
+* Modifying Benchmarks
+   * [Insert & Erase 100M Entries](/2019/04/01/hashmap-benchmarks-02-result-InsertHugeInt/)
+   * [Insert or Access, Varying Probability](/2019/04/01/hashmap-benchmarks-02-result-RandomDistinct2/)
+   * [Insert & Erase](/2019/04/01/hashmap-benchmarks-02-result-RandomInsertErase/)
+   * [Insert & Erase Strings](/2019/04/01/hashmap-benchmarks-02-result-RandomInsertEraseStrings/)
+* Accessing
+   * [Find 1-200 Entries](/2019/04/01/hashmap-benchmarks-02-result-RandomFind_200/)
+   * [Find 1-2000 Entries](/2019/04/01/hashmap-benchmarks-02-result-RandomFind_2000/)
+   * [Find 1-500k Entries](/2019/04/01/hashmap-benchmarks-02-result-RandomFind_500000/)
+   * [Iterating](/2019/04/01/hashmap-benchmarks-02-result-IterateIntegers/)
+* [Conclusion](/2019/04/01/hashmap-benchmarks-03-conclusion/)
+
+----
+
+To get started, the first benchmark is a very simple one: measure how fast the hashmap can be constructed and destructed. Some maps perform some kind of lazy initialization, where data is only allocated when the first element is inserted, some immediately initialize their data structures. 
+
+
+# Benchmark Code
 
 The full benchmark code is this: 
 
