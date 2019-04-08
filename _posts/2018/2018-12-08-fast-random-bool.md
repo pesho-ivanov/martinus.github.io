@@ -5,7 +5,7 @@ subtitle: With lots of benchmarks
 bigimg: /img/2018/09/utxo_header.jpg
 ---
 
-While playing around with fast random number generators, I've started contemplating what's the fastest way to uniformly generate random boolean values. The correct solution is this (never mind the bad seeding of mt19973, but it's just too cumbersome to do it correctly):
+While playing around with fast random number generators, I've started contemplating what's the fastest way to uniformly generate random boolean values. The correct solution is this (never mind the bad seeding of mt19937, but it's just too cumbersome to do it correctly):
 
 ```cpp
 std::mt19937 rng(std::random_device{}());
@@ -22,7 +22,7 @@ To get accurate numbers, I do this:
 
 1. Evaluate each random-bool algorithm with 
    * 2 different compilers: `clang++ -O2` and `g++ -O2`. 
-   * 3 different random number generators: `std::mt19973`, `std::mt19973_64`, and the fantastic `sfc64` (more on that later).
+   * 3 different random number generators: `std::mt19937`, `std::mt19937_64`, and the fantastic `sfc64` (more on that later).
    * 2 uses: Single loop, and in a 4 x unrolled loop. Unrolling checks that against code bloat slowdowns.
 1. Perform each evaluation 7 times, with 1 trillion iterations. So in total I have 7 x (2 x 3 x 2) = 7 x 12 timing results for each algorithm.
 1. Choose the median of the 7 evaluations, then calculate the [geometric mean](https://en.wikipedia.org/wiki/Geometric_mean) of the remaining 12 results.
