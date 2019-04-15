@@ -40,11 +40,19 @@ for (size_t n = 0; n < 100'000'000; ++n) {
 }
 ```
 
-After the loop is done, the variable `result` is used in a verifcation step. It also helps that the compiler does not simply optimize the code away.
+After the loop is done, the variable `result` is used in a verification step. It also helps that the compiler does not simply optimize the code away, but it probably for some maps anyways.
 
-## Results
+# Results
+
+## Hashes
+
+The hashing algorithm used should be completely irrelevant, as no element is inserted. The results are grouped by the hashing algorithm, and the individual hashes have mostly the same times.
+
+## Hashmaps
 
 Construction is generally very fast, and a non-issue. The slowest map to construct is `boost::multi_index::hashed_unique`, which takes 40.7ns to construct. Anything below 2-3ns is probably just measurement noise. Note that the benchmark results are very consistent regardless of the used hash function (as it should be).
+
+# Chart
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_fb078d1a" style="height:250em"></div>

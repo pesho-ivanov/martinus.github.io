@@ -26,25 +26,37 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 ----
 
-Almost the same as [Construction & Destruction](/2019/04/01/hashmap-benchmarks-CtorDtorEmptyMap/), but this time a single element is inserted. All maps that do lazy initialization are now forced to actually provide storage memory, and they have to calculate the hash function at least once to find a proper slot.
+Now it gets interesting. This benchmark benchmarks a few things at once:
 
-## Benchmark Code
+1. Insert 100 million random `int` into a `Map<int, int>`.
+1. Clear all entries with `clear()`.
+1. Reinsert 100 million random `int` into the same cleared map.
+1. Remove all of the inserted entries one by one until the map is empty again.
+1. Destruct the empty map.
 
-The full benchmark code is this: 
+100 million int-int pairs take at least 1526 MB. It is interesting to see how much overhead the maps have here, and how they deal with resizing their data. `clear()` is interesting too, for flat maps it might be possible to optimize for data that is trivially destructible, then clear() can be very fast. Reinsertion is interesting to see if a map reuses initialized memory, and if it can gain any speed from that. Removing elements one by one is interesting to see removal performance - some maps need to rearrange entries (e.g. robin-hood based maps) which might slow down their performance. 
 
-```cpp
-for (size_t n = 0; n < 50'000'000; ++n) {
-    Map<int, int> map;
-    map[123];
-    result += map.size();
-}
-```
+# Benchmark Code
 
-After the loop is done, the variable `result` is used in a verifcation step. It should always be 50'000'000.
+Please see [this](https://github.com/martinus/map_benchmark/blob/master/src/benchmarks/Insert.cpp) for the full benchmark code. It makes use of `sfc64`, which is an extremely fast and high quality random number generator.
 
-## Results
+# Results
 
-Now it gets a lot more interesting.
+## Hashes
+
+Now it gets a lot more interesting. The clear winner here is `robin_hood::hash`. It's consistently faster than all other hashes. Both *Identity* hash `folly::hasher` lead to timeouts in the `absl` hash variants. So these hashes should be used with great care.
+
+## Hashmaps
+
+For each group of hashes, the bold entries show the pareto front of speed vs. memory usage:
+
+* `tsl::robin_map` is clearly the fastest map in this benchmark. It's raw insertion speed is fastest of all. But this speed comes at a cost: it requires 4597 MB RAM, which is quite a bit more than the other maps. It is interesting to see that it seems that it does not make use of trivially destructible optimization in `clear()`, because it takes about 1.04 seconds. In comparison, `robin_hood::unordered_flat_map` checks if the entries are trivially destructible and only takes 0.0054 seconds. But even without that optimization, reinsertion speed is 2.77 seconds which is a blazingly fast compared to all other maps.
+* `robin_hood::unordered_flat_map` is a bit slower, but requires far less peak memory: only 1717 MB. It has a 1 byte overhead per entry, and interestingly it seems to have practically the same peak memory usage as `ska::bytell_hash_map`, `absl::flat_hash_map`, and `phmap::flat_hash_map`.
+* `folly::F14ValueMap` is already quite a bit slower, but still on the pareto front because it uses a tad lower memory. It seems to not have the 1 byte overhead.
+* `phmap::parallel_flat_hash_map` makes use of multiple maps internally, so when it needs to resize, it can do so in steps which lowers the peak memory requirement.
+* Finally, `tsl::sparse_map` is optimized for memory usage and thus takes even less memory. It is faster and uses less memory than it's main competitior `spp::sparse_hash_map`.
+
+# Chart
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_f1e25f09" style="height:250em"></div>

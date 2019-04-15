@@ -28,60 +28,70 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 Almost the same as [Construction & Destruction](/2019/04/01/hashmap-benchmarks-CtorDtorEmptyMap/), but this time a single element is inserted. All maps that do lazy initialization are now forced to actually provide storage memory, and they have to calculate the hash function at least once to find a proper slot.
 
-## Benchmark Code
+# Benchmark Code
 
 The full benchmark code is this: 
 
 ```cpp
-for (size_t n = 0; n < 50'000'000; ++n) {
+for (int n = 0; n < 50'000'000; ++n) {
     Map<int, int> map;
-    map[123];
+    map[n];
     result += map.size();
 }
 ```
 
-After the loop is done, the variable `result` is used in a verifcation step. It should always be 50'000'000.
+After the loop is done, the variable `result` is used in a verification step. It should always be 50'000'000.
 
-## Results
+# Results
 
-Construction is generally very fast, and a non-issue. The slowest map to construct is `boost::multi_index::hashed_unique`, which takes 40.7ns to construct. Anything below 2-3ns is probably just measurement noise. Note that the benchmark results are very consistent regardless of the used hash function (as it should be).
+## Hashes
+
+This time a single element is hashed and inserted into the map. The overhead of hashing should only insofar be an influence that it is called once. No collision problems with a single entry. Naturally, *Identity* is the fastest hashing for that use case because it does practically nothing. Note that the groups in the graph below are sorted: *Identity* comes first because total runtime is fastest, and `robin_hood::hash` comes second with a slight overhead.
+
+## Hashmaps
+
+`emilib1::HashMap` is the winner here, with `tsl::robin_map` a close second, and on par with any hash function except Identity.
+
+`phmap::parallel_node_hash_map` is the slowest of the bunch here, because it allocates multiple tables to be able to operate fast in parallel.
+
+# Chart
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<div id="id_9b91b14f" style="height:250em"></div>
+<div id="id_279cbc49" style="height:250em"></div>
 <script>
     var colors = Plotly.d3.scale.category10().range();
-    var m0y = [ "phmap::<br>parallel_node_hash_map", "folly::F14NodeMap", "phmap::<br>parallel_flat_hash_map", "std::unordered_map", "folly::F14ValueMap", "tsl::hopscotch_map", "ska::bytell_hash_map", "boost::multi_index::<br>hashed_unique", "absl::node_hash_map", "eastl::hash_map", "tsl::sparse_map", "phmap::node_hash_map", "robin_hood::<br>unordered_node_map", "boost::unordered_map", "absl::flat_hash_map", "phmap::flat_hash_map", "spp::sparse_hash_map", "robin_hood::<br>unordered_flat_map", "tsl::robin_map", "<b>emilib1::HashMap</b>"];
-    var m1y = [ "phmap::<br>parallel_node_hash_map", "folly::F14NodeMap", "phmap::<br>parallel_flat_hash_map", "std::unordered_map", "tsl::hopscotch_map", "folly::F14ValueMap", "ska::bytell_hash_map", "boost::multi_index::<br>hashed_unique", "absl::node_hash_map", "tsl::sparse_map", "phmap::node_hash_map", "eastl::hash_map", "robin_hood::<br>unordered_node_map", "boost::unordered_map", "absl::flat_hash_map", "phmap::flat_hash_map", "spp::sparse_hash_map", "robin_hood::<br>unordered_flat_map", "tsl::robin_map", "<b>emilib1::HashMap</b>"];
-    var m2y = [ "folly::F14NodeMap", "phmap::<br>parallel_node_hash_map", "phmap::<br>parallel_flat_hash_map", "std::unordered_map", "tsl::hopscotch_map", "folly::F14ValueMap", "ska::bytell_hash_map", "boost::multi_index::<br>hashed_unique", "absl::node_hash_map", "eastl::hash_map", "phmap::node_hash_map", "tsl::sparse_map", "robin_hood::<br>unordered_node_map", "boost::unordered_map", "absl::flat_hash_map", "phmap::flat_hash_map", "spp::sparse_hash_map", "robin_hood::<br>unordered_flat_map", "emilib1::HashMap", "<b>tsl::robin_map</b>"];
-    var m3y = [ "phmap::<br>parallel_node_hash_map", "folly::F14NodeMap", "phmap::<br>parallel_flat_hash_map", "std::unordered_map", "folly::F14ValueMap", "tsl::hopscotch_map", "ska::bytell_hash_map", "absl::node_hash_map", "boost::multi_index::<br>hashed_unique", "phmap::node_hash_map", "eastl::hash_map", "tsl::sparse_map", "robin_hood::<br>unordered_node_map", "boost::unordered_map", "absl::flat_hash_map", "phmap::flat_hash_map", "spp::sparse_hash_map", "robin_hood::<br>unordered_flat_map", "tsl::robin_map", "<b>emilib1::HashMap</b>"];
-    var m4y = [ "phmap::<br>parallel_node_hash_map", "folly::F14NodeMap", "phmap::<br>parallel_flat_hash_map", "std::unordered_map", "folly::F14ValueMap", "tsl::hopscotch_map", "ska::bytell_hash_map", "absl::node_hash_map", "phmap::node_hash_map", "boost::multi_index::<br>hashed_unique", "tsl::sparse_map", "eastl::hash_map", "boost::unordered_map", "robin_hood::<br>unordered_node_map", "absl::flat_hash_map", "phmap::flat_hash_map", "spp::sparse_hash_map", "robin_hood::<br>unordered_flat_map", "tsl::robin_map", "<b>emilib1::HashMap</b>"];
+    var m0y = [ "phmap::<br>parallel_node_hash_map", "folly::F14NodeMap", "std::unordered_map", "phmap::<br>parallel_flat_hash_map", "folly::F14ValueMap", "tsl::hopscotch_map", "ska::bytell_hash_map", "boost::multi_index::<br>hashed_unique", "absl::node_hash_map", "eastl::hash_map", "tsl::sparse_map", "phmap::node_hash_map", "robin_hood::<br>unordered_node_map", "boost::unordered_map", "absl::flat_hash_map", "phmap::flat_hash_map", "spp::sparse_hash_map", "robin_hood::<br>unordered_flat_map", "tsl::robin_map", "<b>emilib1::HashMap</b>"];
+    var m1y = [ "phmap::<br>parallel_node_hash_map", "folly::F14NodeMap", "phmap::<br>parallel_flat_hash_map", "std::unordered_map", "folly::F14ValueMap", "ska::bytell_hash_map", "tsl::hopscotch_map", "boost::multi_index::<br>hashed_unique", "absl::node_hash_map", "eastl::hash_map", "tsl::sparse_map", "phmap::node_hash_map", "robin_hood::<br>unordered_node_map", "boost::unordered_map", "absl::flat_hash_map", "phmap::flat_hash_map", "spp::sparse_hash_map", "robin_hood::<br>unordered_flat_map", "tsl::robin_map", "<b>emilib1::HashMap</b>"];
+    var m2y = [ "phmap::<br>parallel_node_hash_map", "folly::F14NodeMap", "std::unordered_map", "phmap::<br>parallel_flat_hash_map", "ska::bytell_hash_map", "folly::F14ValueMap", "tsl::hopscotch_map", "eastl::hash_map", "boost::multi_index::<br>hashed_unique", "absl::node_hash_map", "phmap::node_hash_map", "tsl::sparse_map", "boost::unordered_map", "robin_hood::<br>unordered_node_map", "absl::flat_hash_map", "phmap::flat_hash_map", "spp::sparse_hash_map", "robin_hood::<br>unordered_flat_map", "tsl::robin_map", "<b>emilib1::HashMap</b>"];
+    var m3y = [ "phmap::<br>parallel_node_hash_map", "folly::F14NodeMap", "std::unordered_map", "phmap::<br>parallel_flat_hash_map", "ska::bytell_hash_map", "folly::F14ValueMap", "tsl::hopscotch_map", "boost::multi_index::<br>hashed_unique", "absl::node_hash_map", "phmap::node_hash_map", "eastl::hash_map", "tsl::sparse_map", "robin_hood::<br>unordered_node_map", "boost::unordered_map", "absl::flat_hash_map", "phmap::flat_hash_map", "spp::sparse_hash_map", "robin_hood::<br>unordered_flat_map", "tsl::robin_map", "<b>emilib1::HashMap</b>"];
+    var m4y = [ "phmap::<br>parallel_node_hash_map", "folly::F14NodeMap", "ska::bytell_hash_map", "phmap::<br>parallel_flat_hash_map", "std::unordered_map", "folly::F14ValueMap", "tsl::hopscotch_map", "absl::node_hash_map", "boost::multi_index::<br>hashed_unique", "eastl::hash_map", "phmap::node_hash_map", "tsl::sparse_map", "boost::unordered_map", "robin_hood::<br>unordered_node_map", "absl::flat_hash_map", "phmap::flat_hash_map", "spp::sparse_hash_map", "robin_hood::<br>unordered_flat_map", "tsl::robin_map", "<b>emilib1::HashMap</b>"];
     var measurement_names = [ "ctor & dtor map with 1 entry" ];
 
     var data = [
-        { x: [ 8.1649e-08, 8.1613e-08, 6.73236e-08, 6.33545e-08, 6.22363e-08, 6.13859e-08, 5.41271e-08, 5.2758700000000006e-08, 4.99179e-08, 4.78665e-08, 4.77894e-08, 4.72769e-08, 4.29136e-08, 4.2752699999999996e-08, 4.06977e-08, 3.87318e-08, 2.4456599999999997e-08, 2.3164400000000003e-08, 1.2542940000000001e-08, 1.149732e-08 ],
+        { x: [ 8.40579e-08, 8.18259e-08, 7.51052e-08, 6.69554e-08, 6.33625e-08, 6.139730000000001e-08, 5.59655e-08, 5.31206e-08, 5.01403e-08, 4.9725099999999996e-08, 4.8765e-08, 4.80394e-08, 4.37112e-08, 4.2564900000000005e-08, 4.103350000000001e-08, 3.92615e-08, 2.79347e-08, 2.5020899999999997e-08, 1.3038949999999999e-08, 1.258499e-08 ],
           y: m0y, name: measurement_names[0] + ' (Identity)', type: 'bar', orientation: 'h', yaxis: 'y', marker: { color: colors[0], },
             textposition: 'outside',
-            text: [ "81.6ns<br>0.0MB", "81.6ns<br>0.0MB", "67.3ns<br>0.0MB", "63.4ns<br>0.0MB", "62.2ns<br>0.0MB", "61.4ns<br>0.0MB", "54.1ns<br>0.0MB", "52.8ns<br>0.0MB", "49.9ns<br>0.0MB", "47.9ns<br>0.0MB", "47.8ns<br>0.0MB", "47.3ns<br>0.0MB", "42.9ns<br>0.0MB", "42.8ns<br>0.0MB", "40.7ns<br>0.0MB", "38.7ns<br>0.0MB", "24.5ns<br>0.0MB", "23.2ns<br>0.0MB", "12.5ns<br>0.0MB", "<b>11.5ns<br>0.0MB</b>" ],
+            text: [ "84.1ns<br>0.0MB", "81.8ns<br>0.0MB", "75.1ns<br>0.0MB", "67.0ns<br>0.0MB", "63.4ns<br>0.0MB", "61.4ns<br>0.0MB", "56.0ns<br>0.0MB", "53.1ns<br>0.0MB", "50.1ns<br>0.0MB", "49.7ns<br>0.0MB", "48.8ns<br>0.0MB", "48.0ns<br>0.0MB", "43.7ns<br>0.0MB", "42.6ns<br>0.0MB", "41.0ns<br>0.0MB", "39.3ns<br>0.0MB", "27.9ns<br>0.0MB", "25.0ns<br>0.0MB", "13.0ns<br>0.0MB", "<b>12.6ns<br>0.0MB</b>" ],
         },
-        { x: [ 8.284849999999999e-08, 8.083820000000001e-08, 6.767819999999999e-08, 6.33747e-08, 6.17907e-08, 6.177e-08, 5.33095e-08, 5.29242e-08, 5.10182e-08, 5.06029e-08, 4.8815099999999996e-08, 4.7803900000000004e-08, 4.2886600000000004e-08, 4.24784e-08, 4.1111500000000004e-08, 3.90967e-08, 2.44405e-08, 2.31947e-08, 1.253734e-08, 1.1497649999999999e-08 ],
+        { x: [ 9.10539e-08, 8.31129e-08, 6.664250000000001e-08, 6.604730000000001e-08, 6.34945e-08, 6.17031e-08, 6.122210000000001e-08, 5.6867300000000005e-08, 5.29314e-08, 5.2155799999999996e-08, 5.11971e-08, 5.05712e-08, 4.4751800000000005e-08, 4.35597e-08, 4.2496399999999994e-08, 3.9537e-08, 2.8126600000000003e-08, 2.59566e-08, 1.344946e-08, 1.3416840000000002e-08 ],
           y: m1y, name: measurement_names[0] + ' (robin_hood::hash)', type: 'bar', orientation: 'h', yaxis: 'y2', marker: { color: colors[0], },
             textposition: 'outside',
-            text: [ "82.8ns<br>0.0MB", "80.8ns<br>0.0MB", "67.7ns<br>0.0MB", "63.4ns<br>0.0MB", "61.8ns<br>0.0MB", "61.8ns<br>0.0MB", "53.3ns<br>0.0MB", "52.9ns<br>0.0MB", "51.0ns<br>0.0MB", "50.6ns<br>0.0MB", "48.8ns<br>0.0MB", "47.8ns<br>0.0MB", "42.9ns<br>0.0MB", "42.5ns<br>0.0MB", "41.1ns<br>0.0MB", "39.1ns<br>0.0MB", "24.4ns<br>0.0MB", "23.2ns<br>0.0MB", "12.5ns<br>0.0MB", "<b>11.5ns<br>0.0MB</b>" ],
+            text: [ "91.1ns<br>0.0MB", "83.1ns<br>0.0MB", "66.6ns<br>0.0MB", "66.0ns<br>0.0MB", "63.5ns<br>0.0MB", "61.7ns<br>0.0MB", "61.2ns<br>0.0MB", "56.9ns<br>0.0MB", "52.9ns<br>0.0MB", "52.2ns<br>0.0MB", "51.2ns<br>0.0MB", "50.6ns<br>0.0MB", "44.8ns<br>0.0MB", "43.6ns<br>0.0MB", "42.5ns<br>0.0MB", "39.5ns<br>0.0MB", "28.1ns<br>0.0MB", "26.0ns<br>0.0MB", "13.4ns<br>0.0MB", "<b>13.4ns<br>0.0MB</b>" ],
         },
-        { x: [ 8.132519999999999e-08, 8.12312e-08, 6.717540000000001e-08, 6.3265e-08, 6.22311e-08, 6.15801e-08, 5.4920799999999995e-08, 5.2808500000000006e-08, 5.13533e-08, 4.97936e-08, 4.90038e-08, 4.8093700000000004e-08, 4.42605e-08, 4.2546599999999995e-08, 4.1167399999999996e-08, 3.9153000000000007e-08, 2.62582e-08, 2.46993e-08, 1.2555930000000001e-08, 1.2547930000000002e-08 ],
+        { x: [ 8.4749e-08, 8.25132e-08, 7.62078e-08, 6.752610000000001e-08, 6.59022e-08, 6.29043e-08, 6.16949e-08, 5.71335e-08, 5.52929e-08, 5.2583e-08, 5.05987e-08, 4.97394e-08, 4.55219e-08, 4.44744e-08, 4.17588e-08, 3.99123e-08, 2.84141e-08, 2.56447e-08, 1.314527e-08, 1.312089e-08 ],
           y: m2y, name: measurement_names[0] + ' (absl::Hash)', type: 'bar', orientation: 'h', yaxis: 'y3', marker: { color: colors[0], },
             textposition: 'outside',
-            text: [ "81.3ns<br>0.0MB", "81.2ns<br>0.0MB", "67.2ns<br>0.0MB", "63.3ns<br>0.0MB", "62.2ns<br>0.0MB", "61.6ns<br>0.0MB", "54.9ns<br>0.0MB", "52.8ns<br>0.0MB", "51.4ns<br>0.0MB", "49.8ns<br>0.0MB", "49.0ns<br>0.0MB", "48.1ns<br>0.0MB", "44.3ns<br>0.0MB", "42.5ns<br>0.0MB", "41.2ns<br>0.0MB", "39.2ns<br>0.0MB", "26.3ns<br>0.0MB", "24.7ns<br>0.0MB", "12.6ns<br>0.0MB", "<b>12.5ns<br>0.0MB</b>" ],
+            text: [ "84.7ns<br>0.0MB", "82.5ns<br>0.0MB", "76.2ns<br>0.0MB", "67.5ns<br>0.0MB", "65.9ns<br>0.0MB", "62.9ns<br>0.0MB", "61.7ns<br>0.0MB", "57.1ns<br>0.0MB", "55.3ns<br>0.0MB", "52.6ns<br>0.0MB", "50.6ns<br>0.0MB", "49.7ns<br>0.0MB", "45.5ns<br>0.0MB", "44.5ns<br>0.0MB", "41.8ns<br>0.0MB", "39.9ns<br>0.0MB", "28.4ns<br>0.0MB", "25.6ns<br>0.0MB", "13.1ns<br>0.0MB", "<b>13.1ns<br>0.0MB</b>" ],
         },
-        { x: [ 8.64664e-08, 8.14717e-08, 6.693570000000001e-08, 6.34294e-08, 6.16422e-08, 6.1638e-08, 5.46969e-08, 5.41859e-08, 5.3577599999999997e-08, 5.2219100000000005e-08, 4.91491e-08, 4.7751400000000004e-08, 4.3414300000000004e-08, 4.17462e-08, 4.12173e-08, 3.91244e-08, 2.4605300000000004e-08, 2.4157499999999996e-08, 1.257241e-08, 1.149697e-08 ],
+        { x: [ 8.985970000000001e-08, 8.29312e-08, 7.6343e-08, 6.846960000000001e-08, 6.790910000000001e-08, 6.362359999999999e-08, 6.158630000000001e-08, 5.69418e-08, 5.55752e-08, 5.3392299999999996e-08, 5.11259e-08, 5.09923e-08, 4.47285e-08, 4.35116e-08, 4.25503e-08, 4.04567e-08, 2.7830800000000002e-08, 2.6272099999999997e-08, 1.3761320000000001e-08, 1.3479550000000001e-08 ],
           y: m3y, name: measurement_names[0] + ' (FNV1a)', type: 'bar', orientation: 'h', yaxis: 'y4', marker: { color: colors[0], },
             textposition: 'outside',
-            text: [ "86.5ns<br>0.0MB", "81.5ns<br>0.0MB", "66.9ns<br>0.0MB", "63.4ns<br>0.0MB", "61.6ns<br>0.0MB", "61.6ns<br>0.0MB", "54.7ns<br>0.0MB", "54.2ns<br>0.0MB", "53.6ns<br>0.0MB", "52.2ns<br>0.0MB", "49.1ns<br>0.0MB", "47.8ns<br>0.0MB", "43.4ns<br>0.0MB", "41.7ns<br>0.0MB", "41.2ns<br>0.0MB", "39.1ns<br>0.0MB", "24.6ns<br>0.0MB", "24.2ns<br>0.0MB", "12.6ns<br>0.0MB", "<b>11.5ns<br>0.0MB</b>" ],
+            text: [ "89.9ns<br>0.0MB", "82.9ns<br>0.0MB", "76.3ns<br>0.0MB", "68.5ns<br>0.0MB", "67.9ns<br>0.0MB", "63.6ns<br>0.0MB", "61.6ns<br>0.0MB", "56.9ns<br>0.0MB", "55.6ns<br>0.0MB", "53.4ns<br>0.0MB", "51.1ns<br>0.0MB", "51.0ns<br>0.0MB", "44.7ns<br>0.0MB", "43.5ns<br>0.0MB", "42.6ns<br>0.0MB", "40.5ns<br>0.0MB", "27.8ns<br>0.0MB", "26.3ns<br>0.0MB", "13.8ns<br>0.0MB", "<b>13.5ns<br>0.0MB</b>" ],
         },
-        { x: [ 8.70006e-08, 8.11288e-08, 6.729809999999999e-08, 6.31595e-08, 6.211539999999999e-08, 6.13609e-08, 5.57014e-08, 5.4202100000000003e-08, 5.32431e-08, 5.27335e-08, 4.96447e-08, 4.866769999999999e-08, 4.42321e-08, 4.39878e-08, 4.1058900000000005e-08, 3.8801000000000004e-08, 2.44488e-08, 2.4133299999999998e-08, 1.343813e-08, 1.149798e-08 ],
+        { x: [ 9.47441e-08, 8.22938e-08, 7.08083e-08, 6.80031e-08, 6.557630000000001e-08, 6.3279e-08, 6.17617e-08, 5.67377e-08, 5.6590100000000005e-08, 5.475140000000001e-08, 5.43726e-08, 5.21742e-08, 4.63837e-08, 4.53652e-08, 4.3051700000000004e-08, 4.13036e-08, 2.79127e-08, 2.6584500000000002e-08, 1.407475e-08, 1.370957e-08 ],
           y: m4y, name: measurement_names[0] + ' (folly::hasher)', type: 'bar', orientation: 'h', yaxis: 'y5', marker: { color: colors[0], },
             textposition: 'outside',
-            text: [ "87.0ns<br>0.0MB", "81.1ns<br>0.0MB", "67.3ns<br>0.0MB", "63.2ns<br>0.0MB", "62.1ns<br>0.0MB", "61.4ns<br>0.0MB", "55.7ns<br>0.0MB", "54.2ns<br>0.0MB", "53.2ns<br>0.0MB", "52.7ns<br>0.0MB", "49.6ns<br>0.0MB", "48.7ns<br>0.0MB", "44.2ns<br>0.0MB", "44.0ns<br>0.0MB", "41.1ns<br>0.0MB", "38.8ns<br>0.0MB", "24.4ns<br>0.0MB", "24.1ns<br>0.0MB", "13.4ns<br>0.0MB", "<b>11.5ns<br>0.0MB</b>" ],
+            text: [ "94.7ns<br>0.0MB", "82.3ns<br>0.0MB", "70.8ns<br>0.0MB", "68.0ns<br>0.0MB", "65.6ns<br>0.0MB", "63.3ns<br>0.0MB", "61.8ns<br>0.0MB", "56.7ns<br>0.0MB", "56.6ns<br>0.0MB", "54.8ns<br>0.0MB", "54.4ns<br>0.0MB", "52.2ns<br>0.0MB", "46.4ns<br>0.0MB", "45.4ns<br>0.0MB", "43.1ns<br>0.0MB", "41.3ns<br>0.0MB", "27.9ns<br>0.0MB", "26.6ns<br>0.0MB", "14.1ns<br>0.0MB", "<b>13.7ns<br>0.0MB</b>" ],
         },
     ];
 
@@ -109,5 +119,5 @@ Construction is generally very fast, and a non-issue. The slowest map to constru
         showlegend:false,
     };
 
-    Plotly.newPlot('id_9b91b14f', data, layout);
+    Plotly.newPlot('id_279cbc49', data, layout);
 </script>
