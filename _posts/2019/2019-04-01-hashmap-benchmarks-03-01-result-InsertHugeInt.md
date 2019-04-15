@@ -28,11 +28,11 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 Now it gets interesting. This benchmark benchmarks a few things at once:
 
-1. Insert 100 million random `int` into a `Map<int, int>`.
-1. Clear all entries with `clear()`.
-1. Reinsert 100 million random `int` into the same cleared map.
-1. Remove all of the inserted entries one by one until the map is empty again.
-1. Destruct the empty map.
+1. blue: Insert 100 million random `int` into a `Map<int, int>`.
+1. orange: Clear all entries with `clear()`.
+1. green:  Reinsert 100 million random `int` into the same cleared map.
+1. red: Remove all of the inserted entries one by one until the map is empty again.
+1. magenta: Destruct the empty map.
 
 100 million int-int pairs take at least 1526 MB. It is interesting to see how much overhead the maps have here, and how they deal with resizing their data. `clear()` is interesting too, for flat maps it might be possible to optimize for data that is trivially destructible, then clear() can be very fast. Reinsertion is interesting to see if a map reuses initialized memory, and if it can gain any speed from that. Removing elements one by one is interesting to see removal performance - some maps need to rearrange entries (e.g. robin-hood based maps) which might slow down their performance. 
 
@@ -55,6 +55,8 @@ For each group of hashes, the bold entries show the pareto front of speed vs. me
 * `folly::F14ValueMap` is already quite a bit slower, but still on the pareto front because it uses a tad lower memory. It seems to not have the 1 byte overhead.
 * `phmap::parallel_flat_hash_map` makes use of multiple maps internally, so when it needs to resize, it can do so in steps which lowers the peak memory requirement.
 * Finally, `tsl::sparse_map` is optimized for memory usage and thus takes even less memory. It is faster and uses less memory than it's main competitior `spp::sparse_hash_map`.
+
+I think it is interesting to note that `robin_hood::unordered_node_map` is the fastest node-based map, featuring stable references like `std::unordered_map`. Also interesting to see is that `absl::flat_hash_map`'s reinsert is actually quite a bit *slower* than the original insertion. In that case it seems to be faster to just destroy the whole map and create a new one, instead of reusing it - which seems strange to me. 
 
 # Chart
 
