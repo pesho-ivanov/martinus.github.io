@@ -7,7 +7,7 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 ## Table of Contents
 
-* Overview
+* [Overview](/2019/04/01/hashmap-benchmarks-01-overview/)
 * Construction Benchmarks
    * [Construction & Destruction](/2019/04/01/hashmap-benchmarks-02-01-result-CtorDtorEmptyMap/)
    * [Construction & Insert 1 Element & Destruction](/2019/04/01/hashmap-benchmarks-02-02-result-CtorDtorSingleEntryMap/)
@@ -19,7 +19,7 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 * Accessing
    * [Find 1-200 Entries](/2019/04/01/hashmap-benchmarks-04-01-result-RandomFind_200/)
    * [Find 1-2000 Entries](/2019/04/01/hashmap-benchmarks-04-02-result-RandomFind_2000/)
-   * [Find 1-500k Entries](/2019/04/01/hashmap-benchmarks-04-03-result-RandomFind_500000/)
+   * **[Find 1-500k Entries](/2019/04/01/hashmap-benchmarks-04-03-result-RandomFind_500000/)** 👈
    * [Iterating](/2019/04/01/hashmap-benchmarks-04-04-result-IterateIntegers/)
 * [Conclusion](/2019/04/01/hashmap-benchmarks-05-conclusion/)
 

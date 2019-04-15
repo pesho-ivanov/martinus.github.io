@@ -7,9 +7,9 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 ## Table of Contents
 
-* Overview
+* [Overview](/2019/04/01/hashmap-benchmarks-01-overview/)
 * Construction Benchmarks
-   * [Construction & Destruction](/2019/04/01/hashmap-benchmarks-02-01-result-CtorDtorEmptyMap/)
+   * **[Construction & Destruction](/2019/04/01/hashmap-benchmarks-02-01-result-CtorDtorEmptyMap/)** 👈
    * [Construction & Insert 1 Element & Destruction](/2019/04/01/hashmap-benchmarks-02-02-result-CtorDtorSingleEntryMap/)
 * Modifying Benchmarks
    * [Insert & Erase 100M Entries](/2019/04/01/hashmap-benchmarks-03-01-result-InsertHugeInt/)
