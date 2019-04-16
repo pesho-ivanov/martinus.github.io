@@ -25,25 +25,45 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 ----
 
-Almost the same as [Construction & Destruction](/2019/04/01/hashmap-benchmarks-CtorDtorEmptyMap/), but this time a single element is inserted. All maps that do lazy initialization are now forced to actually provide storage memory, and they have to calculate the hash function at least once to find a proper slot.
-
-## Benchmark Code
-
-The full benchmark code is this: 
+This benchmark has been adapted from attractivechaos' [Revisiting hash table performance](https://attractivechaos.wordpress.com/2018/01/13/revisiting-hash-table-performance/) code. It basically contains this main part:
 
 ```cpp
-for (size_t n = 0; n < 50'000'000; ++n) {
-    Map<int, int> map;
-    map[123];
-    result += map.size();
+Map<int, int> map;
+for (size_t i = 0; i < 50'000'000; ++i) {
+    checksum += ++map[rng(max_rng)];
 }
 ```
 
-After the loop is done, the variable `result` is used in a verifcation step. It should always be 50'000'000.
+Here `rng(max_rng)` creates a random number in the range [0, max_rng(. If max_rng is small, not many elements will be inserted but most of them will be accessed. If max_rng is large, mostly new elements will be inserted.
 
-## Results
+In fact the benchmark is run 4 times, with different max_rng settings:
 
-Now it gets a lot more interesting.
+* 5% distinct: max_rng = 50M * 5% = 250k, so only many values will be duplicates. After 50 million iterations, all 250k elements are inserted. So most map operations will be accesses.
+* 25% distinct: max_rng = 50M * 25% = 12.5M. More inserts, less modifications.
+* 50% distinct: max_rng = 50M * 50% = 25M. Note that due to randomness not all numbers from 0-25M will be inserted. Here the final map's size contains 21.6M entries. So actually its about 43% of the value range instead of 50%.
+* 100% distinct: Here we make use of the full range of `int`, so 2^32 numbers are available. Practically all operations are new insertions.
+
+# Results
+
+## Hashes
+
+Again, `robin_hood::hash` is the clear winner. The second fastest hash `absl::Hash` is in fact quite a bit slower in this benchmark. E.g. the fastest hashmap `tsl::robin_map` is about 10% faster when it uses `robin_hood::hash`. Identity hash is still the fastest for many hashes, but again it is a dangerous choice: Absl maps and phmap simply timeout again. The reason Identity hash works so well for some hashes is that the numbers are small, and change in the lower bits. If we would generate random numbers e.g. this way: `rng(max_rng) << 10` Identity hash would have much worse performance due to many collisions.
+
+`folly::hasher` is again dangerous as well. It does not time out, but the runtime is extremely bad for some maps. I belive the reason is this: the hash uses a native `crc32` instruction. While the instruction is quite fast, it only generates a 32bit hash. Some hashmaps rely on 64bit hash data though.
+
+## Hashmaps
+
+Again, `tsl::robin_map` is the performance winner. 5% distinct accesses take 0.98 seconds, 100% distinct takes 3.44 seconds with `robin_hood::hash`. Unfortunately the peak memory usage is also quite high: 2293MB. 
+
+`robin_hood::unordered_flat_map` is the next on the pareto front: It only requires 853 MB peak memory, 2.7 times less, while being only about 10% slower. 
+
+`folly::F14ValueMap` is already 2.7 times slower than `tsl::robin_map` again with a win of about 10% less memory. Very similar performance has `phmap::parallel_flat_hash_map` with even less memory. It is remarkable how fast this map is with so little peak memory.
+
+If low memory usage is important to you, the best choice is `tsl::sparse_map`. It is more than twice as fast as `std::unordered_map`.
+
+# Chart
+
+Note that you can zoom! Click anywhere in the chart and drag the mouse straight to the left. Doubleclick to reset zoom.
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_b563064e" style="height:250em"></div>

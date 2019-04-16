@@ -28,9 +28,6 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 To get started, the first benchmark is a very simple one: measure how fast the hashmap can be constructed and destructed. Some maps perform some kind of lazy initialization, where data is only allocated when the first element is inserted, some immediately initialize their data structures. 
 
-
-# Benchmark Code
-
 The full benchmark code is this: 
 
 ```cpp

@@ -36,8 +36,6 @@ Now it gets interesting. This benchmark benchmarks a few things at once:
 
 100 million int-int pairs take at least 1526 MB. It is interesting to see how much overhead the maps have here, and how they deal with resizing their data. `clear()` is interesting too, for flat maps it might be possible to optimize for data that is trivially destructible, then clear() can be very fast. Reinsertion is interesting to see if a map reuses initialized memory, and if it can gain any speed from that. Removing elements one by one is interesting to see removal performance - some maps need to rearrange entries (e.g. robin-hood based maps) which might slow down their performance. 
 
-# Benchmark Code
-
 Please see [this](https://github.com/martinus/map_benchmark/blob/master/src/benchmarks/Insert.cpp) for the full benchmark code. It makes use of `sfc64`, which is an extremely fast and high quality random number generator.
 
 # Results
