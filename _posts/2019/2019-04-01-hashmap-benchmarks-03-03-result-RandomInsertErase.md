@@ -25,11 +25,34 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 ----
 
+The core of the benchmark is this loop:
 
+```cpp
+Map<uint64_t, uint64_t> map;
+for (size_t i = 0; i < 50'000'000; ++i) {
+    map.emplace(rng() & bitMask, i);
+    map.erase(rng() & bitMask);
+}
+```
+
+On first glance it looks similar to the previous benchmark, but it bechmarks something completely different. Each iteration it randomly inserts an element, and then randomly erases an element. Instead of using a maximum number for the random number generator, here I am using a bit mask to extract several bits. The purpose of this is to ensure the maps work still well, even when numbers are not sequentially or small and don't always change in the lower bits.
+
+This benchmark loop is repeated 6 times. Initially, 4 random bits are set in bitMask. After each benchmark 4 additional bits are set, thus the number of available random numbers increases and the map will find a larger equilibrium. Here is the list of bitMasks used in the benchmark:
+
+1. `1001000000000000000000000000000000000000000100000000000000001000` 4 bits set, 16 distinct numbers. Equilibrium will be around 16/2 = 8 entries, so the map stays very small.
+2. `1001000000000010001100000000000000000000000101000000000000001000` 8 bits set, 256 distinct numbers. Averaging 128 entries.
+3. `1001000000000110001100000000000000010000000101100000000000001001` 12 bits set, 4096 distinct numbers, averaging 2048 entries
+4. `1001000000000110001100000001000000010000000101110000000100101001` 16 bits set, 65k distinct numbers, 32.8k entries equilibrium.
+5. `1101100000000110001100001001000000010000000101110001000100101001` 20 bits set, 1M distinct numbers, 524k entries equilibrium.
+6. `1101100000001110001100001001001000010000100101110001000100101011` 24 bits set, 16.8M distinct numbers, 8.4M entries equilibrium.
+
+So the map's average size increases by a factor of 16 each benchmark. Ideally a hashmap has O(1) amortized operations, so the speed should be constant regardless the size. This is unfortunately not the case, mostly due to lots and lots of cache misses the larger you get.
 
 # Results
 
 ## Hashes
+
+Yet another win for `robin_hood::hash`, and `absl::Hash` comes in second. Not that this time Identity hash has extremely bad behavior - as predicted. Lots of map implementations simply timeout. Notably, a few hashmaps still work with reasonable performance, I suspect that they have some kind of bad-hash-prevention built to protect against dumb hashes like Identity. Having this bad-hash-prevention unfortunately also incures an overhead when a good hash is used.
 
 ## Hashmaps
 
