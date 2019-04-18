@@ -56,6 +56,15 @@ Yet another win for `robin_hood::hash`, and `absl::Hash` comes in second. Not th
 
 ## Hashmaps
 
+`tsl::robin_map` wins again, with `robin_hood::underered_flat_map` closely behind. Again, `robin_hood::unordered_flat_map` has lower memory usage.
+
+Interestingly, the next on the pareto front is `robin_hood::unordered_node_map`. Even though there is additional memory and runtime overhead due to the indirection necessary for a node maps, this map manages to get to the pareto front. It does so with a few tricks:
+
+* It uses a custom bulk pool allocator. When entries are removed, the memory is not freed but put back into a pool to be reused when another entry is inserted.
+* The memory requirement of flat maps usually have a large peak while resizing. This peak can be somewhat diminished with a node-based map, because the flat map only contains pointers instead of actual data. So in this case, the node is 16 bytes (a `pair<uint64_t, uint64_t>`), while a pointer is just 8 bytes. Thus, peak memory can be lower and `robin_hood::unordered_node_map` takes advantage of that.
+
+I find it quite amusing that in this benchmark, which consists of purely inserting and removing elements, two hashmaps with [robin-hood hashing technique](https://andre.arko.net/2017/08/24/robin-hood-hashing/) are the fastest. It is often assumend that due to the need to shuffle data around in these implementations they are slower than other techniques, but in practice this seems to not be the case.
+
 # Chart
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>

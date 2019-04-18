@@ -25,15 +25,62 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 
 ----
+This benchmark is very similar to [Insert & Erase](/2019/04/01/hashmap-benchmarks-03-03-result-RandomInsertErase/), but with a `Map<std::string, std::string>`. It constantly inserts and removes random strings. The benchmark is run with different sizes of `std::string`: 7, 8, 13, 100, and 1000 bytes. Each time a string is inserted or queried, only the last few bytes are modified. That means if two hashes of the string are the same, `std::equal` will have to check quite a few bytes, especially for longer strings. Since comparisons and hashing takes much longer for longer strings, I have adapted the runtime for each benchmark:
+
+* 7 bytes: 20M iterations
+* 8 bytes: 20M iterations
+* 13 bytes: 20M iterations
+* 100 bytes: 12M iterations
+* 1000 bytes: 6M iteratons
+
+The benchmark code looks like this. It takes great care that the random string is not unnecessarily copied or recreated.
+
+```cpp
+std::string str(string_length, 'x');
+
+Map<std::string, std::string> map;
+for (size_t i = 0; i < max_n; ++i) {    
+    // create an entry.
+    randomize(str);
+    map[str];
+
+    // find and erase entry.
+    randomize(str);
+    auto it = map.find(str);
+    if (it != map.end()) {
+        ++verifier;
+        map.erase(it);
+    }
+}
+```
 
 # Results
 
 ## Hashes
 
+Here, *Identity* hash is actually whatever libstdc++ does for `std::string`. It turns out, for g++ 8.2 it uses an algorithm very close to MurmurHash 2. I do exactly the same in `robin_hood::hash`. So the performance of both hashes are very similar, and for some reason my implementation seems to be slightly faster. Here the individual entries are extremely interesting, as it shows that each hash has different strenghts.
+
+I have created a separate benchmark, that just compares hashing performance of strings with different lengths. Times are in ns per hash calculation:
+
+|    length | robin_hood::hash | libstdc++ | absl::Hash | folly::hasher |   FNV1a |
+|----------:|-----------------:|----------:|-----------:|--------------:|--------:|
+|    7 byte |             3.75 |      5.77 |   **2.61** |          9.20 |    5.04 |
+|    8 byte |             3.05 |      3.44 |   **2.60** |          8.39 |    5.63 |
+|   13 byte |         **4.23** |      6.05 |       8.44 |          8.84 |    8.12 |
+|  100 byte |        **14.40** |      15.6 |      17.70 |         31.11 |  102.33 |
+| 1000 byte |           153.82 |    152.76 |  **77.85** |        107.73 | 1228.32 |
+
+`absl::Hash` performs very well, but the 13 byte case is almost twice as slow as for `robin_hood::hash`. `FNV1a` performs reasonably well for small data, and has the advantage that it is very easy to inline because the code is very short and simple (an effect that can't easily be seen with such a microbenchmark).
+
+Based on this benchmark `absl::Hash` should be the winner in the map benchmark in theory. In practice, this is not the case. In practice, `robin_hood::hash` performs better than `absl::Hash` - at least in this benchmark. I believe the reason for this is that the `robin_hood::hash` implementation is much more compact and thus easier to inline and has less code bloat than `absl::Hash`.
+
 ## Hashmaps
 
-# Chart
+This time, `robin_hood::unordered_flat_map` is the clear winner, by a nice margin. It has this wide margin regardless of the hash, even more so for slow hashes like `FNV1a`. It's memory usage is also very good: `tsl::robin_map` which has often been the speed king so far, uses more than twice as much memory.
 
+I find it interesting that `robin_hood::unordered_node_map` is second fastest while at the same time having lowest peak memory usage - even lower than `tsl::sparse_map`.
+
+# Chart
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_e9119b43" style="height:250em"></div>
