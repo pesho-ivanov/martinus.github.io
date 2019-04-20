@@ -58,7 +58,7 @@ for (size_t i = 0; i < max_n; ++i) {
 
 ## Hashes
 
-Here, *Identity* hash is actually whatever libstdc++ does for `std::string`. It turns out, for g++ 8.2 it uses an algorithm very close to MurmurHash 2. I do exactly the same in `robin_hood::hash`. So the performance of both hashes are very similar, and for some reason my implementation seems to be slightly faster. Here the individual entries are extremely interesting, as it shows that each hash has different strenghts.
+Here, *Identity* hash is actually whatever libstdc++ does for `std::string`. It turns out, for g++ 8.2 it uses the MurmurHash 2 algorithm. `robin_hood::hash` also uses the Murmurhash2, but does not care about endianness and uses a slightly different implementation, which means the code is generally a bit faster, especially for short strings. Here the individual entries are extremely interesting, as it shows that each hash has different strenghts.
 
 I have created a separate benchmark, that just compares hashing performance of strings with different lengths. Times are in ns per hash calculation:
 

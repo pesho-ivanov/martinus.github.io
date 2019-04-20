@@ -26,16 +26,31 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 
 ----
 
+In many use cases `find` performance is probably considered the most important benchmark. This benchmark was tricky to implement, as it should be as unbiased as possible. It tries to do the following:
+
+* Lookup with different probability of being found: 0%, 25%, 50%, 75%, and 100% success ratio, to make sure we are not biased about lookup probability.
+* Lookups with different amount of data in the map, to make sure we have a wide range of fullness factors.
+* Lookups with different bitmasks of the entry, to make sure we are not biased towards small numbers. 
+
+It works this way:
+
+1. Each iteration, 4 random entries are created in a `Map<size_t, size_t>`. Depending on the desired lookup probability, 0, 1, 2, 3, or all 4 entries will be chosen either from a unique random number generator, or one with the same initial seed used for the lookups. Additionally, the order of these 4 entries is shuffled to introduce even more randomness.
+1. After insertion, a number of lookups are performed, and when an entry is found it's value is accessed.
+1. Repeat until the map is full.
+
+Here, we perform 2 million lookups for every 4 inserts, until the map contains 2000 elements.
+
 # Results
 
 ## Hashes
 
+As always, `robin_hood::hash` is fastest, closely followed by `absl::Hash`. `libstdc++-v3` has quite a few problems with the upper bitmask, resulting in huge numbers for many hashmaps and several timeouts.
+
 ## Hashmaps
 
+In this benchmark both `emilib::HashMap` is the fastest with `robin_hood::hash`. `tsl::robin_map` comes close, but no ciguar. Unfortunately it was not possible to get any peak memory numbers, the maps are just to small for that. `std::unordered_map` is by far the slowest. 
+
 # Chart
-
-
-Now it gets a lot more interesting.
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_5b56751f" style="height:250em"></div>

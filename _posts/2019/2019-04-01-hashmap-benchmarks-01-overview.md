@@ -5,6 +5,10 @@ subtitle: Finding the Fastest, Memory Efficient Hashmap
 bigimg: /img/2019/X-15_in_flight_small.jpg
 ---
 
+TODO:
+
+* replace identity with `libstdc++-v3` https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/bits/functional_hash.h
+
 ## Table of Contents
 
 * **[Overview](/2019/04/01/hashmap-benchmarks-01-overview/)** 👈
