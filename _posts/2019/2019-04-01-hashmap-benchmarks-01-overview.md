@@ -21,9 +21,9 @@ TODO:
    * [Insert & Erase](/2019/04/01/hashmap-benchmarks-03-03-result-RandomInsertErase/)
    * [Insert & Erase Strings](/2019/04/01/hashmap-benchmarks-03-04-result-RandomInsertEraseStrings/)
 * Accessing
-   * [Find 1-200 Entries](/2019/04/01/hashmap-benchmarks-04-01-result-RandomFind_200/)
-   * [Find 1-2000 Entries](/2019/04/01/hashmap-benchmarks-04-02-result-RandomFind_2000/)
+   * [Find 1-2000 int](/2019/04/01/hashmap-benchmarks-04-02-result-RandomFind_2000/)
    * [Find 1-500k Entries](/2019/04/01/hashmap-benchmarks-04-03-result-RandomFind_500000/)
+   * [Find 1-100k ]
    * [Iterating](/2019/04/01/hashmap-benchmarks-04-04-result-IterateIntegers/)
 * [Conclusion](/2019/04/01/hashmap-benchmarks-05-conclusion/)
 
