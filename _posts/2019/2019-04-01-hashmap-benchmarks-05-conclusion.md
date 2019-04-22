@@ -30,19 +30,22 @@ In conclusion, I can only say one thing with certainty: there is not one single 
 
 ## Hashes
 
-This summary is simple: in *all* benchmarks where hashing was involved, `robin_hood::hash` is overall the fastest. Only for long strings you might want to consider `absl::Hash` instead. I can only warn from the `libstdc++-v3` default implementation. Only use it if you are absolutely sure about what data you insert.
+This summary is simple: in *all* benchmarks where hashing was involved, `robin_hood::hash` is overall the fastest. Only for long strings `absl::Hash` is faster. Having said that, `absl::Hash` has a lot more features and is backed by the power of Google, so it might be worth considering anyways.
+
+I can only warn from the `libstdc++-v3` default implementation for integral types. Only use it if you are absolutely sure about what data you are about to insert.
 
 ## Hashmaps
 
-If you are dealing with small maps and integral data types as keys, `emilib1::HashMap` might be fastest. But be aware that I cannot vouch for it's stability. It is very new, and while integrating it the author still had to fix a few kinks to get it working. If it works for you, it's search performance is very fast. If you want a more stable map with very good performance, I'd go for `absl::flat_hash_map` as the default map. It is very stable, and has lots of features.
+If you are dealing with small maps and integral data types as keys, `emilib1::HashMap` might be fastest. But be aware that I cannot vouch for it's stability. It is very new, and while integrating it the author still had to fix a few kinks to get it working in my benchmark. If that does not bother you, it's search performance is very fast.
 
-If your map is modified with inserts and removals a lot, `tsl::robin_map` is fastest. It has high memory usage though. `robin_hood::unordered_flat_map` is slightly slower but has much less memory requirements.
+If you want a more stable map with very good performance, I'd go for `absl::flat_hash_map` as the default map. It is very stable, has lots of features, and definitely well tested.
 
-If your key is relatively slow to hash and to compare, like for a `std::string`, `robin_hood::unordered_node_map` is the way to go. It's memory usage is quite low and it is fastest.
+If your map is modified with inserts and removals a lot, `tsl::robin_map` is fastest. It has high memory usage though. `robin_hood::unordered_flat_map` is only slightly slower but has much less memory requirements.
 
-Sometimes it is very important to iterate the maps data very fast, e.g. in games. In that case, `tsl::sparse_map` is the clear winner. Iteration is exceptionally fast, it uses little memory, and find & insert & erase performance is ok as well.
+If your key is relatively slow to hash and to compare like a `std::string`, `robin_hood::unordered_node_map` is the way to go. It's memory usage is quite low and it is fastest. Integration is very easy, since it is a relatively small single header file.
+
+Sometimes it is very important to iterate and process all entries in a map very fast, e.g. in games. In that case, `tsl::sparse_map` is the clear winner. Iteration is exceptionally fast, it uses little memory, and find & insert & erase performance is ok as well.
 
 # Summary
 
-I hope these benchmarks are helpful to you!
-
+This benchmark was quite a lot of work, so I hope you find it useful. I have tried to make the code simple to use, so if you want to add your own benchmark or want to add another hashmap, feel free to make pull requests at [github.com/martinus/map_benchmark](https://github.com/martinus/map_benchmark).
