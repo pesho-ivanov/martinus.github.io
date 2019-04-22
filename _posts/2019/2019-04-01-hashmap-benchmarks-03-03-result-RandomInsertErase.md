@@ -10,17 +10,18 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 * [Overview](/2019/04/01/hashmap-benchmarks-01-overview/)
 * Construction Benchmarks
    * [Construction & Destruction](/2019/04/01/hashmap-benchmarks-02-01-result-CtorDtorEmptyMap/)
-   * [Construction & Insert 1 Element & Destruction](/2019/04/01/hashmap-benchmarks-02-02-result-CtorDtorSingleEntryMap/)
+   * [Construction & Insert 1 int & Destruction](/2019/04/01/hashmap-benchmarks-02-02-result-CtorDtorSingleEntryMap/)
 * Modifying Benchmarks
-   * [Insert & Erase 100M Entries](/2019/04/01/hashmap-benchmarks-03-01-result-InsertHugeInt/)
-   * [Insert or Access, Varying Probability](/2019/04/01/hashmap-benchmarks-03-02-result-RandomDistinct2/)
-   * **[Insert & Erase](/2019/04/01/hashmap-benchmarks-03-03-result-RandomInsertErase/)** 👈
-   * [Insert & Erase Strings](/2019/04/01/hashmap-benchmarks-03-04-result-RandomInsertEraseStrings/)
+   * [Insert & Erase 100M int](/2019/04/01/hashmap-benchmarks-03-01-result-InsertHugeInt/)
+   * [Insert & Access with Varying Probability int](/2019/04/01/hashmap-benchmarks-03-02-result-RandomDistinct2/)
+   * **[Insert & Erase uint64_t](/2019/04/01/hashmap-benchmarks-03-03-result-RandomInsertErase/)** 👈
+   * [Insert & Erase std::string](/2019/04/01/hashmap-benchmarks-03-04-result-RandomInsertEraseStrings/)
 * Accessing
-   * [Find 1-200 Entries](/2019/04/01/hashmap-benchmarks-04-01-result-RandomFind_200/)
-   * [Find 1-2000 Entries](/2019/04/01/hashmap-benchmarks-04-02-result-RandomFind_2000/)
-   * [Find 1-500k Entries](/2019/04/01/hashmap-benchmarks-04-03-result-RandomFind_500000/)
-   * [Iterating](/2019/04/01/hashmap-benchmarks-04-04-result-IterateIntegers/)
+   * [Find 1 -- 2000 uint64_t](/2019/04/01/hashmap-benchmarks-04-02-result-RandomFind_2000/)
+   * [Find 1 -- 500k uint64_t](/2019/04/01/hashmap-benchmarks-04-03-result-RandomFind_500000/)
+   * [Find 1 -- 100k std::string](/2019/04/01/hashmap-benchmarks-04-04-result-RandomFindString/)
+   * [Find 1 -- 1M std::string](/2019/04/01/hashmap-benchmarks-04-05-result-RandomFindString_1000000/)
+   * [Iterating](/2019/04/01/hashmap-benchmarks-04-06-result-IterateIntegers/)
 * [Conclusion](/2019/04/01/hashmap-benchmarks-05-conclusion/)
 
 ----
@@ -52,7 +53,7 @@ So the map's average size increases by a factor of 16 each benchmark. Ideally a 
 
 ## Hashes
 
-Yet another win for `robin_hood::hash`, and `absl::Hash` comes in second. Not that this time Identity hash has extremely bad behavior - as predicted. Lots of map implementations simply timeout. Notably, a few hashmaps still work with reasonable performance, I suspect that they have some kind of bad-hash-prevention built to protect against dumb hashes like Identity. Having this bad-hash-prevention unfortunately also incures an overhead when a good hash is used.
+Yet another win for `robin_hood::hash`, and `absl::Hash` comes in second. Not that this time `libstdc++-v3` hash has extremely bad behavior - as predicted. Lots of map implementations simply timeout. Notably, a few hashmaps still work with reasonable performance, I suspect that they have some kind of bad-hash-prevention built to protect against dumb hashes like `libstdc++-v3`. Having this bad-hash-prevention unfortunately also incures an overhead when a good hash is used.
 
 ## Hashmaps
 

@@ -5,20 +5,15 @@ subtitle: Finding the Fastest, Memory Efficient Hashmap
 bigimg: /img/2019/X-15_in_flight_small.jpg
 ---
 
-TODO:
-
-* replace identity with `libstdc++-v3` https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/bits/functional_hash.h
-* update TOC
-
 ## Table of Contents
 
 * **[Overview](/2019/04/01/hashmap-benchmarks-01-overview/)** 👈
 * Construction Benchmarks
    * [Construction & Destruction](/2019/04/01/hashmap-benchmarks-02-01-result-CtorDtorEmptyMap/)
-   * [Construction & Insert 1 Element & Destruction](/2019/04/01/hashmap-benchmarks-02-02-result-CtorDtorSingleEntryMap/)
+   * [Construction & Insert 1 int & Destruction](/2019/04/01/hashmap-benchmarks-02-02-result-CtorDtorSingleEntryMap/)
 * Modifying Benchmarks
-   * [Insert & Erase 100M](/2019/04/01/hashmap-benchmarks-03-01-result-InsertHugeInt/)
-   * [Insert & Access with Varying Probability](/2019/04/01/hashmap-benchmarks-03-02-result-RandomDistinct2/)
+   * [Insert & Erase 100M int](/2019/04/01/hashmap-benchmarks-03-01-result-InsertHugeInt/)
+   * [Insert & Access with Varying Probability int](/2019/04/01/hashmap-benchmarks-03-02-result-RandomDistinct2/)
    * [Insert & Erase uint64_t](/2019/04/01/hashmap-benchmarks-03-03-result-RandomInsertErase/)
    * [Insert & Erase std::string](/2019/04/01/hashmap-benchmarks-03-04-result-RandomInsertEraseStrings/)
 * Accessing
@@ -61,7 +56,7 @@ Some hashmap implementations come with their own hashing methods, each with diff
 * [Abseil's Hash](https://abseil.io/docs/cpp/guides/hash) `absl:Hash`: An extremely fast hash, that works very well in all situations I have tested.
 * [FNV1a](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function#FNV-1a_hash) A very simple hash that is used by Microsoft in  Visual Studio 2017. Interestingly, they even use this byte-wise hash for integral types. My benchmark has its own implementation, but in my experiments it has produced the same assembler code as the original Microsoft variant.
 * [Folly's Hash](https://github.com/facebook/folly/tree/master/folly/hash) `folly::hasher`: Unfortunately I could not find any documentation. It seems to be well optimized and uses native crc instruction if available. Unfortunately the result is only a 32bit hash which can work badly for some hashmap variants.
-* Identity Hash. `libstdc++` simply casts integral types to `size_t` and uses this as a hash function. It is obviously the fastest hash, but many hashmap implementations rely on a somewhat good avalanching hash quality so this seems to be a rather bad choice.
+* [libstdc++-v3](https://github.com/gcc-mirror/gcc/blob/master/libstdc++-v3/include/bits/functional_hash.h) simply casts integral types to `size_t` and uses this as a hash function. It is obviously the fastest hash, but many hashmap implementations rely on a somewhat good avalanching hash quality so this seems to be a rather bad choice.
 * [martinus's robin-hood-hashing](https://github.com/martinus/robin-hood-hashing) `robin_hood::hash` is based on abseil's hash for integral types, with minor modifications.
 
 # How is benchmarked?

@@ -10,17 +10,18 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 * [Overview](/2019/04/01/hashmap-benchmarks-01-overview/)
 * Construction Benchmarks
    * [Construction & Destruction](/2019/04/01/hashmap-benchmarks-02-01-result-CtorDtorEmptyMap/)
-   * [Construction & Insert 1 Element & Destruction](/2019/04/01/hashmap-benchmarks-02-02-result-CtorDtorSingleEntryMap/)
+   * [Construction & Insert 1 int & Destruction](/2019/04/01/hashmap-benchmarks-02-02-result-CtorDtorSingleEntryMap/)
 * Modifying Benchmarks
-   * [Insert & Erase 100M Entries](/2019/04/01/hashmap-benchmarks-03-01-result-InsertHugeInt/)
-   * **[Insert & Access with Varying Probability](/2019/04/01/hashmap-benchmarks-03-02-result-RandomDistinct2/)** 👈
-   * [Insert & Erase](/2019/04/01/hashmap-benchmarks-03-03-result-RandomInsertErase/)
-   * [Insert & Erase Strings](/2019/04/01/hashmap-benchmarks-03-04-result-RandomInsertEraseStrings/)
+   * [Insert & Erase 100M int](/2019/04/01/hashmap-benchmarks-03-01-result-InsertHugeInt/)
+   * **[Insert & Access with Varying Probability int](/2019/04/01/hashmap-benchmarks-03-02-result-RandomDistinct2/)** 👈
+   * [Insert & Erase uint64_t](/2019/04/01/hashmap-benchmarks-03-03-result-RandomInsertErase/)
+   * [Insert & Erase std::string](/2019/04/01/hashmap-benchmarks-03-04-result-RandomInsertEraseStrings/)
 * Accessing
-   * [Find 1--200 Entries](/2019/04/01/hashmap-benchmarks-04-01-result-RandomFind_200/)
-   * [Find 1-2000 Entries](/2019/04/01/hashmap-benchmarks-04-02-result-RandomFind_2000/)
-   * [Find 1-500k Entries](/2019/04/01/hashmap-benchmarks-04-03-result-RandomFind_500000/)
-   * [Iterating](/2019/04/01/hashmap-benchmarks-04-04-result-IterateIntegers/)
+   * [Find 1 -- 2000 uint64_t](/2019/04/01/hashmap-benchmarks-04-02-result-RandomFind_2000/)
+   * [Find 1 -- 500k uint64_t](/2019/04/01/hashmap-benchmarks-04-03-result-RandomFind_500000/)
+   * [Find 1 -- 100k std::string](/2019/04/01/hashmap-benchmarks-04-04-result-RandomFindString/)
+   * [Find 1 -- 1M std::string](/2019/04/01/hashmap-benchmarks-04-05-result-RandomFindString_1000000/)
+   * [Iterating](/2019/04/01/hashmap-benchmarks-04-06-result-IterateIntegers/)
 * [Conclusion](/2019/04/01/hashmap-benchmarks-05-conclusion/)
 
 ----
@@ -47,7 +48,7 @@ In fact the benchmark is run 4 times, with different max_rng settings:
 
 ## Hashes
 
-Again, `robin_hood::hash` is the clear winner. The second fastest hash `absl::Hash` is in fact quite a bit slower in this benchmark. E.g. the fastest hashmap `tsl::robin_map` is about 10% faster when it uses `robin_hood::hash`. Identity hash is still the fastest for many hashes, but again it is a dangerous choice: Absl maps and phmap simply timeout again. The reason Identity hash works so well for some hashes is that the numbers are small, and change in the lower bits. If we would generate random numbers e.g. this way: `rng(max_rng) << 10` Identity hash would have much worse performance due to many collisions.
+Again, `robin_hood::hash` is the clear winner. The second fastest hash `absl::Hash` is in fact quite a bit slower in this benchmark. E.g. the fastest hashmap `tsl::robin_map` is about 10% faster when it uses `robin_hood::hash`. `libstdc++-v3` hash is still the fastest for many hashes, but again it is a dangerous choice: Absl maps and phmap simply timeout again. The reason `libstdc++-v3` hash works so well for some hashes is that the numbers are small, and change in the lower bits. If we would generate random numbers e.g. this way: `rng(max_rng) << 10` the trival hash from `libstdc++-v3` would have much worse performance due to many collisions.
 
 `folly::hasher` is again dangerous as well. It does not time out, but the runtime is extremely bad for some maps. I belive the reason is this: the hash uses a native `crc32` instruction. While the instruction is quite fast, it only generates a 32bit hash. Some hashmaps rely on 64bit hash data though.
 
