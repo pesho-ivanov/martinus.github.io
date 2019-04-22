@@ -8,6 +8,7 @@ bigimg: /img/2019/X-15_in_flight_small.jpg
 TODO:
 
 * replace identity with `libstdc++-v3` https://github.com/gcc-mirror/gcc/blob/master/libstdc%2B%2B-v3/include/bits/functional_hash.h
+* update TOC
 
 ## Table of Contents
 
@@ -16,15 +17,16 @@ TODO:
    * [Construction & Destruction](/2019/04/01/hashmap-benchmarks-02-01-result-CtorDtorEmptyMap/)
    * [Construction & Insert 1 Element & Destruction](/2019/04/01/hashmap-benchmarks-02-02-result-CtorDtorSingleEntryMap/)
 * Modifying Benchmarks
-   * [Insert & Erase 100M Entries](/2019/04/01/hashmap-benchmarks-03-01-result-InsertHugeInt/)
-   * [Insert or Access, Varying Probability](/2019/04/01/hashmap-benchmarks-03-02-result-RandomDistinct2/)
-   * [Insert & Erase](/2019/04/01/hashmap-benchmarks-03-03-result-RandomInsertErase/)
-   * [Insert & Erase Strings](/2019/04/01/hashmap-benchmarks-03-04-result-RandomInsertEraseStrings/)
+   * [Insert & Erase 100M](/2019/04/01/hashmap-benchmarks-03-01-result-InsertHugeInt/)
+   * [Insert & Access with Varying Probability](/2019/04/01/hashmap-benchmarks-03-02-result-RandomDistinct2/)
+   * [Insert & Erase uint64_t](/2019/04/01/hashmap-benchmarks-03-03-result-RandomInsertErase/)
+   * [Insert & Erase std::string](/2019/04/01/hashmap-benchmarks-03-04-result-RandomInsertEraseStrings/)
 * Accessing
-   * [Find 1-2000 int](/2019/04/01/hashmap-benchmarks-04-02-result-RandomFind_2000/)
-   * [Find 1-500k Entries](/2019/04/01/hashmap-benchmarks-04-03-result-RandomFind_500000/)
-   * [Find 1-100k ]
-   * [Iterating](/2019/04/01/hashmap-benchmarks-04-04-result-IterateIntegers/)
+   * [Find 1 -- 2000 uint64_t](/2019/04/01/hashmap-benchmarks-04-02-result-RandomFind_2000/)
+   * [Find 1 -- 500k uint64_t](/2019/04/01/hashmap-benchmarks-04-03-result-RandomFind_500000/)
+   * [Find 1 -- 100k std::string](/2019/04/01/hashmap-benchmarks-04-04-result-RandomFindString/)
+   * [Find 1 -- 1M std::string](/2019/04/01/hashmap-benchmarks-04-05-result-RandomFindString_1000000/)
+   * [Iterating](/2019/04/01/hashmap-benchmarks-04-06-result-IterateIntegers/)
 * [Conclusion](/2019/04/01/hashmap-benchmarks-05-conclusion/)
 
 ----
@@ -64,17 +66,35 @@ Some hashmap implementations come with their own hashing methods, each with diff
 
 # How is benchmarked?
 
-I've used g++ 8.2.0 with `-O3 -march=native`. Cmake build is done with `Release` mode, and I've set FOLLY_CXX_FLAGS to `-march=native`. For the ktprime map benchmarks I had to add `-fno-strict-aliasing`.
+## Build
 
-All benchmarks were run on an Intel i7-8700, locked to 3200 MHz. Turbo boost and frequency scaling were disabled with the python tool [perf](https://perf.readthedocs.io/en/latest/).
+* I've used g++ 8.2.0 with `-O3 -march=native`:
+  ```sh
+  g++-8 (Ubuntu 8.2.0-1ubuntu2~18.04) 8.2.0
+  ```
+* CMake build is done with `Release` mode
+* and I've set `FOLLY_CXX_FLAGS` to `-march=native`.
+* For the `ktprime` map benchmarks I had to add `-fno-strict-aliasing`.
 
-I have isolated a core with it's hyperthreading companion by editing `/etc/default/grub` and changing `GRUB_CMDLINE_LINUX_DEFAULT` so it looks like this:
+## System Configuration
 
-```
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash isolcpus=5,11 rcu_nocbs=5,11"
-```
-
-Each benchmark is run with `taskset -c 5,11` to make use of the isolated cores. This has resulted in very stable results. To get rid of any potential outliers and different performance behavior through [ASLR](https://en.wikipedia.org/wiki/Address_space_layout_randomization), all benchmarks were run 9 times and I show only the median result.
+* All benchmarks were run on an Linux. `uname -a` output:
+  ```
+  Linux dualit 4.15.0-47-generic #50-Ubuntu SMP Wed Mar 13 10:44:52 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+  ```
+* Processor Intel(R) Core(TM) i7-8700 CPU @ 3.20GHz, locked to 3200 MHz.
+* Isolated a core with it's hyperthreading companion by editing `/etc/default/grub` and changing `GRUB_CMDLINE_LINUX_DEFAULT` so it looks like this:
+  ```sh
+  GRUB_CMDLINE_LINUX_DEFAULT="quiet splash isolcpus=5,11 rcu_nocbs=5,11"
+  ```
+* Turbo boost and frequency scaling were disabled with the python tool [perf](https://perf.readthedocs.io/en/latest/) with the command
+  ```sh
+  sudo python3 -m perf system tune
+  ```
+  This sets cores 5 and 11 to 3200 MHz, sets scaling governor to *performance*, disables Turbo Boost, sets irqbalances service to inactive, IRQ affinity to all CPUs except 5 and 11.
+* Each benchmarks is run in a separately started process.
+* Isolated cores are used with `taskset -c 5,11`
+* To get rid of any potential outliers and to average effects of [ASLR](https://en.wikipedia.org/wiki/Address_space_layout_randomization), all benchmarks were run 9 times and I show only the median result.
 
 # Benchmarks
 
