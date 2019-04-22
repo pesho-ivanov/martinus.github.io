@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hashmaps Benchmarks - Insert & Erase
+title: Hashmaps Benchmarks - Insert & Erase uint64_t
 subtitle: Finding the Fastest, Memory Efficient Hashmap
 bigimg: /img/2019/X-15_in_flight_small.jpg
 ---

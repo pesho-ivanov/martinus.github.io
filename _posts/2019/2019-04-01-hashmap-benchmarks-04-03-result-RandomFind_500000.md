@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hashmaps Benchmarks - Find 1-500k Entries
+title: Hashmaps Benchmarks - Find 1 -- 500k uint64_t
 subtitle: Finding the Fastest, Memory Efficient Hashmap
 bigimg: /img/2019/X-15_in_flight_small.jpg
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hashmaps Benchmarks - Insert & Erase 100M Entries
+title: Hashmaps Benchmarks - Insert & Erase 100M int
 subtitle: Finding the Fastest, Memory Efficient Hashmap
 bigimg: /img/2019/X-15_in_flight_small.jpg
 ---
