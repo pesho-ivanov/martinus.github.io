@@ -46,6 +46,6 @@ If your key is relatively slow to hash and to compare like a `std::string`, `rob
 
 Sometimes it is very important to iterate and process all entries in a map very fast, e.g. in games. In that case, `tsl::sparse_map` is the clear winner. Iteration is exceptionally fast, it uses little memory, and find & insert & erase performance is ok as well.
 
-# Summary
+# Final Words
 
-This benchmark was quite a lot of work, so I hope you find it useful. I have tried to make the code simple to use, so if you want to add your own benchmark or want to add another hashmap, feel free to make pull requests at [github.com/martinus/map_benchmark](https://github.com/martinus/map_benchmark).
+This benchmark was quite a lot of work, so I hope you find it useful! I have tried to make the code simple to use, so if you want to add your own benchmark or want to add another hashmap, feel free to make pull requests at [github.com/martinus/map_benchmark](https://github.com/martinus/map_benchmark).

@@ -67,6 +67,14 @@ Interestingly, the next on the pareto front is `robin_hood::unordered_node_map`.
 I find it quite amusing that in this benchmark, which consists of purely inserting and removing elements, two hashmaps with [robin-hood hashing technique](https://andre.arko.net/2017/08/24/robin-hood-hashing/) are the fastest. It is often assumend that due to the need to shuffle data around in these implementations they are slower than other techniques, but in practice this seems to not be the case.
 
 # Chart
+Each entry is total runtime for 50M `emplace()` and `erase()` of a random number with a bitmask.
+
+1. **blue**: 4 bits set
+1. **orange**: 8 bits set
+1. **green**: 12 bits set
+1. **red**: 16 bits set
+1. **magenta**: 20 bits set
+1. **brown**: 24 bits set
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_ab4d1fc4" style="height:250em"></div>

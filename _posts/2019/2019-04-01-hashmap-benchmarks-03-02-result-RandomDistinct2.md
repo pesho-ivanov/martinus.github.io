@@ -39,7 +39,7 @@ Here `rng(max_rng)` creates a random number in the range [0, max_rng(. If max_rn
 
 In fact the benchmark is run 4 times, with different max_rng settings:
 
-* 5% distinct: max_rng = 50M * 5% = 250k, so only many values will be duplicates. After 50 million iterations, all 250k elements are inserted. So most map operations will be accesses.
+* 5% distinct: max_rng = 50M * 5% = 250k, so many values will be duplicates. After 50 million iterations, all 250k elements are inserted. So most map operations will be accesses.
 * 25% distinct: max_rng = 50M * 25% = 12.5M. More inserts, less modifications.
 * 50% distinct: max_rng = 50M * 50% = 25M. Note that due to randomness not all numbers from 0-25M will be inserted. Here the final map's size contains 21.6M entries. So actually its about 43% of the value range instead of 50%.
 * 100% distinct: Here we make use of the full range of `int`, so 2^32 numbers are available. Practically all operations are new insertions.
@@ -63,8 +63,12 @@ Again, `tsl::robin_map` is the performance winner. 5% distinct accesses take 0.9
 If low memory usage is important to you, the best choice is `tsl::sparse_map`. It is more than twice as fast as `std::unordered_map`.
 
 # Chart
+Each entry is total runtime for creating a new map, 50M iterations, then destructing the map.
 
-Note that you can zoom! Click anywhere in the chart and drag the mouse straight to the left. Doubleclick to reset zoom.
+1. **blue**: 5% distinct
+1. **orange**: 25% distinct
+1. **green**: 50% distinct
+1. **red**: 100% distinct
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_6f6eda74" style="height:250em"></div>

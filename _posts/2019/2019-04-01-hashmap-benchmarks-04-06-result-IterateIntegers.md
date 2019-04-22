@@ -66,6 +66,10 @@ Here it is all about cache locality. So the more compact your data is bunched to
 `robin_hood::unordered_flat_map` is third, it is thus the fastest non-sparse map. It gets that speed by making use of its 1-byte overhead structure: the map can skip up to 8 entries at once if they are empty. `robin_hood::unordered_node_map` is slower due to the additional indirection, but it is still faster than the rest. Interestingly, `tsl::robin_map` is quite slow here. I assume it is just not optimized for fast iteration.
 
 # Chart
+Each entry shows total time.
+
+1. **blue**: iterate whole map each inserting until 50k entries
+1. **orange**: iterate whole map each erase until empty
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_14f7a91d" style="height:250em"></div>

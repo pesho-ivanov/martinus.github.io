@@ -39,6 +39,19 @@ Same behavior as for the other benchmarks: `robin_hood::hash` is fastest, `absl:
 This time `emilib::HashMap` is not the winner any more. It seems to be well tuned for smaller maps, but the fastest maps for larger data are `phmap::flat_hash_map` and `absl::flat_hash_map`. I find it interesting that the node maps are performing so well even though they add a layer of indirection. `robin_hood::unordered_node_map` even performs a bit better than `robin_hood::unordered_flat_map`. `robin_hood::unordered_flat_map`'s peak memory is very small, only `tsl::sparse_map` uses less RAM - unfortunately below the measurement barrier, so I only have 0 as a number.
 
 # Chart
+Each entry shows average time for a single `find` and access operation (if found). The final number is average over all entries.
+
+1. **blue**: 0% find success, bitmask `0x00000000FFFFFFFF` (only lower bits)
+1. **orange**: 0% find success, bitmask `0xFFFFFFFF00000000` (only upper bits)
+1. **green**: 25% find success, bitmask `0x00000000FFFFFFFF` (only lower bits)
+1. **red**: 25% find success, bitmask `0xFFFFFFFF00000000` (only upper bits)
+1. **magenta**: 50% find success, bitmask `0x00000000FFFFFFFF` (only lower bits)
+1. **brown**: 50% find success, bitmask `0xFFFFFFFF00000000` (only upper bits)
+1. **pink**: 75% find success, bitmask `0x00000000FFFFFFFF` (only lower bits)
+1. **gray**: 75% find success, bitmask `0xFFFFFFFF00000000` (only upper bits)
+1. **lime**: 100% find success, bitmask `0x00000000FFFFFFFF` (only lower bits)
+1. **cyan**: 100% find success, bitmask `0xFFFFFFFF00000000` (only upper bits)
+
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_b519ead6" style="height:250em"></div>

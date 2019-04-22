@@ -51,6 +51,19 @@ As always, `robin_hood::hash` is fastest, closely followed by `absl::Hash`. `lib
 In this benchmark both `emilib::HashMap` is the fastest with `robin_hood::hash`. `tsl::robin_map` comes close, but no ciguar. Unfortunately it was not possible to get any peak memory numbers, the maps are just to small for that. `std::unordered_map` is by far the slowest. 
 
 # Chart
+Each entry shows average time for a single `find` and access operation (if found). The final number is average over all entries.
+
+1. **blue**: 0% find success, bitmask `0x00000000FFFFFFFF` (only lower bits)
+1. **orange**: 0% find success, bitmask `0xFFFFFFFF00000000` (only upper bits)
+1. **green**: 25% find success, bitmask `0x00000000FFFFFFFF` (only lower bits)
+1. **red**: 25% find success, bitmask `0xFFFFFFFF00000000` (only upper bits)
+1. **magenta**: 50% find success, bitmask `0x00000000FFFFFFFF` (only lower bits)
+1. **brown**: 50% find success, bitmask `0xFFFFFFFF00000000` (only upper bits)
+1. **pink**: 75% find success, bitmask `0x00000000FFFFFFFF` (only lower bits)
+1. **gray**: 75% find success, bitmask `0xFFFFFFFF00000000` (only upper bits)
+1. **lime**: 100% find success, bitmask `0x00000000FFFFFFFF` (only lower bits)
+1. **cyan**: 100% find success, bitmask `0xFFFFFFFF00000000` (only upper bits)
+
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_fe29efd" style="height:250em"></div>

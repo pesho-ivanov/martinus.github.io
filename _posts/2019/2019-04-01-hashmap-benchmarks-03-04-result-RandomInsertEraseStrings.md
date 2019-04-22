@@ -82,6 +82,13 @@ This time, `robin_hood::unordered_flat_map` is the clear winner, by a nice margi
 I find it interesting that `robin_hood::unordered_node_map` is second fastest while at the same time having lowest peak memory usage - even lower than `tsl::sparse_map`.
 
 # Chart
+Each entry shows total runtime of that part of the benchmark.
+
+1. **blue**: 7 bytes: 20M iterations
+1. **orange**: 8 bytes: 20M iterations
+1. **green**: 13 bytes: 20M iterations
+1. **red**: 100 bytes: 12M iterations
+1. **magenta**: 1000 bytes: 6M iteratons
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_60b032a9" style="height:250em"></div>

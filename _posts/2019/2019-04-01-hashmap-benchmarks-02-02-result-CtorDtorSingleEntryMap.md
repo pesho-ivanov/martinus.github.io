@@ -54,6 +54,8 @@ This time a single element is hashed and inserted into the map. The overhead of 
 
 # Chart
 
+1. **blue**: average time to construct map and insert one element.
+
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_3ee11fcd" style="height:250em"></div>
 <script>

@@ -41,6 +41,13 @@ Here, the `robin_hood::unordered_node_map` is the clear winner, only narrowly fo
 Not only is `robin_hood::unordered_node_map` the fastest, it has also quite low peak memory usage, only beaten by `tsl::sparse_map`. E.g. `tsl::robin_map` uses more than 3 times as much memory.
 
 # Chart
+Each entry shows average time for a single `find` and access operation (if found). The final number is average over all entries.
+
+1. **blue**: 0% find success, 100 byte size `std::string`
+1. **orange**: 25% find success, 100 byte size `std::string`
+1. **green**: 50% find success, 100 byte size `std::string`
+1. **red**: 75% find success, 100 byte size `std::string`
+1. **magenta**: 100% find success, 100 byte size `std::string`
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_bfccb34e" style="height:250em"></div>

@@ -51,6 +51,8 @@ Construction is generally very fast, and a non-issue. The slowest map to constru
 
 # Chart
 
+1. **blue**: average time to construct one map.
+
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <div id="id_5c4b02b2" style="height:250em"></div>
 <script>
