@@ -1,6 +1,6 @@
 # install bundler version from the Gemfile.lock:
-sudo gem install bundler -v 1.15.3
-sudo apt install ruby-dev
+
+gem install bundler -v 1.15.3
 bundle install --path ~/martinus.github.io.bundle
 
 # serve it
