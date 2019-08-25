@@ -56,6 +56,3 @@ Switch to Airplane mode, turn off brightness, turn off Page Refresh.
 * [9 Amazon Kindle Tips to Get More Out of Your E-Reader](https://www.makeuseof.com/tag/amazon-kindle-tips/)
 * [29 Best Websites to Download Free Ebooks](https://www.tckpublishing.com/websites-download-ebooks/)
 * [[TUTORIAL] How to use calibre to manage book library and Kindle (or any E-Readers)](https://www.reddit.com/r/kindle/comments/3b7dzl/tutorial_how_to_use_calibre_to_manage_book/)
-
-
-[1] https://www.google.com/search?q=intitle%3D%22index+of%22+(mobi|epub)
