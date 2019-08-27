@@ -8,7 +8,7 @@ bigimg: /img/2019/paperwhite.jpg
 I recently upgraded from my 8 year old Kindle Keyboard (2011) to a brand new Kindle Paperwhite (2019, generation 10). So far, it is a great upgrade. Here are some tricks that I found useful:
 
 ## Custom Fonts
-Connect the kindle with USB, you'll see a folder `fonts`. I've tried a few fonts, and really like [Literata](https://fonts.google.com/specimen/Literata):
+Connect the kindle with USB, you'll see a folder `fonts`. I've tried a few fonts, and really like [Literata](https://fonts.google.com/specimen/Literata). It's very similar to Amazon's Bookerly, and made for e-books.
 
 ![Literata](/img/2019/literata.png)
 
