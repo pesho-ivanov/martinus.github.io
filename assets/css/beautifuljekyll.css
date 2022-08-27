@@ -1118,3 +1118,6 @@ pre {
     display: inline-block;
   }
 }
+
+/* martinus changes */
+.container-md { max-width: 100%; }
