@@ -14,3 +14,4 @@ beautiful-jekyll-theme-*.gem
 
 .bundle
 /vendor
+.jekyll-metadata
