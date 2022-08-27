@@ -6,7 +6,7 @@ layout: post
 title: 'Free Secure Web: Jekyll & Github Pages & Cloudflare'
 categories:
 - programming
-bigimg: /img/2017/07/github_cloudflare.png
+cover-img: /img/2017/07/github_cloudflare.png
 share-img: /img/2017/07/github_cloudflare.png
 ---
 

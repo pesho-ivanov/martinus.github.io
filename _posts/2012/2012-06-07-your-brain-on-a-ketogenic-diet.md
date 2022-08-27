@@ -10,7 +10,7 @@ categories:
 - health
 tags:
 - keto
-bigimg: /img/2012/06/brain-1007686_960_720.png
+cover-img: /img/2012/06/brain-1007686_960_720.png
 ---
 
 With all the focus on the weight loss effect of a [low carb high fat / ketogenic diet](/2012/01/15/low-carb-high-fat-big-video-roundup/), while appropriate because the weight loss is indeed often dramatic, many other potential benefits are often overlooked. In April 2012 an article "[The Ketogenic Diet as a Treatment Paradigm for Diverse Neurological Disorders](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3321471/)" was published that nicely summarizes what's currently know about the effects a ketogenic diet has on multiple neurological problems. Here is a summary of this paper:

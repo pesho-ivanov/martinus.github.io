@@ -8,7 +8,7 @@ title: Cholesterol and Heart Disease
 wordpress_id: 1128
 categories:
 - health
-bigimg: /img/2012/06/bacon_hmm.jpg
+cover-img: /img/2012/06/bacon_hmm.jpg
 ---
 
 ## Is high cholesterol bad?

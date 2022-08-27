@@ -10,21 +10,19 @@
 ############################
 
 # Name of website
-title: My Website
+title: Martin Leitner-Ankerl
 
 # Your name to show in the footer
-author: Some Person
+author: Martin Leitner-Ankerl
 
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
 
 navbar-links:
+  Home: "https://martin.ankerl.com/"
   About Me: "aboutme"
-  Resources:
-    - Beautiful Jekyll: "https://beautifuljekyll.com"
-    - Learn markdown: "https://www.markdowntutorial.com/"
-  Author's home: "https://deanattali.com"
+  Keto Calculator: "https://keto-calculator.ankerl.com/"
 
 ################
 # --- Logo --- #
@@ -32,7 +30,7 @@ navbar-links:
 
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/img/avatar-icon.png"
+avatar: "/img/me.jpg"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
 round-avatar: true
@@ -49,18 +47,17 @@ round-avatar: true
 # Select the social network links that you want to show in the footer.
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
-  email: "someone@example.com"
+  email: "martin.ankerl@gmail.com"
   rss: true  # remove this line if you don't want to show an RSS link at the bottom
-  facebook: deanattali
-  github: daattali
-  twitter: daattali
+  github: martinus
+  twitter: sunitram
   patreon: DeanAttali
   youtube: c/daattali
 #  medium: yourname
-#  reddit: yourname
-#  linkedin: daattali
+  reddit: martinus
+  linkedin: mankerl
 #  xing: yourname
-#  stackoverflow: "3943160/daattali"
+  stackoverflow: "48181/martinus"
 #  snapchat: deanat78
 #  instagram: deanat78
 #  spotify: yourname
@@ -88,16 +85,15 @@ rss-description: This website is a virtual proof that I'm awesome
 # Select which social network share links to show in posts
 share-links-active:
   twitter: true
-  facebook: true
   linkedin: true
   vk: false
 
 # How to display the link to your website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "MyWebsite.com"
+url-pretty: "martin.ankerl.com"
 
 # Excerpt word length - Truncate the excerpt of each post on the feed page to the specified number of words
-excerpt_length: 50
+excerpt_length: 100
 
 # Whether or not to show an excerpt for every blog post in the feed page
 feed_show_excerpt: true
@@ -163,7 +159,7 @@ footer-hover-col: "#0085A1"
 #gtag: ""
 
 # Fill in your Google Analytics ID to track your website using Google Analytics
-#google_analytics: ""
+#google_analytics: "UA-1083863-1"
 
 # Fill in your Cloudflare Analytics beacon token to track your website using Cloudflare Analytics
 #cloudflare_analytics: ""
@@ -184,7 +180,7 @@ footer-hover-col: "#0085A1"
 ####################
 
 # To use Disqus comments, sign up to https://disqus.com and fill in your Disqus shortname (NOT the userid)
-#disqus: ""
+disqus: "martinankerl"
 
 # To use Facebook Comments, create a Facebook app and fill in the Facebook App ID
 #fb_comment_id: ""
@@ -247,11 +243,11 @@ date_format: "%B %-d, %Y"
 #################################################################################
 
 # Output options (more information on Jekyll's site)
-timezone: "America/Toronto"
+timezone: "Europe/Vienna"
 markdown: kramdown
 highlighter: rouge
-permalink: /:year-:month-:day-:title/
-paginate: 5
+permalink: /:year/:month/:day/:title/
+paginate: 20
 
 kramdown:
   input: GFM
@@ -281,6 +277,7 @@ exclude:
   - LICENSE
   - README.md
   - screenshot.png
+  - img/mega
   - docs/
   - vendor/
   - .bundle/

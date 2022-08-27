@@ -2,7 +2,7 @@
 layout: post
 title: Visual Studio C++ 2015 Compiler Bug
 subtitle: Found a bug, it has been fixed.
-bigimg: /img/2017/02/bug_flat.jpg
+cover-img: /img/2017/02/bug_flat.jpg
 ---
 
 I think I've unfortunately found a compiler bug in Visual Studio 2015, all the way back to at least VS2010. Here is the code:

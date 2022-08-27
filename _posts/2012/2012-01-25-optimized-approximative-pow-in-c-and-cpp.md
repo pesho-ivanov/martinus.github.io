@@ -8,7 +8,7 @@ title: Optimized Approximative pow() in C / C++
 wordpress_id: 894
 categories:
 - programming
-bigimg: /img/2012/01/pow.png
+cover-img: /img/2012/01/pow.png
 ---
 
 Mostly thanks to [this reddit discussion](http://www.reddit.com/r/gamedev/comments/n7na0/fast_approximation_to_mathpow/), I have updated my [pow() approximation](http://martin.ankerl.com/2007/10/04/optimized-pow-approximation-for-java-and-c-c/) for C / C++. I have now two different versions:

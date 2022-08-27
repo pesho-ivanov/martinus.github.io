@@ -8,7 +8,7 @@ title: Linux Bash Prompt
 subtitle: 'Elapsed time, errorcode ✘ or ✔, git & svn status, ...'
 categories:
   - linux
-bigimg: /img/2016/11/bash_prompt.png
+cover-img: /img/2016/11/bash_prompt.png
 published: true
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: Hashmaps Benchmarks - Construction & Insert 1 int & Destruction
 subtitle: Finding the Fastest, Memory Efficient Hashmap
-bigimg: /img/2019/X-15_in_flight_small.jpg
+cover-img: /img/2019/X-15_in_flight_small.jpg
 ---
 
 ## Table of Contents

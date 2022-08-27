@@ -8,7 +8,7 @@ title: Analyzing Keto Calculator Demographics
 wordpress_id: 1533
 categories:
 - programming
-bigimg: /img/2016/06/age.png
+cover-img: /img/2016/06/age.png
 ---
 
 Recently my [Keto Calculator](http://keto-calculator.ankerl.com) has grown huge. So big, that in January 2016 alone I've had 222,781 page views. That is a record for my site, and I have no reason to believe that it will slow down anytime soon. In my quest to make all the visitors as happy as possible, I've done quite a bit of analysis of my visitors to find out what I need to do with my homepage. Here is some of the data that I have gathered using [Google Analytics](http://www.google.com/analytics/).

@@ -8,7 +8,7 @@ title: Essential Linux Dev Stuff
 wordpress_id: 1727
 categories:
 - linux
-bigimg: /img/2017/05/glances-1.png
+cover-img: /img/2017/05/glances-1.png
 ---
 
 I've recently started developing more in Linux, here is a collection of tools, tips and tricks to get the most out of the box. I'll expand this list from time to time.

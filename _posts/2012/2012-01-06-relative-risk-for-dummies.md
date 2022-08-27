@@ -8,7 +8,7 @@ title: Relative Risk for Dummies
 wordpress_id: 739
 categories:
 - health
-bigimg: /img/2012/01/croc.jpg
+cover-img: /img/2012/01/croc.jpg
 ---
 
 I read a lot of health related studies, and most contain in their conclusion a statistical description of the result. To be able to draw valid conclusions for oneself it is very important to understand what all the numbers mean. I have recently learned all that, so here is an example together with an explanation:

@@ -15,7 +15,7 @@ tags:
 - lifehack
 - linux
 - ubuntu
-bigimg: "/img/2008/01/stumbling-insomnia.jpg"
+cover-img: "/img/2008/01/stumbling-insomnia.jpg"
 ---
 
 ## What?

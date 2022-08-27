@@ -2,7 +2,7 @@
 layout: post
 title: Fast Random bool in C++
 subtitle: With lots of benchmarks
-bigimg: /img/2018/09/utxo_header.jpg
+cover-img: /img/2018/09/utxo_header.jpg
 ---
 
 While playing around with fast random number generators, I've started contemplating what's the fastest way to uniformly generate random boolean values. The correct solution is this (never mind the bad seeding of mt19937, but it's just too cumbersome to do it correctly):

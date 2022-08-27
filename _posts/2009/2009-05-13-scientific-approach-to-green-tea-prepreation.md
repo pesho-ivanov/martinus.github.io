@@ -6,7 +6,7 @@ layout: post
 slug: scientific-approach-to-green-tea-prepreation
 title: Scientific Approach to Green Tea Preparation
 wordpress_id: 211
-bigimg: /img/2009/05/8754339669_1f3dfe139c_b_tinypng.jpg
+cover-img: /img/2009/05/8754339669_1f3dfe139c_b_tinypng.jpg
 categories:
 - health
 ---

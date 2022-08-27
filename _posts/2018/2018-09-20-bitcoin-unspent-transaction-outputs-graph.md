@@ -2,7 +2,7 @@
 layout: post
 title: Visualizing Bitcoin's Unspent Transaction Output
 subtitle: UTXO in all it's glory
-bigimg: /img/2018/09/utxo_header.jpg
+cover-img: /img/2018/09/utxo_header.jpg
 ---
 
 About 5 years ago I've created a nice [graph of all the bitcoin addresses](https://redd.it/1bjd7g). I got this: 

@@ -9,7 +9,7 @@ wordpress_id: 840
 categories:
 - health
 - programming
-bigimg: /img/2012/01/foxes.png
+cover-img: /img/2012/01/foxes.png
 ---
 
 Since I blog a mixture of health and programmnig, my old tagline [May all your work reduce to O(1)](http://www.reddit.com/r/compsci/comments/lserg/which_algorithm_am_i_looking_for/c2vudcn?context=1) just didn't cut it any more. Fortunately I have a found a perfect replacement:

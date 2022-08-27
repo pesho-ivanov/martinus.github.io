@@ -2,7 +2,7 @@
 layout: post
 title: Kindle Paperwhite Tips
 subtitle: Some helpful Tricks
-bigimg: /img/2019/paperwhite.jpg
+cover-img: /img/2019/paperwhite.jpg
 ---
 
 I recently upgraded from my 8 year old Kindle Keyboard (2011) to a brand new Kindle Paperwhite (2019, generation 10). So far, it is a great upgrade. Here are some tricks that I found useful:
