@@ -99,7 +99,7 @@ var tabledata = [
 {id:69, hm:"fph::DynamicFphMap", h:"boost::hash", mem:978, cpy:3101, ihi:4291, it:3906, rd2:4832, rie:1361, rf200:105, rf2k:115, rf500k:119, ries:1055, rfs:606, rfs1m:384, avgn:113, avgs:482, avg:837},
 {id:70, hm:"fph::DynamicFphMap", h:"mumx", mem:978, cpy:3175, ihi:4514, it:3860, rd2:6120, rie:1395, rf200:124, rf2k:127, rf500k:126, ries:621, rfs:227, rfs1m:243, avgn:125, avgs:235, avg:749},
 {id:71, hm:"fph::DynamicFphMap", h:"robin_hood::hash", mem:978, cpy:3228, ihi:4419, it:3896, rd2:5973, rie:1388, rf200:128, rf2k:140, rf500k:133, ries:615, rfs:204, rfs1m:224, avgn:134, avgs:214, avg:747},
-{id:72, hm:"fph::DynamicFphMap", h:"std::hash", mem:970357, cpy:3016, ihi:4774, it:3882, rd2:5560, rie:1227, rf200:103, rf2k:100, rf500k:119, ries:622, rfs:227, rfs1m:231, avgn:107, avgs:229, avg:1251},
+{id:72, hm:"fph::DynamicFphMap", h:"std::hash", mem:"-", cpy:3016, ihi:4774, it:3882, rd2:5560, rie:1227, rf200:103, rf2k:100, rf500k:119, ries:622, rfs:227, rfs1m:231, avgn:107, avgs:229, avg:"-"},
 {id:73, hm:"gtl::btree_map", h:"ankerl::unordered_dense::hash", mem:100, cpy:755, ihi:704, it:581, rd2:699, rie:626, rf200:464, rf2k:1229, rf500k:967, ries:783, rfs:1273, rfs1m:1437, avgn:820, avgs:1353, avg:685},
 {id:74, hm:"gtl::btree_map", h:"boost::hash", mem:100, cpy:760, ihi:704, it:583, rd2:699, rie:627, rf200:464, rf2k:1228, rf500k:967, ries:787, rfs:1270, rfs1m:1417, avgn:820, avgs:1342, avg:685},
 {id:75, hm:"gtl::btree_map", h:"std::hash", mem:100, cpy:756, ihi:701, it:622, rd2:692, rie:623, rf200:463, rf2k:1226, rf500k:967, ries:779, rfs:1272, rfs1m:1445, avgn:819, avgs:1355, avg:688},
@@ -200,6 +200,46 @@ var tabledata = [
 {id:170, hm:"tsl::sparse_map", h:"robin_hood::hash", mem:108, cpy:183, ihi:303, it:352, rd2:333, rie:280, rf200:190, rf2k:205, rf500k:156, ries:223, rfs:170, rfs1m:160, avgn:182, avgs:165, avg:210},
 {id:171, hm:"tsl::sparse_map", h:"std::hash", mem:108, cpy:177, ihi:296, it:346, rd2:286, rie:"-", rf200:2133, rf2k:"-", rf500k:"-", ries:221, rfs:176, rfs1m:166, avgn:"-", avgs:171, avg:"-"},
 ];
+function updateCell(cell, greenIfLower, yellowIfLower) {
+    var value = cell.getValue();
+    if (value < greenIfLower) {
+        cell.getElement().style.backgroundColor = "#a5d6a7"; // green
+    } else if (value < yellowIfLower) {
+        cell.getElement().style.backgroundColor = "#fff59d"; // yellow
+    } else {
+        cell.getElement().style.backgroundColor = "#ef9a9a"; // red
+    }
+    return {precision:false};
+}
+function updateCellCpy(cell) { return updateCell(cell, 583.2689602193303, 2499.927911123426); }
+function updateCellIhi(cell) { return updateCell(cell, 133.06562778119917, 564.1244771936398); }
+function updateCellIt(cell) { return updateCell(cell, 435.16695188663414, 2200.9347327674527); }
+function updateCellMem(cell) { return updateCell(cell, 166.66307069914845, 417.8368559128649); }
+function updateCellRd2(cell) { return updateCell(cell, 227.5698903852466, 699.7112846331305); }
+function updateCellRfs(cell) { return updateCell(cell, 120.03085035859785, 244.116012794961); }
+function updateCellRfs1m(cell) { return updateCell(cell, 141.93450163136936, 283.3236735149379); }
+function updateCellRf200(cell) { return updateCell(cell, 142.01309659250745, 358.23988049536223); }
+function updateCellRf2k(cell) { return updateCell(cell, 147.0282670950827, 356.11127369153456); }
+function updateCellRf500k(cell) { return updateCell(cell, 118.70158518722513, 307.76441241970406); }
+function updateCellRie(cell) { return updateCell(cell, 143.51750435926215, 741.0835663981939); }
+function updateCellRies(cell) { return updateCell(cell, 119.67448005206766, 270.92784356391405); }
+function updateCellAvg(cell) { return updateCell(cell, 200, 500); }
+function updateCellAvgn(cell) { return updateCell(cell, 200, 500); }
+function updateCellAvgs(cell) { return updateCell(cell, 200, 500); }
+/*
+Copy, 583.2689602193303, 2499.927911123426
+InsertHugeInt, 133.06562778119917, 564.1244771936398
+IterateIntegers, 435.16695188663414, 2200.9347327674527
+Memory, 166.66307069914845, 417.8368559128649
+RandomDistinct2, 227.5698903852466, 699.7112846331305
+RandomFindString, 120.03085035859785, 244.116012794961
+RandomFindString_1000000, 141.93450163136936, 283.3236735149379
+RandomFind_200, 142.01309659250745, 358.23988049536223
+RandomFind_2000, 147.0282670950827, 356.11127369153456
+RandomFind_500000, 118.70158518722513, 307.76441241970406
+RandomInsertErase, 143.51750435926215, 741.0835663981939
+RandomInsertEraseStrings, 119.67448005206766, 270.92784356391405
+*/
 var table = new Tabulator("#table_map_benchmark", {
     data:tabledata,           //load row data from array
     layout:"fitColumns",      //fit columns to width of table
@@ -230,17 +270,17 @@ var table = new Tabulator("#table_map_benchmark", {
                     title: "modify",
                     headerHozAlign:"center",
                     columns: [
-                        {title:"RandomDistinct2", field:"rd2", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                        {title:"RandomInsertErase", field:"rie", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"RandomDistinct2", field:"rd2", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRd2, sorter:"number", sorterParams:{alignEmptyValues:"bottom"},},
+                        {title:"RandomInsertErase", field:"rie", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRie, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
                     ]
                 },
                 {
                     title: "find",
                     headerHozAlign:"center",
                     columns: [
-                        {title:"RandomFind_200", field:"rf200", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                        {title:"RandomFind_2000", field:"rf2k", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                        {title:"RandomFind_500000", field:"rf500k", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"RandomFind_200", field:"rf200", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRf200, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"RandomFind_2000", field:"rf2k", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRf2k, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"RandomFind_500000", field:"rf500k", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRf500k, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
                     ]
                 }
             ],
@@ -249,27 +289,27 @@ var table = new Tabulator("#table_map_benchmark", {
             title:"string",
             headerHozAlign:"center",
             columns:[
-                {title:"RandomInsertEraseStrings", field:"ries", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"RandomFindString", field:"rfs", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"RandomFindString_1000000", field:"rfs1m", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                {title:"RandomInsertEraseStrings", field:"ries", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRies, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                {title:"RandomFindString", field:"rfs", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRfs, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                {title:"RandomFindString_1000000", field:"rfs1m", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRfs1m, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
             ],
         },
         {
             //title:"",
             columns: [
-                {title:"Copy", field:"cpy", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"InsertHugeInt", field:"ihi", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"Iterate", field:"it", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"Memory Usage", field:"mem", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                {title:"Copy", field:"cpy", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellCpy, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                {title:"InsertHugeInt", field:"ihi", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellIhi, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                {title:"Iterate", field:"it", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellIt, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                {title:"Memory Usage", field:"mem", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellMem, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
             ]
         },
         {
             title:"average",
             headerHozAlign:"center",
             columns:[
-                {title:"AVG(number find)", field:"avgn", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"AVG(string find)", field:"avgs", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"AVG", field:"avg", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:{precision:false}, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                {title:"AVG(number find)", field:"avgn", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellAvgn, sorter:"number", sorterParams:{alignEmptyValues:"bottom"},  formatterParams:updateCellAvgn},
+                {title:"AVG(string find)", field:"avgs", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellAvgs, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}, formatterParams:updateCellAvgs},
+                {title:"AVG", field:"avg", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", sorter:"number", sorterParams:{alignEmptyValues:"bottom"}, formatterParams:updateCellAvg},
             ],
         },        
     ],
