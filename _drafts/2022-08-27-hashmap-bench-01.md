@@ -5,27 +5,89 @@ subtitle: With lots of benchmarks
 cover-img: /img/2022/wanderfalke_edit.jpg
 ---
 
-It's been over 3 years since I've spent considerable time finding [the best C++ hashmap](/2019/04/01/hashmap-benchmarks-01-overview/). After several requests I finally gave in and redo the benchmark with state of C++ hashmaps as of August 2022. This took much more work than I initially anticipated, mostly due to the fact that benchmarks take a looong time, and writing everything up and creating a representation that is actually useful takes even more time. Thanks everyone who
+It's been over 3 years since I've spent considerable time finding [the best C++ hashmap](/2019/04/01/hashmap-benchmarks-01-overview/). After several requests I finally gave in and redid the benchmark with state of C++ hashmaps as of August 2022. This took much more work than I initially anticipated, mostly due to the fact that benchmarks take a looong time, and writing everything up and creating a representation that is actually useful takes even more time. Thanks everyone who
 annoyingly kept asking me for updates :wink:
 
-## Table of Contents
+## Table of Contents <!-- omit in toc -->
 
-yep.
+- [Benchmark Infrastructure](#benchmark-infrastructure)
+  - [Hardware](#hardware)
+  - [Software](#software)
 
-## Table
+This time I have evaluated 29 different hashmaps + allocator variants. Each of these was combined with 6 differend hashes, resulting in 174 different combinations to benchmark. Each of these combinations was evaluated in 11 different benchmarks, totaling in 1914 benchmark evaluations. This almost doubles the number of benchmarks from my evaluation in 2019.
 
-<link href="https://unpkg.com/tabulator-tables/dist/css/tabulator_bootstrap5.min.css" rel="stylesheet">
+## Benchmark Infrastructure
+
+### Hardware
+* All benchmarks ran on an Intel i7-8700, locked at 3200 MHz.
+* The benchmarks ran on an [isolated core dedicated to benchmarking](https://pyperf.readthedocs.io/en/latest/system.html)
+* I disabled frequency scaling and turbo boost.
+* the PC was kept completely idle otherwise while running the benchmarks.
+
+### Software
+
+* I used Manjaro Linux with an up to date kernel.
+* All benchmarks are done with clang++ 13, which at that time was the default compiler on Manjaro Linux.
+* I used the compile flags `-O3 -march=native`.
+* Each benchmark was run multiple times, and I'm using the median so outliers are not an issue.
+
+# What is actually Benchmarked?
+
+
+## Tested Hashmaps
+
+[absl::flat_hash_map](https://abseil.io/docs/cpp/guides/container)
+: Google's Abseil's `abseil::flat_hash_map` stores `value_type` directly in the slot array, and Google recommends these for general use. They were brand new in 2019 and pushed the boundary on what's possible to achieve for unordered_maps. It uses several interesting optimizations, described in [CppCon 2017: Matt Kulukundis “Designing a Fast, Efficient, Cache-friendly Hash Table, Step by Step](https://www.youtube.com/watch?v=ncHmEUmJZf4).
+
+[absl::node_hash_map](https://abseil.io/docs/cpp/guides/container)
+: These is a near drop-in replacement for `std::unordered_map` with stable pointers & references. Bound to be a bit slower than `absl::flat_hash_map` due to the indirection.
+
+[ankerl::unordered_dense::map](https://github.com/martinus/unordered_dense)
+: Full disclaimer: I'm the author! This map is designed to be very fast, simple, but still feature rich. It achieves that by combining ideas from `robin_hood::unordered_flat_map` and using a simple `std::vector` as storage. Iteration is therefore as fast as it gets since all data is stored linearly in memory. I consider this implementation as a successor of my old robin_hood map.
+
+[boost::multi_index::hashed_unique](https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html)
+: Boost's multi_index container library is extremely powerful. You can build your own indices. The question is, does that power come with a speed penalty?
+
+[boost::unordered_map](https://www.boost.org/doc/libs/1_80_0/libs/unordered/doc/html/unordered.html)
+: In version 1.80 there has been a big rewrite of `boost::unordered_map`. That was actually the main reason why I have decided to redo this whole benchmark. It comes with extensive documentation and [benchmarks](https://www.boost.org/doc/libs/1_80_0/libs/unordered/doc/html/unordered.html#benchmarks). I took the opportunity to test the map, and also try it with different allocators as my initial experiments indicated quite a big performance difference with a specialized allocator.
+
+`boost::unordered_map` with [PoolAllocator](https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h)
+: Since boost::unordered_map is node based, it has to allocate one node for each element. Thus it can potentially gain a lot from a custom allocator. I actually wrote `PoolAllocator` for Bitcoin, where an `std::unordered_map` is heavily used and using this `PoolAllocator` [speeds up initial block indexing significantly](https://github.com/bitcoin/bitcoin/pull/25325).
+
+`boost::unordered_map` with [boost::container::pmr::unsynchronized_pool_resource](https://www.boost.org/doc/libs/1_80_0/doc/html/boost/container/pmr/unsynchronized_po_idm19164.html)
+: Boost comes with its own implementation of [Polymorphic Memory Resources](https://www.boost.org/doc/libs/1_80_0/doc/html/container/cpp_conformance.html#container.cpp_conformance.polymorphic_memory_resources), which should behave similar to `PoolAllocator`.
+
+
+
+
+## Hashes
+
+
+## Allocators
+
+
+
+<link href="https://unpkg.com/tabulator-tables/dist/css/tabulator_semanticui.min.css" rel="stylesheet">
 <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
 <style>
 .martinus_big_table {
   width: 90vw;
   position: relative;
   left: calc(-45vw + 50%);
-
+}
+.martinus_highlight {
+    font-weight: bolder;
 }
 </style>
 
-<div id="table_map_benchmark" class="table-bordered martinus_big_table">
+<!-- <div id="table_map_benchmark" class="table-bordered martinus_big_table table-sm"> -->
+<!--
+pointer stability
+absl::flat_hash_map no
+absl::node_hash_map yes
+
+-->
+<div id="table_map_benchmark" class="martinus_big_table ui very compact black celled table">
 <script>
 var tabledata = [
 {id:1, hm:"absl::flat_hash_map", h:"absl::Hash", mem:167, cpy:1922, ihi:226, it:1114, rd2:242, rie:148, rf200:163, rf2k:160, rf500k:107, ries:118, rfs:110, rfs1m:206, avgn:141, avgs:151, avg:230},
@@ -223,23 +285,9 @@ function updateCellRf2k(cell) { return updateCell(cell, 147.0282670950827, 356.1
 function updateCellRf500k(cell) { return updateCell(cell, 118.70158518722513, 307.76441241970406); }
 function updateCellRie(cell) { return updateCell(cell, 143.51750435926215, 741.0835663981939); }
 function updateCellRies(cell) { return updateCell(cell, 119.67448005206766, 270.92784356391405); }
-function updateCellAvg(cell) { return updateCell(cell, 200, 500); }
-function updateCellAvgn(cell) { return updateCell(cell, 200, 500); }
-function updateCellAvgs(cell) { return updateCell(cell, 200, 500); }
-/*
-Copy, 583.2689602193303, 2499.927911123426
-InsertHugeInt, 133.06562778119917, 564.1244771936398
-IterateIntegers, 435.16695188663414, 2200.9347327674527
-Memory, 166.66307069914845, 417.8368559128649
-RandomDistinct2, 227.5698903852466, 699.7112846331305
-RandomFindString, 120.03085035859785, 244.116012794961
-RandomFindString_1000000, 141.93450163136936, 283.3236735149379
-RandomFind_200, 142.01309659250745, 358.23988049536223
-RandomFind_2000, 147.0282670950827, 356.11127369153456
-RandomFind_500000, 118.70158518722513, 307.76441241970406
-RandomInsertErase, 143.51750435926215, 741.0835663981939
-RandomInsertEraseStrings, 119.67448005206766, 270.92784356391405
-*/
+function updateCellAvgn(cell) { return updateCell(cell, 134.25985700674372, 342.0371760472319); }
+function updateCellAvgs(cell) { return updateCell(cell, 132.9389310800892, 289.138886910084); }
+function updateCellAvg(cell) { return updateCell(cell, 217.1590612197652, 546.8372657620267); }
 var table = new Tabulator("#table_map_benchmark", {
     data:tabledata,           //load row data from array
     layout:"fitColumns",      //fit columns to width of table
@@ -270,46 +318,53 @@ var table = new Tabulator("#table_map_benchmark", {
                     title: "modify",
                     headerHozAlign:"center",
                     columns: [
-                        {title:"RandomDistinct2", field:"rd2", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRd2, sorter:"number", sorterParams:{alignEmptyValues:"bottom"},},
-                        {title:"RandomInsertErase", field:"rie", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRie, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"Copy", field:"cpy", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellCpy, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"InsertHugeInt", field:"ihi", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellIhi, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"RandomDistinct2", field:"rd2", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRd2, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"RandomInsertErase", field:"rie", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRie, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
                     ]
                 },
                 {
-                    title: "find",
+                    title: "access & find",
                     headerHozAlign:"center",
                     columns: [
-                        {title:"RandomFind_200", field:"rf200", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRf200, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                        {title:"RandomFind_2000", field:"rf2k", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRf2k, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                        {title:"RandomFind_500000", field:"rf500k", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRf500k, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                    ]
-                }
+                        {title:"Iterate", field:"it", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellIt, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"RandomFind_200", field:"rf200", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRf200, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"RandomFind_2000", field:"rf2k", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRf2k, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"RandomFind_500000", field:"rf500k", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRf500k, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                    ],
+                },
             ],
         },
         {
             title:"string",
             headerHozAlign:"center",
             columns:[
-                {title:"RandomInsertEraseStrings", field:"ries", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRies, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"RandomFindString", field:"rfs", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRfs, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"RandomFindString_1000000", field:"rfs1m", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellRfs1m, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                {
+                    //title: "modify",
+                    //headerHozAlign:"center",
+                    columns: [
+                        {title:"RandomInsertEraseStrings", field:"ries", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRies, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}}
+                    ],
+                },
+                {
+                    title: "find",
+                    headerHozAlign:"center",
+                    columns: [
+                        {title:"RandomFindString", field:"rfs", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRfs, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                        {title:"RandomFindString_1000000", field:"rfs1m", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRfs1m, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                    ]
+                },
             ],
         },
-        {
-            //title:"",
-            columns: [
-                {title:"Copy", field:"cpy", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellCpy, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"InsertHugeInt", field:"ihi", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellIhi, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"Iterate", field:"it", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellIt, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                {title:"Memory Usage", field:"mem", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellMem, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-            ]
-        },
+        {title:"Memory Usage", field:"mem", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellMem, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
         {
             title:"average",
             headerHozAlign:"center",
             columns:[
-                {title:"AVG(number find)", field:"avgn", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellAvgn, sorter:"number", sorterParams:{alignEmptyValues:"bottom"},  formatterParams:updateCellAvgn},
-                {title:"AVG(string find)", field:"avgs", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", formatterParams:updateCellAvgs, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}, formatterParams:updateCellAvgs},
-                {title:"AVG", field:"avg", hozAlign:"right", sorter:"number", headerVertical:true, width:75, formatter:"money", sorter:"number", sorterParams:{alignEmptyValues:"bottom"}, formatterParams:updateCellAvg},
+                {title:"geometric mean number find", field:"avgn", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellAvgn, sorter:"number", sorterParams:{alignEmptyValues:"bottom"},  formatterParams:updateCellAvgn, cssClass:"martinus_highlight", headerTooltip:"geometric mean of all number find benchmarks: RandomFind_200, RandomFind_2000, RandomFind_500000"},
+                {title:"geometric mean string find", field:"avgs", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellAvgs, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}, formatterParams:updateCellAvgs, cssClass:"martinus_highlight", headerTooltip:"geometric mean the string find benchmarks RandomFindString and RandomFindString_1000000"},
+                {title:"geometric mean all", field:"avg", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", sorter:"number", sorterParams:{alignEmptyValues:"bottom"}, formatterParams:updateCellAvg, headerTooltip: "geometric mean of all the benchmarks. If you want an overall good hashmap, choose one of the top contenders here.", cssClass:"martinus_highlight"},
             ],
         },        
     ],
