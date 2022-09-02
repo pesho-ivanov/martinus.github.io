@@ -41,6 +41,8 @@ This time I have evaluated 29 different hashmaps + allocator variants. Each of t
 
 # Benchmark Results Table
 
+Each column shows benchmark runtime normalized to 100 for the best performer. So 100 means fastest, 110 means 10% slower than the fastest. The last 3 rows show summarized results.
+
 <link href="https://unpkg.com/tabulator-tables/dist/css/tabulator_semanticui.min.css" rel="stylesheet">
 <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
 <style>
