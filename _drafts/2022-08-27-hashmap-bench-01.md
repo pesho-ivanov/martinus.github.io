@@ -80,7 +80,7 @@ The Bad
 : Copying and iterating the map is comparatively slow. The map is highly sensitive to the used hash, and benchmarks are incredibly slow (timeout) out when bad hash is used. E.g. `std::hash` or `boost::hash` for number types.
 
 About
-: Website:<a href="https://abseil.io/docs/cpp/guides/container">https://abseil.io/docs/cpp/guides/container</a>, Tested version: [736458b5 (master)](https://github.com/abseil/abseil-cpp), License: `Apache License 2.0`
+: Website: [https://abseil.io/docs/cpp/guides/container](https://abseil.io/docs/cpp/guides/container), Tested version: [736458b5 (master)](https://github.com/abseil/abseil-cpp), License: `Apache License 2.0`
 
 
 ### <a name="absl__node_hash_map"/> absl::node_hash_map [↑](#table)
@@ -94,7 +94,7 @@ The Bad
 : Memory usage, copying, inserting elements is very slow, even much slower than `std::unordered_map`.
 
 About
-: Website:<a href="https://abseil.io/docs/cpp/guides/container">https://abseil.io/docs/cpp/guides/container</a>, Tested version: [736458b5 (master)](https://github.com/abseil/abseil-cpp), License: `Apache License 2.0`
+: Website: [https://abseil.io/docs/cpp/guides/container](https://abseil.io/docs/cpp/guides/container), Tested version: [736458b5 (master)](https://github.com/abseil/abseil-cpp), License: `Apache License 2.0`
 
 ### <a name="ankerl__unordered_dense__map" /> ankerl::unordered_dense::map [↑](#table)
 
@@ -107,7 +107,7 @@ The Bad
 : Removing an element can be relatively slow, since it requires two lookups because the map keeps a densely stored vector at all times.
 
 About
-: Website: <a href="https://github.com/martinus/unordered_dense">https://github.com/martinus/unordered_dense</a>, Tested version: [v1.0.2](https://github.com/martinus/unordered_dense), License: `MIT License`
+: Website: [https://github.com/martinus/unordered_dense](https://github.com/martinus/unordered_dense), Tested version: [v1.0.2](https://github.com/martinus/unordered_dense), License: `MIT License`
 
 
 ### <a name="boost__multi_index__hashed_unique" /> boost::multi_index::hashed_unique [↑](#table)
@@ -121,7 +121,7 @@ The Bad
 : Copying the map is really slow - 100 times slower than `ankerl::unordered_dense::map`.
 
 About
-: Website:<a href="https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html">https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html</a>, Tested version: [1.80.0](https://github.com/boostorg/boost), License: `Boost Software License 1.0`
+: Website: [https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html](https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html), Tested version: [1.80.0](https://github.com/boostorg/boost), License: `Boost Software License 1.0`
 
 ### <a name="boost__unordered_map" /> boost::unordered_map [↑](#table)
 
@@ -134,7 +134,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html">https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html</a>, Tested version: [1.80.0](https://github.com/boostorg/boost), License: `Boost Software License 1.0`
+: Website: [https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html](https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html), Tested version: [1.80.0](https://github.com/boostorg/boost), License: `Boost Software License 1.0`
 
 ### <a name="boost__unordered_map_PoolAllocator" /> boost::unordered_map & PoolAllocator [↑](#table)
 
@@ -148,7 +148,7 @@ The Bad
 : TODO
 
 About
-: Website: <a href="https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h">https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h</a>, Tested version: `644b2fa (master)`, License: `MIT License`
+: Website: [https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h](https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h), Tested version: `644b2fa (master)`, License: `MIT License`
 
 ### <a name="boost__unordered_map_unsynchronized_pool_resource" /> boost::unordered_map & boost::container::pmr::unsynchronized_pool_resource [↑](#table)
 
@@ -161,7 +161,7 @@ The Bad
 : The time to copy the map is about the same than without a custom allocator. In comparison, with `PoolAllocator` the performnace here is almost doubled, this looks like a lost opportunity to me!
 
 About
-: Website:<a href="https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html">https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html</a>, Tested version: [1.80.0](https://github.com/boostorg/boost), License: `Boost Software License 1.0`
+: Website: [https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html](https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html), Tested version: [1.80.0](https://github.com/boostorg/boost), License: `Boost Software License 1.0`
 
 ### <a name="emhash7__HashMap" /> emhash7::HashMap [↑](#table)
 
@@ -176,7 +176,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/ktprime/emhash">https://github.com/ktprime/emhash</a>, Tested version: `9a3f7189 (master)`, License: `MIT License`
+: Website: [https://github.com/ktprime/emhash](https://github.com/ktprime/emhash), Tested version: `9a3f7189 (master)`, License: `MIT License`
 
 ### <a name="emhash8__HashMap" /> emhash8::HashMap [↑](#table)
 
@@ -190,7 +190,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/ktprime/emhash">https://github.com/ktprime/emhash</a>, Tested version: `9a3f7189 (master)`, License: `MIT License`
+: Website: [https://github.com/ktprime/emhash](https://github.com/ktprime/emhash), Tested version: `9a3f7189 (master)`, License: `MIT License`
 
 ### <a name="folly__F14NodeMap" /> folly::F14NodeMap [↑](#table)
 
@@ -204,7 +204,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/facebook/folly">https://github.com/facebook/folly</a>, Tested version: `v2022.06.27.00`, License: `Apache License 2.0`
+: Website: [https://github.com/facebook/folly](https://github.com/facebook/folly), Tested version: `v2022.06.27.00`, License: `Apache License 2.0`
 
 ### <a name="folly__F14ValueMap" /> folly::F14ValueMap [↑](#table)
 
@@ -218,7 +218,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/facebook/folly">https://github.com/facebook/folly</a>, Tested version: `v2022.06.27.00`, License: `Apache License 2.0`
+: Website: [https://github.com/facebook/folly](https://github.com/facebook/folly), Tested version: `v2022.06.27.00`, License: `Apache License 2.0`
 
 ### <a name="fph__DynamicFphMap" /> fph::DynamicFphMap [↑](#table)
 
@@ -232,7 +232,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/renzibei/fph-table/tree/noseed">https://github.com/renzibei/fph-table/tree/noseed</a>, Tested version: `1a613aba (noseed)`, License: `none specified`
+: Website: [https://github.com/renzibei/fph-table/tree/noseed](https://github.com/renzibei/fph-table/tree/noseed), Tested version: `1a613aba (noseed)`, License: `none specified`
 
 ### <a name="gtl__btree_map" /> gtl::btree_map [↑](#table)
 
@@ -246,7 +246,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/greg7mdp/gtl">https://github.com/greg7mdp/gtl</a>, Tested version: `v1.1.2`, License: `Apache License 2.0`
+: Website: [https://github.com/greg7mdp/gtl](https://github.com/greg7mdp/gtl), Tested version: `v1.1.2`, License: `Apache License 2.0`
 
 ### <a name="gtl__flat_hash_map" /> gtl::flat_hash_map [↑](#table)
 
@@ -261,7 +261,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/greg7mdp/gtl">https://github.com/greg7mdp/gtl</a>, Tested version: `v1.1.2`, License: `Apache License 2.0`
+: Website: [https://github.com/greg7mdp/gtl](https://github.com/greg7mdp/gtl), Tested version: `v1.1.2`, License: `Apache License 2.0`
 
 ### <a name="gtl__node_hash_map" /> gtl::node_hash_map [↑](#table)
 
@@ -275,7 +275,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/greg7mdp/gtl">https://github.com/greg7mdp/gtl</a>, Tested version: `v1.1.2`, License: `Apache License 2.0`
+: Website: [https://github.com/greg7mdp/gtl](https://github.com/greg7mdp/gtl), Tested version: `v1.1.2`, License: `Apache License 2.0`
 
 ### <a name="gtl__parallel_flat_hash_map" /> gtl::parallel_flat_hash_map [↑](#table)
 
@@ -289,7 +289,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/greg7mdp/gtl">https://github.com/greg7mdp/gtl</a>, Tested version: `v1.1.2`, License: `Apache License 2.0`
+: Website: [https://github.com/greg7mdp/gtl](https://github.com/greg7mdp/gtl), Tested version: `v1.1.2`, License: `Apache License 2.0`
 
 ### <a name="gtl__parallel_node_hash_map" /> gtl::parallel_node_hash_map [↑](#table)
 
@@ -303,7 +303,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/greg7mdp/gtl">https://github.com/greg7mdp/gtl</a>, Tested version: `v1.1.2`, License: `Apache License 2.0`
+: Website: [https://github.com/greg7mdp/gtl](https://github.com/greg7mdp/gtl), Tested version: `v1.1.2`, License: `Apache License 2.0`
 
 ### <a name="jg__dense_hash_map" /> jg::dense_hash_map [↑](#table)
 
@@ -317,7 +317,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/Jiwan/dense_hash_map">https://github.com/Jiwan/dense_hash_map</a>, Tested version: `74277fc4 (master)`, License: `MIT License`
+: Website: [https://github.com/Jiwan/dense_hash_map](https://github.com/Jiwan/dense_hash_map), Tested version: `74277fc4 (master)`, License: `MIT License`
 
 ### <a name="robin_hood__unordered_flat_map" /> robin_hood::unordered_flat_map [↑](#table)
 
@@ -331,7 +331,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/martinus/robin-hood-hashing">https://github.com/martinus/robin-hood-hashing</a>, Tested version: `3.11.5`, License: `MIT License`
+: Website: [https://github.com/martinus/robin-hood-hashing](https://github.com/martinus/robin-hood-hashing), Tested version: `3.11.5`, License: `MIT License`
 
 ### <a name="robin_hood__unordered_node_map" /> robin_hood::unordered_node_map [↑](#table)
 
@@ -345,7 +345,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/martinus/robin-hood-hashing">https://github.com/martinus/robin-hood-hashing</a>, Tested version: `3.11.5`, License: `MIT License`
+: Website: [https://github.com/martinus/robin-hood-hashing](https://github.com/martinus/robin-hood-hashing), Tested version: `3.11.5`, License: `MIT License`
 
 ### <a name="ska__bytell_hash_map" /> ska::bytell_hash_map [↑](#table)
 
@@ -359,7 +359,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/skarupke/flat_hash_map">https://github.com/skarupke/flat_hash_map</a>, Tested version: `2c468743 (master)`, License: `Boost Software License 1.0`
+: Website: [https://github.com/skarupke/flat_hash_map](https://github.com/skarupke/flat_hash_map), Tested version: `2c468743 (master)`, License: `Boost Software License 1.0`
 
 ### <a name="ska__flat_hash_map" /> ska::flat_hash_map [↑](#table)
 
@@ -373,7 +373,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/skarupke/flat_hash_map">https://github.com/skarupke/flat_hash_map</a>, Tested version: `2c468743 (master)`, License: `Boost Software License 1.0`
+: Website: [https://github.com/skarupke/flat_hash_map](https://github.com/skarupke/flat_hash_map), Tested version: `2c468743 (master)`, License: `Boost Software License 1.0`
 
 ### <a name="spp__sparse_hash_map" /> spp::sparse_hash_map [↑](#table)
 
@@ -387,7 +387,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/greg7mdp/sparsepp">https://github.com/greg7mdp/sparsepp</a>, Tested version: `1.22`, License: `modified MIT`
+: Website: [https://github.com/greg7mdp/sparsepp](https://github.com/greg7mdp/sparsepp), Tested version: `1.22`, License: `modified MIT`
 
 ### <a name="std__unordered_map" /> std::unordered_map [↑](#table)
 
@@ -401,7 +401,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://gcc.gnu.org/onlinedocs/libstdc++/">https://gcc.gnu.org/onlinedocs/libstdc++/</a>, Tested version: `v3`, License: [modified GPL](https://gcc.gnu.org/onlinedocs/libstdc++/manual/license.html)
+: Website: [https://gcc.gnu.org/onlinedocs/libstdc++/](https://gcc.gnu.org/onlinedocs/libstdc++/), Tested version: `v3`, License: [modified GPL](https://gcc.gnu.org/onlinedocs/libstdc++/manual/license.html)
 
 ### <a name="std__unordered_map__PoolAllocator" /> std::unordered_map & PoolAllocator [↑](#table)
 
@@ -415,7 +415,7 @@ The Bad
 : TODO
 
 About
-: Website: <a href="https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h">https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h</a>, Tested version: `644b2fa (master)`, License: `MIT License`
+: Website: [https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h](https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h), Tested version: `644b2fa (master)`, License: `MIT License`
 
 ### <a name="std__unordered_map__unsynchronized_pool_resource" /> std::unordered_map & std::pmr::unsynchronized_pool_resource [↑](#table)
 
@@ -429,7 +429,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://gcc.gnu.org/onlinedocs/libstdc++/">https://gcc.gnu.org/onlinedocs/libstdc++/</a>, Tested version: `v3`, License: [modified GPL](https://gcc.gnu.org/onlinedocs/libstdc++/manual/license.html)
+: Website: [https://gcc.gnu.org/onlinedocs/libstdc++/](https://gcc.gnu.org/onlinedocs/libstdc++/), Tested version: `v3`, License: [modified GPL](https://gcc.gnu.org/onlinedocs/libstdc++/manual/license.html)
 
 ### <a name="tsl__hopscotch_map" /> tsl::hopscotch_map [↑](#table)
 
@@ -443,7 +443,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/Tessil/hopscotch-map">https://github.com/Tessil/hopscotch-map</a>, Tested version: `v2.3.0`, License: `MIT license `
+: Website: [https://github.com/Tessil/hopscotch-map](https://github.com/Tessil/hopscotch-map), Tested version: `v2.3.0`, License: `MIT license `
 
 ### <a name="tsl__robin_map" /> tsl::robin_map [↑](#table)
 
@@ -457,7 +457,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/Tessil/robin-map">https://github.com/Tessil/robin-map</a>, Tested version: `1.0.1`, License: `MIT License`
+: Website: [https://github.com/Tessil/robin-map](https://github.com/Tessil/robin-map), Tested version: `1.0.1`, License: `MIT License`
 
 ### <a name="tsl__sparse_map" /> tsl::sparse_map [↑](#table)
 
@@ -471,7 +471,7 @@ The Bad
 : TODO
 
 About
-: Website:<a href="https://github.com/Tessil/sparse-map">https://github.com/Tessil/sparse-map</a>, Tested version: `v0.6.2`, License: `MIT license`
+: Website: [https://github.com/Tessil/sparse-map](https://github.com/Tessil/sparse-map), Tested version: `v0.6.2`, License: `MIT license`
 
 ## Hashes
 
