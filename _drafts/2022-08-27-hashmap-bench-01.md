@@ -128,31 +128,30 @@ About
 In version 1.80 there has been a complete rewrite of `boost::unordered_map`. That was actually the main reason why I have decided to redo this whole benchmark. It comes with extensive documentation and [benchmarks](https://www.boost.org/doc/libs/1_80_0/libs/unordered/doc/html/unordered.html#benchmarks). I took the opportunity to test the map, and also try it with different allocators as my initial experiments indicated quite a big performance difference with a specialized allocator.
 
 The Good
-: TODO
+: Compared to `std::unordered_map`, lookup is almost twice as fast! This is a huge improvement, given the limitations the maps are under (stable references, and keeping the bucket API). If you need high compatibility with `std::unordered_map`, this is the best choice.
 
 The Bad
-: TODO
+: Insert, erase, copy are relatively slow and memory usage is quite high.
 
 About
 : Website: [https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html](https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html), Tested version: [1.80.0](https://github.com/boostorg/boost), License: `Boost Software License 1.0`
 
 ### <a name="boost__unordered_map_PoolAllocator" /> boost::unordered_map & PoolAllocator [↑](#table)
 
-TODO `boost::unordered_map` with [PoolAllocator](https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h)
-: Since boost::unordered_map is node based, it has to allocate one node for each element. Thus it can potentially gain a lot from a custom allocator. I actually wrote `PoolAllocator` for Bitcoin, where an `std::unordered_map` is heavily used and using this `PoolAllocator` [speeds up initial block indexing significantly](https://github.com/bitcoin/bitcoin/pull/25325).
+The `PoolAllocator` is a custom allocator for node based containers. Since boost::unordered_map is node based, it has to allocate one node for each element. Thus it can potentially gain a lot from a custom allocator. I actually wrote `PoolAllocator` for Bitcoin, where an `std::unordered_map` is heavily used and using this `PoolAllocator` [speeds up initial block indexing significantly](https://github.com/bitcoin/bitcoin/pull/25325).
 
 The Good
-: TODO
+: Memory usage is reduced quite a lot, and copying the map is more than twice as fast.
 
 The Bad
-: TODO
+: For some reason search performance is quite a bit slower. Theoretically using a different allocator shouldn't make any difference, but at least in my benchmarks search performance for small maps are much slower.
 
 About
 : Website: [https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h](https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h), Tested version: `644b2fa (master)`, License: `MIT License`
 
 ### <a name="boost__unordered_map_unsynchronized_pool_resource" /> boost::unordered_map & boost::container::pmr::unsynchronized_pool_resource [↑](#table)
 
-Boost comes with its own implementation of [Polymorphic Memory Resources](https://www.boost.org/doc/libs/1_80_0/doc/html/container/cpp_conformance.html#container.cpp_conformance.polymorphic_memory_resources), which should behave similar to `PoolAllocator`. And it does, at least for find. I wouldn't expect any differenc there anyways.
+Boost comes with its own implementation of [Polymorphic Memory Resources](https://www.boost.org/doc/libs/1_80_0/doc/html/container/cpp_conformance.html#container.cpp_conformance.polymorphic_memory_resources), which should behave similar to `PoolAllocator`. And it does in most cases, except the `Copy` benchmark, here PoolAllocator is quite a bit faster.
 
 The Good
 : It's boost's own implementation, and it gives a big speedup for inserting elements, and is also much faster than a plain `boost::unordered_map` when many inserts & erase happen. Using this custom allocator also brings down memory usage quite a lot, because it doesn't have to pay the malloc overhead for each node.
@@ -165,85 +164,78 @@ About
 
 ### <a name="emhash7__HashMap" /> emhash7::HashMap [↑](#table)
 
-[emhash7::HashMap](https://github.com/ktprime/emhash) These are very high performance hashmaps and the author is constantly updating them. There are different versions of the maps with different propertices concerning performance vs. memory. This map has very fast iteration speed.
-
-TODO
+These are very high performance hashmaps and the author is constantly updating them. There are different versions of the maps with different propertices concerning performance vs. memory. This map has very fast iteration speed.
 
 The Good
-: TODO
+: One of the fastest map. It is fastest for insert & erase, and find is also extremely fast. 
 
 The Bad
-: TODO
+: It's a bit slower than the best for `std::string` keys, but overall its a very fast implementation.
 
 About
 : Website: [https://github.com/ktprime/emhash](https://github.com/ktprime/emhash), Tested version: `9a3f7189 (master)`, License: `MIT License`
 
 ### <a name="emhash8__HashMap" /> emhash8::HashMap [↑](#table)
 
-[emhash8::HashMap](https://github.com/ktprime/emhash) Another variant of the emhash map with different memory & performance properties
-TODO
+This variant from ktprime has behaves similar to `emhash7::Hash`, but requires less memory.
 
 The Good
-: TODO
+: Very fast iteration speed, search & insert is very fast. Low memory usage.
 
 The Bad
-: TODO
+: Erase is slower than emhash7, but it's still quite good.
 
 About
 : Website: [https://github.com/ktprime/emhash](https://github.com/ktprime/emhash), Tested version: `9a3f7189 (master)`, License: `MIT License`
 
 ### <a name="folly__F14NodeMap" /> folly::F14NodeMap [↑](#table)
 
-[folly::F14NodeMap](https://github.com/facebook/folly) A supposedly high performance hashmap implementation from Facebook / Meta. It stores values indirectly, calling malloc for each node.
-TODO
+A supposedly high performance hashmap implementation from Facebook / Meta. It stores values indirectly, calling malloc for each node. Also see `folly::F14ValueMap`
 
 The Good
-: TODO
+: Relatively good search performance, Insert & erase is not ok-ish.
 
 The Bad
-: TODO
+: Memory usage is high. It's a large dependency.
 
 About
 : Website: [https://github.com/facebook/folly](https://github.com/facebook/folly), Tested version: `v2022.06.27.00`, License: `Apache License 2.0`
 
 ### <a name="folly__F14ValueMap" /> folly::F14ValueMap [↑](#table)
 
-[folly::F14ValueMap](https://github.com/facebook/folly) A supposedly high performance hashmap implementation from Facebook / Meta. It stores values directly.
-TODO
+A supposedly high performance hashmap implementation from Facebook / Meta. It stores values directly. Also see `folly::F14NodeMap`
 
 The Good
-: TODO
+: Overall relatively fast search, and very low memory usage.
 
 The Bad
-: TODO
+: It's a big dependency
 
 About
 : Website: [https://github.com/facebook/folly](https://github.com/facebook/folly), Tested version: `v2022.06.27.00`, License: `Apache License 2.0`
 
 ### <a name="fph__DynamicFphMap" /> fph::DynamicFphMap [↑](#table)
 
-[fph::DynamicFphMap](https://github.com/renzibei/fph-table) A very interesting new contender: This hashmap implementation uses a perfect hash, thus it doesn't have any collisions. This should make it extremely fast for lookups, but with a potentially high overhead for insert/removal. 
-TODO
+A very interesting new contender: This hashmap implementation uses a perfect hash, thus it doesn't have any collisions. This should make it extremely fast for lookups, but with a potentially high overhead for insert/removal. 
 
 The Good
-: TODO
+: Find is extremely fast, regardless of the hash. In fact, `std::hash` or `boost::hash` is best here even with their bad hash quality.
 
 The Bad
-: TODO
+: Insert and erase and copying the map is very very slow, the slowest in the benchmark. Memory usage is very high. I'd say this map is good for stable data that is never modified, and when you can afford the high memory usage.
 
 About
 : Website: [https://github.com/renzibei/fph-table/tree/noseed](https://github.com/renzibei/fph-table/tree/noseed), Tested version: `1a613aba (noseed)`, License: `none specified`
 
 ### <a name="gtl__btree_map" /> gtl::btree_map [↑](#table)
 
-[gtl::btree_map](https://github.com/greg7mdp/gtl#btree-containers) Containers from greg's template library. This is actually not a hashmap at all, but it is an ordered container much like `std::map`. I added this one to see if it is possible if non-hashmap implementations could compete in this benchmark.
-TODO
+Containers from greg's template library. This is actually not a hashmap at all, but it is an ordered container much like `std::map`. I added this one to see if it is possible if non-hashmap implementations could compete in this benchmark.
 
 The Good
-: TODO
+: Memory usage is excellent, this container has the lowest memory usage of all. Insert & erase are of medium speed.
 
 The Bad
-: TODO
+: Lookup is very slow.
 
 About
 : Website: [https://github.com/greg7mdp/gtl](https://github.com/greg7mdp/gtl), Tested version: `v1.1.2`, License: `Apache License 2.0`
