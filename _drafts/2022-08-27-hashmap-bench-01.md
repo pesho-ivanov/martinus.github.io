@@ -17,7 +17,6 @@ annoyingly kept asking me for updates :wink:
 - [Benchmark Result Analysis](#benchmark-result-analysis)
   - [Containers](#containers)
   - [Hashes](#hashes)
-  - [Allocators](#allocators)
   - [Benchmark & Results](#benchmark--results)
 - [Conclusion](#conclusion)
 
@@ -565,21 +564,6 @@ Integral Types
 String Types
 : Same as `std::hash`.
 
-## Allocators
-
-### PoolAllocator
-
-TODO
-
-### std::pmr::unsynchronized_pool_resource [↑](#table)
-
-TODO
-
-### boost::container::pmr::unsynchronized_pool_resource [↑](#table)
-
-[boost::container::pmr::unsynchronized_pool_resource](https://www.boost.org/doc/libs/1_80_0/doc/html/boost/container/pmr/unsynchronized_po_idm19164.html)
-
-TODO
 
 ## Benchmark & Results
 
