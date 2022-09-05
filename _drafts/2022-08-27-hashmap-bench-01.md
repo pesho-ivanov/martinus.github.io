@@ -118,7 +118,7 @@ The Good
 : Lookup is reasonably fast, and memory usage is ok. If you need multiple indices for the same data this is the most user friendly choice.
 
 The Bad
-: Copying the map is really slow - 100 times slower than `ankerl::unordered_dense::map`.
+: Copying the map is really slow - a whopping 100 (hundred) times slower than `ankerl::unordered_dense::map`.
 
 About
 : Website: [https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html](https://www.boost.org/doc/libs/1_80_0/libs/multi_index/doc/index.html), Tested version: [1.80.0](https://github.com/boostorg/boost), License: `Boost Software License 1.0`
@@ -229,7 +229,7 @@ About
 
 ### <a name="gtl__btree_map" /> gtl::btree_map [↑](#table)
 
-Containers from greg's template library. This is actually not a hashmap at all, but it is an ordered container much like `std::map`. I added this one to see if it is possible if non-hashmap implementations could compete in this benchmark.
+Containers from greg's template library. This is actually not a hashmap at all, but it is an ordered container much like `std::map`. They store multiple elements per node which should make them faster because it is a more cache-friendly layout. I added this one to see if it is possible if non-hashmap implementations could compete in this benchmark.
 
 The Good
 : Memory usage is excellent, this container has the lowest memory usage of all. Insert & erase are of medium speed.
@@ -242,252 +242,328 @@ About
 
 ### <a name="gtl__flat_hash_map" /> gtl::flat_hash_map [↑](#table)
 
-[gtl::flat_hash_map](https://github.com/greg7mdp/gtl/blob/main/docs/hmap.md)
-: A hashmap implementation based on Google's Abseil. It lists changes to the original implementation [here](https://github.com/greg7mdp/gtl/blob/main/docs/hmap.md#changes-to-abseils-hashmaps). This one is the flat variant.
-TODO
+A hashmap implementation based on Google's Abseil. It lists changes to the original implementation [here](https://github.com/greg7mdp/gtl/blob/main/docs/hmap.md#changes-to-abseils-hashmaps). This one is the flat variant.
 
 The Good
-: TODO
+: This has very similar performance characteristics to `absl::flat_hash_map`, with the added bonus that it also works well for bad hashes like `std::hash` and `boost::hash`. This is a single-header file.
 
 The Bad
-: TODO
+: Same as for `absl::flat_hash_map`, copy & iterating is relatively slow.
 
 About
 : Website: [https://github.com/greg7mdp/gtl](https://github.com/greg7mdp/gtl), Tested version: `v1.1.2`, License: `Apache License 2.0`
 
 ### <a name="gtl__node_hash_map" /> gtl::node_hash_map [↑](#table)
 
-[gtl::node_hash_map](https://github.com/greg7mdp/gtl/blob/main/docs/hmap.md) The node map based on google abseil's `absl::node_hash_map`.
-TODO
+The node hashmap based on google abseil's `absl::node_hash_map`. It lists changes to the original implementation [here](https://github.com/greg7mdp/gtl/blob/main/docs/hmap.md#changes-to-abseils-hashmaps). 
 
 The Good
-: TODO
+: Performance is very similar to `absl::node_hash_map`. For some reason copying is a bit faster. It works well with `std::hash` and `boost::hash`.
 
 The Bad
-: TODO
+: Copying & iterating is still slow, insert & erase are slow. Memory usage is quite high.
 
 About
 : Website: [https://github.com/greg7mdp/gtl](https://github.com/greg7mdp/gtl), Tested version: `v1.1.2`, License: `Apache License 2.0`
 
 ### <a name="gtl__parallel_flat_hash_map" /> gtl::parallel_flat_hash_map [↑](#table)
 
-[gtl::parallel_flat_hash_map](https://github.com/greg7mdp/gtl#parallel-hash-containers) The parallel variants of the hashmaps have reduced peak memory usage and multithreading support. This is done by splitting up the data into multiple sub-hashmaps. See [Parallel hash containers provided by gtl](https://github.com/greg7mdp/gtl/blob/main/docs/phmap.md) for more information.
-TODO
+The parallel variants of the hashmaps have reduced peak memory usage and multithreading support. This is done by splitting up the data into multiple sub-hashmaps. See [Parallel hash containers provided by gtl](https://github.com/greg7mdp/gtl/blob/main/docs/phmap.md) for more information.
 
 The Good
-: TODO
+: Memory usage is very good, copying is a bit faster than `gtl::flat_hash_map`. It has nice thread safety properties, see [here](https://github.com/greg7mdp/gtl/blob/main/docs/phmap.md#thread-safety).
 
 The Bad
-: TODO
+: Search is a bit slower than the non-parallel variant. It's still fast though.
 
 About
 : Website: [https://github.com/greg7mdp/gtl](https://github.com/greg7mdp/gtl), Tested version: `v1.1.2`, License: `Apache License 2.0`
 
 ### <a name="gtl__parallel_node_hash_map" /> gtl::parallel_node_hash_map [↑](#table)
 
-[gtl::parallel_node_hash_map](https://github.com/greg7mdp/gtl#parallel-hash-containers) The node variant of the parallel hashmap.
-TODO
+The parallel variants of the hashmaps have reduced peak memory usage and multithreading support. This is done by splitting up the data into multiple sub-hashmaps. See [Parallel hash containers provided by gtl](https://github.com/greg7mdp/gtl/blob/main/docs/phmap.md) for more information.
 
 The Good
-: TODO
+: Copying is a bit faster than `gtl::flat_hash_map`. It has nice thread safety properties, see [here](https://github.com/greg7mdp/gtl/blob/main/docs/phmap.md#thread-safety).
 
 The Bad
-: TODO
+: Memory usage is not really much better due to the node overhead. This is the slowerst variant in terms of find speed.
 
 About
 : Website: [https://github.com/greg7mdp/gtl](https://github.com/greg7mdp/gtl), Tested version: `v1.1.2`, License: `Apache License 2.0`
 
 ### <a name="jg__dense_hash_map" /> jg::dense_hash_map [↑](#table)
 
-[jg::dense_hash_map](https://github.com/Jiwan/dense_hash_map) A simple replacement for `std::unordered_map` with better performance but loose stable addressing as a trade-off. This too is a new contender, see below how well it fares!
-TODO
+A simple replacement for `std::unordered_map` with better performance but loose stable addressing as a trade-off. The author has [nice blog posts about the hashmap's properties](https://jguegant.github.io/blogs/tech/dense-hash-map.html#dense-hash-map).
 
 The Good
-: TODO
+: Most operations are really fast, and since data is densly stored iteration is very fast too. For small number of elements (200-2000) this is actually the fastest map!
 
 The Bad
-: TODO
+: For larger maps the search is still fast but not the best. String search is ok but not among the best performer.
 
 About
 : Website: [https://github.com/Jiwan/dense_hash_map](https://github.com/Jiwan/dense_hash_map), Tested version: `74277fc4 (master)`, License: `MIT License`
 
 ### <a name="robin_hood__unordered_flat_map" /> robin_hood::unordered_flat_map [↑](#table)
 
-[robin_hood::unordered_flat_map](https://github.com/martinus/robin-hood-hashing) Full disclaimer: I'm the author! This is a flat map that is very fast, and I have spent considerable time optimizing it. At that point though it has become hard for me to further support it, and will only provide bug fixes. I consider `ankerl::unordered_dense::map` its successor!
-TODO
+Full disclaimer: I'm the author! This is a flat map that is very fast, and I have spent considerable time optimizing it. At that point though it has become hard for me to further support it, and will only provide bug fixes. I consider `ankerl::unordered_dense::map` its successor!
 
 The Good
-: TODO
+: Search for numbers is quite fast, inserting & erasing is very good.
 
 The Bad
-: TODO
+: Iteration is relatively slow, search for numbers could be better. Due to the design when bad hash quality is used it can overflow though (throws `std::overflow_error`). In my own usage, which is quite heavy, this never happened to me. There are reports from users though where it happened. I've stopped developing it in favor of `ankerl::unordered_dense::map`.
 
 About
 : Website: [https://github.com/martinus/robin-hood-hashing](https://github.com/martinus/robin-hood-hashing), Tested version: `3.11.5`, License: `MIT License`
 
 ### <a name="robin_hood__unordered_node_map" /> robin_hood::unordered_node_map [↑](#table)
 
-[robin_hood::unordered_node_map](https://github.com/martinus/robin-hood-hashing) Similar to `robin_hood::unordered_flat_map`, but with stable references & pointers. To make this fast it uses a specialized allocator implementation.
-TODO
+Similar to `robin_hood::unordered_flat_map`, but with stable references & pointers. To make this fast it uses a specialized allocator implementation. At that point though it has become hard for me to further support it, and will only provide bug fixes. I consider `ankerl::unordered_dense::map` its successor!
 
 The Good
-: TODO
+: It's really fast and memory usage is quite low. For a node based container iteration is quite good.
 
 The Bad
-: TODO
+: Due to the design when bad hash quality is used it can overflow though (throws `std::overflow_error`). In my own usage, which is quite heavy, this never happened to me. There are reports from users though where it happened. I've stopped developing it in favor of `ankerl::unordered_dense::map`.
 
 About
 : Website: [https://github.com/martinus/robin-hood-hashing](https://github.com/martinus/robin-hood-hashing), Tested version: `3.11.5`, License: `MIT License`
 
 ### <a name="ska__bytell_hash_map" /> ska::bytell_hash_map [↑](#table)
 
-[ska::bytell_hash_map](TODO) TODO
-TODO
+This map was developed by Malte Skarupke in response to Google's `absl::flat_hash_map`. It is described with benchmarks in the blog post [A new fast hash table in response to Google’s new fast hash table](https://probablydance.com/2018/05/28/a-new-fast-hash-table-in-response-to-googles-new-fast-hash-table/). 
 
 The Good
-: TODO
+: Insert & erase is very fast, find speed is ok. Memory usage is quite good, the same as `robin_hood::unordered_flat_map`. I suspect it too uses 1 byte overhead per entry and a default fill rate of 80%.
 
 The Bad
-: TODO
+: Iteration is slow. The map has not received any updates in the last 4 years.
 
 About
 : Website: [https://github.com/skarupke/flat_hash_map](https://github.com/skarupke/flat_hash_map), Tested version: `2c468743 (master)`, License: `Boost Software License 1.0`
 
 ### <a name="ska__flat_hash_map" /> ska::flat_hash_map [↑](#table)
 
-[ska::flat_hash_map](TODO) TODO
-TODO
+This map came before `ska::bytell_hash_map` and is described in Malte Skarupke's blog post [I Wrote The Fastest Hashtable](https://probablydance.com/2017/02/26/i-wrote-the-fastest-hashtable/)
 
 The Good
-: TODO
+: Search performanc is really good, especially for small number of entries.
 
 The Bad
-: TODO
+: Contrary to its claims it is not the fastest hashtable in any of my benchmarks. Iteration speed is very slow, 26 times slower than the top hash maps. Memory usage is very high.
 
 About
 : Website: [https://github.com/skarupke/flat_hash_map](https://github.com/skarupke/flat_hash_map), Tested version: `2c468743 (master)`, License: `Boost Software License 1.0`
 
 ### <a name="spp__sparse_hash_map" /> spp::sparse_hash_map [↑](#table)
 
-[spp::sparse_hash_map](TODO) TODO
-TODO
+The map is derived from Google's [sparsehash](https://github.com/sparsehash/sparsehash) implementation, but with a modernized C++11 interface. 
 
 The Good
-: TODO
+: Memory usage is very low. Iteration speed is good. Find performance is quite good for such a compact hashmap.
 
 The Bad
-: TODO
+: Copy is relatively slow, I'm pretty sure this could be optimized.
 
 About
 : Website: [https://github.com/greg7mdp/sparsepp](https://github.com/greg7mdp/sparsepp), Tested version: `1.22`, License: `modified MIT`
 
 ### <a name="std__unordered_map" /> std::unordered_map [↑](#table)
 
-[std::unordered_map](TODO) TODO
-TODO
+This is the golden standard to which every implementation likes to compare against.
 
 The Good
-: TODO
+: It's the standard. It is rock solid, and for most use cases fast enough.
 
 The Bad
-: TODO
+: Slow across the board. There is no benchmark where the map is fast compared to most of the competitors.
 
 About
 : Website: [https://gcc.gnu.org/onlinedocs/libstdc++/](https://gcc.gnu.org/onlinedocs/libstdc++/), Tested version: `v3`, License: [modified GPL](https://gcc.gnu.org/onlinedocs/libstdc++/manual/license.html)
 
 ### <a name="std__unordered_map__PoolAllocator" /> std::unordered_map & PoolAllocator [↑](#table)
 
-`std::unordered_map` & [PoolAllocator](TODO) TODO
-TODO
+`PoolAllocator` provides a generic allocator that works especially well for node based maps like `std::unordered_map`. 
 
 The Good
-: TODO
+: Copying the map becomes about twice as fast with the allocator. Memory usage drops quite a bit. There is some change in find performance, sometimes it's faster with the pool, sometimes slower. 
 
 The Bad
-: TODO
+: Initialization is a bit more complex, requiring one additional line of code to initialize the `PoolAllocator`.
 
 About
 : Website: [https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h](https://github.com/martinus/map_benchmark/blob/master/src/app/pool.h), Tested version: `644b2fa (master)`, License: `MIT License`
 
 ### <a name="std__unordered_map__unsynchronized_pool_resource" /> std::unordered_map & std::pmr::unsynchronized_pool_resource [↑](#table)
 
-`std::unordered_map` & [std::pmr::unsynchronized_pool_resource](TODO) TODO
-TODO
+Theoretically `std::pmr::unsynchronized_pool_resource` should behave very similar to `PoolAllocator`, but it comes from the standard library and requires support for polymorphic memory resources. This is in the C++17 standard, but not everyone implements this.
 
 The Good
-: TODO
+: Same as for `PoolAllocator` find is mostly unaffected, and memory usage is lower.
 
 The Bad
-: TODO
+: Iteration speed is slowed down significantly. Theoretically this shouldn't make any difference, but it does. Copying the map also got slower.
 
 About
 : Website: [https://gcc.gnu.org/onlinedocs/libstdc++/](https://gcc.gnu.org/onlinedocs/libstdc++/), Tested version: `v3`, License: [modified GPL](https://gcc.gnu.org/onlinedocs/libstdc++/manual/license.html)
 
 ### <a name="tsl__hopscotch_map" /> tsl::hopscotch_map [↑](#table)
 
-[tsl::hopscotch_map](TODO) TODO
-TODO
+Hashmap based on hopscotch method. This method should be cache friendly and is relatively similar to `google::dense_hash_map`. 
 
 The Good
-: TODO
+: Insert & erase is very fast. Search performance is ok but not stellar. Memory usage is ok-ish.
 
 The Bad
-: TODO
+: General performance is not too bad, but also not good. 
 
 About
 : Website: [https://github.com/Tessil/hopscotch-map](https://github.com/Tessil/hopscotch-map), Tested version: `v2.3.0`, License: `MIT license `
 
 ### <a name="tsl__robin_map" /> tsl::robin_map [↑](#table)
 
-[tsl::robin_map](TODO) TODO
-TODO
+A map implemented that makes use of robin hood's backward shift deletion.
 
 The Good
-: TODO
+: When a proper hash is used (anything except `std::hash` or `boost::hash`), insert & erase performance is top.
 
 The Bad
-: TODO
+: It is very sensitive with the hash quality, and times out in my random insert & erase benchmarks with `std::hash` and `boost::hash`. Memory usage is very high. `std::string` search is ok but not the fastest. Iteration speed is very slow.
 
 About
 : Website: [https://github.com/Tessil/robin-map](https://github.com/Tessil/robin-map), Tested version: `1.0.1`, License: `MIT License`
 
 ### <a name="tsl__sparse_map" /> tsl::sparse_map [↑](#table)
 
-[tsl::sparse_map](TODO) TODO
-TODO
+A map based on Google's `google::sparse_hash_map`, which also makes it similar to `spp::sparse_hash_map`. 
 
 The Good
-: TODO
+: Excellent low memory usage, only `gtl::btree_map` is better. For such a low memory usage search performance is very good. Copy is fast too.
 
 The Bad
-: TODO
+: As with `tsl::robin_map` this implementation highly depends on a good quality hash. My benchmarks time out with `std::hash` and `boost::hash`.
 
 About
 : Website: [https://github.com/Tessil/sparse-map](https://github.com/Tessil/sparse-map), Tested version: `v0.6.2`, License: `MIT license`
 
 ## Hashes
 
+I have benchmarked all hashmaps with a combination of different hashes. All the hashes have a generic implementation, but they can be basically differenciated into two different modes:
+
+* Calculating a hash of an integral type (`int`, `size_t`, `uint64_t`, ...)
+* Calculating a hash of a string (`std::string`, `std::string_view`, ...)
+
+Many hashmap implementation depend on a reasonably good hash, where *reasonably good* usually means that it has sufficiently good [avalanching](https://en.wikipedia.org/wiki/Avalanche_effect) so that changes in the input have an effect on the storage location in the hashmap.
+
+Unfortunately `std::hash` and `boost::hash` use the identity function for integral types. This is obviously very fast to calculate (simply return the input value), but has no avalanching properties whatsoever. Depending on the input value this can be disastrous for the hashmap performance. It can make the difference between 1 second and 10 minutes runtime. Most of these problems can be found when operating with numbers where only the upper bits change while the lower bits stay constant.
+
 ### <a name="std__hash" /> std::hash [↑](#table)
 
-TODO
+Integral Types
+: Uses identity hash. This works for some hashmap implementations, either by design or because they contain mitigation measures. E.g. `ankerl::unordered_dense::map` specifically implements additional mixer when it believes hashes are of bad quality. Many maps don't have these mitigation steps. Thus many of my benchmarks time out for the maps `absl::flat_hash_map`, `absl::node_hash_map`, `emhash7::HashMap`, `emhash8::HashMap`, `jg::dense_hash_map`, `spp::sparse_hash_map`, `tsl::hopscotch_map`, `tsl::robin_map`, `tsl::sparse_map`. Here are some hashes and the corresponding hash values. You can see that any hashmap that depends on the lower or upper bits to change on different input might not get what they want:
+  * `0x0000000000000000` &rarr; `0x0000000000000000` `0000000000000000000000000000000000000000000000000000000000000000`
+  * `0x0000000000000001` &rarr; `0x0000000000000001` `0000000000000000000000000000000000000000000000000000000000000001`
+  * `0x0000000000000002` &rarr; `0x0000000000000002` `0000000000000000000000000000000000000000000000000000000000000010`
+  * `0x0001000000000000` &rarr; `0x0001000000000000` `0000000000000001000000000000000000000000000000000000000000000000`
+  * `0x0002000000000000` &rarr; `0x0002000000000000` `0000000000000010000000000000000000000000000000000000000000000000`
+  * `0x0004000000000000` &rarr; `0x0004000000000000` `0000000000000100000000000000000000000000000000000000000000000000`
+  * `0x0001000000000001` &rarr; `0x0001000000000001` `0000000000000001000000000000000000000000000000000000000000000001`
+  * `0x0002000000000001` &rarr; `0x0002000000000001` `0000000000000010000000000000000000000000000000000000000000000001`
+  * `0x0004000000000001` &rarr; `0x0004000000000001` `0000000000000100000000000000000000000000000000000000000000000001`
+
+String Types
+: String hashing performance is ok.
 
 ### <a name="boost__hash" /> boost::hash [↑](#table)
 
-TODO
+Integral Types
+: Uses identity hash, therefore it should behave here exactly the same as `std::hash`. The same maps timeout: `absl::flat_hash_map`, `absl::node_hash_map`, `emhash7::HashMap`, `emhash8::HashMap`, `jg::dense_hash_map`, `spp::sparse_hash_map`, `tsl::hopscotch_map`, `tsl::robin_map`, `tsl::sparse_map`. As with `std::hash`, the hash values have no avalanching.
+  * `0x0000000000000000` &rarr; `0x0000000000000000` `0000000000000000000000000000000000000000000000000000000000000000`
+  * `0x0000000000000001` &rarr; `0x0000000000000001` `0000000000000000000000000000000000000000000000000000000000000001`
+  * `0x0000000000000002` &rarr; `0x0000000000000002` `0000000000000000000000000000000000000000000000000000000000000010`
+  * `0x0001000000000000` &rarr; `0x0001000000000000` `0000000000000001000000000000000000000000000000000000000000000000`
+  * `0x0002000000000000` &rarr; `0x0002000000000000` `0000000000000010000000000000000000000000000000000000000000000000`
+  * `0x0004000000000000` &rarr; `0x0004000000000000` `0000000000000100000000000000000000000000000000000000000000000000`
+  * `0x0001000000000001` &rarr; `0x0001000000000001` `0000000000000001000000000000000000000000000000000000000000000001`
+  * `0x0002000000000001` &rarr; `0x0002000000000001` `0000000000000010000000000000000000000000000000000000000000000001`
+  * `0x0004000000000001` &rarr; `0x0004000000000001` `0000000000000100000000000000000000000000000000000000000000000001`
+
+String Types
+: String hashing performance is very fast, I believe it is based on `wyhash`.
 
 ### <a name="absl__Hash" /> absl::Hash [↑](#table)
 
-TODO
+Integral Types
+: This mixes the numbers well and has good avalanching properties. It is also fast, works well with all hashmaps. Here are some inputs and the corresponding hash values (in hex and in bits)
+  * `0x0000000000000000` &rarr; `0x9a21db8e77112ea2` `1001101000100001110110111000111001110111000100010010111010100010`
+  * `0x0000000000000001` &rarr; `0x3801ed914ce8fc3a` `0011100000000001111011011001000101001100111010001111110000111010`
+  * `0x0000000000000002` &rarr; `0xd5e1f799a1a0d391` `1101010111100001111101111001100110100001101000001101001110010001`
+  * `0x0001000000000000` &rarr; `0xc78a3c6e611a3b6a` `1100011110001010001111000110111001100001000110100011101101101010`
+  * `0x0002000000000000` &rarr; `0xf4f29e4e1be30032` `1111010011110010100111100100111000011011111000110000000000110010`
+  * `0x0004000000000000` &rarr; `0x4fc7420e2ffd79c3` `0100111111000111010000100000111000101111111111010111100111000011`
+  * `0x0001000000000001` &rarr; `0x656a0a715ae3e9f2` `0110010101101010000010100111000101011010111000111110100111110010`
+  * `0x0002000000000001` &rarr; `0x92d2a851201ad2aa` `1001001011010010101010000101000100100000000110101101001010101010`
+  * `0x0004000000000001` &rarr; `0xeda774111404ab5a` `1110110110100111011101000001000100010100000001001010101101011010`
+
+String Types
+: String hashing performance is slow! It's much slower than `std::hash` and it seems to use by far the slowest string hashing algorithm of all hashes that I tested.
 
 ### <a name="ankerl__unordered_dense__hash" /> ankerl::unordered_dense::hash [↑](#table)
 
-TODO
+A very fast hash across the board, with good avalanching properties. Note that this always returns an `uint64_t` and not a `size_t` like `std::hash`, so it produces the same 64bit numbers also on 32bit systems (and might be relatively slow on these). It also adds a property `using is_avalanching = void;` to the hash which makes it possible for hashmap implementations to differentiate their behavior based on the quality of the hash they are getting. This is used in `ankerl::unordered_dense::map`.
+
+Integral Types
+: This hash uses a very simple but effective mixer. It performs a 128bit multiplication of the input with a constant and then XOR's the input. It produces good avalanching (at least good enough for hashmaps to perform well), and can be calculated extremely fast. It usually compiles down to 4 assembly instructions (`movabs`, `mov`, `mul`, `xor`. See [godbolt example](https://godbolt.org/z/b36Kr8oYj)). Note that for the input 0 the output is also 0. I believe it has worse mixing quality than the hash used in `absl::Hash`, but it is faster and generally good enough.
+  * `0x0000000000000000` &rarr; `0x0000000000000000` `0000000000000000000000000000000000000000000000000000000000000000`
+  * `0x0000000000000001` &rarr; `0x9e3779b97f4a7c15` `1001111000110111011110011011100101111111010010100111110000010101`
+  * `0x0000000000000002` &rarr; `0x3c6ef372fe94f82b` `0011110001101110111100110111001011111110100101001111100000101011`
+  * `0x0001000000000000` &rarr; `0x7c159e3779b97f4a` `0111110000010101100111100011011101111001101110010111111101001010`
+  * `0x0002000000000000` &rarr; `0xf82b3c6ef372fe94` `1111100000101011001111000110111011110011011100101111111010010100`
+  * `0x0004000000000000` &rarr; `0xf05678dde6e5fd29` `1111000001010110011110001101110111100110111001011111110100101001`
+  * `0x0001000000000001` &rarr; `0x1a4ce78e06f3035e` `0001101001001100111001111000111000000110111100110000001101011110`
+  * `0x0002000000000001` &rarr; `0x966045d78c388280` `1001011001100000010001011101011110001100001110001000001010000000`
+  * `0x0004000000000001` &rarr; `0x8e89016499af813f` `1000111010001001000000010110010010011001101011111000000100111111`
+
+String Types
+: This uses [wyhash](https://github.com/wangyi-fudan/wyhash). This is an extremely fast hash for both small and large strings with very high hashing quality. The code size is also relatively small which makes inlining easier for the compiler.
 
 ### <a name="robin_hood__hash" /> robin_hood::hash [↑](#table)
 
-TODO
+Integral Types
+: The hash of `robin_hood::unordered_map` has gone through quite a bit of evolution. Currently it is basically murmurhash3. It is relatively fast and should have relatively good avalanching properties.
+  * `0x0000000000000000` &rarr; `0x0000000000000000` `0000000000000000000000000000000000000000000000000000000000000000`
+  * `0x0000000000000001` &rarr; `0xff51afd792fd5b26` `1111111101010001101011111101011110010010111111010101101100100110`
+  * `0x0000000000000002` &rarr; `0xfea35fafa5fab64d` `1111111010100011010111111010111110100101111110101011011001001101`
+  * `0x0001000000000000` &rarr; `0x64b8f6aaf43afb55` `0110010010111000111101101010101011110100001110101111101101010101`
+  * `0x0002000000000000` &rarr; `0xc971ed55e875f6aa` `1100100101110001111011010101010111101000011101011111011010101010`
+  * `0x0004000000000000` &rarr; `0x92e3daab50ebed55` `1001001011100011110110101010101101010000111010111110110101010101`
+  * `0x0001000000000001` &rarr; `0x640aa68281b95f8c` `0110010000001010101001101000001010000001101110010101111110001100`
+  * `0x0002000000000001` &rarr; `0xc8c39d2d1e43425b` `1100100011000011100111010010110100011110010000110100001001011011`
+  * `0x0004000000000001` &rarr; `0x92358a834ff5498c` `1001001000110101100010101000001101001111111101010100100110001100`
+
+String Types
+: Uses a slightly streamlined MurmurHash2 hash which is quite compact and fast.
 
 ### <a name="mumx" /> mumx [↑](#table)
+
+Simple hash that uses exactly the same algorithm as `ankerl::unordered_dense::hash` for integral types (but with a different multiplier constatn), and reverts to `std::hash` for all other types.
+
+Integral Types
+: Same as `ankerl::unordered_dense::hash`, avalanching is good.
+  * `0x0000000000000000` &rarr; `0x0000000000000000` `0000000000000000000000000000000000000000000000000000000000000000`
+  * `0x0000000000000001` &rarr; `0x2ca7aea0ebd71d49` `0010110010100111101011101010000011101011110101110001110101001001`
+  * `0x0000000000000002` &rarr; `0x594f5d41d7ae3a92` `0101100101001111010111010100000111010111101011100011101010010010`
+  * `0x0001000000000000` &rarr; `0x1d492ca7aea0ebd7` `0001110101001001001011001010011110101110101000001110101111010111`
+  * `0x0002000000000000` &rarr; `0x3a92594f5d41d7ae` `0011101010010010010110010100111101011101010000011101011110101110`
+  * `0x0004000000000000` &rarr; `0x7524b29eba83af5c` `0111010100100100101100101001111010111010100000111010111101011100`
+  * `0x0001000000000001` &rarr; `0x49f082074577f69e` `0100100111110000100000100000011101000101011101111111011010011110`
+  * `0x0002000000000001` &rarr; `0x6739f7efb696cae7` `0110011100111001111101111110111110110110100101101100101011100111`
+  * `0x0004000000000001` &rarr; `0xa1cb1c3e5154b215` `1010000111001011000111000011111001010001010101001011001000010101`
+
+String Types
+: Same as `std::hash`.
 
 ## Allocators
 
