@@ -822,7 +822,7 @@ Unfortunately `std::hash` and `boost::hash` use the identity function for integr
 ### std::hash [↑](#table)
 
 Integral Types
-: Uses identity hash. This works for some hashmap implementations, either by design or because they contain mitigation measures. E.g. `ankerl::unordered_dense::map` specifically implements additional mixer when it believes hashes are of bad quality. Many maps don't have these mitigation steps. Thus many of my benchmarks time out for the maps `absl::flat_hash_map`, `absl::node_hash_map`, `emhash7::HashMap`, `emhash8::HashMap`, `jg::dense_hash_map`, `spp::sparse_hash_map`, `tsl::hopscotch_map`, `tsl::robin_map`, `tsl::sparse_map`. Here are some hashes and the corresponding hash values. You can see that any hashmap that depends on the lower or upper bits to change on different input might not get what they want:
+: Most implementations use the identity hash, which makes them incredible fast and incredible bad. Identity hash works for some hashmap implementations, either by design or because they contain mitigation measures. E.g. `ankerl::unordered_dense::map` specifically implements additional mixer when it believes hashes are of bad quality. Many maps don't have these mitigation steps. Thus many of my benchmarks time out for the maps `absl::flat_hash_map`, `absl::node_hash_map`, `emhash7::HashMap`, `emhash8::HashMap`, `jg::dense_hash_map`, `spp::sparse_hash_map`, `tsl::hopscotch_map`, `tsl::robin_map`, `tsl::sparse_map`. Here are some hashes and the corresponding hash values. You can see that any hashmap that depends on the lower or upper bits to change on different input might not get what they want:
   * `0x0000000000000000` &rarr; `0x0000000000000000` `0000000000000000000000000000000000000000000000000000000000000000`
   * `0x0000000000000001` &rarr; `0x0000000000000001` `0000000000000000000000000000000000000000000000000000000000000001`
   * `0x0000000000000002` &rarr; `0x0000000000000002` `0000000000000000000000000000000000000000000000000000000000000010`
@@ -833,9 +833,10 @@ Integral Types
   * `0x0002000000000001` &rarr; `0x0002000000000001` `0000000000000010000000000000000000000000000000000000000000000001`
   * `0x0004000000000001` &rarr; `0x0004000000000001` `0000000000000100000000000000000000000000000000000000000000000001`
 
-String Types
-: String hashing performance is ok.
+Note that [Microsoft's implementation of the STL uses the fnv1a algorithm](https://github.com/microsoft/STL/blob/main/stl/inc/type_traits#L2143). This is a very simple hash with ok-ish quality and very bad performance. [See godbolt for a comparison](https://godbolt.org/z/Pz9TEfcYe).
 
+String Types
+: String hashing performance is ok for libstdc++.
 
 <a name="boost__hash" /> 
 
