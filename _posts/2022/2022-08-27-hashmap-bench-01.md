@@ -323,6 +323,9 @@ Each column shows benchmark runtime normalized to 100 for the best performer. So
 .tabulator .tabulator-header .tabulator-col.tabulator-sortable[aria-sort="descending"] {
   background-color: #DAE1E7;
 }
+.tabulator.compact.very .tabulator-tableholder .tabulator-table .tabulator-row .tabulator-cell {
+  padding:.4em .1em
+}
 .martinus_big_table {
   width: 90vw;
   position: relative;

@@ -215,9 +215,9 @@ var tabledata = [
         columns:[
             {
                 columns: [
-                    {title:"map", field:"hm", formatter:"link", headerFilter:true, headerHozAlign:"center", formatterParams:{urlField:"urlHm"}},
-                    {title:"hash", field:"h", formatter:"link", headerFilter:true, headerHozAlign:"center", formatterParams:{urlField:"urlH"}},
-                    {title:"Stable References", headerSort:false, field:"stable", headerVertical:true, width:55, hozAlign:"center", formatter:"tickCross", headerFilter:"tickCross", headerFilterParams:{"tristate":true}},
+                    {title:"map", widthGrow:5, field:"hm", formatter:"link", headerFilter:true, headerHozAlign:"center", formatterParams:{urlField:"urlHm"}},
+                    {title:"hash", widthGrow:4, field:"h", formatter:"link", headerFilter:true, headerHozAlign:"center", formatterParams:{urlField:"urlH"}},
+                    {title:"Stable References", headerSort:false, field:"stable", headerVertical:true, hozAlign:"center", formatter:"tickCross", headerFilter:"tickCross", headerFilterParams:{"tristate":true}},
                 ]
             },
             {
@@ -228,20 +228,20 @@ var tabledata = [
                         title: "modify",
                         headerHozAlign:"center",
                         columns: [
-                            {title:"Copy", field:"cpy", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellCpy, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                            {title:"Insert then Erase 100M int", field:"ihi", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellIhi, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                            {title:"Random Insert & Access uint64_t", field:"rd2", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRd2, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                            {title:"Random Insert & Erase uint64_t", field:"rie", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRie, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                            {title:"Copy", field:"cpy", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellCpy, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                            {title:"Insert then Erase 100M int", field:"ihi", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellIhi, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                            {title:"Random Insert & Access uint64_t", field:"rd2", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellRd2, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                            {title:"Random Insert & Erase uint64_t", field:"rie", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellRie, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
                         ]
                     },
                     {
                         title: "access & find",
                         headerHozAlign:"center",
                         columns: [
-                            {title:"Iterate", field:"it", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellIt, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                            {title:"Find 1 – 200 uint64_t", field:"rf200", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRf200, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                            {title:"Find 1 – 2000 uint64_t", field:"rf2k", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRf2k, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                            {title:"Find 1 – 500k uint64_t", field:"rf500k", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRf500k, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                            {title:"Iterate", field:"it", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellIt, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                            {title:"Find 1 – 200 uint64_t", field:"rf200", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellRf200, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                            {title:"Find 1 – 2000 uint64_t", field:"rf2k", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellRf2k, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                            {title:"Find 1 – 500k uint64_t", field:"rf500k", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellRf500k, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
                         ],
                     },
                 ],
@@ -254,27 +254,27 @@ var tabledata = [
                         //title: "modify",
                         //headerHozAlign:"center",
                         columns: [
-                            {title:"Random Insert & Erase string", field:"ries", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRies, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}}
+                            {title:"Random Insert & Erase string", field:"ries", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellRies, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}}
                         ],
                     },
                     {
                         title: "find",
                         headerHozAlign:"center",
                         columns: [
-                            {title:"Find 1 – 100k string", field:"rfs", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRfs, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
-                            {title:"Find 1 – 1M string", field:"rfs1m", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellRfs1m, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                            {title:"Find 1 – 100k string", field:"rfs", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellRfs, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+                            {title:"Find 1 – 1M string", field:"rfs1m", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellRfs1m, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
                         ]
                     },
                 ],
             },
-            {title:"Memory Usage", field:"mem", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellMem, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
+            {title:"Memory Usage", field:"mem", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellMem, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}},
             {
                 title:"average",
                 headerHozAlign:"center",
                 columns:[
-                    {title:"Geometric Mean Number Find", field:"avgn", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellAvgn, sorter:"number", sorterParams:{alignEmptyValues:"bottom"},  formatterParams:updateCellAvgn, cssClass:"martinus_highlight", headerTooltip:"geometric mean of all number find benchmarks: RandomFind_200, RandomFind_2000, RandomFind_500000"},
-                    {title:"Geometric Mean String Find", field:"avgs", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", formatterParams:updateCellAvgs, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}, formatterParams:updateCellAvgs, cssClass:"martinus_highlight", headerTooltip:"geometric mean the string find benchmarks RandomFindString and RandomFindString_1000000"},
-                    {title:"Geometric Mean All", field:"avg", hozAlign:"right", sorter:"number", headerVertical:true, width:55, formatter:"money", sorter:"number", sorterParams:{alignEmptyValues:"bottom"}, formatterParams:updateCellAvg, headerTooltip: "geometric mean of all the benchmarks. If you want an overall good hashmap, choose one of the top contenders here.", cssClass:"martinus_highlight"},
+                    {title:"Geometric Mean Number Find", field:"avgn", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellAvgn, sorter:"number", sorterParams:{alignEmptyValues:"bottom"},  formatterParams:updateCellAvgn, cssClass:"martinus_highlight", headerTooltip:"geometric mean of all number find benchmarks: RandomFind_200, RandomFind_2000, RandomFind_500000"},
+                    {title:"Geometric Mean String Find", field:"avgs", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", formatterParams:updateCellAvgs, sorter:"number", sorterParams:{alignEmptyValues:"bottom"}, formatterParams:updateCellAvgs, cssClass:"martinus_highlight", headerTooltip:"geometric mean the string find benchmarks RandomFindString and RandomFindString_1000000"},
+                    {title:"Geometric Mean All", field:"avg", hozAlign:"center", sorter:"number", headerVertical:true, formatter:"money", sorter:"number", sorterParams:{alignEmptyValues:"bottom"}, formatterParams:updateCellAvg, headerTooltip: "geometric mean of all the benchmarks. If you want an overall good hashmap, choose one of the top contenders here.", cssClass:"martinus_highlight"},
                 ],
             },        
         ],
