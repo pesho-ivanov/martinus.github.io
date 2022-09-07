@@ -948,6 +948,6 @@ This benchmark, [like the last one](/2019/04/01/hashmap-benchmarks-05-conclusion
 
 So what's actually the best map to choose? As you saw above, it depends. There are a lot of excellent implementations to choose from, each with different properties. I can't give any advice here. Although I've spent a lot of time making the benchmarks as good as possible, they might not necessarily represent your real world needs.
 
-All of the work here is available as open source here: https://github.com/martinus/map_benchmark
+All of the work here is available as open source here: [https://github.com/martinus/map_benchmark](https://github.com/martinus/map_benchmark)
 
 If you like my work, I'd really appreciate it if you can [become my sponsor](https://github.com/sponsors/martinus).
