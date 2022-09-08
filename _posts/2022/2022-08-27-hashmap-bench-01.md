@@ -79,6 +79,7 @@ annoyingly kept asking me for updates :wink:
     - [robin_hood::hash ↑](#robin_hoodhash-)
     - [mumx ↑](#mumx-)
 - [Conclusion](#conclusion)
+  - [Errata](#errata)
 
 This time I have evaluated 29 different hashmaps, and also added several variants with special allocators. Each of these was combined with 6 differend hashes, resulting in 174 different combinations to benchmark. Each of these combinations was evaluated in 11 different benchmarks, totaling in 1914 benchmark evaluations. This almost doubles the number of benchmarks from my evaluation in 2019. 
 
@@ -855,8 +856,7 @@ Integral Types
   * `0x0004000000000001` &rarr; `0x0004000000000001` `0000000000000100000000000000000000000000000000000000000000000001`
 
 String Types
-: String hashing performance is very fast, I believe it is based on `wyhash`.
-
+: String hashing performance is slow! It's much slower than `std::hash` and it seems to use by far the slowest string hashing algorithm of all hashes that I tested.
 
 <a name="absl__Hash" /> 
 
@@ -875,7 +875,7 @@ Integral Types
   * `0x0004000000000001` &rarr; `0xeda774111404ab5a` `1110110110100111011101000001000100010100000001001010101101011010`
 
 String Types
-: String hashing performance is slow! It's much slower than `std::hash` and it seems to use by far the slowest string hashing algorithm of all hashes that I tested.
+: String hashing performance is very fast, I believe it is based on `wyhash`.
 
 
 <a name="ankerl__unordered_dense__hash" />
@@ -951,3 +951,12 @@ So what's actually the best map to choose? As you saw above, it depends. There a
 All of the work here is available as open source here: [https://github.com/martinus/map_benchmark](https://github.com/martinus/map_benchmark)
 
 If you like my work, I'd really appreciate it if you can [become my sponsor](https://github.com/sponsors/martinus).
+
+
+## Errata
+
+2022-09-07
+* I claimed that `std::hash` always uses identity hash. That's not true, Microsoft's STL uses fnv1a.
+
+2022-09-08 
+* I wrote that absl::Hash is the slowest for `std::string`. This is totally not true, that statement should have gone to `boost::hash`.
