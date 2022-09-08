@@ -79,7 +79,7 @@ annoyingly kept asking me for updates :wink:
     - [robin_hood::hash ↑](#robin_hoodhash-)
     - [mumx ↑](#mumx-)
 - [Conclusion](#conclusion)
-  - [Errata](#errata)
+- [Errata](#errata)
 
 This time I have evaluated 29 different hashmaps, and also added several variants with special allocators. Each of these was combined with 6 differend hashes, resulting in 174 different combinations to benchmark. Each of these combinations was evaluated in 11 different benchmarks, totaling in 1914 benchmark evaluations. This almost doubles the number of benchmarks from my evaluation in 2019. 
 
@@ -950,10 +950,9 @@ So what's actually the best map to choose? As you saw above, it depends. There a
 
 All of the work here is available as open source here: [https://github.com/martinus/map_benchmark](https://github.com/martinus/map_benchmark)
 
-If you like my work, I'd really appreciate it if you can [become my sponsor](https://github.com/sponsors/martinus).
+If you like my work, I'd really appreciate it if you can [become my sponsor](https://github.com/sponsors/martinus)!
 
-
-## Errata
+# Errata
 
 2022-09-07
 * I claimed that `std::hash` always uses identity hash. That's not true, Microsoft's STL uses fnv1a.
