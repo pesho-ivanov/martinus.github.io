@@ -351,10 +351,10 @@ Each column shows benchmark runtime normalized to 100 for the best performer. So
 Google's Abseil's `absl::flat_hash_map` stores `value_type` directly in the slot array, and Google recommends these for general use. They were brand new in 2019 and pushed the boundary on what's possible to achieve for unordered_maps. It uses several interesting optimizations, described in [CppCon 2017: Matt Kulukundis “Designing a Fast, Efficient, Cache-friendly Hash Table, Step by Step](https://www.youtube.com/watch?v=ncHmEUmJZf4).
 
 The Good
-: 3 years ago `absl::flat_hash_map` was one of the fastest maps. It still is quite fast, and seems to perform especially well for large maps. This map and `gtl::flat_hash_map`, which is based on that map, are the fastest in the **RandomFind_500000** benchmark. Find is reasonably fast, especially for strings.
+: 3 years ago `absl::flat_hash_map` was one of the fastest maps. It still is quite fast, and seems to perform especially well for large maps. This map and `gtl::flat_hash_map`, which is based on that map, are the fastest in the **Find 1 – 500k uint64_t** benchmark. Other find benchmarks are reasonably fast too, especially for strings.
 
 The Bad
-: Copying and iterating the map is comparatively slow. The map is highly sensitive to the used hash, and benchmarks are incredibly slow (timeout) out when bad hash is used. E.g. `std::hash` or `boost::hash` for number types.
+: Copying and iterating the map is comparatively slow. The map is highly sensitive to the used hash, and benchmarks are incredibly slow (timeout) when bad hash is used. E.g. `std::hash` or `boost::hash` for number types.
 
 About
 : Website: [https://abseil.io/docs/cpp/guides/container](https://abseil.io/docs/cpp/guides/container), Tested version: [736458b5 (master)](https://github.com/abseil/abseil-cpp), License: `Apache License 2.0`
